@@ -3,8 +3,9 @@ FROM node:18-alpine AS build
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
+RUN npm install -g @angular/cli
 COPY . .
-RUN npm run build --prod
+RUN ng build --configuration=production
 
 # Étape de production
 FROM nginx:alpine
