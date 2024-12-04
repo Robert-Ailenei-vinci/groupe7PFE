@@ -1,28 +1,9 @@
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #f8f9fa;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .header .header-left {
-    flex: 1; /* Laisse la place à gauche pour d'autres éléments */
-  }
-  
-  .header-button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s ease;
-  }
-  
-  .header-button:hover {
-    background-color: #0056b3;
-  }
-  
+:host {
+  display: flex;
+  justify-content: flex-end; /* Aligner à droite */
+  width: auto; /* Ajuster la largeur automatiquement */
+}
+
+.app-login {
+  margin-right: 0; /* Supprimer la marge si nécessaire */
+}
