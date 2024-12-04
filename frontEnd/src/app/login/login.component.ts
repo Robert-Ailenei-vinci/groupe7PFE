@@ -5,25 +5,28 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
+  standalone: true,
   imports: [FormsModule,CommonModule ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  loginData = { username: '', password: '' };
+  loginData = { email: '' };
 
   constructor(private http: HttpClient) {}
 
   onSubmit() {
-    const url = 'http://localhost:8080/api/login'; // URL du backend
+    console.log(this.loginData);
+    
+    const url = 'http://localhost:8080/api/users'; // URL du backend
     this.http.post(url, this.loginData).subscribe({
       next: (response) => {
-        console.log('Login successful!', response);
-        alert('Login successful!');
+        console.log('add user successful!', response);
+        alert('add user successful!');
       },
       error: (error) => {
-        console.error('Login failed', error);
-        alert('Invalid username or password');
+        console.error('add user failed', error);
+        alert('add user failed');
       }
     });
   }
