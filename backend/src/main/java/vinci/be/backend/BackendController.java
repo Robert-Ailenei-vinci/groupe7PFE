@@ -1,32 +1,37 @@
 package vinci.be.backend;
 
-import java.util.List;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.server.ResponseStatusException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import vinci.be.backend.model.User;
+import vinci.be.backend.BackendService;
 
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/users")
+@CrossOrigin(origins = "*") // Autorise toutes les origines
 public class BackendController {
 
   private final BackendService backendService;
 
+  @Autowired
   public BackendController(BackendService backendService) {
     this.backendService = backendService;
   }
 
-  @PostMapping("/users")
-  public UserModel createOne(@RequestBody UserModel user){
-
-    UserModel toRet=backendService.createOne(user);
-
-    if (toRet==null) throw new ResponseStatusException(HttpStatus.CONFLICT); //check si il y a deja un compte avec le mail en param
-    else return toRet;
+  // Endpoint pour créer un utilisateur (POST)
+  @PostMapping
+  public ResponseEntity<User> createUser(@RequestBody User user) {
+    System.out.println(user);
+    User createdUser = backendService.createUser(user);
+    return ResponseEntity.ok(createdUser);
   }
 
-  @GetMapping("/users")
-  public List<UserModel> getAll(){
-
-    return backendService.getAll();
+  // Endpoint pour obtenir tous les utilisateurs (GET)
+  @GetMapping
+  public ResponseEntity<List<User>> getAllUsers() {
+    List<User> users = backendService.getAllUsers();
+    return ResponseEntity.ok(users);
   }
 }
