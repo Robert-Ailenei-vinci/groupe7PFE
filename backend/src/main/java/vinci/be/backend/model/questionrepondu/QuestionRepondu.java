@@ -1,6 +1,6 @@
 package vinci.be.backend.model.questionrepondu;
 
-import jakarta.persistence.Id;
+import org.springframework.data.annotation.Id;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
