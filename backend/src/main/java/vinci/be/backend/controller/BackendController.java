@@ -1,10 +1,10 @@
-package vinci.be.backend;
+package vinci.be.backend.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import vinci.be.backend.model.User;
-import vinci.be.backend.BackendService;
+import vinci.be.backend.service.BackendService;
 
 import java.util.List;
 
