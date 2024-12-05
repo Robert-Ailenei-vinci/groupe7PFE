@@ -5,4 +5,5 @@ import vinci.be.backend.model.client.Client;
 
 public interface ClientRepository extends MongoRepository<Client, String> {
 
+  Client findByEmail(String email);
 }
