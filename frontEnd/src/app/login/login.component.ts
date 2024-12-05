@@ -52,7 +52,7 @@ export class LoginComponent {
       error: (error) => {
         console.error('Login failed', error);
         this.isLoading = false;
-        if (error.status === 401) {
+        if (error.status === 404) {
           alert('Invalid email or password.');
         } else if (error.status === 500) {
           alert('Server error, please try again later.');
