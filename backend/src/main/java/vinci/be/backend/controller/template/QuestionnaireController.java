@@ -1,4 +1,4 @@
-package vinci.be.backend.controller;
+package vinci.be.backend.controller.template;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
