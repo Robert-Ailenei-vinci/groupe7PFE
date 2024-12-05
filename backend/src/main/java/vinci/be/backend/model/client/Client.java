@@ -1,13 +1,17 @@
 package vinci.be.backend.model.client;
 
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
+@Document(collection = "clients")
 public class Client {
   @Id
   private String id;
