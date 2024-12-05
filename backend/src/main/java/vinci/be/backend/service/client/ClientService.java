@@ -1,6 +1,7 @@
 package vinci.be.backend.service.client;
 
 import org.springframework.stereotype.Service;
+import vinci.be.backend.model.client.Client;
 import vinci.be.backend.repository.ClientRepository;
 
 @Service
@@ -10,6 +11,15 @@ public class ClientService {
 
   public ClientService(ClientRepository clientRepository) {
     this.clientRepository = clientRepository;
+  }
+
+  public Client saveClient(Client client) {
+
+    if(clientRepository.findByEmail(client.getEmail()) != null) {
+      return null;
+    }
+
+    return clientRepository.save(client);
   }
 
 }
