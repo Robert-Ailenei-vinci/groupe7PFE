@@ -28,5 +28,5 @@ public class Client {
   private boolean demandeDeLabel;
   private String partenaire;
   private String commentaire;
-  private String mdp;
+  private String password;
 }
