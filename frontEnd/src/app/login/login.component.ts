@@ -11,18 +11,17 @@ import { CommonModule } from '@angular/common';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  loginData = { email: '' };
+  loginData = { email: '', password: '' };
 
   constructor(private http: HttpClient) {}
 
   onSubmit() {
-    console.log(this.loginData);
+    console.log(this.loginData.email);
     
-    const url = 'http://localhost:8080/api/users'; // URL du backend
+    const url = 'http://localhost:8080/clients/login'; // URL du backend
     this.http.post(url, this.loginData).subscribe({
       next: (response) => {
         console.log('add user successful!', response);
-        alert('add user successful!');
       },
       error: (error) => {
         console.error('add user failed', error);
