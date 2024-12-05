@@ -55,7 +55,6 @@ public class QuestionnaireService {
     questionnaire.setEnjeuxSecondaire("gestion de l'energie");
     questionnaire.setTemplate(Templates.ALL);
     questionnaire.setQuestions(List.of(question));
-
     questionnaireRepository.save(questionnaire);
   }
 }
