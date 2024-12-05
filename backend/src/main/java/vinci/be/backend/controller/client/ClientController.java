@@ -2,6 +2,7 @@ package vinci.be.backend.controller.client;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,6 +11,7 @@ import vinci.be.backend.model.client.UserCredential;
 import vinci.be.backend.service.client.ClientService;
 
 @RestController
+@CrossOrigin(origins = "*") // Autorise toutes les origines
 public class ClientController {
 
   private final ClientService clientService;
@@ -36,7 +38,7 @@ public class ClientController {
     Client actualClient = clientService.login(client);
 
     if(actualClient == null) return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
-
+    System.out.println(actualClient);
     return new ResponseEntity<>(actualClient, HttpStatus.OK);
   }
 }
