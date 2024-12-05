@@ -44,6 +44,7 @@
   }
 
   .boxText{
+    cursor: pointer;
     min-width: 250px;
     min-height: 50px;
     background-color: #dfd4fb;
@@ -67,6 +68,7 @@
   .checkboxEngage{
     width: 25px;
     height: 25px;
+    cursor: pointer;
   }
 
   .checkboxEngage:checked{
@@ -112,6 +114,7 @@
     background-color: #c5fddf;
     transition: 0.2s;
     margin-top: 60px;
+    cursor: pointer;
   }
 
   .nextQuestion:hover{
