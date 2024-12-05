@@ -1,8 +1,14 @@
+
 /* Style the header with a grey background and some padding */
 .header {
+  position: relative; /* ou absolute */
+  top: 0;
+  left: 0;
   overflow: hidden;
   background-color: #013238;
   padding: 20px 10px;
+  
+  
 }
 
 /* Style the header links */
