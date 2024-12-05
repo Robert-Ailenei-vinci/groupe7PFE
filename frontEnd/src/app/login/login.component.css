@@ -13,7 +13,7 @@ body {
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 100vh; /* Utilisez min-height pour s'assurer que le conteneur occupe toute la hauteur */
+  height: 70.5rem; /* Utilisez min-height pour s'assurer que le conteneur occupe toute la hauteur */
   background-position: center;
   background-size: cover;
 }
@@ -99,7 +99,7 @@ button[disabled] {
 }
 
 .spacer {
-  aspect-ratio: 900/500;
+  aspect-ratio: 900/300;
   width: 100%;
   background-repeat: no-repeat;
   background-position: center;
