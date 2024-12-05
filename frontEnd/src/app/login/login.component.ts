@@ -44,6 +44,7 @@ export class LoginComponent {
       next: (response) => {
         this.isLoading = false;
         console.log("Login succeful",response);
+        localStorage.setItem('authToken', JSON.stringify(response));
         this.router.navigate(['/homepage']);
 
       },
