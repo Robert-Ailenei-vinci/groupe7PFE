@@ -24,6 +24,10 @@ section{
 
 .jaune{
     background: #fde791;
+    color: #000;
+}
+.jaune p, h1,ul,ol,li {
+    z-index: 1;
 }
 
 .parme{
