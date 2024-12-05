@@ -1,7 +1,10 @@
+<app-header></app-header>
+
+
 <div class="login-container">
   <h2>Login</h2>
   <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
-    <label for="email">email:</label>
+    <label for="email">Email:</label>
     <input
       type="text"
       id="email"
@@ -13,8 +16,7 @@
     <div *ngIf="email.invalid && email.touched" class="error">
       email is required.
     </div>
-
-    <!-- <label for="password">Password:</label>
+     <label for="password">Password:</label>
     <input
       type="password"
       id="password"
@@ -25,8 +27,12 @@
     />
     <div *ngIf="password.invalid && password.touched" class="error">
       Password is required.
-    </div> -->
+    </div>
 
-    <button type="submit" [disabled]="loginForm.invalid">Login</button>
+    <button [disabled]="isLoading">
+      {{ isLoading ? 'Loading...' : 'Login' }}
+    </button>
+    
   </form>
 </div>
+
