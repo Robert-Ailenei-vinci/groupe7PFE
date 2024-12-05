@@ -1,0 +1,119 @@
+.progressBarBackground{
+    display: block;
+    width: 60%;
+    height: 25px;
+    border: 2px solid #999999;
+    background-color: #d8d8d8;
+    border-radius: 15px;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 25px;
+}
+
+.progressBar{
+    display: block;
+    height: 25px;
+    background-color: #ffec99;
+    border-radius: 15px;
+    transition: width 0.5s;
+}
+
+.questionTitle{
+    display: block;
+    text-align: center;
+    font-size: 30px;
+    width: 70%;
+    margin: 0 auto;
+}
+
+.questionAnswers {
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 0px;
+    justify-items: center;
+    padding: 20px;
+    margin: 20px auto;
+    margin-bottom: 0px;
+  }
+  
+  .box{
+    min-width: 250px;
+    min-height: 50px;
+    padding: 20px 40px;
+  }
+
+  .boxText{
+    min-width: 250px;
+    min-height: 50px;
+    background-color: #dfd4fb;
+    font-weight: bold;
+    padding: 20px 40px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 1.3em;
+    transition: 0.3s;
+  }
+
+  .engagement{
+    text-align: center;
+    font-size: 1em;
+    font-weight: 600;
+    margin-top: 5px;
+    display: flex;
+    align-items: center
+  }
+
+  .checkboxEngage{
+    width: 25px;
+    height: 25px;
+  }
+
+  .checkboxEngage:checked{
+    accent-color: #2f9e44;
+  }
+
+  .boxText:hover{
+    background-color: #c9b8f7;
+  }
+
+  .questionAnswers > .box:nth-child(odd):last-child {
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+
+  .comField{
+    display: block;
+    width: 70%;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 0px;
+  }
+
+  .comText{
+    min-width: 600px;
+    min-height: 80px;
+    background-color: #eeeeee;
+    border-radius: 25px;
+  }
+
+  .nextQuestion{
+    display: block;
+    width: 300px;
+    height: 50px;
+    font-size: large;
+    font-weight: bold;
+    line-height: 45px;
+    border-radius: 15px;
+    border: 5px black;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 20px;
+    background-color: #c5fddf;
+    transition: 0.2s;
+    margin-top: 60px;
+  }
+
+  .nextQuestion:hover{
+    background-color: #a3f7c2;
+  }
