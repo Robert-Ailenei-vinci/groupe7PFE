@@ -8,8 +8,7 @@ export const routes: Routes = [
     { path: '', redirectTo: '/homepage', pathMatch: 'full' },
     { path: 'homepage', component: HomepageComponent },
     { path: 'login', component: LoginComponent },
-    { path:'esg/question/:id', component: QuestionComponent }
-    
+    { path:'esg/question/:id', component: QuestionComponent }    
   ];
   
   export const appRoutingProviders = [
