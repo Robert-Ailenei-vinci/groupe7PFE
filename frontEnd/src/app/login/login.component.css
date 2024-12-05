@@ -47,12 +47,12 @@ input[type="password"] {
 }
 
 input:focus {
-  border-color: #6e8efb;
+  border-color: #013238;
   outline: none;
 }
 
 button {
-  background-color: #6e8efb;
+  background-color: #013238;
   color: #fff;
   border: none;
   padding: 0.75rem 1.5rem;
@@ -64,7 +64,7 @@ button {
 }
 
 button:hover {
-  background-color: #5a7ee0;
+  background-color: #b5cdbf;
 }
 
 button[disabled] {
