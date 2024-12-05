@@ -1,9 +1,0 @@
-:host {
-  display: flex;
-  justify-content: flex-end; /* Aligner à droite */
-  width: auto; /* Ajuster la largeur automatiquement */
-}
-
-.app-login {
-  margin-right: 0; /* Supprimer la marge si nécessaire */
-}
