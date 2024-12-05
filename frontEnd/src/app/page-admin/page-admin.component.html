@@ -1,1 +1,36 @@
-<p>page-admin works!</p>
+<app-header></app-header>
+
+<div class="container">
+  <h1>Liste des Clients</h1>
+
+  <div *ngIf="isLoading">
+    <p>Chargement des clients...</p>
+  </div>
+
+  <div *ngIf="error">
+    <p class="error">{{ error }}</p>
+  </div>
+
+  <table *ngIf="!isLoading && !error" class="clients-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nom</th>
+        <th>Email</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let client of clients">
+        <td>{{ client.id }}</td>
+        <td>{{ client.name }}</td>
+        <td>{{ client.email }}</td>
+        <td>
+          <button (click)="viewQuestionnaires(client.id)">Voir Questionnaires</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<app-footer></app-footer>
