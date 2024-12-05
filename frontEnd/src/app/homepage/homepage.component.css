@@ -1,0 +1,101 @@
+body{
+    margin: 0;
+    color: white;
+    background: #013238;
+    overflow-x: hidden;
+}
+
+section{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 400px;
+    padding: 100px 20vw;
+}
+
+.greenF{
+    background: #013238;
+}
+
+.greenC{
+    background: #b5cdbf;
+}
+
+.jaune{
+    background: #fde791;
+}
+
+.parme{
+    background: #dfd4fb;
+}
+
+.curve{
+    position: absolute;
+    height: 225px;
+    width: 100%;
+    bottom: 0;
+}
+
+.curve::before {
+    content: '';
+    display: block;
+    position: absolute;
+    border-radius: 100% 50%; 
+    width: 55%;
+    height: 100%;
+    background-color: #013238;
+    transform: translate(85%, 60%);
+}
+
+.curve::after{
+    content: '';
+    display: block;
+    position: absolute;
+    border-radius: 100% 50%; 
+    width: 55%;
+    height: 100%;
+    background-color: #fde791;
+    transform: translate(-4%, 40%);
+}
+
+.bubble {
+    position: relative;
+    z-index: 1; /* Assurez-vous que le texte est au-dessus du pseudo-élément */
+    color: black;
+}
+
+.bubble::after {
+    content: '';
+    border-top-left-radius: 50% 100%;
+    border-top-right-radius: 50% 100%;
+    position: absolute;
+    bottom: 0;
+    height: 85%;
+    width: 100%;
+    background-color: #dfd4fb;
+    z-index: -1; /* Assurez-vous que le pseudo-élément est en dessous du texte */
+}
+
+.custom-shape-divider-top-1733401539 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    
+}
+
+.custom-shape-divider-top-1733401539 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 177px;
+    
+}
+
+.custom-shape-divider-top-1733401539 .shape-fill {
+    fill: #DFD4FB;
+    
+}

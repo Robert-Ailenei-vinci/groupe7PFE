@@ -10,5 +10,5 @@ import lombok.Setter;
 public class ClientCredential {
 
   private String email;
-  private String mdp;
+  private String password;
 }
