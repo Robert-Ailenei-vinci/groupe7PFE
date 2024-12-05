@@ -17,11 +17,6 @@ public class Reponse {
   private String id;
   private String intitule;
   private double point;
-
-  public Reponse(String intitule, double point) {
-    this.intitule = intitule;
-    this.point = point;
-  }
 }
 
 

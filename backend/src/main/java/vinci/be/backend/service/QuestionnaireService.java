@@ -7,28 +7,37 @@ import vinci.be.backend.model.question.Question;
 import vinci.be.backend.model.questionnaire.Questionnaire;
 import vinci.be.backend.model.questionnaire.Questionnaire.Templates;
 import vinci.be.backend.model.reponse.Reponse;
+import vinci.be.backend.repository.QuestionRepository;
 import vinci.be.backend.repository.QuestionnaireRepository;
+import vinci.be.backend.repository.ReponseRepository;
 
 @Service
 public class QuestionnaireService {
 
   private final QuestionnaireRepository questionnaireRepository;
+  private final QuestionRepository questionRepository;
+  private final ReponseRepository reponseRepository;
 
   @Autowired
-  public QuestionnaireService(QuestionnaireRepository questionnaireRepository) {
+  public QuestionnaireService(QuestionnaireRepository questionnaireRepository,
+      QuestionRepository questionRepository, ReponseRepository reponseRepository) {
     this.questionnaireRepository = questionnaireRepository;
+    this.questionRepository = questionRepository;
+    this.reponseRepository = reponseRepository;
   }
 
   public void addInDB(){
-
     // reponse1
     Reponse reponse1 = new Reponse();
     reponse1.setIntitule("oui");
     reponse1.setPoint(3.0);
+    reponseRepository.save(reponse1);
 
     Reponse reponse2 = new Reponse();
     reponse2.setIntitule("non");
     reponse2.setPoint(0.0);
+    reponseRepository.save(reponse2);
+
 
     // question
     Question question = new Question();
@@ -37,6 +46,7 @@ public class QuestionnaireService {
     question.setNbrChoixMax(2);
     question.setEstQuestionLibre(false);
     question.setNombrePointMax(2);
+    questionRepository.save(question);
 
     // questionnaire
     Questionnaire questionnaire = new Questionnaire();
