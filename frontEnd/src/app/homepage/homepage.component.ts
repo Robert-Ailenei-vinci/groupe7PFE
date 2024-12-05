@@ -10,4 +10,7 @@ import { FooterComponent } from '../footer/footer.component';
 })
 export class HomepageComponent {
 
+  client = localStorage.getItem('authToken');
+
+  nomClient = this.client ? JSON.parse(this.client).email : '';
 }

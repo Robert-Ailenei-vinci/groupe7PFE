@@ -5,7 +5,12 @@
             <a href="/homepage">Home</a>
             <a href="#contact">Contact</a>
             <a href="#about">About</a>
-            <a href="/login">Login</a>
-          
-        </div>
+
+           
+            <ng-container *ngIf="estConnecte; else notConnected">
+                <app-logout></app-logout>
+            </ng-container>
+            <ng-template #notConnected>
+                <a href="/login">Login</a>
+            </ng-template>      </div>
       </div>
