@@ -25,7 +25,7 @@ public class SecurityConfig {
             .requestMatchers("/clients/register").permitAll()
             .requestMatchers("/clients/login").permitAll()
             .requestMatchers("/consultants/login").permitAll()
-            .anyRequest().authenticated()
+            .anyRequest().permitAll()
         )
         .csrf(AbstractHttpConfigurer::disable); // Disable CSRF for testing purposes
     return http.build();
