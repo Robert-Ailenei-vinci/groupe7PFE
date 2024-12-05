@@ -1,4 +1,4 @@
-package vinci.be.backend.service;
+package vinci.be.backend.service.template;
 
 import org.springframework.stereotype.Service;
 import vinci.be.backend.repository.ReponseRepository;

@@ -30,7 +30,7 @@ Content-Type: application/json
   "demandeDeLabel": true,
   "partenaire": "Banque Centrale",
   "commentaire": "Client VIP",
-  "mdp": "password123"
+  "password": "password123"
 }
 
 ### Créer un nouveau client (invalide)
@@ -56,6 +56,24 @@ Content-Type: application/json
   "partenaire": "Banque Centrale",
   "commentaire": "Client VIP",
   "mdp": "pass"
+}
+
+### connecter client (valide)
+POST http://localhost:8080/clients/login
+Content-Type: application/json
+
+{
+  "email": "jean.dupont@example.com",
+  "password": "password123"
+}
+
+### connecter Consultant (valide)
+POST http://localhost:8080/consultants/login
+Content-Type: application/json
+
+{
+  "email": "simon.bosseler@vinci.be",
+  "password": "password123"
 }
 
 

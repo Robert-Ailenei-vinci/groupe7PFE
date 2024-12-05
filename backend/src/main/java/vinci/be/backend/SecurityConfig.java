@@ -22,10 +22,12 @@ public class SecurityConfig {
   public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
     http
         .authorizeHttpRequests(authorize -> authorize
-            .requestMatchers("/clients/register").permitAll() // Permettre l'accès public à cet endpoint
+            .requestMatchers("/clients/register").permitAll()
+            .requestMatchers("/clients/login").permitAll()
+            .requestMatchers("/consultants/login").permitAll()
             .anyRequest().authenticated()
         )
-        .csrf(AbstractHttpConfigurer::disable); // Désactiver CSRF pour simplifier les tests
+        .csrf(AbstractHttpConfigurer::disable); // Disable CSRF for testing purposes
     return http.build();
   }
 }

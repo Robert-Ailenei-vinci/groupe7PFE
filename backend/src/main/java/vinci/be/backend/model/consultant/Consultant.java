@@ -16,5 +16,5 @@ public class Consultant {
   @Id
   private String id;
   private String email;
-  private String mdp;
+  private String password;
 }

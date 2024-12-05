@@ -1,4 +1,4 @@
-package vinci.be.backend.service;
+package vinci.be.backend.service.template;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

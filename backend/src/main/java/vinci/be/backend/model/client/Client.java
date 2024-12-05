@@ -1,6 +1,7 @@
 package vinci.be.backend.model.client;
 
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.springframework.data.annotation.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,6 +12,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 @Document(collection = "clients")
 public class Client {
   @Id
@@ -32,7 +34,7 @@ public class Client {
   private boolean demandeDeLabel;
   private String partenaire;
   private String commentaire;
-  private String mdp;
+  private String password;
 
   /**
    * Méthode permettant de valider toutes les données d'entrée
@@ -45,7 +47,7 @@ public class Client {
         nomEntreprise == null || nomEntreprise.isBlank() ||
         dernierChiffreDAffaire < 0 ||
         nbTravailleur < 0 ||
-        mdp == null || mdp.length() < 8;
+        password == null || password.length() < 8;
   }
 
 }
