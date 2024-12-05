@@ -12,7 +12,7 @@ import vinci.be.backend.model.reponserepondu.ReponseRepondu;
 @AllArgsConstructor
 public class QuestionRepondu {
   @Id
-  private int id;
+  private String id;
   private int idQuestion;
   private int idQuestionnaireRepondu;
   private List<ReponseRepondu> reponseRepondus;

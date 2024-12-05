@@ -13,7 +13,7 @@ import vinci.be.backend.model.questionrepondu.QuestionRepondu;
 @AllArgsConstructor
 public class QuestionnaireRepondu {
   @Id
-  private int id;
+  private String id;
   private int idQuestionnaire;
   private int idClient;
   private int pourcentageQuestionRepondu;

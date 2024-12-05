@@ -10,7 +10,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Client {
   @Id
-  private int id;
+  private String id;
   private String prenom;
   private String nom;
   private String email;

@@ -10,7 +10,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class ReponseRepondu {
   @Id
-  private int id;
+  private String id;
   private int idReponse;
   private int idQuestionRepondu;
   private boolean estEngage;

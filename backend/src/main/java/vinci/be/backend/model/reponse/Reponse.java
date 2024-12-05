@@ -14,7 +14,14 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "reponses")
 public class Reponse {
   @Id
-  private int id;
+  private String id;
   private String intitule;
   private double point;
+
+  public Reponse(String intitule, double point) {
+    this.intitule = intitule;
+    this.point = point;
+  }
 }
+
+

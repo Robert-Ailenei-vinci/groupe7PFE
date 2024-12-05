@@ -10,7 +10,7 @@ import lombok.Setter;
 @AllArgsConstructor
 public class Consultant {
   @Id
-  private int id;
+  private String id;
   private String email;
   private String mdp;
 }

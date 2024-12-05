@@ -16,7 +16,7 @@ import vinci.be.backend.model.reponse.Reponse;
 @Document(collection = "questions")
 public class Question {
   @Id
-  private int id;
+  private String id;
   private String intitule;
   private List<Reponse> reponses;
   private int nbrChoixMax;
