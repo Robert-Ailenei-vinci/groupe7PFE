@@ -1,8 +1,8 @@
 package vinci.be.backend.repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
-import vinci.be.backend.model.client.Client;
+import vinci.be.backend.model.consultant.Consultant;
 
-public interface ConsultantRepository extends MongoRepository<ConsultantRepository, String> {
+public interface ConsultantRepository extends MongoRepository<Consultant,String> {
 
 }
