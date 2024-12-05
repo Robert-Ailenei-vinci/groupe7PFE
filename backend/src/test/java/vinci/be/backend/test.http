@@ -6,6 +6,56 @@ content-type:application/json
 }
 
 ###
-
 GET http://localhost:8080/api/users
+
+### Créer un nouveau client
+POST http://localhost:8080/clients/register
+Content-Type: application/json
+
+{
+  "prenom": "Jean",
+  "nom": "Dupont",
+  "email": "jean.dupont@example.com",
+  "fonction": "CEO",
+  "nomEntreprise": "Dupont Entreprises",
+  "numEntreprise": "123456789",
+  "formeJuridique": "SA",
+  "adresseSiegeSocial": "123 Rue Principale, 1000 Bruxelles",
+  "adresseSiteWeb": "https://dupont-entreprises.com",
+  "codeNaceActivitePrincipale": "6201",
+  "dernierChiffreDAffaire": 1500000.75,
+  "estFranchise": false,
+  "nbTravailleur": 50,
+  "estDansUnLitige": false,
+  "demandeDeLabel": true,
+  "partenaire": "Banque Centrale",
+  "commentaire": "Client VIP",
+  "mdp": "password123"
+}
+
+### Créer un nouveau client (invalide)
+POST http://localhost:8080/clients/register
+Content-Type: application/json
+
+{
+  "prenom": "",
+  "nom": "Dupont",
+  "email": "jean.dupontexample.com",
+  "fonction": "CEO",
+  "nomEntreprise": "Dupont Entreprises",
+  "numEntreprise": "123456789",
+  "formeJuridique": "SA",
+  "adresseSiegeSocial": "123 Rue Principale, 1000 Bruxelles",
+  "adresseSiteWeb": "https://dupont-entreprises.com",
+  "codeNaceActivitePrincipale": "6201",
+  "dernierChiffreDAffaire": -1500000.75,
+  "estFranchise": false,
+  "nbTravailleur": -50,
+  "estDansUnLitige": false,
+  "demandeDeLabel": true,
+  "partenaire": "Banque Centrale",
+  "commentaire": "Client VIP",
+  "mdp": "pass"
+}
+
 
