@@ -1,0 +1,41 @@
+<app-header></app-header>
+
+<div class="spacer layer1">
+<div class="login-container">
+  <h2>Login ADMIN</h2>
+  <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+    <label for="email">Email:</label>
+    <input
+      type="text"
+      id="email"
+      [(ngModel)]="loginData.email"
+      name="email"
+      required
+      #email="ngModel"
+    />
+    <div *ngIf="email.invalid && email.touched" class="error">
+      email is required.
+    </div>
+     <label for="password">Password:</label>
+    <input
+      type="password"
+      id="password"
+      [(ngModel)]="loginData.password"
+      name="password"
+      required
+      #password="ngModel"
+    />
+    <div *ngIf="password.invalid && password.touched" class="error">
+      Password is required.
+    </div>
+
+    <button [disabled]="isLoading">
+      {{ isLoading ? 'Loading...' : 'Login' }}
+    </button>
+    
+  </form>
+</div>
+
+</div>
+<app-footer></app-footer>
+

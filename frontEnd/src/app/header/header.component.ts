@@ -13,7 +13,9 @@ export class HeaderComponent  {
 
   client = localStorage.getItem('authToken');
   estConnecte = this.client ? true : false;
-
   nomClient = this.client ? JSON.parse(this.client).email : '';
+  
+  admin = localStorage.getItem('authAdminToken');
+  estAdmin = this.admin ? true : false;
 
 }
