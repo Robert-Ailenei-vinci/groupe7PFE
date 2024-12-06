@@ -65,16 +65,19 @@ export interface Client {
 })
 export class ClientService {
 
-  private clientsUrl = 'http://localhost:8080/clients/All'; // Remplacez par l'URL de votre API
+  private clientsUrl = 'http://localhost:8080/clients'; // Remplacez par l'URL de votre API
   private questionnairesUrl = 'http://localhost:8080/questionnaires'; // Remplacez par l'URL de votre API
 
   constructor(private http: HttpClient) { }
 
   getClients(): Observable<Client[]> {
-    return this.http.get<Client[]>(this.clientsUrl);
+    return this.http.get<Client[]>(`${this.clientsUrl}/All`);
   }
 
   getQuestionnairesByClientId(clientId: string): Observable<QuestionnaireDetail[]> {
     return this.http.get<QuestionnaireDetail[]>(`${this.questionnairesUrl}/${clientId}`);
+  }
+  getOneClient(clientId: string): Observable<Client> {
+    return this.http.get<Client>(`${this.clientsUrl}/getOne/${clientId}`);
   }
 }

@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ClientService, QuestionnaireDetail } from '../services/client.service';
+import { Client, ClientService, QuestionnaireDetail } from '../services/client.service';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { CommonModule } from '@angular/common';
-import { switchMap } from 'rxjs/operators';
-import { of } from 'rxjs';
+import { catchError, switchMap } from 'rxjs/operators';
+import { forkJoin, Observable, of } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -18,6 +18,7 @@ import { FormsModule } from '@angular/forms';
 export class AdminQuestionnaireDetailComponent implements OnInit {
   clientId: string | null = null;
   questionnaires: QuestionnaireDetail[] = [];
+  client: Client | null = null;
   error: string = '';
   isLoading: boolean = true;
 
@@ -26,6 +27,7 @@ export class AdminQuestionnaireDetailComponent implements OnInit {
     private route: ActivatedRoute
   ) { }
 
+
   ngOnInit(): void {
     this.route.paramMap.pipe(
       switchMap(params => {
@@ -33,19 +35,29 @@ export class AdminQuestionnaireDetailComponent implements OnInit {
         console.log('Retrieved clientIdParam:', clientIdParam);
         if (clientIdParam && clientIdParam.trim() !== '') {
           this.clientId = clientIdParam;
-          return this.clientService.getQuestionnairesByClientId(clientIdParam);
+          return forkJoin({
+            questionnaires: this.clientService.getQuestionnairesByClientId(clientIdParam),
+            client: this.clientService.getOneClient(clientIdParam)
+          });
         } else {
           this.error = 'ID du client invalide ou manquant.';
           this.isLoading = false;
-          return of([]);
+          return of({ questionnaires: [], client: null });
         }
+      }),
+      catchError(err => {
+        this.error = 'Erreur lors de la récupération des données.';
+        this.isLoading = false;
+        console.error('Erreur lors de la récupération des données:', err);
+        return of({ questionnaires: [], client: null });
       })
     ).subscribe({
       next: (data) => {
-        this.questionnaires = data;
+        this.questionnaires = data.questionnaires;
+        this.client = data.client;
         this.isLoading = false;
-        console.log('Questionnaires récupérés:',data);
-        
+        console.log('Questionnaires récupérés:', data.questionnaires);
+        console.log('Client récupéré:', data.client);
       },
       error: (err) => {
         this.error = 'Erreur lors de la récupération des questionnaires.';
@@ -55,3 +67,4 @@ export class AdminQuestionnaireDetailComponent implements OnInit {
     });
   }
 }
+

@@ -3,7 +3,7 @@
 <div class="container">
   <a href="/pageAdmin">Retour à la liste des clients</a>
 
-  <h1>Questionnaires du Client ID: {{ clientId }}</h1>
+  <h1>Questionnaires de: {{ client?.nomEntreprise }}</h1>
   
   
   <div *ngIf="isLoading">
@@ -31,6 +31,7 @@
             <th>Sous Enjeu</th>
             <th>Intitulé</th>
             <th>Réponses</th>
+            <th>Engagé</th>
           </tr>
         </thead>
         <tbody>
@@ -42,8 +43,18 @@
               <ul>
                 <li *ngFor="let reponse of question.reponseRepondus">
                   <label>
-                    <input type="checkbox" [(ngModel)]="reponse.estEngage" />
+                    <input type="checkbox" [(ngModel)]="reponse.estSelectionne" />
                     {{ reponse.intitule }}
+                  </label>
+                </li>
+              </ul>
+            </td>
+            <td>
+              <ul>
+                <li *ngFor="let reponse of question.reponseRepondus">
+                  <label>
+                    <input type="checkbox" [(ngModel)]="reponse.estEngage" />
+                    S'engager
                   </label>
                 </li>
               </ul>
@@ -58,7 +69,7 @@
     <p>Aucun questionnaire trouvé pour ce client.</p>
   </div>
   
-  <pre *ngIf="clientId">Client ID: {{ clientId }}</pre>
+  <!-- <pre *ngIf="clientId">Client ID: {{ clientId }}</pre> -->
   <pre *ngIf="questionnaires">Questionnaires: {{ questionnaires | json }}</pre>
   <pre *ngIf="error">Error: {{ error }}</pre>
 </div>
