@@ -1,6 +1,9 @@
 <app-header></app-header>
 
 <div class="container">
+
+    <button routerLink="/pageAdmin">Retour à la liste des clients</button>
+
   <h1>Questionnaires du Client ID: {{ clientId }}</h1>
 
   <div *ngIf="isLoading">
@@ -21,20 +24,33 @@
       <p><strong>Nombre de Questions Répondues:</strong> {{ questionnaire.nombreDeQuestionRepondu }}</p>
       <p><strong>Score Total:</strong> {{ questionnaire.score }}</p>
 
-      <div *ngFor="let question of questionnaire.questionsRepondues" class="question-section">
-        <h3>Question ID: {{ question.idQuestion }}</h3>
-        <p><strong>Nombre de Points Obtenus:</strong> {{ question.nombrePointObtenu }}</p>
-        <p><strong>Commentaire:</strong> {{ question.commentaire }}</p>
-
-        <div *ngFor="let reponse of question.reponseRepondus" class="reponse-section">
-          <p><strong>Réponse ID:</strong> {{ reponse.idReponse }}</p>
-          <p><strong>Engagée:</strong> {{ reponse.estEngage ? 'Oui' : 'Non' }}</p>
-          <p *ngIf="reponse.nombrePointObtenu !== undefined"><strong>Nombre de Points Obtenus:</strong> {{ reponse.nombrePointObtenu }}</p>
-          <p *ngIf="reponse.commentaire"><strong>Commentaire:</strong> {{ reponse.commentaire }}</p>
-          <p *ngIf="reponse.score !== undefined"><strong>Score:</strong> {{ reponse.score }}</p>
-          <hr>
-        </div>
-      </div>
+      <table class="questions-table">
+        <thead>
+          <tr>
+            <th>Enjeu</th>
+            <th>Sous Enjeu</th>
+            <th>Intitulé</th>
+            <th>Réponses</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let question of questionnaire.questionsRepondues">
+            <td>{{ question.enjeu }}</td>
+            <td>{{ question.sousEnjeu }}</td>
+            <td>{{ question.intitule }}</td>
+            <td>
+              <ul>
+                <li *ngFor="let reponse of question.reponseRepondus">
+                  <label>
+                    <input type="checkbox" [(ngModel)]="reponse.estEngage" />
+                    {{ reponse.intitule }}
+                  </label>
+                </li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 
@@ -42,7 +58,6 @@
     <p>Aucun questionnaire trouvé pour ce client.</p>
   </div>
 
-  <button routerLink="/pageAdmin">Retour à la liste des clients</button>
 </div>
 
 <app-footer></app-footer>

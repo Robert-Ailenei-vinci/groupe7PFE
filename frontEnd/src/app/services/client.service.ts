@@ -8,15 +8,16 @@ export interface ReponseRepondue {
   idReponse: string;
   idQuestionReponddu: string;
   estEngage: boolean;
-  nombrePointObtenu?: number;
-  commentaire?: string;
-  score?: number;
+  intitule: string; // Intitulé de la réponse
 }
 
 export interface QuestionRepondus {
   _id: string;
   idQuestion: string;
   idQuestionnaireRepondu: string;
+  intitule: string; // Intitulé de la question
+  enjeu: string; // Enjeu de la question
+  sousEnjeu: string; // Sous enjeu de la question
   reponseRepondus: ReponseRepondue[];
   nombrePointObtenu: number;
   commentaire: string;
@@ -42,13 +43,6 @@ export interface Client {
   // Ajoutez d'autres propriétés si nécessaire
 }
 
-export interface Questionnaire {
-  id: string; // Changement de number à string
-  clientId: string; // Changement de number à string
-  title: string;
-  questions: string[];
-  // Ajoutez d'autres propriétés si nécessaire
-}
 
 @Injectable({
   providedIn: 'root'

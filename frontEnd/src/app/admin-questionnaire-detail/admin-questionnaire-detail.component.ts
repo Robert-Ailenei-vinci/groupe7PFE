@@ -6,11 +6,12 @@ import { FooterComponent } from '../footer/footer.component';
 import { CommonModule } from '@angular/common';
 import { switchMap } from 'rxjs/operators';
 import { of } from 'rxjs';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-admin-questionnaire-detail',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent, CommonModule],
+  imports: [HeaderComponent, FooterComponent, CommonModule, FormsModule],
   templateUrl: './admin-questionnaire-detail.component.html',
   styleUrls: ['./admin-questionnaire-detail.component.css']
 })
