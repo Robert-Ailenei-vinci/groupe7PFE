@@ -1,0 +1,65 @@
+<app-header></app-header>
+
+<div class="container">
+  <h1>Questionnaires du Client ID: {{ clientId }}</h1>
+
+  <pre *ngIf="clientId">Client ID: {{ clientId }}</pre>
+  <pre *ngIf="questionnaires.length">Questionnaires: {{ questionnaires | json }}</pre>
+  <pre *ngIf="error">Error: {{ error }}</pre>
+
+  <div *ngIf="isLoading">
+    <p>Chargement des questionnaires...</p>
+  </div>
+
+  <div *ngIf="error">
+    <p class="error">{{ error }}</p>
+  </div>
+
+  <div *ngIf="!isLoading && !error && questionnaires.length > 0">
+    <div *ngFor="let questionnaire of questionnaires" class="questionnaire">
+      <h2>Questionnaire ID: {{ questionnaire.idQuestionnaire }}</h2>
+      <p><strong>Date de Dernière Validation:</strong> {{ questionnaire.dateDerniereValidation | date:'short' }}</p>
+      <p><strong>Pourcentage de Questions Répondues:</strong> {{ questionnaire.pourcentageQuestionRepondu }}%</p>
+      <p><strong>Terminé:</strong> {{ questionnaire.estTermine ? 'Oui' : 'Non' }}</p>
+      <p><strong>Validé:</strong> {{ questionnaire.estValide ? 'Oui' : 'Non' }}</p>
+      <p><strong>Nombre de Questions Répondues:</strong> {{ questionnaire.nombreDeQuestionRepondu }}</p>
+      <p><strong>Score Total:</strong> {{ questionnaire.score }}</p>
+
+      <table class="questions-table">
+        <thead>
+          <tr>
+            <th>Enjeu</th>
+            <th>Sous Enjeu</th>
+            <th>Intitulé</th>
+            <th>Réponses</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let question of questionnaire.questionsRepondues">
+            <td>{{ question.enjeu || 'N/A' }}</td>
+            <td>{{ question.sousEnjeu || 'N/A' }}</td>
+            <td>{{ question.intitule }}</td>
+            <td>
+              <ul>
+                <li *ngFor="let reponse of question.reponseRepondus">
+                  <label>
+                    <input type="checkbox" [(ngModel)]="reponse.estEngage" />
+                    {{ reponse.intitule }}
+                  </label>
+                </li>
+              </ul>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div *ngIf="!isLoading && !error && questionnaires.length === 0">
+    <p>Aucun questionnaire trouvé pour ce client.</p>
+  </div>
+
+  <button routerLink="/pageAdmin">Retour à la liste des clients</button>
+</div>
+
+<app-footer></app-footer>

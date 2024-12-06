@@ -11,26 +11,41 @@
     <p class="error">{{ error }}</p>
   </div>
 
-  <table *ngIf="!isLoading && !error" class="clients-table">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Nom</th>
-        <th>Email</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let client of clients">
-        <td>{{ client.id }}</td>
-        <td>{{ client.name }}</td>
-        <td>{{ client.email }}</td>
-        <td>
-          <button (click)="viewQuestionnaires(client.id)">Voir Questionnaires</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <div *ngIf="!isLoading && !error">
+    <!-- Champ de Recherche -->
+    <div class="search-container">
+      <input type="text" placeholder="Rechercher par nom ou email" [(ngModel)]="searchTerm" />
+    </div>
+
+    <!-- Tableau des Clients -->
+    <table class="clients-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nom</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let client of paginatedClients">
+          <td>{{ client.id }}</td>
+          <td>{{ client.name }}</td>
+          <td>{{ client.email }}</td>
+          <td>
+            <button (click)="viewQuestionnaires(client.id.toString())">Voir Questionnaires</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Pagination Controls -->
+    <div class="pagination" *ngIf="totalPages() > 1">
+      <button (click)="goToPage(currentPage - 1)" [disabled]="currentPage === 1">Précédent</button>
+      <span>Page {{ currentPage }} de {{ totalPages() }}</span>
+      <button (click)="goToPage(currentPage + 1)" [disabled]="currentPage === totalPages()">Suivant</button>
+    </div>
+  </div>
 </div>
 
 <app-footer></app-footer>
