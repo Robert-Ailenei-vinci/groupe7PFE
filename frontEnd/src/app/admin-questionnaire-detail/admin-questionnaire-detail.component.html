@@ -1,0 +1,32 @@
+<app-header></app-header>
+
+<div class="container">
+  <h1>Questionnaires du Client ID: {{ clientId }}</h1>
+
+  <div *ngIf="isLoading">
+    <p>Chargement des questionnaires...</p>
+  </div>
+
+  <div *ngIf="error">
+    <p class="error">{{ error }}</p>
+  </div>
+
+  <div *ngIf="!isLoading && !error && questionnaires.length > 0">
+    <div *ngFor="let q of questionnaires" class="questionnaire">
+      <h2>{{ q.title }} (ID: {{ q.id }})</h2>
+      <ol>
+        <li *ngFor="let question of q.questions">
+          {{ question }}
+        </li>
+      </ol>
+    </div>
+  </div>
+
+  <div *ngIf="!isLoading && !error && questionnaires.length === 0">
+    <p>Aucun questionnaire trouvé pour ce client.</p>
+  </div>
+
+  <button routerLink="/pageAdmin">Retour à la liste des clients</button>
+</div>
+
+<app-footer></app-footer>
