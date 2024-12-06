@@ -5,4 +5,6 @@ import vinci.be.backend.model.questionnairerepondu.QuestionnaireRepondu;
 
 public interface QuestionnaireReponduRepository extends MongoRepository<QuestionnaireRepondu,String> {
 
+  QuestionnaireRepondu getByIdClient(String idClient);
+
 }

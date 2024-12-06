@@ -81,11 +81,14 @@ POST http://localhost:8080/create/questionnaireESG
 Content-Type: application/json
 
 {
-  "idClient": "6751b25c0b15056747f31f26"
+  "idClient": "6752e868faa3e31b8f1a4b45"
 }
-
 
 ### get all Client
 GET http://localhost:8080/clients/All
+
+
+### return one questionnaires by idClient
+GET http://localhost:8080/questionnaires/6752e868faa3e31b8f1a4b45
 
 

@@ -97,4 +97,8 @@ public class QuestionnaireReponduService {
   }
 
 
+  public QuestionnaireRepondu getQuestionnaireByIdClient(String idClient) {
+
+    return questionnaireReponduRepository.getByIdClient(idClient);
+  }
 }
