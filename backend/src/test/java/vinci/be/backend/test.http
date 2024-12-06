@@ -76,4 +76,13 @@ Content-Type: application/json
   "password": "password123"
 }
 
+### create ESG for one client
+POST http://localhost:8080/create/questionnaireESG
+Content-Type: application/json
+
+{
+  "idClient": "6751b25c0b15056747f31f26"
+}
+
+
 

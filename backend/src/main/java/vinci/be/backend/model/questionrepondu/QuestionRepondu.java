@@ -1,20 +1,24 @@
 package vinci.be.backend.model.questionrepondu;
 
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import java.util.List;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.mongodb.core.mapping.Document;
 import vinci.be.backend.model.reponserepondu.ReponseRepondu;
 
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
+@Document(collection = "questionRepondus")
 public class QuestionRepondu {
   @Id
   private String id;
-  private int idQuestion;
-  private int idQuestionnaireRepondu;
+  private String idQuestion;
+  private String idQuestionnaireRepondu;
   private List<ReponseRepondu> reponseRepondus;
   private double nombrePointObtenu;
   private String commentaire;

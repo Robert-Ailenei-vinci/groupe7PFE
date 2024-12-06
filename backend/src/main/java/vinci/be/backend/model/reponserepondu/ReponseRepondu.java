@@ -1,17 +1,21 @@
 package vinci.be.backend.model.reponserepondu;
 
+import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
+@Document(collection = "reponseRepondus")
 public class ReponseRepondu {
   @Id
   private String id;
-  private int idReponse;
-  private int idQuestionRepondu;
+  private String idReponse;
+  private String idQuestionRepondu;
   private boolean estEngage;
 }

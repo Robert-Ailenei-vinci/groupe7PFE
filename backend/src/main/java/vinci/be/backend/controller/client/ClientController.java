@@ -11,7 +11,7 @@ import vinci.be.backend.model.client.UserCredential;
 import vinci.be.backend.service.client.ClientService;
 
 @RestController
-@CrossOrigin(origins = "*") // Autorise toutes les origines
+@CrossOrigin(origins = "*")
 public class ClientController {
 
   private final ClientService clientService;

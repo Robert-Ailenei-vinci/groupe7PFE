@@ -17,6 +17,7 @@ import vinci.be.backend.model.question.Question;
 public class Questionnaire {
   @Id
   private String id;
+  private String name;
   private String statut;
   private String enjeuxPrincipal;
   private String enjeuxSecondaire;

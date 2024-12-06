@@ -50,12 +50,17 @@ public class QuestionnaireService {
 
     // questionnaire
     Questionnaire questionnaire = new Questionnaire();
+    questionnaire.setName("ESG");
     questionnaire.setStatut("A compléter");
     questionnaire.setEnjeuxPrincipal("Energie & carbone");
     questionnaire.setEnjeuxSecondaire("gestion de l'energie");
     questionnaire.setTemplate(Templates.ALL);
     questionnaire.setQuestions(List.of(question));
     questionnaireRepository.save(questionnaire);
+  }
+
+  public Questionnaire getQuestionnaireByNom(String nom) {
+    return questionnaireRepository.findByName(nom);
   }
 }
 

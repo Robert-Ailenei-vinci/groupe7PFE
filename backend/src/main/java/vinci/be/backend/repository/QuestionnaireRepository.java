@@ -5,4 +5,6 @@ import vinci.be.backend.model.questionnaire.Questionnaire;
 
 public interface QuestionnaireRepository extends MongoRepository<Questionnaire, String> {
 
+  Questionnaire findByName(String nom);
+
 }
