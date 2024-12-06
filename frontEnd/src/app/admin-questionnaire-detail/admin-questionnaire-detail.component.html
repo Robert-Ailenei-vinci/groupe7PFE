@@ -35,8 +35,8 @@
         </thead>
         <tbody>
           <tr *ngFor="let question of questionnaire.questionsRepondues">
-            <td>{{ question.enjeu || 'N/A' }}</td>
-            <td>{{ question.sousEnjeu || 'N/A' }}</td>
+            <td>{{ question.enjeuxPrincipal || 'N/A' }}</td>
+            <td>{{ question.enjeuxSecondaire || 'N/A' }}</td>
             <td>{{ question.intitule }}</td>
             <td>
               <ul>

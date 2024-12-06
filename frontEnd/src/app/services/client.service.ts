@@ -17,8 +17,8 @@ export interface QuestionRepondus {
   idQuestion: string | null; // Permettre null
   idQuestionnaireRepondu: string;
   intitule: string; // Intitulé de la question
-  enjeu?: string; // Propriété optionnelle
-  sousEnjeu?: string; // Propriété optionnelle
+  enjeuxPrincipal: string; // Propriété optionnelle
+  enjeuxSecondaire: string; // Propriété optionnelle
   reponseRepondus: ReponseRepondue[];
   nombrePointObtenu: number;
   commentaire: string;
