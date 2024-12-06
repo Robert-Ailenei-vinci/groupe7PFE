@@ -7,54 +7,49 @@
   color: red;
 }
 
-.questionnaire {
-  border: 1px solid #ddd;
-  padding: 15px;
+.search-container {
   margin-bottom: 20px;
-  border-radius: 5px;
-  background-color: #f9f9f9;
+  text-align: center;
 }
 
-.questions-table {
+.search-container input {
+  width: 50%;
+  padding: 8px;
+  font-size: 16px;
+}
+
+.clients-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 15px;
+  margin-top: 20px;
 }
 
-.questions-table th, .questions-table td {
+.clients-table th, .clients-table td {
   border: 1px solid #ddd;
   padding: 8px;
-  vertical-align: top;
 }
 
-.questions-table th {
+.clients-table th {
   background-color: #f2f2f2;
   text-align: left;
 }
 
-.questions-table tr:hover {
+.clients-table tr:hover {
   background-color: #f1f1f1;
 }
 
-ul {
-  list-style-type: none;
-  padding-left: 0;
+.pagination {
+  margin-top: 20px;
+  text-align: center;
 }
 
-li {
-  margin-bottom: 5px;
+.pagination button {
+  padding: 5px 10px;
+  margin: 0 5px;
+  cursor: pointer;
 }
 
 button {
-  padding: 10px 15px;
-  background-color: #3f51b5;
-  color: white;
-  border: none;
+  padding: 5px 10px;
   cursor: pointer;
-  border-radius: 4px;
-  margin-top: 20px;
-}
-
-button:hover {
-  background-color: #303f9f;
 }

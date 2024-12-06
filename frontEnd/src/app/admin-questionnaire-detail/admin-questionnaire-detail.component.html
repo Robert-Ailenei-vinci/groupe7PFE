@@ -1,10 +1,11 @@
 <app-header></app-header>
 
 <div class="container">
-
-    <button routerLink="/pageAdmin">Retour à la liste des clients</button>
-
   <h1>Questionnaires du Client ID: {{ clientId }}</h1>
+
+  <pre *ngIf="clientId">Client ID: {{ clientId }}</pre>
+  <pre *ngIf="questionnaires.length">Questionnaires: {{ questionnaires | json }}</pre>
+  <pre *ngIf="error">Error: {{ error }}</pre>
 
   <div *ngIf="isLoading">
     <p>Chargement des questionnaires...</p>
@@ -35,8 +36,8 @@
         </thead>
         <tbody>
           <tr *ngFor="let question of questionnaire.questionsRepondues">
-            <td>{{ question.enjeu }}</td>
-            <td>{{ question.sousEnjeu }}</td>
+            <td>{{ question.enjeu || 'N/A' }}</td>
+            <td>{{ question.sousEnjeu || 'N/A' }}</td>
             <td>{{ question.intitule }}</td>
             <td>
               <ul>
@@ -58,6 +59,7 @@
     <p>Aucun questionnaire trouvé pour ce client.</p>
   </div>
 
+  <button routerLink="/pageAdmin">Retour à la liste des clients</button>
 </div>
 
 <app-footer></app-footer>

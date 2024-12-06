@@ -2,29 +2,31 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-// Interfaces avec IDs de type string
 export interface ReponseRepondue {
-  _id: string;
+  id: string; // Changement de _id à id
   idReponse: string;
   idQuestionReponddu: string;
   estEngage: boolean;
   intitule: string; // Intitulé de la réponse
+  estSelectionne?: boolean; // Propriété optionnelle
 }
 
+// Interface pour les questions répondues
 export interface QuestionRepondus {
-  _id: string;
-  idQuestion: string;
+  id: string; // Changement de _id à id
+  idQuestion: string | null; // Permettre null
   idQuestionnaireRepondu: string;
   intitule: string; // Intitulé de la question
-  enjeu: string; // Enjeu de la question
-  sousEnjeu: string; // Sous enjeu de la question
+  enjeu?: string; // Propriété optionnelle
+  sousEnjeu?: string; // Propriété optionnelle
   reponseRepondus: ReponseRepondue[];
   nombrePointObtenu: number;
   commentaire: string;
 }
 
+// Interface pour les détails du questionnaire
 export interface QuestionnaireDetail {
-  _id: string;
+  id: string; // Changement de _id à id
   idQuestionnaire: string;
   idClient: string;
   pourcentageQuestionRepondu: number;

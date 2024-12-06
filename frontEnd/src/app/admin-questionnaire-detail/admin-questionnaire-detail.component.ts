@@ -44,7 +44,8 @@ export class AdminQuestionnaireDetailComponent implements OnInit {
       next: (data) => {
         this.questionnaires = data;
         this.isLoading = false;
-        console.log('Questionnaires récupérés:', data);
+        console.log('Questionnaires récupérés:',data);
+        
       },
       error: (err) => {
         this.error = 'Erreur lors de la récupération des questionnaires.';
