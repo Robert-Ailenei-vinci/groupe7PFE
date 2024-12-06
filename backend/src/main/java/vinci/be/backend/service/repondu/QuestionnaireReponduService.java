@@ -104,4 +104,29 @@ public class QuestionnaireReponduService {
 
     return questionnaireReponduRepository.getByIdClient(idClient);
   }
+
+  public QuestionnaireRepondu validateQuestionnaire(String idQuestionnaire) {
+    QuestionnaireRepondu questionnaire = questionnaireReponduRepository.findById(idQuestionnaire).orElse(null);
+
+    if (questionnaire == null) {
+      return null;
+    }
+
+    questionnaire.setEstValide(true);
+    questionnaire.setDateDerniereValidation(LocalDate.now());
+    return questionnaireReponduRepository.save(questionnaire);
+  }
+
+  public QuestionnaireRepondu finishQuestionnaire(String idQuestionnaire) {
+    QuestionnaireRepondu questionnaire = questionnaireReponduRepository.findById(idQuestionnaire).orElse(null);
+
+    if (questionnaire == null) {
+      return null;
+    }
+
+    questionnaire.setEstTermine(true);
+    questionnaire.setDateDerniereValidation(LocalDate.now());
+    return questionnaireReponduRepository.save(questionnaire);
+  }
+
 }
