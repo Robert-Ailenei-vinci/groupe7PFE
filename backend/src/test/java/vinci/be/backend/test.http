@@ -87,7 +87,6 @@ Content-Type: application/json
 ### Récupérer tous les clients
 GET http://localhost:8080/clients/All
 
-
 ### Récupérer un seul client par son id
 GET http://localhost:8080/questionnaires/6752e868faa3e31b8f1a4b45
 
@@ -96,3 +95,6 @@ PATCH http://localhost:8080/questionnaires/validate/6752c48264746a7ee191ca0c
 
 ### Terminer un questionnaire ESG
 PATCH http://localhost:8080/questionnaires/finish/6752c48264746a7ee191ca0c
+
+### Sélectionner une réponse dans une question (ID de la question en paramètre)
+PATCH http://localhost:8080/reponses/selectReponse/6752ffa48e1d522fc03b7d67
