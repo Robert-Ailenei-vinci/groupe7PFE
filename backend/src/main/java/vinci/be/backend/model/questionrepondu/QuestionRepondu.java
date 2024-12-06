@@ -19,6 +19,7 @@ public class QuestionRepondu {
   private String id;
   private String idQuestion;
   private String idQuestionnaireRepondu;
+  private String intitule;
   private List<ReponseRepondu> reponseRepondus;
   private double nombrePointObtenu;
   private String commentaire;

@@ -77,6 +77,7 @@ public class QuestionnaireReponduService {
     questionRepondu.setNombrePointObtenu(0.0);
     questionRepondu.setCommentaire("");
     questionRepondu.setIdQuestionnaireRepondu(questionnaireRepondu.getId());
+    questionRepondu.setIntitule(question.getIntitule());
     questionRepondu = questionReponduRepository.save(questionRepondu);
 
     QuestionRepondu finalQuestionRepondu = questionRepondu;
@@ -93,6 +94,8 @@ public class QuestionnaireReponduService {
     reponseRepondu.setIdReponse(reponse.getId());
     reponseRepondu.setIdQuestionRepondu(questionRepondu.getId());
     reponseRepondu.setEstEngage(false);
+    reponseRepondu.setIntitule(reponse.getIntitule());
+    reponseRepondu.setEstSelectionne(false);
     return reponseReponduRepository.save(reponseRepondu);
   }
 
@@ -101,4 +104,29 @@ public class QuestionnaireReponduService {
 
     return questionnaireReponduRepository.getByIdClient(idClient);
   }
+
+  public QuestionnaireRepondu validateQuestionnaire(String idQuestionnaire) {
+    QuestionnaireRepondu questionnaire = questionnaireReponduRepository.findById(idQuestionnaire).orElse(null);
+
+    if (questionnaire == null) {
+      return null;
+    }
+
+    questionnaire.setEstValide(true);
+    questionnaire.setDateDerniereValidation(LocalDate.now());
+    return questionnaireReponduRepository.save(questionnaire);
+  }
+
+  public QuestionnaireRepondu finishQuestionnaire(String idQuestionnaire) {
+    QuestionnaireRepondu questionnaire = questionnaireReponduRepository.findById(idQuestionnaire).orElse(null);
+
+    if (questionnaire == null) {
+      return null;
+    }
+
+    questionnaire.setEstTermine(true);
+    questionnaire.setDateDerniereValidation(LocalDate.now());
+    return questionnaireReponduRepository.save(questionnaire);
+  }
+
 }

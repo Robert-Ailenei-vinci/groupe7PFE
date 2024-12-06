@@ -19,8 +19,6 @@ public class Questionnaire {
   private String id;
   private String name;
   private String statut;
-  private String enjeuxPrincipal;
-  private String enjeuxSecondaire;
   private Templates template;
   private List<Question> questions;
 

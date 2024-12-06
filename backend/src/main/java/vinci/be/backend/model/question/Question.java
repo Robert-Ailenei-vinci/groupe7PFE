@@ -22,4 +22,6 @@ public class Question {
   private int nbrChoixMax;
   private boolean estQuestionLibre;
   private int nombrePointMax;
+  private String enjeuxPrincipal;
+  private String enjeuxSecondaire;
 }
