@@ -42,4 +42,7 @@ public class ClientService {
   }
 
 
+  public Iterable<Client> getAllClients() {
+    return clientRepository.findAll();
+  }
 }

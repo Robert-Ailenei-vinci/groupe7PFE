@@ -85,4 +85,7 @@ Content-Type: application/json
 }
 
 
+### get all Client
+GET http://localhost:8080/clients/All
+
 

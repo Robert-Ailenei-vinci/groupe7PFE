@@ -37,9 +37,8 @@ public class QuestionnaireReponduService {
   public QuestionnaireRepondu createOneESG(String idClient) {
     // Récupération du template
     Questionnaire template = questionnaireRepository.findByName("ESG");
-    System.out.println("le template est : "+template);
+
     if (template == null) {
-      System.out.println("le template est null !!!! ");
       return null;
     }
 
