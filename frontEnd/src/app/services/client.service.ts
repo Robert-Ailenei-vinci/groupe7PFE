@@ -26,23 +26,37 @@ export interface QuestionRepondus {
 
 // Interface pour les détails du questionnaire
 export interface QuestionnaireDetail {
-  id: string; // Changement de _id à id
+  id: string; 
   idQuestionnaire: string;
   idClient: string;
   pourcentageQuestionRepondu: number;
   estTermine: boolean;
   estValide: boolean;
   nombreDeQuestionRepondu: number;
-  dateDerniereValidation: string; // Format ISO string
+  dateDerniereValidation: string; 
   questionsRepondues: QuestionRepondus[];
   score: number;
 }
 
 export interface Client {
-  id: string; // Changement de number à string
-  name: string;
+  id: string; 
+  prenom: string;
+  nom: string;
   email: string;
-  // Ajoutez d'autres propriétés si nécessaire
+  fonction: string;
+  nomEntreprise: string;
+  numEntreprise: string;
+  formeJuridique: string;
+  adresseSiegeSocial: string;
+  adresseSiteWeb: string;
+  codeNaceActivitePrincipale: string;
+  dernierChiffreDAffaire: number;
+  estFranchise: boolean;
+  nbTravailleur: number;
+  estDansUnLitige: boolean;
+  demandeDeLabel: boolean;
+  partenaire: string;
+  commentaire: string;
 }
 
 

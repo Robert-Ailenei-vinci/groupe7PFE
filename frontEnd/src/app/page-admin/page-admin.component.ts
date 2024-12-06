@@ -57,7 +57,10 @@ export class PageAdminComponent implements OnInit {
   get filteredClients(): Client[] {
     const term = this.searchTerm.toLowerCase();
     return this.clients.filter(client =>
-      (client.name?.toLowerCase() || '').includes(term) ||
+      (client.nom?.toLowerCase() || '').includes(term) ||
+      (client.prenom?.toLowerCase() || '').includes(term) ||
+      (client.nomEntreprise?.toLowerCase() || '').includes(term) ||
+      (client.numEntreprise?.toLowerCase() || '').includes(term) ||
       (client.email?.toLowerCase() || '').includes(term)
     );
   }

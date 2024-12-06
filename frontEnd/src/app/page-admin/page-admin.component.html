@@ -21,17 +21,21 @@
     <table class="clients-table">
       <thead>
         <tr>
-          <th>ID</th>
           <th>Nom</th>
+          <th>Prenom</th>
           <th>Email</th>
+          <th>Nom Entreprise</th>
+          <th>N° Entreprise</th>
           <th>Actions</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let client of paginatedClients">
-          <td>{{ client.id }}</td>
-          <td>{{ client.name }}</td>
+          <td>{{ client.nom }}</td>
+          <td>{{ client.prenom }}</td>
           <td>{{ client.email }}</td>
+          <td>{{ client.nomEntreprise }}</td>
+          <td>{{ client.numEntreprise }}</td>
           <td>
             <button (click)="viewQuestionnaires(client.id.toString())">Voir Questionnaires</button>
           </td>
