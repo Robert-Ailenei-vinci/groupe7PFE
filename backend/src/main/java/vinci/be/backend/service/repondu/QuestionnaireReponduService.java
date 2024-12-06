@@ -100,9 +100,9 @@ public class QuestionnaireReponduService {
   }
 
 
-  public QuestionnaireRepondu getQuestionnaireByIdClient(String idClient) {
+  public Iterable<QuestionnaireRepondu> getQuestionnaireByIdClient(String idClient) {
 
-    return questionnaireReponduRepository.getByIdClient(idClient);
+    return questionnaireReponduRepository.getAllByIdClient(idClient);
   }
 
   public QuestionnaireRepondu validateQuestionnaire(String idQuestionnaire) {

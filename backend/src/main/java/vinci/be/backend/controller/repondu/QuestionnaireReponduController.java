@@ -1,5 +1,6 @@
 package vinci.be.backend.controller.repondu;
 
+import java.util.Iterator;
 import java.util.Map;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -40,8 +41,8 @@ public class QuestionnaireReponduController {
 
 
   @GetMapping("/questionnaires/{idClient}")
-  public ResponseEntity<QuestionnaireRepondu> getQuestionnaireByIdClient(@PathVariable String idClient) {
-    QuestionnaireRepondu questionnaire = questionnaireReponduService.getQuestionnaireByIdClient(idClient);
+  public ResponseEntity<Iterable<QuestionnaireRepondu>> getQuestionnaireByIdClient(@PathVariable String idClient) {
+    Iterable<QuestionnaireRepondu> questionnaire = questionnaireReponduService.getQuestionnaireByIdClient(idClient);
 
     if (questionnaire == null) {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);
