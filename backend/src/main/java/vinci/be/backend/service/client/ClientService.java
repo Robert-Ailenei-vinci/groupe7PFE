@@ -42,4 +42,11 @@ public class ClientService {
   }
 
 
+  public Iterable<Client> getAllClients() {
+    return clientRepository.findAll();
+  }
+
+  public Client getClientById(String id) {
+    return clientRepository.findById(id).orElse(null);
+  }
 }

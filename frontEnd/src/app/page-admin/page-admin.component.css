@@ -1,34 +1,55 @@
 .container {
-    padding: 20px;
-    margin-bottom: 60px; /* Pour éviter le chevauchement avec le footer fixe */
-  }
-  
-  .error {
-    color: red;
-  }
-  
-  .clients-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  
-  .clients-table th, .clients-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-  }
-  
-  .clients-table th {
-    background-color: #f2f2f2;
-    text-align: left;
-  }
-  
-  .clients-table tr:hover {
-    background-color: #f1f1f1;
-  }
-  
-  button {
-    padding: 5px 10px;
-    cursor: pointer;
-  }
-  
+  padding: 20px;
+  margin-bottom: 60px; /* Pour éviter le chevauchement avec le footer fixe */
+}
+
+.error {
+  color: red;
+}
+
+.search-container {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.search-container input {
+  width: 50%;
+  padding: 8px;
+  font-size: 16px;
+}
+
+.clients-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.clients-table th, .clients-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.clients-table th {
+  background-color: #f2f2f2;
+  text-align: left;
+}
+
+.clients-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.pagination {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.pagination button {
+  padding: 5px 10px;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+button {
+  padding: 5px 10px;
+  cursor: pointer;
+}

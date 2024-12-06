@@ -34,7 +34,7 @@ section{
     margin-top: -2%;
     opacity: 0 ;
     color: #013238;
-    font-size: 150px;
+    font-size: 180px;
     text-transform: uppercase;
     font-weight: 800;
     letter-spacing: 3px;
@@ -44,19 +44,110 @@ section{
 
 .jaune h1 span{
     color: #b5cdbf;
-    font-size: 140px;
+    font-size: 160px;
     font-weight: 500;
 }
 
-.jaune p{
-    font-size: 16px;
-    font-weight: 500;
-    margin-bottom: 40px;
+
+.jaune .description-container{
+    width:120%;
+    padding: 2rem;
+    border-radius: 20px;
+    background-image: url('./fond-description-container.svg');
+    background-repeat: no-repeat; /* Empêche la duplication de l'image */
+    background-size: cover; /* Ajuste la taille de l'image pour couvrir tout le conteneur */
 }
 
-.jaune .sousTitres{
+.jaune .description-container2{
+    width:120%;
+    padding: 2rem;
+    border-radius: 20px;
+    background-image: url('./fond-description-container2.svg');
+    background-repeat: no-repeat; /* Empêche la duplication de l'image */
+    background-size: cover; /* Ajuste la taille de l'image pour couvrir tout le conteneur */
+}
+
+.jaune .description-container3{
+    width:120%;
+    padding: 2rem;
+    border-radius: 20px;
+    background-image: url('./fond-description-container3.svg');
+    background-repeat: no-repeat; /* Empêche la duplication de l'image */
+    background-size: cover; /* Ajuste la taille de l'image pour couvrir tout le conteneur */
+}
+
+.jaune .sousTitres1 {
+    font-size: 50px;
+    letter-spacing: 2px;
+    margin-top: 2%;
+    margin-bottom: 3%;
+    font-weight: 400;
+    color: #dfd4fb;
+}
+
+.jaune .sousTitres2 {
+    font-size: 50px;
+    letter-spacing: 2px;
+    margin-top: 2%;
+    margin-bottom: 3%;
+    font-weight: 400;
+    color: #013238;
+}
+
+.jaune .sousTitres3 {
+    font-size: 50px;
+    letter-spacing: 2px;
+    margin-top: 2%;
+    margin-bottom: 3%;
+    font-weight: 400;
+    color: transparent;
+    background-image: linear-gradient(to right, #dfd4fb 40.3%, #013238 40.5%);
+    background-clip: text; 
+    -webkit-background-clip: text; /* Safari support */
+}
+
+
+
+.jaune .texte1{
+    font-size: 30px;
+    color: transparent;
+    background-image: linear-gradient(to right, #dfd4fb 39.9%, #013238 40.1%);
+    background-clip: text; 
+    -webkit-background-clip: text; /* Safari support */
+}
+
+.jaune .texte2{
+    font-size: 30px;
+    color: transparent;
+    background-image: linear-gradient(to right, #013238 82.5%, #dfd4fb 84.9%);
+    background-clip: text; 
+    -webkit-background-clip: text; 
+}
+.jaune .texte3{
+    font-size: 30px;
+    color: transparent;
+    background-image: linear-gradient(to right, #dfd4fb 36.8%, #013238 37%);
+    background-clip: text; 
+    -webkit-background-clip: text; 
+}
+
+.jaune .texteVertClair{
+    font-size: 22px;
+    color: #b5cdbf;
+}
+
+.jaune .texteVertClair2{
+    font-size: 22px;
+    color: transparent;
+    background-image: linear-gradient(to right, #b5cdbf 31.5%, #013238 33%);
+    background-clip: text; 
+    -webkit-background-clip: text; 
+}
+
+.jaune .description-container .texte{
     font-size: 25px;
 }
+
 
 .parme{
     background: #dfd4fb;

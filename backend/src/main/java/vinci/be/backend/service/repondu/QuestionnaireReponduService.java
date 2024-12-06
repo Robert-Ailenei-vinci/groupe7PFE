@@ -37,9 +37,8 @@ public class QuestionnaireReponduService {
   public QuestionnaireRepondu createOneESG(String idClient) {
     // Récupération du template
     Questionnaire template = questionnaireRepository.findByName("ESG");
-    System.out.println("le template est : "+template);
+
     if (template == null) {
-      System.out.println("le template est null !!!! ");
       return null;
     }
 
@@ -78,6 +77,9 @@ public class QuestionnaireReponduService {
     questionRepondu.setNombrePointObtenu(0.0);
     questionRepondu.setCommentaire("");
     questionRepondu.setIdQuestionnaireRepondu(questionnaireRepondu.getId());
+    questionRepondu.setIntitule(question.getIntitule());
+    questionRepondu.setEnjeuxPrincipal(question.getEnjeuxPrincipal());
+    questionRepondu.setEnjeuxSecondaire(question.getEnjeuxSecondaire());
     questionRepondu = questionReponduRepository.save(questionRepondu);
 
     QuestionRepondu finalQuestionRepondu = questionRepondu;
@@ -94,8 +96,39 @@ public class QuestionnaireReponduService {
     reponseRepondu.setIdReponse(reponse.getId());
     reponseRepondu.setIdQuestionRepondu(questionRepondu.getId());
     reponseRepondu.setEstEngage(false);
+    reponseRepondu.setIntitule(reponse.getIntitule());
+    reponseRepondu.setEstSelectionne(false);
     return reponseReponduRepository.save(reponseRepondu);
   }
 
+
+  public Iterable<QuestionnaireRepondu> getQuestionnaireByIdClient(String idClient) {
+
+    return questionnaireReponduRepository.getAllByIdClient(idClient);
+  }
+
+  public QuestionnaireRepondu validateQuestionnaire(String idQuestionnaire) {
+    QuestionnaireRepondu questionnaire = questionnaireReponduRepository.findById(idQuestionnaire).orElse(null);
+
+    if (questionnaire == null) {
+      return null;
+    }
+
+    questionnaire.setEstValide(true);
+    questionnaire.setDateDerniereValidation(LocalDate.now());
+    return questionnaireReponduRepository.save(questionnaire);
+  }
+
+  public QuestionnaireRepondu finishQuestionnaire(String idQuestionnaire) {
+    QuestionnaireRepondu questionnaire = questionnaireReponduRepository.findById(idQuestionnaire).orElse(null);
+
+    if (questionnaire == null) {
+      return null;
+    }
+
+    questionnaire.setEstTermine(true);
+    questionnaire.setDateDerniereValidation(LocalDate.now());
+    return questionnaireReponduRepository.save(questionnaire);
+  }
 
 }

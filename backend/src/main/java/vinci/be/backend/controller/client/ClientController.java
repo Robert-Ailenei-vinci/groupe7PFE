@@ -3,6 +3,8 @@ package vinci.be.backend.controller.client;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -40,5 +42,20 @@ public class ClientController {
     if(actualClient == null) return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
     System.out.println(actualClient);
     return new ResponseEntity<>(actualClient, HttpStatus.OK);
+  }
+
+  @GetMapping("/clients/All")
+  public ResponseEntity<Iterable<Client>> getAllClients() {
+    return new ResponseEntity<>(clientService.getAllClients(), HttpStatus.OK);
+  }
+
+  @GetMapping("/clients/getOne/{id}")
+  public ResponseEntity<Client> getClientById(@PathVariable String id) {
+
+    Client client = clientService.getClientById(id);
+
+    if(client == null) return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+
+    return new ResponseEntity<>(client, HttpStatus.OK);
   }
 }

@@ -1,0 +1,60 @@
+.container {
+  padding: 20px;
+  margin-bottom: 60px; /* Pour éviter le chevauchement avec le footer fixe */
+}
+
+.error {
+  color: red;
+}
+
+.questionnaire {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.questions-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+.questions-table th, .questions-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  vertical-align: top;
+}
+
+.questions-table th {
+  background-color: #f2f2f2;
+  text-align: left;
+}
+
+.questions-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+li {
+  margin-bottom: 5px;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #3f51b5;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #303f9f;
+}

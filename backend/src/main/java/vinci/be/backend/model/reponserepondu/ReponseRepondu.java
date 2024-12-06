@@ -17,5 +17,7 @@ public class ReponseRepondu {
   private String id;
   private String idReponse;
   private String idQuestionRepondu;
+  private String intitule;
   private boolean estEngage;
+  private boolean estSelectionne;
 }

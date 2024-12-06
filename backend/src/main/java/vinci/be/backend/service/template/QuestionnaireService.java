@@ -46,14 +46,14 @@ public class QuestionnaireService {
     question.setNbrChoixMax(2);
     question.setEstQuestionLibre(false);
     question.setNombrePointMax(2);
+    question.setEnjeuxPrincipal("Energie & carbone");
+    question.setEnjeuxSecondaire("gestion de l'energie");
     questionRepository.save(question);
 
     // questionnaire
     Questionnaire questionnaire = new Questionnaire();
     questionnaire.setName("ESG");
     questionnaire.setStatut("A compléter");
-    questionnaire.setEnjeuxPrincipal("Energie & carbone");
-    questionnaire.setEnjeuxSecondaire("gestion de l'energie");
     questionnaire.setTemplate(Templates.ALL);
     questionnaire.setQuestions(List.of(question));
     questionnaireRepository.save(questionnaire);
