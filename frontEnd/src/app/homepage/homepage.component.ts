@@ -21,25 +21,31 @@ export class HomepageComponent implements AfterViewInit {
     gsap.registerPlugin(ScrollTrigger);
     if(isPlatformBrowser(this.platformId)){
       gsap.to(".jaune h1", {
-        scrollTrigger:{
-          trigger:".jaune h1",
-          start:"14px 20%",
-          scrub:1.5,
-          markers:true,
-          toggleActions:"restart resume reverse pause"
-        },   
-    
         x:"-15vw",
         y:0,
         opacity:1,
         duration:2, 
        
+      }),
+      gsap.to(".jaune .description-container", {
+        x:"+10vw",
+        y:0,
+        opacity:1,
+        duration:2, 
+      }),
+      gsap.to(".jaune .description-container2", {
+        x:"-10vw",
+        y:0,
+        opacity:1,
+        duration:2, 
+      }),
+      gsap.to(".jaune .description-container3", {
+        x:"+10vw",
+        y:0,
+        opacity:1,
+        duration:2, 
       })
-    }
-    
-
-
-  
+    }  
   }
   
   
