@@ -4,6 +4,8 @@ import java.util.Map;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,4 +35,15 @@ public class QuestionnaireReponduController {
     }
     return new  ResponseEntity<>(questionnaire, HttpStatus.CREATED);
   }
+
+  @GetMapping("/questionnaires/{idClient}")
+  public ResponseEntity<QuestionnaireRepondu> getQuestionnaireByIdClient(@PathVariable String idClient) {
+    QuestionnaireRepondu questionnaire = questionnaireReponduService.getQuestionnaireByIdClient(idClient);
+
+    if (questionnaire == null) {
+      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+    return new ResponseEntity<>(questionnaire, HttpStatus.OK);
+  }
+
 }
