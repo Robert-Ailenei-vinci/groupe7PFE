@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ClientService, Questionnaire } from '../services/client.service';
+import { ClientService, QuestionnaireDetail } from '../services/client.service';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { CommonModule } from '@angular/common';
@@ -16,7 +16,7 @@ import { of } from 'rxjs';
 })
 export class AdminQuestionnaireDetailComponent implements OnInit {
   clientId: string | null = null;
-  questionnaires: Questionnaire[] = [];
+  questionnaires: QuestionnaireDetail[] = [];
   error: string = '';
   isLoading: boolean = true;
 
@@ -30,17 +30,11 @@ export class AdminQuestionnaireDetailComponent implements OnInit {
       switchMap(params => {
         const clientIdParam = params.get('clientId');
         console.log('Retrieved clientIdParam:', clientIdParam);
-        if (clientIdParam) {
-          if (typeof clientIdParam === 'string' && clientIdParam.trim() !== '') {
-            this.clientId = clientIdParam;
-            return this.clientService.getQuestionnairesByClientId(clientIdParam);
-          } else {
-            this.error = 'ID du client invalide.';
-            this.isLoading = false;
-            return of([]);
-          }
+        if (clientIdParam && clientIdParam.trim() !== '') {
+          this.clientId = clientIdParam;
+          return this.clientService.getQuestionnairesByClientId(clientIdParam);
         } else {
-          this.error = 'ID du client manquant dans la route.';
+          this.error = 'ID du client invalide ou manquant.';
           this.isLoading = false;
           return of([]);
         }

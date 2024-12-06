@@ -12,13 +12,29 @@
   </div>
 
   <div *ngIf="!isLoading && !error && questionnaires.length > 0">
-    <div *ngFor="let q of questionnaires" class="questionnaire">
-      <h2>{{ q.title }} (ID: {{ q.id }})</h2>
-      <ol>
-        <li *ngFor="let question of q.questions">
-          {{ question }}
-        </li>
-      </ol>
+    <div *ngFor="let questionnaire of questionnaires" class="questionnaire">
+      <h2>Questionnaire ID: {{ questionnaire.idQuestionnaire }}</h2>
+      <p><strong>Date de Dernière Validation:</strong> {{ questionnaire.dateDerniereValidation | date:'short' }}</p>
+      <p><strong>Pourcentage de Questions Répondues:</strong> {{ questionnaire.pourcentageQuestionRepondu }}%</p>
+      <p><strong>Terminé:</strong> {{ questionnaire.estTermine ? 'Oui' : 'Non' }}</p>
+      <p><strong>Validé:</strong> {{ questionnaire.estValide ? 'Oui' : 'Non' }}</p>
+      <p><strong>Nombre de Questions Répondues:</strong> {{ questionnaire.nombreDeQuestionRepondu }}</p>
+      <p><strong>Score Total:</strong> {{ questionnaire.score }}</p>
+
+      <div *ngFor="let question of questionnaire.questionsRepondues" class="question-section">
+        <h3>Question ID: {{ question.idQuestion }}</h3>
+        <p><strong>Nombre de Points Obtenus:</strong> {{ question.nombrePointObtenu }}</p>
+        <p><strong>Commentaire:</strong> {{ question.commentaire }}</p>
+
+        <div *ngFor="let reponse of question.reponseRepondus" class="reponse-section">
+          <p><strong>Réponse ID:</strong> {{ reponse.idReponse }}</p>
+          <p><strong>Engagée:</strong> {{ reponse.estEngage ? 'Oui' : 'Non' }}</p>
+          <p *ngIf="reponse.nombrePointObtenu !== undefined"><strong>Nombre de Points Obtenus:</strong> {{ reponse.nombrePointObtenu }}</p>
+          <p *ngIf="reponse.commentaire"><strong>Commentaire:</strong> {{ reponse.commentaire }}</p>
+          <p *ngIf="reponse.score !== undefined"><strong>Score:</strong> {{ reponse.score }}</p>
+          <hr>
+        </div>
+      </div>
     </div>
   </div>
 
