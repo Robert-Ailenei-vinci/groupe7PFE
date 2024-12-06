@@ -63,8 +63,8 @@ POST http://localhost:8080/clients/login
 Content-Type: application/json
 
 {
-  "email": "jean.dupont@example.com",
-  "password": "password123"
+  "email": "sophie.martin@example.com",
+  "password": "securePass2024!"
 }
 
 ### connecter Consultant (valide)
