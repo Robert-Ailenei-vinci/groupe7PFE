@@ -1,0 +1,124 @@
+.containerQuestionnaire{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+}
+
+.containerLeft{
+    position: relative;
+    width: 60%;
+    height: 650px;
+    padding: 10px;
+}
+
+.containerRight{
+    position: relative;
+    width: 50%;
+    padding: 10px;
+    border: 2px solid green
+}
+
+.logoEsg{
+    height: 70px;
+}
+
+
+.no-margin{
+    margin: 0;
+    padding: 0;
+}
+
+.no-margin p{
+    font-size: 13px;
+    margin: 0;
+    padding: 0;
+}
+
+
+.environment{
+    color: #b5cdbf;
+}
+
+.social{
+    color: #dfd4fb;
+}
+
+.governance{
+    color: #ffec99;
+}
+
+
+.esgTitle::first-letter{
+    font-size: 40px;
+}
+
+.esgTitle{
+    font-weight: bold;
+    font-size: 25px;
+}
+
+.separator{
+    width: 80%;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.252);
+    margin: auto;
+    margin-top: 10px;
+}
+
+.leftHeader, .leftFooter{
+    text-align: center;
+    height: 50px;
+    width: 90%;
+    margin: auto;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #b5cdbf;
+    border: 1px solid black;
+    line-height: 45px;
+    border-radius: 20px;
+}
+
+.leftFooter{
+    cursor: pointer;
+    transition: 0.4s;
+    width: 40%;
+}
+
+.leftFooter:hover{
+    background-color: #a3b9a9;
+}
+
+
+.categoryContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 10px;
+    margin-top: 20px;
+    margin-bottom: 100px;
+}
+
+
+
+.category{
+    background-color: #e5e5e5;
+    border: none;
+    margin: 0;
+    margin-bottom: 20px;
+    border: 2px solid rgb(151, 151, 151);
+}
+.category td {
+    padding-left: 10px;
+    padding-right: 0px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-left: 1px solid black;
+}
+
+.categoryHeader{
+    border: 1px solid black;
+    background-color: #b3b3b3;
+}

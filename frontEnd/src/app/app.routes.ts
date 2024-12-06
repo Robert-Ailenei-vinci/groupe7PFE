@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { LoginAdminComponent } from './login-admin/login-admin.component';
 import { PageAdminComponent } from './page-admin/page-admin.component';
 import { AdminGuard } from './guards/admin.guard';
+import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/homepage', pathMatch: 'full' },
@@ -13,7 +14,8 @@ export const routes: Routes = [
     { path: 'pageAdmin', component: PageAdminComponent , canActivate: [AdminGuard] },
     { path: 'login', component: LoginComponent },
     { path: 'loginAdmin', component: LoginAdminComponent },
-    { path:'esg/question/:id', component: QuestionComponent }    
+    { path:'esg/question/:id', component: QuestionComponent },
+    { path:'esg', component: QuestionnaireComponent }
   ];
   
   export const appRoutingProviders = [
