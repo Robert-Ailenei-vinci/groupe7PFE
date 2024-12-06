@@ -78,6 +78,8 @@ public class QuestionnaireReponduService {
     questionRepondu.setCommentaire("");
     questionRepondu.setIdQuestionnaireRepondu(questionnaireRepondu.getId());
     questionRepondu.setIntitule(question.getIntitule());
+    questionRepondu.setEnjeuxPrincipal(question.getEnjeuxPrincipal());
+    questionRepondu.setEnjeuxSecondaire(question.getEnjeuxSecondaire());
     questionRepondu = questionReponduRepository.save(questionRepondu);
 
     QuestionRepondu finalQuestionRepondu = questionRepondu;

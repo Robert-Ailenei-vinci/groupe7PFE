@@ -20,6 +20,8 @@ public class QuestionRepondu {
   private String idQuestion;
   private String idQuestionnaireRepondu;
   private String intitule;
+  private String enjeuxPrincipal;
+  private String enjeuxSecondaire;
   private List<ReponseRepondu> reponseRepondus;
   private double nombrePointObtenu;
   private String commentaire;
