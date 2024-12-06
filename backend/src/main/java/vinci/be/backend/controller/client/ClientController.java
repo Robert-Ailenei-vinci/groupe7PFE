@@ -4,6 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -46,5 +47,15 @@ public class ClientController {
   @GetMapping("/clients/All")
   public ResponseEntity<Iterable<Client>> getAllClients() {
     return new ResponseEntity<>(clientService.getAllClients(), HttpStatus.OK);
+  }
+
+  @GetMapping("/clients/getOne/{id}")
+  public ResponseEntity<Client> getClientById(@PathVariable String id) {
+
+    Client client = clientService.getClientById(id);
+
+    if(client == null) return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
+
+    return new ResponseEntity<>(client, HttpStatus.OK);
   }
 }

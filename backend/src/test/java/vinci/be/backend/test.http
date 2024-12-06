@@ -88,6 +88,9 @@ Content-Type: application/json
 GET http://localhost:8080/clients/All
 
 ### Récupérer un seul client par son id
+GET http://localhost:8080/clients/getOne/6751b25c0b15056747f31f26
+
+### Récupérer un seul client par son id
 GET http://localhost:8080/questionnaires/6752e868faa3e31b8f1a4b45
 
 ### Valider un questionnaire ESG
