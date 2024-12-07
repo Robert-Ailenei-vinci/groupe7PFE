@@ -53,7 +53,7 @@ section{
     width:120%;
     padding: 2rem;
     border-radius: 20px;
-    background-image: url('./fond-description-container.svg');
+    background-image: url('./assets/fond-description-container.svg');
     background-repeat: no-repeat; /* Empêche la duplication de l'image */
     background-size: cover; /* Ajuste la taille de l'image pour couvrir tout le conteneur */
 }
@@ -63,7 +63,7 @@ section{
     width:120%;
     padding: 2rem;
     border-radius: 20px;
-    background-image: url('./fond-description-container2.svg');
+    background-image: url('./assets/fond-description-container2.svg');
     background-repeat: no-repeat; /* Empêche la duplication de l'image */
     background-size: cover; /* Ajuste la taille de l'image pour couvrir tout le conteneur */
 }
@@ -72,7 +72,7 @@ section{
     width:120%;
     padding: 2rem;
     border-radius: 20px;
-    background-image: url('./fond-description-container3.svg');
+    background-image: url('./assets/fond-description-container3.svg');
     background-repeat: no-repeat; /* Empêche la duplication de l'image */
     background-size: cover; /* Ajuste la taille de l'image pour couvrir tout le conteneur */
 }
@@ -171,7 +171,7 @@ section{
     width:120%;
     padding: 2rem;
     border-radius: 20px;
-    background-image: url('./fond-description-container1VERT.svg');
+    background-image: url('./assets/fond-description-container1VERT.svg');
     background-repeat: no-repeat; /* Empêche la duplication de l'image */
     background-size: cover; /* Ajuste la taille de l'image pour couvrir tout le conteneur */
 }
@@ -180,7 +180,7 @@ section{
     width:120%;
     padding: 2rem;
     border-radius: 20px;
-    background-image: url('./fond-description-container-env.svg');
+    background-image: url('./assets/fond-description-container-env.svg');
     background-repeat: no-repeat; /* Empêche la duplication de l'image */
     background-size: cover; /* Ajuste la taille de l'image pour couvrir tout le conteneur */
 }
@@ -189,7 +189,7 @@ section{
     width:120%;
     padding: 2rem;
     border-radius: 20px;
-    background-image: url('./fond-cont-env3.svg');
+    background-image: url('./assets/fond-cont-env3.svg');
     background-repeat: no-repeat; /* Empêche la duplication de l'image */
     background-size: cover; /* Ajuste la taille de l'image pour couvrir tout le conteneur */
 }
@@ -198,7 +198,7 @@ section{
     width:120%;
     padding: 2rem;
     border-radius: 20px;
-    background-image: url('./fond-cont-env2.svg');
+    background-image: url('./assets/fond-cont-env2.svg');
     background-repeat: no-repeat; /* Empêche la duplication de l'image */
     background-size: cover; /* Ajuste la taille de l'image pour couvrir tout le conteneur */
 }
@@ -252,7 +252,7 @@ section{
     width:120%;
     padding: 1rem;
     border-radius: 20px;
-    background-image: url('./fond-bubble.svg');
+    background-image: url('./assets/fond-bubble.svg');
     background-repeat: no-repeat; /* Empêche la duplication de l'image */
     background-size: cover; /* Ajuste la taille de l'image pour couvrir tout le conteneur */
 }
