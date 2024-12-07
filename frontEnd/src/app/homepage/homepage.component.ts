@@ -44,6 +44,36 @@ export class HomepageComponent implements AfterViewInit {
         y:0,
         opacity:1,
         duration:2, 
+      }),
+      gsap.to(".vertFonce .description-container", {
+        x:"-10vw",
+        y:0,
+        opacity:1,
+        duration:2, 
+      }),
+      gsap.to(".vertFonce .environnement-container", {
+        x:"10vw",
+        y:0,
+        opacity:1,
+        duration:2, 
+      }),
+      gsap.to(".vertFonce .environnement-container2", {
+        x:"-10vw",
+        y:0,
+        opacity:1,
+        duration:2, 
+      }),
+      gsap.to(".vertFonce .environnement-container3", {
+        x:"10vw",
+        y:0,
+        opacity:1,
+        duration:2, 
+      }),
+      gsap.to(".bubble .container", {
+        x:0,
+        y:"7vw",
+        opacity:1,
+        duration:2, 
       })
     }  
   }

@@ -58,6 +58,7 @@ section{
     background-size: cover; /* Ajuste la taille de l'image pour couvrir tout le conteneur */
 }
 
+
 .jaune .description-container2{
     width:120%;
     padding: 2rem;
@@ -75,6 +76,8 @@ section{
     background-repeat: no-repeat; /* Empêche la duplication de l'image */
     background-size: cover; /* Ajuste la taille de l'image pour couvrir tout le conteneur */
 }
+
+
 
 .jaune .sousTitres1 {
     font-size: 50px;
@@ -116,6 +119,8 @@ section{
     -webkit-background-clip: text; /* Safari support */
 }
 
+
+
 .jaune .texte2{
     font-size: 30px;
     color: transparent;
@@ -146,6 +151,61 @@ section{
 
 .jaune .description-container .texte{
     font-size: 25px;
+}
+
+.vertFonce .sousTitres1 {
+    font-size: 50px;
+    letter-spacing: 2px;
+    margin-top: 2%;
+    margin-bottom: 3%;
+    font-weight: 400;
+    color: #013238;
+}
+
+.vertFonce span{
+    text-decoration: underline;
+
+}
+
+.vertFonce .description-container{
+    width:120%;
+    padding: 2rem;
+    border-radius: 20px;
+    background-image: url('./fond-description-container1VERT.svg');
+    background-repeat: no-repeat; /* Empêche la duplication de l'image */
+    background-size: cover; /* Ajuste la taille de l'image pour couvrir tout le conteneur */
+}
+
+.vertFonce .environnement-container{
+    width:120%;
+    padding: 2rem;
+    border-radius: 20px;
+    background-image: url('./fond-description-container-env.svg');
+    background-repeat: no-repeat; /* Empêche la duplication de l'image */
+    background-size: cover; /* Ajuste la taille de l'image pour couvrir tout le conteneur */
+}
+
+.vertFonce .environnement-container2{
+    width:120%;
+    padding: 2rem;
+    border-radius: 20px;
+    background-image: url('./fond-cont-env3.svg');
+    background-repeat: no-repeat; /* Empêche la duplication de l'image */
+    background-size: cover; /* Ajuste la taille de l'image pour couvrir tout le conteneur */
+}
+
+.vertFonce .environnement-container3{
+    width:120%;
+    padding: 2rem;
+    border-radius: 20px;
+    background-image: url('./fond-cont-env2.svg');
+    background-repeat: no-repeat; /* Empêche la duplication de l'image */
+    background-size: cover; /* Ajuste la taille de l'image pour couvrir tout le conteneur */
+}
+
+.vertFonce .texte1{
+    font-size: 30px;
+    color: #013238;
 }
 
 
@@ -188,10 +248,33 @@ section{
     color: black;
 }
 
+.bubble .container{
+    width:120%;
+    padding: 1rem;
+    border-radius: 20px;
+    background-image: url('./fond-bubble.svg');
+    background-repeat: no-repeat; /* Empêche la duplication de l'image */
+    background-size: cover; /* Ajuste la taille de l'image pour couvrir tout le conteneur */
+}
+
+.bubble .sousTitres1{
+    font-size: 50px;
+    letter-spacing: 2px;
+    margin-top: 2%;
+    margin-bottom: 3%;
+    font-weight: 400;
+    color: #013238;
+}
+
+.bubble .texte1{
+    font-size: 30px;
+    color: #013238;
+}
+
 .bubble::after {
     content: '';
-    border-top-left-radius: 50% 100%;
-    border-top-right-radius: 50% 100%;
+    border-top-left-radius: 50% 50%;
+    border-top-right-radius: 50% 50%;
     position: absolute;
     bottom: 0;
     height: 85%;
