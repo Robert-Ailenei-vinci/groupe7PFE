@@ -110,7 +110,7 @@ export class HomepageComponent implements AfterViewInit {
         opacity: 1,
         duration: 2,
         scrollTrigger: {
-          trigger: ".vertFonce .environnement-container",
+          trigger: ".vertFonce .environnement-container3",
           start: "top 110%",
           end: "bottom 60%",
           toggleActions: "restart continue none none",
