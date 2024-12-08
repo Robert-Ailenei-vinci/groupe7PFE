@@ -16,6 +16,7 @@
   
   <div *ngIf="!isLoading && !error && questionnaires.length > 0">
     <div *ngFor="let questionnaire of questionnaires" class="questionnaire">
+      <button (click)="validerQuestionnaire(questionnaire.idQuestionnaire.toString())">Valider Questionnaire</button>
       <h2>Questionnaire ID: {{ questionnaire.idQuestionnaire }}</h2>
       <p><strong>Date de Dernière Validation:</strong> {{ questionnaire.dateDerniereValidation | date:'short' }}</p>
       <p><strong>Pourcentage de Questions Répondues:</strong> {{ questionnaire.pourcentageQuestionRepondu }}%</p>
@@ -32,6 +33,7 @@
             <th>Intitulé</th>
             <th>Réponses</th>
             <th>Engagé</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -58,6 +60,9 @@
                   </label>
                 </li>
               </ul>
+            </td>
+            <td>
+              <button (click)="modifierReponseQuestion(questionnaire.idQuestionnaire.toString(),question.id.toString())">Modifier Reponse</button>
             </td>
           </tr>
         </tbody>

@@ -66,5 +66,22 @@ export class AdminQuestionnaireDetailComponent implements OnInit {
       }
     });
   }
+
+  modifierReponseQuestion(questionnaireId: string, questionId: string): void {
+    console.log('Modifier réponse question:', questionnaireId, questionId);
+  }
+
+  validerQuestionnaire(questionnaireId: string): void {
+    console.log('Valider questionnaire:', questionnaireId);
+    this.clientService.validateQuestionnaire(questionnaireId).subscribe({
+      next: (data) => {
+        console.log('Questionnaire validé:', data);
+        
+      },
+      error: (err) => {
+        console.error('Erreur lors de la validation du questionnaire:', err);
+      }
+    });
+  }
 }
 

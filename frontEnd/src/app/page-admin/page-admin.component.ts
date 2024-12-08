@@ -45,7 +45,7 @@ export class PageAdminComponent implements OnInit {
     if (clientId && typeof clientId === 'string') {
       this.router.navigate(['/admin/questionnaires', clientId]);
     } else {
-      console.error(`Cljjjjjient ID invalide : ${clientId}`);
+      console.error(`Client ID invalide : ${clientId}`);
     }
   }
 

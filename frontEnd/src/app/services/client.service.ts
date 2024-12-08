@@ -14,7 +14,7 @@ export interface ReponseRepondue {
 // Interface pour les questions répondues
 export interface QuestionRepondus {
   id: string; // Changement de _id à id
-  idQuestion: string | null; // Permettre null
+  idQuestion: string ; 
   idQuestionnaireRepondu: string;
   intitule: string; // Intitulé de la question
   enjeuxPrincipal: string; // Propriété optionnelle
@@ -65,8 +65,9 @@ export interface Client {
 })
 export class ClientService {
 
-  private clientsUrl = 'http://localhost:8080/clients'; // Remplacez par l'URL de votre API
-  private questionnairesUrl = 'http://localhost:8080/questionnaires'; // Remplacez par l'URL de votre API
+  private clientsUrl = 'http://localhost:8080/clients'; 
+  private questionnairesUrl = 'http://localhost:8080/questionnaires'; 
+  private validateUrl = 'http://localhost:8080/questionnaires/validate'; 
 
   constructor(private http: HttpClient) { }
 
@@ -79,5 +80,9 @@ export class ClientService {
   }
   getOneClient(clientId: string): Observable<Client> {
     return this.http.get<Client>(`${this.clientsUrl}/getOne/${clientId}`);
+  }
+
+  validateQuestionnaire(questionnaireId: string): Observable<any> {
+    return this.http.patch(`${this.validateUrl}/${questionnaireId}`, null);
   }
 }
