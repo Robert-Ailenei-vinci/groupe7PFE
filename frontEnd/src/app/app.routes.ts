@@ -17,7 +17,8 @@ export const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'loginAdmin', component: LoginAdminComponent },
   { path: 'esg/question/:id', component: QuestionComponent },
-  { path:'esg', component: QuestionnaireComponent }
+  { path:'esg', component: QuestionnaireComponent },
+  { path : 'onboarding', component:HomepageComponent} //A changer avec le questionnaire de onboard
 ];
 
 export const appRoutingProviders = [

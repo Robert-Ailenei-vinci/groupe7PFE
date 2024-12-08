@@ -1,6 +1,7 @@
 import { AfterViewInit, Component, Inject, PLATFORM_ID } from '@angular/core';
 import { HeaderComponent } from "../header/header.component";
 import { FooterComponent } from '../footer/footer.component';
+import { RouterModule } from '@angular/router';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { isPlatformBrowser } from '@angular/common';
@@ -8,7 +9,7 @@ import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-homepage',
-  imports: [HeaderComponent, FooterComponent],
+  imports: [HeaderComponent, FooterComponent,RouterModule],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.css'
 })
