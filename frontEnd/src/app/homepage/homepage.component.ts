@@ -100,7 +100,19 @@ export class HomepageComponent implements AfterViewInit {
           trigger: ".vertFonce .environnement-container2",
           start: "top 110%",
           end: "bottom 60%",
-          markers:true,
+          toggleActions: "restart continue none none",
+        },
+      });
+
+      gsap.to(".vertFonce .environnement-container3", {
+        x: "10vw",
+        y: 0,
+        opacity: 1,
+        duration: 2,
+        scrollTrigger: {
+          trigger: ".vertFonce .environnement-container",
+          start: "top 110%",
+          end: "bottom 60%",
           toggleActions: "restart continue none none",
         },
       });
@@ -112,9 +124,9 @@ export class HomepageComponent implements AfterViewInit {
         duration: 2,
         scrollTrigger: {
           trigger: ".bubble .container",
-          start: "top 80%",
+          start: "top 110%",
           end: "bottom 60%",
-          toggleActions: "play none none none",
+          toggleActions: "restart continue none none",
         },
       });
     }
