@@ -59,7 +59,7 @@ export class HomepageComponent implements AfterViewInit {
           trigger: ".jaune .description-container3",
           start: "top 95%",
           end: "bottom 95%",
-          toggleActions: "play pause none none",
+          toggleActions: "play continue none none",
         },
       });
 
@@ -72,9 +72,10 @@ export class HomepageComponent implements AfterViewInit {
         duration: 2,
         scrollTrigger: {
           trigger: ".vertFonce .description-container",
-          start: "center center",
-          end: "bottom center",
-          toggleActions: "play none none none",
+          start: "top 110%",
+          end: "bottom 95%",
+          markers: true,
+          toggleActions: "restart continue none none",
         },
       });
   
