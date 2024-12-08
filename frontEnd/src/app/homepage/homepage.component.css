@@ -283,6 +283,65 @@ section{
     z-index: -1; /* Assurez-vous que le pseudo-élément est en dessous du texte */
 }
 
+
+.greenC .button-onboarding{
+    --b: 3px;   /* border thickness */
+    --s: .45em; /* size of the corner */
+    --color: #013238;
+    
+    padding: calc(.5em + var(--s)) calc(.9em + var(--s));
+    color: var(--color);
+    --_p: var(--s);
+    background:
+      conic-gradient(from 90deg at var(--b) var(--b),#0000 90deg,var(--color) 0)
+      var(--_p) var(--_p)/calc(100% - var(--b) - 2*var(--_p)) calc(100% - var(--b) - 2*var(--_p));
+    transition: .3s linear, color 0s, background-color 0s;
+    outline: var(--b) solid #0000;
+    outline-offset: .6em;
+    font-size: 30px;
+    font-weight: 600;
+    border: 0;
+  
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.greenC h1{
+    position: absolute;
+    margin-top: 4%;
+    opacity: 1 ;
+    color: #013238;
+    font-size: 80px;
+    text-transform: uppercase;
+    font-weight: 800;
+    letter-spacing: 2px;
+    line-height: 120px;
+    margin-bottom: 30px;
+}
+
+.greenC p{
+    font-size: 50px;
+    letter-spacing: 2px;
+    margin-top: 2%;
+    margin-bottom: 3%;
+    font-weight: 400;
+    color: #dfd4fb;
+}
+
+.greenC .button-onboarding:hover,
+.button-onboarding:focus-visible{
+  --_p: 0px;
+  outline-color: var(--color);
+  outline-offset: .05em;
+}
+
+.greenC .button-onboarding:active {
+    background: var(--color);
+    color: #fff;
+  }
+
+
 .custom-shape-divider-top-1733401539 {
     position: absolute;
     top: 0;
@@ -300,6 +359,9 @@ section{
     height: 177px;
     
 }
+
+
+
 
 .custom-shape-divider-top-1733401539 .shape-fill {
     fill: #DFD4FB;
