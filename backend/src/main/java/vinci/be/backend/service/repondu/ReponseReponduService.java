@@ -42,15 +42,14 @@ public class ReponseReponduService {
     for (QuestionRepondu question : questionnaireRepondu.getQuestionsRepondues()) {
       for (ReponseRepondu reponse : question.getReponseRepondus()) {
         if (reponse.getId().equals(reponseRepondu.getId())) {
-          if (isEditEngagement) {
+
             System.out.println("isEditEngagement dans le if"+ isEditEngagement);
-            reponse.setEstEngage(selectionne);
+            reponse.setEstEngage(isEditEngagement);
             reponseRepondu.setEstEngage(reponse.isEstEngage());
-          }else {
             System.out.println("isEditEngagement dans le else"+ isEditEngagement);
             reponse.setSelectionne(selectionne);
             reponseRepondu.setSelectionne(reponse.isSelectionne());
-          }
+
           reponseRepository.save(reponseRepondu);
           break;
         }
