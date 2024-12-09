@@ -20,15 +20,18 @@ public class ReponseReponduController {
     this.reponseReponduService = reponseReponduService;
   }
 
-  @PatchMapping("/reponses/selectReponse")
+  @PatchMapping("/reponses/editReponse")
   public ResponseEntity<ReponseRepondu> selectReponse(@RequestBody EditReponse editReponse) {
 
+    System.out.println("editReponse: " + editReponse);
+
     ReponseRepondu reponseRepondu = reponseReponduService.selectReponse(editReponse.getIdReponse(),
-        editReponse.isSelectionne());
+        editReponse.isSelectionne(), editReponse.isEngage());
 
     if (reponseRepondu == null) {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
-    return new ResponseEntity<>(reponseRepondu,HttpStatus.OK);
+    return new ResponseEntity<>(reponseRepondu, HttpStatus.OK);
   }
+
 }

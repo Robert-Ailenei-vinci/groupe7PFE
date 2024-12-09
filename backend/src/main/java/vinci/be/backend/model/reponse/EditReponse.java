@@ -13,7 +13,8 @@ import lombok.ToString;
 @ToString
 public class EditReponse {
 
-  public String idReponse;
-  public boolean selectionne;
+  private String idReponse;
+  private boolean selectionne;
+  private boolean engage;
 
 }
