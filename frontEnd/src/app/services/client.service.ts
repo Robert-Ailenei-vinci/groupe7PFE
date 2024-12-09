@@ -8,7 +8,7 @@ export interface ReponseRepondue {
   idQuestionReponddu: string;
   estEngage: boolean;
   intitule: string; // Intitulé de la réponse
-  estSelectionne?: boolean; // Propriété optionnelle
+  selectionne: boolean; // Propriété optionnelle
 }
 
 // Interface pour les questions répondues
@@ -83,8 +83,8 @@ export class ClientService {
     return this.http.get<Client>(`${this.clientsUrl}/getOne/${clientId}`);
   }
 
-  validateQuestionnaire(questionnaireId: string): Observable<any> {
-    return this.http.patch(`${this.validateUrl}/${questionnaireId}`, null);
+  validateQuestionnaire(Id: string): Observable<any> {
+    return this.http.patch(`${this.validateUrl}/${Id}`, null);
   }
 
   getQuestionnaireClient(userId : string|null): Observable<QuestionnaireDetail> {

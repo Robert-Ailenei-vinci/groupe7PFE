@@ -58,3 +58,9 @@ button {
 button:hover {
   background-color: #303f9f;
 }
+
+.fixed-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%; 
+}

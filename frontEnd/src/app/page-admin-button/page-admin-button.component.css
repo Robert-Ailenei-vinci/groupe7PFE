@@ -1,4 +1,4 @@
-button{
+.button-pageAdmin{
     float: left;
     color: #b5cdbf;
     text-align: center;
@@ -8,9 +8,4 @@ button{
     line-height: 25px;
     border-radius: 4px;
     background-color: #013238;
-}
-
-button :hover{
-    background-color: #013238;
-    color: black;
 }

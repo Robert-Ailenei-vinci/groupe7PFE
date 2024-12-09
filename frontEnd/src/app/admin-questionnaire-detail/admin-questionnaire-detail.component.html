@@ -16,8 +16,19 @@
   
   <div *ngIf="!isLoading && !error && questionnaires.length > 0">
     <div *ngFor="let questionnaire of questionnaires" class="questionnaire">
-      <button (click)="validerQuestionnaire(questionnaire.idQuestionnaire.toString())">Valider Questionnaire</button>
-      <h2>Questionnaire ID: {{ questionnaire.idQuestionnaire }}</h2>
+
+      <div *ngIf="questionnaire.estTermine && !questionnaire.estValide ">
+        <button (click)="validerQuestionnaire(questionnaire.id.toString())">Valider Questionnaire</button>
+      </div>
+
+      <div *ngIf="questionnaire.estValide">
+        <h2>
+          Score Actuelle : {{ questionnaire.score }}
+        </h2>
+        <button (click)="afficherDetailScore(questionnaire.id.toString())">Afficher Detail Score</button>
+      </div>
+
+      <h2>Questionnaire ID: {{ questionnaire.id }}</h2>
       <p><strong>Date de Dernière Validation:</strong> {{ questionnaire.dateDerniereValidation | date:'short' }}</p>
       <p><strong>Pourcentage de Questions Répondues:</strong> {{ questionnaire.pourcentageQuestionRepondu }}%</p>
       <p><strong>Terminé:</strong> {{ questionnaire.estTermine ? 'Oui' : 'Non' }}</p>
@@ -45,7 +56,7 @@
               <ul>
                 <li *ngFor="let reponse of question.reponseRepondus">
                   <label>
-                    <input type="checkbox" [(ngModel)]="reponse.estSelectionne" />
+                    <input type="checkbox" [(ngModel)]="reponse.selectionne" />
                     {{ reponse.intitule }}
                   </label>
                 </li>
@@ -62,7 +73,7 @@
               </ul>
             </td>
             <td>
-              <button (click)="modifierReponseQuestion(questionnaire.idQuestionnaire.toString(),question.id.toString())">Modifier Reponse</button>
+              <button (click)="modifierReponseQuestion(questionnaire.id.toString(),question.id.toString())">Modifier Reponse</button>
             </td>
           </tr>
         </tbody>
@@ -79,4 +90,4 @@
   <pre *ngIf="error">Error: {{ error }}</pre>
 </div>
 
-<app-footer></app-footer>
+<app-footer class="fixed-footer"></app-footer>
