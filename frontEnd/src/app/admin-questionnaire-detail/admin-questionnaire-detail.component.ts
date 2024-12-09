@@ -79,20 +79,21 @@ export class AdminQuestionnaireDetailComponent implements OnInit {
     if (question) {
       question.reponseRepondus.forEach((reponse) => {
         // Appeler la méthode pour chaque réponse
-        this.modifierReponse(reponse.id, reponse.selectionne);
-        timeout(1000);
+        this.modifierReponse(reponse.id, reponse.selectionne, reponse.estEngage);
+        
+        
       });
     } else {
       console.error('Question non trouvée pour l\'id:', questionId);
     }
   }
 
-  modifierReponse(reponseId: string,selectionne: boolean): void {
-    this.clientService.changerReponseQuestion(reponseId,selectionne).subscribe({
+  modifierReponse(reponseId: string,selectionne: boolean, engage:boolean): void {
+    this.clientService.changerReponseQuestion(reponseId,selectionne,engage).subscribe({
       next: (data) => {
         console.log('Réponse modifiée avec succès pour .',data.id, data.intitule, 'en ',data.selectionne);   
         
-        this.ngOnInit();
+    
            
       },
       error: (err) => {

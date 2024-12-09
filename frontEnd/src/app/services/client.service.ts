@@ -68,7 +68,7 @@ export class ClientService {
   private clientsUrl = 'http://localhost:8080/clients'; 
   private questionnairesUrl = 'http://localhost:8080/questionnaires'; 
   private validateUrl = 'http://localhost:8080/questionnaires/validate'; 
-  private reponseUrl = 'http://localhost:8080/reponses/selectReponse';
+  private reponseUrl = 'http://localhost:8080/reponses/editReponse';
   private questionnaireCLientUrl = 'http://localhost:8080/questionnaires/';
 
   constructor(private http: HttpClient) { }
@@ -88,9 +88,9 @@ export class ClientService {
     return this.http.patch(`${this.validateUrl}/${Id}`, null);
   }
 
-  changerReponseQuestion(idReponse: string, selectionne: boolean): Observable<any> {
+  changerReponseQuestion(idReponse: string, selectionne: boolean, engage: boolean): Observable<any> {
     console.log('Changer réponse question:', idReponse,selectionne);
-    return this.http.patch(`${this.reponseUrl}`, {idReponse, selectionne});
+    return this.http.patch(`${this.reponseUrl}`, {idReponse, selectionne,engage});
   }
 
   getQuestionnaireClient(userId : string|null): Observable<QuestionnaireDetail> {
