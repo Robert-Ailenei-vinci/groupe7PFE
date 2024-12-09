@@ -131,4 +131,7 @@ public class QuestionnaireReponduService {
     return questionnaireReponduRepository.save(questionnaire);
   }
 
+  public QuestionnaireRepondu getQuestionnaireById(String idQuestionnaire) {
+    return questionnaireReponduRepository.findById(idQuestionnaire).orElse(null);
+  }
 }

@@ -101,3 +101,6 @@ PATCH http://localhost:8080/questionnaires/finish/6752c48264746a7ee191ca0c
 
 ### Sélectionner une réponse dans une question (ID de la question en paramètre)
 PATCH http://localhost:8080/reponses/selectReponse/6752ffa48e1d522fc03b7d67
+
+### récupérer un questionnaire en fonction de son id
+GET http://localhost:8080/questionnaires/IdQuestionnaire/67530d173167e2686288201a

@@ -15,7 +15,6 @@ import vinci.be.backend.model.questionnairerepondu.QuestionnaireRepondu;
 import vinci.be.backend.service.repondu.QuestionnaireReponduService;
 
 @RestController
-//@RequestMapping("/questionnaireRepondu")
 @CrossOrigin(origins = "*") // Autorise toutes les origines
 public class QuestionnaireReponduController {
 
@@ -62,6 +61,16 @@ public class QuestionnaireReponduController {
   @PatchMapping("/questionnaires/finish/{idQuestionnaire}")
   public ResponseEntity<QuestionnaireRepondu> finishQuestionnaire(@PathVariable String idQuestionnaire) {
     QuestionnaireRepondu questionnaire = questionnaireReponduService.finishQuestionnaire(idQuestionnaire);
+
+    if (questionnaire == null) {
+      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+    return new ResponseEntity<>(questionnaire, HttpStatus.OK);
+  }
+
+  @GetMapping("/questionnaires/IdQuestionnaire/{idQuestionnaire}")
+  public ResponseEntity<QuestionnaireRepondu> getQuestionnaireById(@PathVariable String idQuestionnaire) {
+    QuestionnaireRepondu questionnaire = questionnaireReponduService.getQuestionnaireById(idQuestionnaire);
 
     if (questionnaire == null) {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);
