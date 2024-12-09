@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ClientService, Client } from '../services/client.service';
+import { ClientService, Client } from '../../services/client.service';
 import { Router } from '@angular/router';
-import { HeaderComponent } from '../header/header.component';
-import { FooterComponent } from '../footer/footer.component';
+import { HeaderComponent } from '../../margins/header/header.component';
+import { FooterComponent } from '../../margins/footer/footer.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
-import { ClientService, QuestionnaireDetail, QuestionRepondus } from '../services/client.service';
+import { ClientService, QuestionnaireDetail, QuestionRepondus } from '../../services/client.service';
 
 @Component({
   selector: 'app-questionnaire-manager',

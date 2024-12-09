@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Client, ClientService, QuestionnaireDetail } from '../services/client.service';
-import { HeaderComponent } from '../header/header.component';
-import { FooterComponent } from '../footer/footer.component';
+import { Client, ClientService, QuestionnaireDetail } from '../../services/client.service';
+import { HeaderComponent } from '../../margins/header/header.component';
+import { FooterComponent } from '../../margins/footer/footer.component';
 import { CommonModule } from '@angular/common';
 import { catchError, concatMap, switchMap, timeout } from 'rxjs/operators';
 import { forkJoin, from, Observable, of } from 'rxjs';

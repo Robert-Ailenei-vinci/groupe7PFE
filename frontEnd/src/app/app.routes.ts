@@ -1,14 +1,14 @@
 import { Routes } from '@angular/router';
-import { HomepageComponent } from './homepage/homepage.component';
+import { HomepageComponent } from './pages/homepage/homepage.component';
 import { provideRouter } from '@angular/router';
-import { QuestionComponent } from './question/question.component';
-import { LoginComponent } from './login/login.component';
-import { LoginAdminComponent } from './login-admin/login-admin.component';
-import { PageAdminComponent } from './page-admin/page-admin.component';
+import { QuestionComponent } from './questionnaires/question/question.component';
+import { LoginComponent } from './margins/login/login.component';
+import { LoginAdminComponent } from './admin/login-admin/login-admin.component';
+import { PageAdminComponent } from './admin/page-admin/page-admin.component';
 import { AdminGuard } from './guards/admin.guard';
-import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
-import { AdminQuestionnaireDetailComponent } from './admin-questionnaire-detail/admin-questionnaire-detail.component';
-import { FaqPageComponent } from './faq-page/faq-page.component';
+import { QuestionnaireComponent } from './questionnaires/questionnaire/questionnaire.component';
+import { AdminQuestionnaireDetailComponent } from './admin/admin-questionnaire-detail/admin-questionnaire-detail.component';
+import { FaqPageComponent } from './pages/faq-page/faq-page.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/homepage', pathMatch: 'full' },

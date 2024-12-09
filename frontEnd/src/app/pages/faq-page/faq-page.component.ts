@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { HeaderComponent } from '../header/header.component';
-import { FooterComponent } from '../footer/footer.component';
+import { HeaderComponent } from '../../margins/header/header.component';
+import { FooterComponent } from '../../margins/footer/footer.component';
 
 @Component({
   selector: 'app-faq-page',
