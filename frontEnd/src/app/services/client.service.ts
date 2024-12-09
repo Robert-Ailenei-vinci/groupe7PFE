@@ -19,6 +19,7 @@ export interface QuestionRepondus {
   intitule: string; // Intitulé de la question
   enjeuxPrincipal: string; // Propriété optionnelle
   enjeuxSecondaire: string; // Propriété optionnelle
+  template: string; // Propriété optionnelle
   reponseRepondus: ReponseRepondue[];
   nombrePointObtenu: number;
   commentaire: string;
