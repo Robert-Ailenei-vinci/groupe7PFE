@@ -58,7 +58,7 @@ export class HomepageComponent implements AfterViewInit {
         duration: 2,
         scrollTrigger: {
           trigger: ".jaune .description-container3",
-          start: "top 105%",
+          start: "top 101%",
           end: "bottom 95%",
           toggleActions: "restart continue none none",
         },
@@ -73,7 +73,7 @@ export class HomepageComponent implements AfterViewInit {
         duration: 2,
         scrollTrigger: {
           trigger: ".vertFonce .description-container",
-          start: "top 110%",
+          start: "top 101%",
           end: "bottom 95%",
           toggleActions: "restart continue none none",
         },
@@ -86,7 +86,7 @@ export class HomepageComponent implements AfterViewInit {
         duration: 2,
         scrollTrigger: {
           trigger: ".vertFonce .environnement-container",
-          start: "top 110%",
+          start: "top 101%",
           end: "bottom 60%",
           toggleActions: "restart continue none none",
         },
@@ -99,7 +99,7 @@ export class HomepageComponent implements AfterViewInit {
         duration: 2,
         scrollTrigger: {
           trigger: ".vertFonce .environnement-container2",
-          start: "top 110%",
+          start: "top 101%",
           end: "bottom 60%",
           toggleActions: "restart continue none none",
         },
@@ -112,7 +112,7 @@ export class HomepageComponent implements AfterViewInit {
         duration: 2,
         scrollTrigger: {
           trigger: ".vertFonce .environnement-container3",
-          start: "top 110%",
+          start: "top 101%",
           end: "bottom 60%",
           toggleActions: "restart continue none none",
         },
@@ -125,7 +125,7 @@ export class HomepageComponent implements AfterViewInit {
         duration: 2,
         scrollTrigger: {
           trigger: ".bubble .container",
-          start: "top 110%",
+          start: "top 101%",
           end: "bottom 60%",
           toggleActions: "restart continue none none",
         },

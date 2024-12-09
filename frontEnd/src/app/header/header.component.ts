@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { LogoutComponent } from '../logout/logout.component';
 import { CommonModule } from '@angular/common';
+import { PageAdminButtonComponent } from '../page-admin-button/page-admin-button.component';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [LogoutComponent,CommonModule],
+  imports: [LogoutComponent,CommonModule,PageAdminButtonComponent],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
