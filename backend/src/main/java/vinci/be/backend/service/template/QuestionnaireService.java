@@ -51,6 +51,7 @@ public class QuestionnaireService {
     question.setEnjeuxPrincipal("Energie & carbone");
     question.setEnjeuxSecondaire("gestion de l'energie");
     question.setCategorie(Question.CATEGORIE.Environment);
+    question.setEstEngageForce(false);
     questionRepository.save(question);
 
     // questionnaire
