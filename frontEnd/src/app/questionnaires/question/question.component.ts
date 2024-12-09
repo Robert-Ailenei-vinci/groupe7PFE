@@ -5,7 +5,6 @@ import { CommonModule } from '@angular/common';
 import { QuestionnaireManagerComponent } from '../questionnaire-manager/questionnaire-manager.component';
 import { QuestionnaireDetail, QuestionRepondus } from '../../services/client.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { from } from 'gsap';
 
 
 @Component({
