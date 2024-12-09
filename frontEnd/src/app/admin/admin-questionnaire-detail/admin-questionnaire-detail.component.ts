@@ -4,7 +4,7 @@ import { Client, ClientService, QuestionnaireDetail } from '../../services/clien
 import { HeaderComponent } from '../../margins/header/header.component';
 import { FooterComponent } from '../../margins/footer/footer.component';
 import { CommonModule } from '@angular/common';
-import { catchError, concatMap, switchMap, timeout } from 'rxjs/operators';
+import { catchError, concatMap, last, switchMap, timeout } from 'rxjs/operators';
 import { forkJoin, from, Observable, of } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 
@@ -67,7 +67,7 @@ export class AdminQuestionnaireDetailComponent implements OnInit {
     });
   }
 
-  modifierReponseQuestion(id: string, questionId: string): void {
+  modifierReponseQuestion(id: string, questionId: string,nouveauCommentaire: string): void {
     console.log('Modifier réponse question:', id, questionId);
 
     const question = this.questionnaires[0].questionsRepondues.find(
@@ -88,7 +88,9 @@ export class AdminQuestionnaireDetailComponent implements OnInit {
         reponse.id,
         reponse.selectionne,
         reponse.estEngage
-      ))
+      )),
+      last(),
+      concatMap(() => this.clientService.changerCommentaireQuestion(question.id.toString(), nouveauCommentaire )),
     ).subscribe({
       next: (data) => {
         console.log('Réponse modifiée avec succès pour', data.id, data.intitule, 'en', data.selectionne);
@@ -102,16 +104,6 @@ export class AdminQuestionnaireDetailComponent implements OnInit {
     });
   }
 
-  modifierReponse(reponseId: string,selectionne: boolean, engage:boolean): void {
-    this.clientService.changerReponseQuestion(reponseId,selectionne,engage).subscribe({
-      next: (data) => {
-        console.log('Réponse modifiée avec succès pour .',data.id, data.intitule, 'en ',data.selectionne);    
-      },
-      error: (err) => {
-        console.error('Erreur lors de la modification de la réponse :', err);
-      }
-    });
-  }
 
   validerQuestionnaire(id: string): void {
     console.log('Valider questionnaire:', id);
