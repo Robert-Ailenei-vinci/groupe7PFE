@@ -69,6 +69,7 @@ export class ClientService {
   private questionnairesUrl = 'http://localhost:8080/questionnaires'; 
   private validateUrl = 'http://localhost:8080/questionnaires/validate'; 
   private reponseUrl = 'http://localhost:8080/reponses/selectReponse';
+  private questionnaireCLientUrl = 'http://localhost:8080/questionnaires/';
 
   constructor(private http: HttpClient) { }
 
@@ -91,4 +92,9 @@ export class ClientService {
     console.log('Changer réponse question:', idReponse);
     return this.http.patch(`${this.reponseUrl}/${idReponse}`, null);
   }
+
+  getQuestionnaireClient(userId : string|null): Observable<QuestionnaireDetail> {
+    return this.http.get<QuestionnaireDetail>(this.questionnaireCLientUrl + userId);
+  }
+
 }

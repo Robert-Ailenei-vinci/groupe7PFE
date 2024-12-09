@@ -219,7 +219,7 @@ public class QuestionnaireReponduService {
       // enregistrement en db
       questionRepondu.setNombrePointObtenu(score);
       questionRepositoryRepondu.save(questionRepondu);
-      questionnaireRepondu.setScore(questionnaireRepondu.getScore() + score);
+      questionnaireRepondu.setScore(score);
       questionnaireReponduRepository.save(questionnaireRepondu);
     }
     return questionnaireRepondu;

@@ -53,3 +53,9 @@ button {
   padding: 5px 10px;
   cursor: pointer;
 }
+
+.fixed-footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%; 
+}
