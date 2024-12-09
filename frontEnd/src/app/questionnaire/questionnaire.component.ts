@@ -51,7 +51,7 @@ export class QuestionnaireComponent {
     isAnswered(question: QuestionRepondus): boolean {
       for(let i = 0; i < question.reponseRepondus.length; i++) {
         if(question.reponseRepondus[i].estEngage) return true;
-        if(question.reponseRepondus[i].estSelectionne) return true;
+        if(question.reponseRepondus[i].selectionne) return true;
       }
       return false;
     }
