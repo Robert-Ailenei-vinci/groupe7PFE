@@ -23,7 +23,7 @@ public class ReponseReponduService {
     this.questionnaireReponduRepository = questionnaireReponduRepository;
   }
 
-  public ReponseRepondu selectReponse(String id) {
+  public ReponseRepondu selectReponse(String id, boolean estSelectionne) {
     ReponseRepondu reponseRepondu = reponseRepository.findById(id).orElse(null);
 
     if (reponseRepondu == null) {
@@ -42,7 +42,7 @@ public class ReponseReponduService {
     for (QuestionRepondu question : questionnaireRepondu.getQuestionsRepondues()) {
       for (ReponseRepondu reponse : question.getReponseRepondus()) {
         if (reponse.getId().equals(reponseRepondu.getId())) {
-          reponse.setSelectionne(!reponseRepondu.isSelectionne());
+          reponse.setSelectionne(estSelectionne);
           reponseRepondu.setSelectionne(reponse.isSelectionne());
           reponseRepository.save(reponseRepondu);
           break;
