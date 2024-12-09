@@ -1,11 +1,11 @@
 import { AfterViewInit, Component, Inject, PLATFORM_ID } from '@angular/core';
-import { HeaderComponent } from "../header/header.component";
-import { FooterComponent } from '../footer/footer.component';
+import { HeaderComponent } from '../../margins/header/header.component';
+import { FooterComponent } from '../../margins/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { isPlatformBrowser } from '@angular/common';
-import { BackToTopComponent } from "../back-to-top/back-to-top.component";
+import { BackToTopComponent } from '../../margins/back-to-top/back-to-top.component';
 
 
 @Component({

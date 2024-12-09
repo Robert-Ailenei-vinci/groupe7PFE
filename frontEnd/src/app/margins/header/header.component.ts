@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { LogoutComponent } from '../logout/logout.component';
 import { CommonModule } from '@angular/common';
-import { PageAdminButtonComponent } from '../page-admin-button/page-admin-button.component';
+import { PageAdminButtonComponent } from '../../admin/page-admin-button/page-admin-button.component';
 
 @Component({
   selector: 'app-header',
