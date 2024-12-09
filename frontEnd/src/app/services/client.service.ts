@@ -68,6 +68,7 @@ export class ClientService {
   private clientsUrl = 'http://localhost:8080/clients'; 
   private questionnairesUrl = 'http://localhost:8080/questionnaires'; 
   private validateUrl = 'http://localhost:8080/questionnaires/validate'; 
+  private questionnaireCLientUrl = 'http://localhost:8080/questionnaires/';
 
   constructor(private http: HttpClient) { }
 
@@ -84,5 +85,9 @@ export class ClientService {
 
   validateQuestionnaire(questionnaireId: string): Observable<any> {
     return this.http.patch(`${this.validateUrl}/${questionnaireId}`, null);
+  }
+
+  getQuestionnaireClient(userId : string|null): Observable<QuestionnaireDetail> {
+    return this.http.get<QuestionnaireDetail>(this.questionnaireCLientUrl + userId);
   }
 }

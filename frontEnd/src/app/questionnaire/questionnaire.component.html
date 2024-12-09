@@ -1,70 +1,33 @@
 <app-header></app-header>
 
+<app-questionnaire-manager></app-questionnaire-manager>
+
 <div class="containerQuestionnaire">
     <div class="containerLeft">
         <div class="leftHeader">
             Progression du module ESG & Pacte d'engagement
         </div>
 
-        <div class="categoryContainer">
+        <div class="categoryContainer" *ngFor="let category of questionnaireParCategories | keyvalue">
             <table class="category">
-                <tr class="categoryHeader">
-                    <td><strong>1. ENERGIE & CARBONE</strong></td>
-                    <td>0 / 17</td>
-                </tr>
-                <tr>
-                    <td>1.1 Gestion de l'énergie</td>
-                    <td>0 / 6</td>
-                </tr>
-                <tr>
-                    <td>1.2 Empreinte carbone</td>
-                    <td>0 / 11</td>
-                </tr>
-            </table>
-
-            <table class="category">
-                <tr class="categoryHeader">
-                    <td><strong>1. ENERGIE & CARBONE</strong></td>
-                    <td>0 / 17</td>
-                </tr>
-                <tr>
-                    <td>1.1 Gestion de l'énergie</td>
-                    <td>0 / 6</td>
-                </tr>
-                <tr>
-                    <td>1.2 Empreinte carbone</td>
-                    <td>0 / 11</td>
-                </tr>
-            </table>
-
-            <table class="category">
-                <tr class="categoryHeader">
-                    <td><strong>1. ENERGIE & CARBONE</strong></td>
-                    <td>0 / 17</td>
-                </tr>
-                <tr>
-                    <td>1.1 Gestion de l'énergie</td>
-                    <td>0 / 6</td>
-                </tr>
-                <tr>
-                    <td>1.2 Empreinte carbone</td>
-                    <td>0 / 11</td>
-                </tr>
-            </table>
-
-            <table class="category">
-                <tr class="categoryHeader">
-                    <td><strong>1. ENERGIE & CARBONE</strong></td>
-                    <td>0 / 17</td>
-                </tr>
-                <tr>
-                    <td>1.1 Gestion de l'énergie</td>
-                    <td>0 / 6</td>
-                </tr>
-                <tr>
-                    <td>1.2 Empreinte carbone</td>
-                    <td>0 / 11</td>
-                </tr>
+                <thead>
+                    <tr class="categoryHeader">
+                        <td><strong>{{ category.key }}</strong></td>
+                        <td>
+                            {{ getAnsweredTotalQuestions(category.value) }} / 
+                            {{ getTotalQuestions(category.value) }}
+                        </td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let subCategory of category.value | keyvalue">
+                        <td>{{ subCategory.key }}</td>
+                        <td>
+                            {{ getAnsweredQuestionsCount(subCategory.value) }} / 
+                            {{ getQuestionsCount(subCategory.value) }}
+                        </td>
+                    </tr>
+                </tbody>
             </table>
         </div>
         <div class="leftFooter">
