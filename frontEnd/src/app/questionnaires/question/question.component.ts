@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { HeaderComponent } from '../header/header.component';
-import { FooterComponent } from '../footer/footer.component';
+import { HeaderComponent } from '../../margins/header/header.component';
+import { FooterComponent } from '../../margins/footer/footer.component';
 import { CommonModule } from '@angular/common';
 import { QuestionnaireManagerComponent } from '../questionnaire-manager/questionnaire-manager.component';
-import { QuestionnaireDetail, QuestionRepondus } from '../services/client.service';
+import { QuestionnaireDetail, QuestionRepondus } from '../../services/client.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { from } from 'gsap';
 
 
 @Component({
