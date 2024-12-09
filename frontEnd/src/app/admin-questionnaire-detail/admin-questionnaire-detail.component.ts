@@ -4,8 +4,8 @@ import { Client, ClientService, QuestionnaireDetail } from '../services/client.s
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { CommonModule } from '@angular/common';
-import { catchError, switchMap, timeout } from 'rxjs/operators';
-import { forkJoin, Observable, of } from 'rxjs';
+import { catchError, concatMap, switchMap, timeout } from 'rxjs/operators';
+import { forkJoin, from, Observable, of } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -76,33 +76,41 @@ export class AdminQuestionnaireDetailComponent implements OnInit {
     console.log(question?.intitule);
     
   
-    if (question) {
-      question.reponseRepondus.forEach((reponse) => {
-        // Appeler la méthode pour chaque réponse
-        this.modifierReponse(reponse.id, reponse.selectionne, reponse.estEngage);
-        
-        
-      });
-    } else {
+    if (!question) {
       console.error('Question non trouvée pour l\'id:', questionId);
+      return;
     }
+
+    // On crée un flux à partir du tableau de réponses
+    from(question.reponseRepondus).pipe(
+      // concatMap va s'assurer que chaque appel se fait après la complétion du précédent
+      concatMap(reponse => this.clientService.changerReponseQuestion(
+        reponse.id,
+        reponse.selectionne,
+        reponse.estEngage
+      ))
+    ).subscribe({
+      next: (data) => {
+        console.log('Réponse modifiée avec succès pour', data.id, data.intitule, 'en', data.selectionne);
+      },
+      error: (err) => {
+        console.error('Erreur lors de la modification de la réponse :', err);
+      },
+      complete: () => {
+        console.log('Toutes les réponses ont été traitées.');
+      }
+    });
   }
 
   modifierReponse(reponseId: string,selectionne: boolean, engage:boolean): void {
     this.clientService.changerReponseQuestion(reponseId,selectionne,engage).subscribe({
       next: (data) => {
-        console.log('Réponse modifiée avec succès pour .',data.id, data.intitule, 'en ',data.selectionne);   
-        
-    
-           
+        console.log('Réponse modifiée avec succès pour .',data.id, data.intitule, 'en ',data.selectionne);    
       },
       error: (err) => {
         console.error('Erreur lors de la modification de la réponse :', err);
       }
     });
-
-    
-
   }
 
   validerQuestionnaire(id: string): void {
