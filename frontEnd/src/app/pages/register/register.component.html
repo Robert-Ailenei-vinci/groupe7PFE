@@ -1,1 +1,98 @@
-<p>register works!</p>
+<div class="description">
+    <a id="retour" href="/homepage">Retour à la page</a>
+    <p>Bienvenue sur notre questionnaire d'Onboarding ! Nous sommes ravis de vous accueillir et de vous guider à travers cette première étape importante. Ce questionnaire a été conçu pour mieux vous connaître et vous accompagner dans la découverte de nos outils et services. À la fin de ce processus, vous aurez l'opportunité de réaliser une évaluation complète de votre score ESG. Pour cela, il vous suffira de créer un compte dès maintenant. Prenez le temps de répondre attentivement à chaque question afin que nous puissions vous offrir une expérience personnalisée et adaptée à vos besoins. Bonne exploration et à très bientôt dans la suite de votre parcours ESG !</p>
+</div>
+
+<div class="form-box register">
+    <h2>Registration</h2>
+    <form (ngSubmit)="onSubmit()">
+        <div class="input-box">
+          <input type="text" [(ngModel)]="registrationData.prenom" name="prenom" required>
+          <label>Quel est votre prénom?</label>
+        </div>
+        <div class="input-box">
+          <input type="text" [(ngModel)]="registrationData.nom" name="nom" required>
+          <label>Quel est votre nom?</label>
+        </div>
+        <div class="input-box">
+          <input type="email" [(ngModel)]="registrationData.email" name="email" required>
+          <label>Quelle est votre adresse e-mail ?</label>
+        </div>
+        <div class="input-box">
+          <input type="text" [(ngModel)]="registrationData.fonction" name="fonction" required>
+          <label>Quelle est votre fonction ?</label>
+        </div>
+        <div class="input-box">
+          <input type="text" [(ngModel)]="registrationData.entreprise" name="entreprise" required>
+          <label>Quel est le nom de votre entreprise ?</label>
+        </div>
+        <div class="input-box">
+          <input type="text" [(ngModel)]="registrationData.numeroEntreprise" name="numeroEntreprise" required>
+          <label>Quel est votre n° d'entreprise ?</label>
+        </div>
+        <div class="input-box">
+          <input type="text" [(ngModel)]="registrationData.formeJuridique" name="formeJuridique" required>
+          <label>Quelle est la forme juridique ?</label>
+        </div>
+        <div class="input-box">
+          <input type="text" [(ngModel)]="registrationData.adresseSiege" name="adresseSiege" required>
+          <label>Quelle est l'adresse du siège social ?</label>
+        </div>
+        <div class="input-box">
+          <input type="text" [(ngModel)]="registrationData.siteWeb" name="siteWeb" required>
+          <label>Quelle est l'adresse de votre site web ?</label>
+        </div>
+        <div class="input-box">
+          <input type="text" [(ngModel)]="registrationData.codeNace" name="codeNace" required>
+          <label>Quel est le Code Nace de votre activité principale ?</label>
+        </div>
+        <div class="input-box">
+          <textarea [(ngModel)]="registrationData.descriptionActivite" name="descriptionActivite" required></textarea>
+          <label>Décrivez votre activité en quelques mots</label>
+        </div>
+        <div class="input-box">
+          <input type="number" [(ngModel)]="registrationData.nombreTravailleurs" name="nombreTravailleurs" required>
+          <label>Combien de travailleurs comptez-vous ?</label>
+        </div>
+        <div class="input-box">
+          <input type="text" [(ngModel)]="registrationData.chiffreAffaires" name="chiffreAffaires" required>
+          <label>Quel est le chiffre d'affaires du dernier exercice fiscal ?</label>
+        </div>
+        <div class="input-box">
+          <textarea [(ngModel)]="registrationData.certifications" name="certifications" required></textarea>
+          <label>Disposez-vous déjà d'une certification ou d'un label ? Si oui, lesquels?</label>
+        </div>
+        <div class="input-box">
+          <textarea [(ngModel)]="registrationData.litiges" name="litiges" required></textarea>
+          <label>Est-ce que votre entreprise est actuellement impliquée dans un litige concernant le respect des lois sociales et environnementales ?</label>
+        </div>
+        <div class="input-box">
+          <textarea [(ngModel)]="registrationData.engagement" name="engagement" required></textarea>
+          <label>Dans le cadre de la certification ShiftingPact™, vous engagez-vous sur l’honneur à répondre de manière objective et honnête à nos questions ?</label>
+        </div>
+        <div class="input-box">
+          <textarea [(ngModel)]="registrationData.demandeSubside" name="demandeSubside" required></textarea>
+          <label>Avez-vous l'intention de soumettre une demande de subside pour le coût du "travail d'analyse visant l'obtention du label" ?</label>
+        </div>
+        <div class="input-box">
+          <textarea [(ngModel)]="registrationData.autre" name="autre"></textarea>
+          <label>Souhaitez-vous ajouter autre chose?</label>
+        </div>
+        <div class="input-box">
+          <textarea [(ngModel)]="registrationData.remarques" name="remarques"></textarea>
+          <label>Votre remarque, commentaire, précision...</label>
+        </div>
+        <div class="input-box">
+          <textarea [(ngModel)]="registrationData.connaissanceShiftingPact" name="connaissanceShiftingPact"></textarea>
+          <label>Comment avez-vous connu ShiftingPact™?</label>
+        </div>
+      
+        <button type="submit" class="btn">Sign Up</button>
+        <div class="login-register">
+          <p>Already have an account ?
+            <a href="/login" class="login-link">Login</a></p>
+        </div>
+      </form>
+</div>
+
+<app-footer></app-footer>
