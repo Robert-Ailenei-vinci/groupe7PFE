@@ -48,7 +48,7 @@ public class Client {
         nomEntreprise == null || nomEntreprise.isBlank() ||
         dernierChiffreDAffaire < 0 ||
         nbTravailleur < 0 ||
-        password == null || password.length() < 8;
+        password == null;
   }
 
 }

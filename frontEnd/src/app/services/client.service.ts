@@ -49,7 +49,8 @@ export interface Client {
   formeJuridique: string;
   adresseSiegeSocial: string;
   adresseSiteWeb: string;
-  codeNaceActivitePrincipale: string;
+  codeNace: string,
+  activitePrincipale: string;
   dernierChiffreDAffaire: number;
   estFranchise: boolean;
   nbTravailleur: number;
@@ -59,6 +60,26 @@ export interface Client {
   commentaire: string;
 }
 
+export interface ClientWithoutId {
+  prenom: string;
+  nom: string;
+  email: string;
+  fonction: string;
+  nomEntreprise: string;
+  numEntreprise: string;
+  formeJuridique: string;
+  adresseSiegeSocial: string;
+  adresseSiteWeb: string;
+  codeNace: string,
+  activitePrincipale: string;
+  dernierChiffreDAffaire: number;
+  estFranchise: boolean;
+  nbTravailleur: number;
+  estDansUnLitige: boolean;
+  demandeDeLabel: boolean;
+  partenaire: string;
+  commentaire: string;
+}
 
 @Injectable({
   providedIn: 'root'
@@ -70,6 +91,7 @@ export class ClientService {
   private validateUrl = 'http://localhost:8080/questionnaires/validate'; 
   private reponseUrl = 'http://localhost:8080/reponses/editReponse';
   private questionnaireCLientUrl = 'http://localhost:8080/questionnaires/';
+  private registerUrl = 'http://localhost:8080/clients/register';
 
   constructor(private http: HttpClient) { }
 
@@ -87,7 +109,9 @@ export class ClientService {
   validateQuestionnaire(Id: string): Observable<any> {
     return this.http.patch(`${this.validateUrl}/${Id}`, null);
   }
-
+  addClient(client: ClientWithoutId): Observable<ClientWithoutId> {
+    return this.http.post<ClientWithoutId>(this.registerUrl, client);
+  }
   changerReponseQuestion(idReponse: string, selectionne: boolean, engage: boolean): Observable<any> {
     console.log('Changer réponse question:', idReponse,selectionne);
     return this.http.patch(`${this.reponseUrl}`, {idReponse, selectionne,engage});

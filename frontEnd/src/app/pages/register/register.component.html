@@ -23,11 +23,11 @@
           <label>Quelle est votre fonction ?</label>
         </div>
         <div class="input-box">
-          <input type="text" [(ngModel)]="registrationData.entreprise" name="entreprise" required>
+          <input type="text" [(ngModel)]="registrationData.nomEntreprise" name="nomEntreprise" required>
           <label>Quel est le nom de votre entreprise ?</label>
         </div>
         <div class="input-box">
-          <input type="text" [(ngModel)]="registrationData.numeroEntreprise" name="numeroEntreprise" required>
+          <input type="text" [(ngModel)]="registrationData.numEntreprise" name="numEntreprise" required>
           <label>Quel est votre n° d'entreprise ?</label>
         </div>
         <div class="input-box">
@@ -35,11 +35,11 @@
           <label>Quelle est la forme juridique ?</label>
         </div>
         <div class="input-box">
-          <input type="text" [(ngModel)]="registrationData.adresseSiege" name="adresseSiege" required>
+          <input type="text" [(ngModel)]="registrationData.adresseSiegeSocial" name="adresseSiegeSocial" required>
           <label>Quelle est l'adresse du siège social ?</label>
         </div>
         <div class="input-box">
-          <input type="text" [(ngModel)]="registrationData.siteWeb" name="siteWeb" required>
+          <input type="text" [(ngModel)]="registrationData.adresseSiteWeb" name="adresseSiteWeb" required>
           <label>Quelle est l'adresse de votre site web ?</label>
         </div>
         <div class="input-box">
@@ -47,44 +47,40 @@
           <label>Quel est le Code Nace de votre activité principale ?</label>
         </div>
         <div class="input-box">
-          <textarea [(ngModel)]="registrationData.descriptionActivite" name="descriptionActivite" required></textarea>
+          <textarea [(ngModel)]="registrationData.activitePrincipale" name="activitePrincipale" required></textarea>
           <label>Décrivez votre activité en quelques mots</label>
         </div>
         <div class="input-box">
-          <input type="number" [(ngModel)]="registrationData.nombreTravailleurs" name="nombreTravailleurs" required>
-          <label>Combien de travailleurs comptez-vous ?</label>
-        </div>
-        <div class="input-box">
-          <input type="text" [(ngModel)]="registrationData.chiffreAffaires" name="chiffreAffaires" required>
+          <input type="number" [(ngModel)]="registrationData.dernierChiffreDAffaire" name="dernierChiffreDAffaire" required>
           <label>Quel est le chiffre d'affaires du dernier exercice fiscal ?</label>
         </div>
         <div class="input-box">
-          <textarea [(ngModel)]="registrationData.certifications" name="certifications" required></textarea>
-          <label>Disposez-vous déjà d'une certification ou d'un label ? Si oui, lesquels?</label>
+          <input type="checkbox" [(ngModel)]="registrationData.estFranchise" name="estFranchise">
+          <label>Est-ce une franchise ?</label>
         </div>
         <div class="input-box">
-          <textarea [(ngModel)]="registrationData.litiges" name="litiges" required></textarea>
+          <input type="number" [(ngModel)]="registrationData.nbTravailleur" name="nbTravailleur" required>
+          <label>Combien de travailleurs comptez-vous ?</label>
+        </div>
+        <div class="input-box">
+          <textarea [(ngModel)]="registrationData.estDansUnLitige" name="estDansUnLitige" required></textarea>
           <label>Est-ce que votre entreprise est actuellement impliquée dans un litige concernant le respect des lois sociales et environnementales ?</label>
         </div>
         <div class="input-box">
-          <textarea [(ngModel)]="registrationData.engagement" name="engagement" required></textarea>
-          <label>Dans le cadre de la certification ShiftingPact™, vous engagez-vous sur l’honneur à répondre de manière objective et honnête à nos questions ?</label>
-        </div>
-        <div class="input-box">
-          <textarea [(ngModel)]="registrationData.demandeSubside" name="demandeSubside" required></textarea>
+          <textarea [(ngModel)]="registrationData.demandeDeLabel" name="demandeDeLabel" required></textarea>
           <label>Avez-vous l'intention de soumettre une demande de subside pour le coût du "travail d'analyse visant l'obtention du label" ?</label>
         </div>
         <div class="input-box">
-          <textarea [(ngModel)]="registrationData.autre" name="autre"></textarea>
+          <textarea [(ngModel)]="registrationData.partenaire" name="partenaire"></textarea>
+          <label>Comment avez-vous connu ShiftingPact™?</label>
+        </div>
+        <div class="input-box">
+          <textarea [(ngModel)]="registrationData.commentaire" name="commentaire"></textarea>
           <label>Souhaitez-vous ajouter autre chose?</label>
         </div>
         <div class="input-box">
-          <textarea [(ngModel)]="registrationData.remarques" name="remarques"></textarea>
-          <label>Votre remarque, commentaire, précision...</label>
-        </div>
-        <div class="input-box">
-          <textarea [(ngModel)]="registrationData.connaissanceShiftingPact" name="connaissanceShiftingPact"></textarea>
-          <label>Comment avez-vous connu ShiftingPact™?</label>
+          <input type="password" [(ngModel)]="password" name="password" required>
+          <label>Mot de passe</label>
         </div>
       
         <button type="submit" class="btn">Sign Up</button>

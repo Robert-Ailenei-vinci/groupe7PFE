@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { FooterComponent } from '../../margins/footer/footer.component';
+import { ClientService, ClientWithoutId } from '../../services/client.service';
 
 @Component({
   selector: 'app-register',
@@ -10,7 +11,7 @@ import { FooterComponent } from '../../margins/footer/footer.component';
   imports: [FormsModule, FooterComponent]
 })
 export class RegisterComponent {
-  registrationData = {
+  registrationData: ClientWithoutId = {
     prenom: '',
     nom: '',
     email: '',
@@ -18,23 +19,30 @@ export class RegisterComponent {
     nomEntreprise: '',
     numEntreprise: '',
     formeJuridique: '',
-    adreadresseSiegeSocial: '',
+    adresseSiegeSocial: '',
     adresseSiteWeb: '',
     codeNace: '',
-    descriptionActivite: '',
-    nombreTravailleurs: 0,
-    chiffreAffaires: '',
-    certifications: '',
-    litiges: '',
-    engagement: '',
-    demandeSubside: '',
-    autre: '',
-    remarques: '',
-    connaissanceShiftingPact: ''
+    activitePrincipale: '',
+    dernierChiffreDAffaire: 0,
+    estFranchise: false,
+    nbTravailleur: 0,
+    estDansUnLitige: false,
+    demandeDeLabel: false,
+    partenaire: '',
+    commentaire: '',
   };
 
+  password: string= '';
+
+  constructor(private clientService: ClientService) {}
+
   onSubmit() {
-    // Envoyer registrationData au backend
-    console.log(this.registrationData);
+    const dataToSend = {
+      ...this.registrationData,
+      password: this.password
+    };
+    this.clientService.addClient(dataToSend).subscribe((response: any) => {
+      console.log('Client added successfully', response);
+    });
   }
 }
