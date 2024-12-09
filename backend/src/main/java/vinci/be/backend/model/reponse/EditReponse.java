@@ -14,6 +14,6 @@ import lombok.ToString;
 public class EditReponse {
 
   public String idReponse;
-  public boolean estSelectionne;
+  public boolean selectionne;
 
 }
