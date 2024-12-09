@@ -19,14 +19,7 @@ public class Questionnaire {
   private String id;
   private String name;
   private String statut;
-  private Templates template;
   private List<Question> questions;
 
-  public enum Templates {
-    ALL,
-    OWNEDFACILITY,
-    WORKERS,
-    PRODUITS,
-    FACILITY
-  }
+
 }

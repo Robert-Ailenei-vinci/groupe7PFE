@@ -1,5 +1,6 @@
 package vinci.be.backend.model.client;
 
+import java.util.List;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.springframework.data.annotation.Id;
@@ -7,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.mongodb.core.mapping.Document;
+import vinci.be.backend.model.question.Question.Templates;
 
 @Getter
 @Setter
@@ -36,6 +38,7 @@ public class Client {
   private String partenaire;
   private String commentaire;
   private String password;
+  private List<Templates> templates;
 
   /**
    * Méthode permettant de valider toutes les données d'entrée

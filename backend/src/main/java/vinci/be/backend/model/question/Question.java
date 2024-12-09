@@ -27,6 +27,15 @@ public class Question {
   private String enjeuxSecondaire;
   private CATEGORIE categorie;
   private boolean estEngageForce;
+  private Templates template;
+
+  public enum Templates {
+    ALL,
+    OWNEDFACILITY,
+    WORKERS,
+    PRODUITS,
+    FACILITY
+  }
 
   public enum CATEGORIE {
 

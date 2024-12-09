@@ -38,25 +38,26 @@ POST http://localhost:8080/clients/register
 Content-Type: application/json
 
 {
-  "prenom": "",
-  "nom": "Dupont",
-  "email": "jean.dupontexample.com",
-  "fonction": "CEO",
-  "nomEntreprise": "Dupont Entreprises",
-  "numEntreprise": "123456789",
-  "formeJuridique": "SA",
-  "adresseSiegeSocial": "123 Rue Principale, 1000 Bruxelles",
-  "adresseSiteWeb": "https://dupont-entreprises.com",
-  "codeNaceActivitePrincipale": "6201",
-  "dernierChiffreDAffaire": -1500000.75,
-  "estFranchise": false,
-  "nbTravailleur": -50,
-  "estDansUnLitige": false,
-  "demandeDeLabel": true,
-  "partenaire": "Banque Centrale",
-  "commentaire": "Client VIP",
-  "mdp": "pass"
+  "prenom": "Sophie",
+  "nom": "Martin",
+  "email": "sophie.martin@example.com",
+  "fonction": "Directrice Marketing",
+  "nomEntreprise": "Martin & Co",
+  "numEntreprise": "987654321",
+  "formeJuridique": "SRL",
+  "adresseSiegeSocial": "456 Avenue du Commerce, 7500 Tournai",
+  "adresseSiteWeb": "https://martin-co.be",
+  "codeNaceActivitePrincipale": "7311",
+  "dernierChiffreDAffaire": 250000.50,
+  "estFranchise": true,
+  "nbTravailleur": 20,
+  "estDansUnLitige": true,
+  "demandeDeLabel": false,
+  "partenaire": "Agence Publicitaire X",
+  "commentaire": "En attente de validation du partenariat",
+  "password": "securePass2024!"
 }
+
 
 ### connecter client (valide)
 POST http://localhost:8080/clients/login
@@ -81,7 +82,7 @@ POST http://localhost:8080/questionnaires/create/questionnaireESG
 Content-Type: application/json
 
 {
-  "idClient": "6751b25c0b15056747f31f26"
+  "idClient": "675724b77c6d3f12f30ab513"
 }
 
 ### Récupérer tous les clients
@@ -97,15 +98,15 @@ GET http://localhost:8080/questionnaires/6752e868faa3e31b8f1a4b45
 PATCH http://localhost:8080/questionnaires/validate/6756e14b96dde15ae88a068c
 
 ### Terminer un questionnaire ESG
-PATCH http://localhost:8080/questionnaires/finish/6756e14b96dde15ae88a068c
+PATCH http://localhost:8080/questionnaires/finish/6757257b7c6d3f12f30ab515
 
 ### Sélectionner une réponse dans une question (ID de la question en paramètre)
 PATCH http://localhost:8080/reponses/editReponse
 Content-Type: application/json
 
 {
-  "idReponse": "6756c4d38aa8732c1218d6d0",
-  "selectionne": false,
+  "idReponse": "6757257b7c6d3f12f30ab517",
+  "selectionne": true,
   "engage": false
 }
 
@@ -113,7 +114,7 @@ Content-Type: application/json
 GET http://localhost:8080/questionnaires/IdQuestionnaire/6756c4d38aa8732c1218d6ce
 
 ### récupérer un questionnaire en fonction de l'id du client
-GET http://localhost:8080/questionnaires/6751b25c0b15056747f31f26
+GET http://localhost:8080/questionnaires/675724b77c6d3f12f30ab513
 
 ### Modifier les commentaires d'une question
 PATCH http://localhost:8080/questions/editComment

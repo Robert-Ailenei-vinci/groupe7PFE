@@ -92,6 +92,7 @@ public class QuestionnaireReponduService {
     questionRepondu.setEnjeuxSecondaire(question.getEnjeuxSecondaire());
     questionRepondu.setIdQuestion(question.getId());
     questionRepondu.setEstEngageForce(question.isEstEngageForce());
+    questionRepondu.setTemplate(question.getTemplate());
     questionRepondu = questionReponduRepository.save(questionRepondu);
 
     QuestionRepondu finalQuestionRepondu = questionRepondu;
@@ -172,8 +173,6 @@ public class QuestionnaireReponduService {
         System.out.println("la reponseRepondu : "+reponseRepondu.toString());
       }
     }
-
-
 
     // calcul du score
     for(QuestionRepondu questionRepondu : questionRepondus){

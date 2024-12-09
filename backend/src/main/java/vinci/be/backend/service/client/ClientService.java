@@ -1,9 +1,11 @@
 package vinci.be.backend.service.client;
 
+import java.util.ArrayList;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import vinci.be.backend.model.client.Client;
 import vinci.be.backend.model.client.UserCredential;
+import vinci.be.backend.model.question.Question.Templates;
 import vinci.be.backend.repository.ClientRepository;
 
 @Service
@@ -22,6 +24,13 @@ public class ClientService {
     if(clientRepository.findByEmail(client.getEmail()) != null) {
       return null;
     }
+
+    client.setTemplates(new ArrayList<>());
+
+    if (client.getNbTravailleur() > 1){
+      client.getTemplates().add(Templates.WORKERS);
+    }
+    client.getTemplates().add(Templates.ALL);
 
     String hashedPassword = passwordEncoder.encode(client.getPassword());
     client.setPassword(hashedPassword);

@@ -4,8 +4,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import vinci.be.backend.model.question.Question;
+import vinci.be.backend.model.question.Question.Templates;
 import vinci.be.backend.model.questionnaire.Questionnaire;
-import vinci.be.backend.model.questionnaire.Questionnaire.Templates;
 import vinci.be.backend.model.reponse.Reponse;
 import vinci.be.backend.repository.QuestionRepository;
 import vinci.be.backend.repository.QuestionnaireRepository;
@@ -52,13 +52,13 @@ public class QuestionnaireService {
     question.setEnjeuxSecondaire("gestion de l'energie");
     question.setCategorie(Question.CATEGORIE.Environment);
     question.setEstEngageForce(false);
+    question.setTemplate(Templates.ALL);
     questionRepository.save(question);
 
     // questionnaire
     Questionnaire questionnaire = new Questionnaire();
     questionnaire.setName("ESG");
     questionnaire.setStatut("A compléter");
-    questionnaire.setTemplate(Templates.ALL);
     questionnaire.setQuestions(List.of(question));
     questionnaireRepository.save(questionnaire);
   }
