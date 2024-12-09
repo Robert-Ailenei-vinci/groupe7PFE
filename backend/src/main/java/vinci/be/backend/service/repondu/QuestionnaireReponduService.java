@@ -91,6 +91,7 @@ public class QuestionnaireReponduService {
     questionRepondu.setEnjeuxPrincipal(question.getEnjeuxPrincipal());
     questionRepondu.setEnjeuxSecondaire(question.getEnjeuxSecondaire());
     questionRepondu.setIdQuestion(question.getId());
+    questionRepondu.setEstEngageForce(question.isEstEngageForce());
     questionRepondu = questionReponduRepository.save(questionRepondu);
 
     QuestionRepondu finalQuestionRepondu = questionRepondu;
@@ -158,8 +159,6 @@ public class QuestionnaireReponduService {
       System.out.println("questionnaireRepondu null");
       return null;
     }
-    System.out.println(questionnaireRepondu.toString());
-
 
     // récupération des question répondues
     Iterable<QuestionRepondu> questionRepondus = questionRepositoryRepondu.findAllByIdQuestionnaireRepondu(questionnaireRepondu.getId());
@@ -186,11 +185,7 @@ public class QuestionnaireReponduService {
       }
 
       for(ReponseRepondu reponseRepondu : questionRepondu.getReponseRepondus()){
-        boolean test = reponseRepondu.isSelectionne();
-        System.out.println("la réponse est selectionné ="+test);
-        System.out.println(reponseRepondu.toString());
         if(reponseRepondu.isSelectionne()){
-          System.out.println("je suis selectionnée !!!");
           Reponse reponse = reponseRepository.findById(reponseRepondu.getIdReponse()).orElse(null);
 
           if(reponse == null){
@@ -201,13 +196,9 @@ public class QuestionnaireReponduService {
           // rajout du score de l'engagement
           if(reponseRepondu.isEstEngage()){
             score += reponse.getScoreEngagement();
-            System.out.println("le score d'engagement est : "+reponse.getScoreEngagement());
-            System.out.println("le score après engagement est : "+score);
           }
           // calcule du score total
           score += reponse.getScoreTotal();
-          System.out.println("le score total est : "+reponse.getScoreTotal());
-          System.out.println("le score après total est : "+score);
 
           if (score > question.getNombrePointMax()) {
             score = question.getNombrePointMax();
@@ -215,11 +206,10 @@ public class QuestionnaireReponduService {
 
         }
       }
-      System.out.println("le score est : "+score);
       // enregistrement en db
       questionRepondu.setNombrePointObtenu(score);
       questionRepositoryRepondu.save(questionRepondu);
-      questionnaireRepondu.setScore(questionnaireRepondu.getScore() + score);
+      questionnaireRepondu.setScore(score);
       questionnaireReponduRepository.save(questionnaireRepondu);
     }
     return questionnaireRepondu;

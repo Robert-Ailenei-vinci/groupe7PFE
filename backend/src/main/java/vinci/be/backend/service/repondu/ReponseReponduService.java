@@ -23,7 +23,7 @@ public class ReponseReponduService {
     this.questionnaireReponduRepository = questionnaireReponduRepository;
   }
 
-  public ReponseRepondu selectReponse(String id) {
+  public ReponseRepondu selectReponse(String id, boolean selectionne, boolean isEditEngagement) {
     ReponseRepondu reponseRepondu = reponseRepository.findById(id).orElse(null);
 
     if (reponseRepondu == null) {
@@ -42,8 +42,15 @@ public class ReponseReponduService {
     for (QuestionRepondu question : questionnaireRepondu.getQuestionsRepondues()) {
       for (ReponseRepondu reponse : question.getReponseRepondus()) {
         if (reponse.getId().equals(reponseRepondu.getId())) {
-          reponse.setSelectionne(!reponseRepondu.isSelectionne());
-          reponseRepondu.setSelectionne(reponse.isSelectionne());
+          if (isEditEngagement) {
+            System.out.println("isEditEngagement dans le if"+ isEditEngagement);
+            reponse.setEstEngage(selectionne);
+            reponseRepondu.setEstEngage(reponse.isEstEngage());
+          }else {
+            System.out.println("isEditEngagement dans le else"+ isEditEngagement);
+            reponse.setSelectionne(selectionne);
+            reponseRepondu.setSelectionne(reponse.isSelectionne());
+          }
           reponseRepository.save(reponseRepondu);
           break;
         }

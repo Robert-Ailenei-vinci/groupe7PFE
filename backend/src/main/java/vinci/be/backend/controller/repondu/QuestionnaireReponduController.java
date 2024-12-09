@@ -50,16 +50,28 @@ public class QuestionnaireReponduController {
 
   @PatchMapping("/questionnaires/validate/{idQuestionnaire}")
   public ResponseEntity<QuestionnaireRepondu> validateQuestionnaire(@PathVariable String idQuestionnaire) {
+
+    QuestionnaireRepondu questionnaireBefore = questionnaireReponduService.getQuestionnaireById(idQuestionnaire);
+
+    if (questionnaireBefore.isEstValide()) {
+      return new ResponseEntity<>(HttpStatus.CONFLICT);
+    }
     QuestionnaireRepondu questionnaire = questionnaireReponduService.validateQuestionnaire(idQuestionnaire);
 
     if (questionnaire == null) {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
+
     return new ResponseEntity<>(questionnaire, HttpStatus.OK);
   }
 
   @PatchMapping("/questionnaires/finish/{idQuestionnaire}")
   public ResponseEntity<QuestionnaireRepondu> finishQuestionnaire(@PathVariable String idQuestionnaire) {
+    QuestionnaireRepondu questionnaireBefore = questionnaireReponduService.getQuestionnaireById(idQuestionnaire);
+    if (questionnaireBefore.isEstTermine()) {
+      return new ResponseEntity<>(HttpStatus.CONFLICT);
+    }
+
     QuestionnaireRepondu questionnaire = questionnaireReponduService.finishQuestionnaire(idQuestionnaire);
 
     if (questionnaire == null) {
