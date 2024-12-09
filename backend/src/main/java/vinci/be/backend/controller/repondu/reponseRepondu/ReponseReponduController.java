@@ -1,4 +1,4 @@
-package vinci.be.backend.controller.reponse;
+package vinci.be.backend.controller.repondu.reponseRepondu;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

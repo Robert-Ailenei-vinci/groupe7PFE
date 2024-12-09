@@ -1,63 +1,50 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { CommonModule } from '@angular/common';
+import { QuestionnaireManagerComponent } from '../questionnaire-manager/questionnaire-manager.component';
+import { QuestionnaireDetail, QuestionRepondus } from '../services/client.service';
+import { ActivatedRoute } from '@angular/router';
 
-/*
-{
-  "intitule":"Suivez-vous la consommation d'énergie XXX ?",
-  "reponses":[
-      {
-        "intitule":"oui",
-        "point":{"$numberDouble":"3.0"}
-      },
-      {
-        "intitule":"non","point":{"$numberDouble":"0.0"}
-      }
-    ],
-  "nbrChoixMax":{"$numberInt":"2"},
-  "estQuestionLibre":false,
-  "nombrePointMax":{"$numberInt":"2"},
-}
-*/
-
-
-interface Reponse {
-  intitule: string;
-  point: { $numberDouble: string };
-}
-
-interface Question {
-  intitule: string;
-  reponses: Reponse[];
-  nbrChoixMax: { $numberInt: string };
-  estQuestionLibre: boolean;
-  nombrePointMax: { $numberInt: string };
-}
 
 @Component({
   selector: 'app-question',
-  imports: [HeaderComponent, FooterComponent, CommonModule],
+  imports: [HeaderComponent, FooterComponent, CommonModule, QuestionnaireManagerComponent],
   templateUrl: './question.component.html',
   styleUrls: ['./question.component.css'],
 })
-export class QuestionComponent {
-  progress: number = 10;
+export class QuestionComponent implements OnInit {
+  questionnaire: QuestionnaireDetail[] = [];
+  question!: QuestionRepondus; // La question à afficher
+  isLoading = true;
 
-  question: Question = {
-    intitule: "Suivez-vous la consommation d'énergie XXX ?",
-    reponses: [
-      {
-        intitule: "oui",
-        point: { $numberDouble: "3.0" }
-      },
-      {
-        intitule: "non",
-        point: { $numberDouble: "0.0" }
+  constructor(private route: ActivatedRoute) {}
+
+  ngOnInit(): void {
+    const questionId = this.route.snapshot.paramMap.get('id');
+  
+    setTimeout(() => {
+      this.questionnaire = QuestionnaireManagerComponent.getQuestionnaireDetail();
+    
+      if (this.questionnaire.length === 0) {
+        console.error('Questionnaire vide ou non chargé');
+        this.isLoading = false;
+        return;
       }
-    ],
-    nbrChoixMax: { $numberInt: "2" },
-    estQuestionLibre: false,
-    nombrePointMax: { $numberInt: "2" }
-  };
+    
+      const questions = this.questionnaire[0].questionsRepondues;
+      const foundQuestion = questions.find((q) => q.id === questionId);
+    
+      if (!foundQuestion) {
+        console.error('Aucune question trouvée pour cet ID');
+        this.isLoading = false;
+        return;
+      }
+      
+      this.question = foundQuestion;
+      console.log('Question trouvée :', this.question);
+      this.isLoading = false;
+    }, 700);
+  }
+  
 }

@@ -56,6 +56,23 @@
     transition: 0.3s;
   }
 
+  .boxTextSelected{
+    cursor: pointer;
+    min-width: 250px;
+    min-height: 50px;
+    background-color: #108693;
+    font-weight: bold;
+    padding: 20px 40px;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 1.3em;
+    transition: 0.3s;
+  }
+
+  .boxTextSelected:hover{
+    background-color: #0a6c77;
+  }
+
   .engagement{
     text-align: center;
     font-size: 1em;

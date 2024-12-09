@@ -5,11 +5,12 @@ import { RouterModule } from '@angular/router';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { isPlatformBrowser } from '@angular/common';
+import { BackToTopComponent } from "../back-to-top/back-to-top.component";
 
 
 @Component({
   selector: 'app-homepage',
-  imports: [HeaderComponent, FooterComponent,RouterModule],
+  imports: [HeaderComponent, FooterComponent, RouterModule, BackToTopComponent],
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.css'
 })
