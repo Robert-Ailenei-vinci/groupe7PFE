@@ -108,7 +108,6 @@ Content-Type: application/json
   "estSelectionne": true
 }
 
-
 ### récupérer un questionnaire en fonction de son id
 GET http://localhost:8080/questionnaires/IdQuestionnaire/6756c4d38aa8732c1218d6ce
 
