@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { HeaderComponent } from "../header/header.component";
+import { HeaderComponent } from "../../margins/header/header.component";
 import { Router } from '@angular/router';
-import { FooterComponent } from '../footer/footer.component';
+import { FooterComponent } from '../../margins/footer/footer.component';
 
 @Component({
   selector: 'app-login-admin',

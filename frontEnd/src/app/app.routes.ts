@@ -1,13 +1,16 @@
 import { Routes } from '@angular/router';
-import { HomepageComponent } from './homepage/homepage.component';
+import { HomepageComponent } from './pages/homepage/homepage.component';
 import { provideRouter } from '@angular/router';
-import { QuestionComponent } from './question/question.component';
-import { LoginComponent } from './login/login.component';
-import { LoginAdminComponent } from './login-admin/login-admin.component';
-import { PageAdminComponent } from './page-admin/page-admin.component';
+import { QuestionComponent } from './questionnaires/question/question.component';
+import { LoginComponent } from './pages/login/login.component';
+import { LoginAdminComponent } from './admin/login-admin/login-admin.component';
+import { PageAdminComponent } from './admin/page-admin/page-admin.component';
 import { AdminGuard } from './guards/admin.guard';
-import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
-import { AdminQuestionnaireDetailComponent } from './admin-questionnaire-detail/admin-questionnaire-detail.component';
+import { QuestionnaireComponent } from './questionnaires/questionnaire/questionnaire.component';
+import { AdminQuestionnaireDetailComponent } from './admin/admin-questionnaire-detail/admin-questionnaire-detail.component';
+import { FaqPageComponent } from './pages/faq-page/faq-page.component';
+import { RegisterComponent } from './pages/register/register.component';
+
 
 export const routes: Routes = [
   { path: '', redirectTo: '/homepage', pathMatch: 'full' },
@@ -18,7 +21,8 @@ export const routes: Routes = [
   { path: 'loginAdmin', component: LoginAdminComponent },
   { path: 'esg/question/:id', component: QuestionComponent },
   { path:'esg', component: QuestionnaireComponent },
-  { path : 'onboarding', component:HomepageComponent} //A changer avec le questionnaire de onboard
+  { path : 'onboarding', component:RegisterComponent},
+  { path : 'questions', component:FaqPageComponent} //A changer avec le questionnaire de onboard
 ];
 
 export const appRoutingProviders = [

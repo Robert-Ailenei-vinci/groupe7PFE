@@ -1,4 +1,4 @@
-package vinci.be.backend.controller.reponse;
+package vinci.be.backend.controller.repondu.reponseRepondu;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,8 +22,7 @@ public class ReponseReponduController {
 
   @PatchMapping("/reponses/editReponse")
   public ResponseEntity<ReponseRepondu> selectReponse(@RequestBody EditReponse editReponse) {
-
-    System.out.println("editReponse: " + editReponse);
+    System.out.println("IN"+editReponse);
 
     ReponseRepondu reponseRepondu = reponseReponduService.selectReponse(editReponse.getIdReponse(),
         editReponse.isSelectionne(), editReponse.isEngage());
@@ -31,7 +30,8 @@ public class ReponseReponduController {
     if (reponseRepondu == null) {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
-    return new ResponseEntity<>(reponseRepondu, HttpStatus.OK);
+    System.out.println("OUT"+reponseRepondu);
+    return new ResponseEntity<>(reponseRepondu,HttpStatus.OK);
   }
 
 }
