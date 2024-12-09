@@ -19,8 +19,7 @@ export class QuestionnaireManagerComponent implements OnInit {
     const id = user ? JSON.parse(user).id : '';
     this.clientService.getQuestionnairesByClientId(id).subscribe({
       next: (data) => {
-        QuestionnaireManagerComponent.questionnaireDetail = data;
-        console.log(data);
+        QuestionnaireManagerComponent.questionnaireDetail.push(data[0]);
         for(let i = 0; i < data[0].questionsRepondues.length; i++) {
           const question = data[0].questionsRepondues[i];
           if(QuestionnaireManagerComponent.questionnaireParCategories.has(question.enjeuxPrincipal)) {
@@ -36,7 +35,6 @@ export class QuestionnaireManagerComponent implements OnInit {
             QuestionnaireManagerComponent.questionnaireParCategories.get(question.enjeuxPrincipal)?.set(question.enjeuxSecondaire, [question]);
         }
       }
-      console.log(QuestionnaireManagerComponent.questionnaireParCategories);
       },
       error: (err) => {
         console.error(err);

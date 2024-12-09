@@ -1,26 +1,34 @@
 <app-header></app-header>
 
-<div class="questionCenter">
+<app-questionnaire-manager></app-questionnaire-manager>
+
+<div *ngIf="!isLoading; else loading">
+  <div class="questionCenter">
     <div class="progressBarBackground">
-        <div class="progressBar" [style.width.%]="progress"></div>
+      <div class="progressBar" [style.width.%]="questionnaire[0]?.pourcentageQuestionRepondu || 0"></div>
     </div>
     <h1 class="questionTitle">{{ question.intitule }}</h1>
 
     <div class="questionAnswers">
-        <div class="box" *ngFor="let reponse of question.reponses">
-            <div class="boxText">{{ reponse.intitule }}</div>
-            <div class="engagement">
-                <input type="checkbox" class="checkboxEngage">
-                <label for="engagement">Je m'engage à le faire dans les 2 ans</label>
-            </div>
+      <div class="box" *ngFor="let reponse of question.reponseRepondus">
+        <div [ngClass]="reponse.selectionne ? 'boxTextSelected' : 'boxText'">{{ reponse.intitule }}</div>
+        <div class="engagement">
+          <input type="checkbox" class="checkboxEngage">
+          <label for="engagement">Je m'engage à le faire dans les 2 ans</label>
         </div>
+      </div>
     </div>
     <div class="comField">
-        <h3>Commentaire:</h3>
-        <input type="text" class="comText" placeholder="Écrivez ici un commentaire si nécessaire">
+      <h3>Commentaire:</h3>
+      <input type="text" class="comText" placeholder="Écrivez ici un commentaire si nécessaire" value={{question.commentaire}}>
     </div>
 
     <div class="nextQuestion">Question Suivante</div>
+  </div>
 </div>
+
+<ng-template #loading>
+  <p>Chargement en cours...</p>
+</ng-template>
 
 <app-footer></app-footer>
