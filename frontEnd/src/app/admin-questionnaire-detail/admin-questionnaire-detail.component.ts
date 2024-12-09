@@ -4,7 +4,7 @@ import { Client, ClientService, QuestionnaireDetail } from '../services/client.s
 import { HeaderComponent } from '../header/header.component';
 import { FooterComponent } from '../footer/footer.component';
 import { CommonModule } from '@angular/common';
-import { catchError, switchMap } from 'rxjs/operators';
+import { catchError, switchMap, timeout } from 'rxjs/operators';
 import { forkJoin, Observable, of } from 'rxjs';
 import { FormsModule } from '@angular/forms';
 
@@ -70,20 +70,37 @@ export class AdminQuestionnaireDetailComponent implements OnInit {
   modifierReponseQuestion(id: string, questionId: string): void {
     console.log('Modifier réponse question:', id, questionId);
 
+    const question = this.questionnaires[0].questionsRepondues.find(
+      (q) => q.id.toString() === questionId
+    );
+    console.log(question?.intitule);
+    
+  
+    if (question) {
+      question.reponseRepondus.forEach((reponse) => {
+        // Appeler la méthode pour chaque réponse
+        this.modifierReponse(reponse.id, reponse.selectionne);
+        timeout(1000);
+      });
+    } else {
+      console.error('Question non trouvée pour l\'id:', questionId);
+    }
   }
+
   modifierReponse(reponseId: string,selectionne: boolean): void {
-    console.log('Modifier réponse question:', reponseId ,"en ",selectionne);
     this.clientService.changerReponseQuestion(reponseId,selectionne).subscribe({
       next: (data) => {
-        console.log('Réponse modifiée avec succès.');
-        console.log('Réponse modifiée:', data);
+        console.log('Réponse modifiée avec succès pour .',data.id, data.intitule, 'en ',data.selectionne);   
         
-        
+        this.ngOnInit();
+           
       },
       error: (err) => {
         console.error('Erreur lors de la modification de la réponse :', err);
       }
     });
+
+    
 
   }
 

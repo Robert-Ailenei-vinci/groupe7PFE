@@ -22,7 +22,7 @@ public class ReponseReponduController {
 
   @PatchMapping("/reponses/selectReponse")
   public ResponseEntity<ReponseRepondu> selectReponse(@RequestBody EditReponse editReponse) {
-    System.out.println(editReponse);
+    System.out.println("IN"+editReponse);
 
     ReponseRepondu reponseRepondu = reponseReponduService.selectReponse(editReponse.getIdReponse(),
         editReponse.isSelectionne());
@@ -30,6 +30,7 @@ public class ReponseReponduController {
     if (reponseRepondu == null) {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
+    System.out.println("OUT"+reponseRepondu);
     return new ResponseEntity<>(reponseRepondu,HttpStatus.OK);
   }
 }
