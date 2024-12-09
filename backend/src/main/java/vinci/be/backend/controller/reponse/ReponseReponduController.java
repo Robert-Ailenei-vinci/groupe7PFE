@@ -24,6 +24,7 @@ public class ReponseReponduController {
 
   @PatchMapping("/reponses/selectReponse")
   public ResponseEntity<ReponseRepondu> selectReponse(@RequestBody EditReponse editReponse) {
+    System.out.println(editReponse);
 
     ReponseRepondu reponseRepondu = reponseReponduService.selectReponse(editReponse.getIdReponse(),
         editReponse.isEstSelectionne());

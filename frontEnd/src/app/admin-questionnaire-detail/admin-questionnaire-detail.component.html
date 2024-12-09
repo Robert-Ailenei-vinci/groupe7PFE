@@ -58,7 +58,7 @@
                   <label>
                     <input type="checkbox" [(ngModel)]="reponse.selectionne" />
                     {{ reponse.intitule }}
-                    <button (click)="modifierReponse(reponse.id.toString())">Modifier</button>
+                    <button (click)="modifierReponse(reponse.id.toString(),reponse.selectionne)">Modifier</button>
                   </label>
                 </li>
               </ul>

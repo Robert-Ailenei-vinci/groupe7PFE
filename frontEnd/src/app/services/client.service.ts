@@ -88,9 +88,9 @@ export class ClientService {
     return this.http.patch(`${this.validateUrl}/${Id}`, null);
   }
 
-  changerReponseQuestion(idReponse: string): Observable<any> {
-    console.log('Changer réponse question:', idReponse);
-    return this.http.patch(`${this.reponseUrl}/${idReponse}`, null);
+  changerReponseQuestion(idReponse: string, selectionne: boolean): Observable<any> {
+    console.log('Changer réponse question:', idReponse,selectionne);
+    return this.http.patch(`${this.reponseUrl}`, {idReponse, selectionne});
   }
 
   getQuestionnaireClient(userId : string|null): Observable<QuestionnaireDetail> {

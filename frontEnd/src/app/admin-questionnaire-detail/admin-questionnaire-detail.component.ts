@@ -71,18 +71,19 @@ export class AdminQuestionnaireDetailComponent implements OnInit {
     console.log('Modifier réponse question:', id, questionId);
 
   }
-  modifierReponse(reponseId: string): void {
-    console.log('Modifier réponse question:', reponseId);
-    this.clientService.changerReponseQuestion(reponseId).subscribe({
-      next: () => {
+  modifierReponse(reponseId: string,selectionne: boolean): void {
+    console.log('Modifier réponse question:', reponseId ,"en ",selectionne);
+    this.clientService.changerReponseQuestion(reponseId,selectionne).subscribe({
+      next: (data) => {
         console.log('Réponse modifiée avec succès.');
-        this.reloadData(); // Appeler la méthode pour recharger les données
+        console.log('Réponse modifiée:', data);
+        
+        
       },
       error: (err) => {
         console.error('Erreur lors de la modification de la réponse :', err);
       }
     });
-    this.ngOnInit();
 
   }
 
