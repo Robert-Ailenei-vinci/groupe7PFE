@@ -115,3 +115,13 @@ GET http://localhost:8080/questionnaires/IdQuestionnaire/6756c4d38aa8732c1218d6c
 ### récupérer un questionnaire en fonction de l'id du client
 GET http://localhost:8080/questionnaires/6751b25c0b15056747f31f26
 
+### Modifier les commentaires d'une question
+PATCH http://localhost:8080/questions/editComment
+Content-Type: application/json
+
+{
+  "idQuestion": "6756c4d38aa8732c1218d6cf",
+  "commentaire": "Commentaire modifié"
+}
+
+
