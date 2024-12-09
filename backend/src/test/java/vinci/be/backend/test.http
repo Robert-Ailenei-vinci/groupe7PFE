@@ -81,7 +81,7 @@ POST http://localhost:8080/questionnaires/create/questionnaireESG
 Content-Type: application/json
 
 {
-  "idClient": "6752e868faa3e31b8f1a4b45"
+  "idClient": "6751b25c0b15056747f31f26"
 }
 
 ### Récupérer tous les clients
@@ -94,17 +94,17 @@ GET http://localhost:8080/clients/getOne/6751b25c0b15056747f31f26
 GET http://localhost:8080/questionnaires/6752e868faa3e31b8f1a4b45
 
 ### Valider un questionnaire ESG
-PATCH http://localhost:8080/questionnaires/validate/6756c4d38aa8732c1218d6ce
+PATCH http://localhost:8080/questionnaires/validate/6756e14b96dde15ae88a068c
 
 ### Terminer un questionnaire ESG
-PATCH http://localhost:8080/questionnaires/finish/6756c4d38aa8732c1218d6ce
+PATCH http://localhost:8080/questionnaires/finish/6756e14b96dde15ae88a068c
 
 ### Sélectionner une réponse dans une question (ID de la question en paramètre)
-PATCH http://localhost:8080/reponses/selectReponse/6756c4d38aa8732c1218d6d0
+PATCH http://localhost:8080/reponses/selectReponse/6756e14b96dde15ae88a068e
 
 ### récupérer un questionnaire en fonction de son id
 GET http://localhost:8080/questionnaires/IdQuestionnaire/6756c4d38aa8732c1218d6ce
 
 ### récupérer un questionnaire en fonction de l'id du client
-GET http://localhost:8080/questionnaires/6752e868faa3e31b8f1a4b45
+GET http://localhost:8080/questionnaires/6751b25c0b15056747f31f26
 
