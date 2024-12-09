@@ -1,6 +1,7 @@
 package vinci.be.backend.service.repondu;
 
 import org.springframework.stereotype.Service;
+import vinci.be.backend.model.questionrepondu.QuestionRepondu;
 import vinci.be.backend.repository.repondu.QuestionReponduRepository;
 import vinci.be.backend.repository.repondu.ReponseReponduRepository;
 

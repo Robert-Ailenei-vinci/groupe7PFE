@@ -48,6 +48,7 @@ public class QuestionnaireService {
     question.setNombrePointMax(2);
     question.setEnjeuxPrincipal("Energie & carbone");
     question.setEnjeuxSecondaire("gestion de l'energie");
+    question.setCategorie(Question.CATEGORIE.Environment);
     questionRepository.save(question);
 
     // questionnaire

@@ -15,6 +15,7 @@ import vinci.be.backend.model.reponse.Reponse;
 @NoArgsConstructor
 @Document(collection = "questions")
 public class Question {
+
   @Id
   private String id;
   private String intitule;
@@ -24,4 +25,27 @@ public class Question {
   private int nombrePointMax;
   private String enjeuxPrincipal;
   private String enjeuxSecondaire;
+  private CATEGORIE categorie;
+
+  public enum CATEGORIE {
+
+    Environment(3.8),
+    Social(1.2),
+    Gouvernance(1.2);
+
+    private double scoreEngagement;
+
+    CATEGORIE(double scoreEngagement) {
+      this.scoreEngagement = scoreEngagement;
+    }
+
+    public double getScoreEngagement() {
+      return scoreEngagement;
+    }
+
+    public void setScoreEngagement(double scoreEngagement) {
+      this.scoreEngagement = scoreEngagement;
+    }
+
+  }
 }

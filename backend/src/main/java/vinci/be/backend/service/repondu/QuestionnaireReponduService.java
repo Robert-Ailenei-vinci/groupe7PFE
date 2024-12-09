@@ -5,12 +5,15 @@ import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import vinci.be.backend.model.question.Question;
+import vinci.be.backend.model.question.Question.CATEGORIE;
 import vinci.be.backend.model.questionnaire.Questionnaire;
 import vinci.be.backend.model.questionnairerepondu.QuestionnaireRepondu;
 import vinci.be.backend.model.questionrepondu.QuestionRepondu;
 import vinci.be.backend.model.reponse.Reponse;
 import vinci.be.backend.model.reponserepondu.ReponseRepondu;
+import vinci.be.backend.repository.QuestionRepository;
 import vinci.be.backend.repository.QuestionnaireRepository;
+import vinci.be.backend.repository.ReponseRepository;
 import vinci.be.backend.repository.repondu.QuestionReponduRepository;
 import vinci.be.backend.repository.repondu.QuestionnaireReponduRepository;
 import vinci.be.backend.repository.repondu.ReponseReponduRepository;
@@ -22,15 +25,20 @@ public class QuestionnaireReponduService {
   private final QuestionReponduRepository questionReponduRepository;
   private final ReponseReponduRepository reponseReponduRepository;
   private final QuestionnaireRepository questionnaireRepository;
+  private final QuestionReponduRepository questionRepositoryRepondu;
+  private final ReponseRepository reponseRepository;
 
   public QuestionnaireReponduService(QuestionnaireReponduRepository questionnaireReponduRepository,
       QuestionReponduRepository questionReponduRepository,
       ReponseReponduRepository reponseReponduRepository,
-      QuestionnaireRepository questionnaireRepository) {
+      QuestionnaireRepository questionnaireRepository, QuestionRepository questionRepository,
+      QuestionReponduRepository questionRepositoryRepondu, ReponseRepository reponseRepository) {
     this.questionnaireReponduRepository = questionnaireReponduRepository;
     this.questionReponduRepository = questionReponduRepository;
     this.reponseReponduRepository = reponseReponduRepository;
     this.questionnaireRepository = questionnaireRepository;
+    this.questionRepositoryRepondu = questionRepositoryRepondu;
+    this.reponseRepository = reponseRepository;
   }
 
 
@@ -134,4 +142,32 @@ public class QuestionnaireReponduService {
   public QuestionnaireRepondu getQuestionnaireById(String idQuestionnaire) {
     return questionnaireReponduRepository.findById(idQuestionnaire).orElse(null);
   }
+
+  public QuestionnaireRepondu editScore(String idQuestionnaireRepondu){
+
+    Iterable<QuestionRepondu> questionRepondus = questionRepositoryRepondu.findAllByIdByIdQuestionnaireRepondu(idQuestionnaireRepondu);
+
+    for(QuestionRepondu questionRepondu : questionRepondus){
+      double score = 0;
+      for(ReponseRepondu reponseRepondu : questionRepondu.getReponseRepondus()){
+        if(reponseRepondu.isEstSelectionne()){
+          Reponse reponse = reponseRepository.findById(reponseRepondu.getIdReponse()).orElse(null);
+
+          if(reponse == null){
+            return null;
+          }
+
+          if(reponseRepondu.isEstEngage()){
+
+          }
+
+          score += reponse.getPoint();
+        }
+      }
+      questionRepondu.setNombrePointObtenu(score);
+      questionRepositoryRepondu.save(questionRepondu);
+    }
+    return null;
+  }
+
 }
