@@ -68,6 +68,7 @@ export class ClientService {
   private clientsUrl = 'http://localhost:8080/clients'; 
   private questionnairesUrl = 'http://localhost:8080/questionnaires'; 
   private validateUrl = 'http://localhost:8080/questionnaires/validate'; 
+  private reponseUrl = 'http://localhost:8080/reponses/selectReponse';
 
   constructor(private http: HttpClient) { }
 
@@ -84,5 +85,10 @@ export class ClientService {
 
   validateQuestionnaire(Id: string): Observable<any> {
     return this.http.patch(`${this.validateUrl}/${Id}`, null);
+  }
+
+  changerReponseQuestion(idReponse: string): Observable<any> {
+    console.log('Changer réponse question:', idReponse);
+    return this.http.patch(`${this.reponseUrl}/${idReponse}`, null);
   }
 }
