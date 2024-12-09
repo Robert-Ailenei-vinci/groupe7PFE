@@ -67,13 +67,13 @@ export class AdminQuestionnaireDetailComponent implements OnInit {
     });
   }
 
-  modifierReponseQuestion(questionnaireId: string, questionId: string): void {
-    console.log('Modifier réponse question:', questionnaireId, questionId);
+  modifierReponseQuestion(id: string, questionId: string): void {
+    console.log('Modifier réponse question:', id, questionId);
   }
 
-  validerQuestionnaire(questionnaireId: string): void {
-    console.log('Valider questionnaire:', questionnaireId);
-    this.clientService.validateQuestionnaire(questionnaireId).subscribe({
+  validerQuestionnaire(id: string): void {
+    console.log('Valider questionnaire:', id);
+    this.clientService.validateQuestionnaire(id).subscribe({
       next: (data) => {
         console.log('Questionnaire validé:', data);
         
@@ -82,6 +82,10 @@ export class AdminQuestionnaireDetailComponent implements OnInit {
         console.error('Erreur lors de la validation du questionnaire:', err);
       }
     });
+  }
+
+  afficherDetailScore(id: string): void {
+    console.log('Afficher score:', this.questionnaires.find(q => q.id === id)?.score);
   }
 }
 
