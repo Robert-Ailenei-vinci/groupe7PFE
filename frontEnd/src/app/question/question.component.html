@@ -5,7 +5,7 @@
 <div *ngIf="!isLoading; else loading">
   <div class="questionCenter">
     <div class="progressBarBackground">
-      <div class="progressBar" [style.width.%]="questionnaire[0]?.pourcentageQuestionRepondu || 0"></div>
+      <div class="progressBar" [style.width.%]="questionnaire[0].pourcentageQuestionRepondu || 0"></div>
     </div>
     <h1 class="questionTitle">{{ question.intitule }}</h1>
 

@@ -8,6 +8,7 @@ import { PageAdminComponent } from './page-admin/page-admin.component';
 import { AdminGuard } from './guards/admin.guard';
 import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
 import { AdminQuestionnaireDetailComponent } from './admin-questionnaire-detail/admin-questionnaire-detail.component';
+import { FaqPageComponent } from './faq-page/faq-page.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: '/homepage', pathMatch: 'full' },
@@ -18,7 +19,8 @@ export const routes: Routes = [
   { path: 'loginAdmin', component: LoginAdminComponent },
   { path: 'esg/question/:id', component: QuestionComponent },
   { path:'esg', component: QuestionnaireComponent },
-  { path : 'onboarding', component:HomepageComponent} //A changer avec le questionnaire de onboard
+  { path : 'onboarding', component:HomepageComponent},
+  { path : 'questions', component:FaqPageComponent} //A changer avec le questionnaire de onboard
 ];
 
 export const appRoutingProviders = [
