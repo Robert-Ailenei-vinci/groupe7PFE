@@ -105,7 +105,7 @@ Content-Type: application/json
 
 {
   "idReponse": "6756c4d38aa8732c1218d6d0",
-  "estSelectionne": true
+  "selectionne": true
 }
 
 ### récupérer un questionnaire en fonction de son id
