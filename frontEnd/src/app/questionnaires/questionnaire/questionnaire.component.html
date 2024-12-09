@@ -30,9 +30,10 @@
                 </tbody>
             </table>
         </div>
-        <div class="leftFooter">
-            Reprendre où j'en étais
-        </div>
+
+            <div class="leftFooter" (click)="navigateToNextNonAnsweredQuestion(questionnaireParCategories)">
+                {{ nombreDeQuestions() == nombreDeQuestionsRepondues() ? 'Terminer' : 'Question Suivante'}}
+            </div>
     </div>
     <div class="containerRight">
         <img src="../../assets/images/logo_shiftingpact_vert_verteau.png" class="logoEsg">

@@ -26,7 +26,8 @@ public class Client {
   private String formeJuridique;
   private String adresseSiegeSocial;
   private String adresseSiteWeb;
-  private String codeNaceActivitePrincipale;
+  private String codeNace;
+  private String activitePrincipale;
   private double dernierChiffreDAffaire;
   private boolean estFranchise;
   private int nbTravailleur;
