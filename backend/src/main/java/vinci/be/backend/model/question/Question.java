@@ -26,6 +26,7 @@ public class Question {
   private String enjeuxPrincipal;
   private String enjeuxSecondaire;
   private CATEGORIE categorie;
+  private boolean estEngageForce;
 
   public enum CATEGORIE {
 
