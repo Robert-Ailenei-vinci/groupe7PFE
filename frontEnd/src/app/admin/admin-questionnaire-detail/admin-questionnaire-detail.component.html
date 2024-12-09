@@ -44,6 +44,7 @@
             <th>Intitulé</th>
             <th>Réponses</th>
             <th>Engagé</th>
+            <th>Commentaire</th>
             <th>Action</th>
           </tr>
         </thead>
@@ -74,7 +75,10 @@
               </ul>
             </td>
             <td>
-              <button (click)="modifierReponseQuestion(questionnaire.id.toString(),question.id.toString())">Modifier Reponse</button>
+              <textarea [(ngModel)]="question.commentaire" rows="3" cols="30"></textarea>
+              </td>
+            <td>
+              <button (click)="modifierReponseQuestion(questionnaire.id.toString(),question.id.toString(),question.commentaire)">Modifier Reponse</button>
             </td>
           </tr>
         </tbody>

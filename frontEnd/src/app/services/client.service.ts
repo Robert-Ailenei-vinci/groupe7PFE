@@ -69,6 +69,7 @@ export class ClientService {
   private questionnairesUrl = 'http://localhost:8080/questionnaires'; 
   private validateUrl = 'http://localhost:8080/questionnaires/validate'; 
   private reponseUrl = 'http://localhost:8080/reponses/editReponse';
+  private commentaireUrl = 'http://localhost:8080/questions/editComment';
   private questionnaireCLientUrl = 'http://localhost:8080/questionnaires/';
 
   constructor(private http: HttpClient) { }
@@ -91,6 +92,11 @@ export class ClientService {
   changerReponseQuestion(idReponse: string, selectionne: boolean, engage: boolean): Observable<any> {
     console.log('Changer réponse question:', idReponse,selectionne);
     return this.http.patch(`${this.reponseUrl}`, {idReponse, selectionne,engage});
+  }
+
+  changerCommentaireQuestion(idQuestion: string, commentaire: string): Observable<any> {
+    console.log('Changer commentaire question:', idQuestion,commentaire);
+    return this.http.patch(`${this.commentaireUrl}`, {idQuestion, commentaire});
   }
 
   getQuestionnaireClient(userId : string|null): Observable<QuestionnaireDetail> {
