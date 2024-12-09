@@ -4,7 +4,7 @@ import { FooterComponent } from '../footer/footer.component';
 import { CommonModule } from '@angular/common';
 import { QuestionnaireManagerComponent } from '../questionnaire-manager/questionnaire-manager.component';
 import { QuestionnaireDetail, QuestionRepondus } from '../services/client.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -18,7 +18,7 @@ export class QuestionComponent implements OnInit {
   question!: QuestionRepondus; // La question à afficher
   isLoading = true;
 
-  constructor(private route: ActivatedRoute) {}
+  constructor(private route: ActivatedRoute, private router : Router) {}
 
   ngOnInit(): void {
     const questionId = this.route.snapshot.paramMap.get('id');
@@ -45,6 +45,15 @@ export class QuestionComponent implements OnInit {
       console.log('Question trouvée :', this.question);
       this.isLoading = false;
     }, 700);
+  }
+
+  navigateToNextQuestion(): void {
+    let indexOfCurrentQuestion = this.questionnaire[0].questionsRepondues.indexOf(this.question);
+    indexOfCurrentQuestion++;
+    if (indexOfCurrentQuestion >= this.questionnaire[0].questionsRepondues.length) {
+      indexOfCurrentQuestion = 0;
+    }
+    this.router.navigate(['/esg/question/', this.questionnaire[0].questionsRepondues[indexOfCurrentQuestion].id]);
   }
   
 }

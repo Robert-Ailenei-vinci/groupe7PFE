@@ -5,7 +5,7 @@
 <div *ngIf="!isLoading; else loading">
   <div class="questionCenter">
     <div class="progressBarBackground">
-      <div class="progressBar" [style.width.%]="questionnaire[0]?.pourcentageQuestionRepondu || 0"></div>
+      <div class="progressBar" [style.width.%]="questionnaire[0].pourcentageQuestionRepondu || 0"></div>
     </div>
     <h1 class="questionTitle">{{ question.intitule }}</h1>
 
@@ -23,7 +23,7 @@
       <input type="text" class="comText" placeholder="Écrivez ici un commentaire si nécessaire" value={{question.commentaire}}>
     </div>
 
-    <div class="nextQuestion">Question Suivante</div>
+    <div class="nextQuestion" (click)="navigateToNextQuestion()">Question Suivante</div>
   </div>
 </div>
 
