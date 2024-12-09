@@ -2,6 +2,7 @@ package vinci.be.backend.model.questionnairerepondu;
 
 import java.time.LocalDate;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 import org.springframework.data.annotation.Id;
 import java.util.List;
 import lombok.AllArgsConstructor;
@@ -14,6 +15,7 @@ import vinci.be.backend.model.questionrepondu.QuestionRepondu;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 @Document(collection = "questionnaireRepondus")
 public class QuestionnaireRepondu {
   @Id

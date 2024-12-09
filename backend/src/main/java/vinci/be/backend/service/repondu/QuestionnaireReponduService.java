@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import org.springframework.stereotype.Service;
 import vinci.be.backend.model.question.Question;
-import vinci.be.backend.model.question.Question.CATEGORIE;
 import vinci.be.backend.model.questionnaire.Questionnaire;
 import vinci.be.backend.model.questionnairerepondu.QuestionnaireRepondu;
 import vinci.be.backend.model.questionrepondu.QuestionRepondu;
@@ -27,18 +26,21 @@ public class QuestionnaireReponduService {
   private final QuestionnaireRepository questionnaireRepository;
   private final QuestionReponduRepository questionRepositoryRepondu;
   private final ReponseRepository reponseRepository;
+  private final QuestionRepository questionRepository;
 
   public QuestionnaireReponduService(QuestionnaireReponduRepository questionnaireReponduRepository,
       QuestionReponduRepository questionReponduRepository,
       ReponseReponduRepository reponseReponduRepository,
       QuestionnaireRepository questionnaireRepository, QuestionRepository questionRepository,
-      QuestionReponduRepository questionRepositoryRepondu, ReponseRepository reponseRepository) {
+      QuestionReponduRepository questionRepositoryRepondu, ReponseRepository reponseRepository
+      ) {
     this.questionnaireReponduRepository = questionnaireReponduRepository;
     this.questionReponduRepository = questionReponduRepository;
     this.reponseReponduRepository = reponseReponduRepository;
     this.questionnaireRepository = questionnaireRepository;
     this.questionRepositoryRepondu = questionRepositoryRepondu;
     this.reponseRepository = reponseRepository;
+    this.questionRepository = questionRepository;
   }
 
 
@@ -88,6 +90,7 @@ public class QuestionnaireReponduService {
     questionRepondu.setIntitule(question.getIntitule());
     questionRepondu.setEnjeuxPrincipal(question.getEnjeuxPrincipal());
     questionRepondu.setEnjeuxSecondaire(question.getEnjeuxSecondaire());
+    questionRepondu.setIdQuestion(question.getId());
     questionRepondu = questionReponduRepository.save(questionRepondu);
 
     QuestionRepondu finalQuestionRepondu = questionRepondu;
@@ -105,7 +108,7 @@ public class QuestionnaireReponduService {
     reponseRepondu.setIdQuestionRepondu(questionRepondu.getId());
     reponseRepondu.setEstEngage(false);
     reponseRepondu.setIntitule(reponse.getIntitule());
-    reponseRepondu.setEstSelectionne(false);
+    reponseRepondu.setSelectionne(false);
     return reponseReponduRepository.save(reponseRepondu);
   }
 
@@ -122,9 +125,11 @@ public class QuestionnaireReponduService {
       return null;
     }
 
+
     questionnaire.setEstValide(true);
     questionnaire.setDateDerniereValidation(LocalDate.now());
-    return questionnaireReponduRepository.save(questionnaire);
+     questionnaireReponduRepository.save(questionnaire);
+     return calculeScore(questionnaire.getId());
   }
 
   public QuestionnaireRepondu finishQuestionnaire(String idQuestionnaire) {
@@ -134,40 +139,90 @@ public class QuestionnaireReponduService {
       return null;
     }
 
+
     questionnaire.setEstTermine(true);
     questionnaire.setDateDerniereValidation(LocalDate.now());
-    return questionnaireReponduRepository.save(questionnaire);
+    questionnaireReponduRepository.save(questionnaire);
+    return calculeScore(questionnaire.getId());
   }
 
   public QuestionnaireRepondu getQuestionnaireById(String idQuestionnaire) {
     return questionnaireReponduRepository.findById(idQuestionnaire).orElse(null);
   }
 
-  public QuestionnaireRepondu editScore(String idQuestionnaireRepondu){
+  public QuestionnaireRepondu calculeScore(String idQuestionnaireRepondu){
+    System.out.println("l'id est : "+idQuestionnaireRepondu);
+    QuestionnaireRepondu questionnaireRepondu = questionnaireReponduRepository.findById(idQuestionnaireRepondu).orElse(null);
+    // modification du score du questionnaire dans la db
+    if (questionnaireRepondu == null) {
+      System.out.println("questionnaireRepondu null");
+      return null;
+    }
+    System.out.println(questionnaireRepondu.toString());
 
-    Iterable<QuestionRepondu> questionRepondus = questionRepositoryRepondu.findAllByIdByIdQuestionnaireRepondu(idQuestionnaireRepondu);
 
+    // récupération des question répondues
+    Iterable<QuestionRepondu> questionRepondus = questionRepositoryRepondu.findAllByIdQuestionnaireRepondu(questionnaireRepondu.getId());
+
+    for (QuestionRepondu questionRepondu : questionRepondus) {
+      System.out.println("la questionRepondu : "+questionRepondu.toString());
+    }
+
+    for (QuestionRepondu questionRepondu : questionRepondus) {
+      for (ReponseRepondu reponseRepondu : questionRepondu.getReponseRepondus()) {
+        System.out.println("la reponseRepondu : "+reponseRepondu.toString());
+      }
+    }
+
+
+
+    // calcul du score
     for(QuestionRepondu questionRepondu : questionRepondus){
       double score = 0;
+      Question question = questionRepository.findById(questionRepondu.getIdQuestion()).orElse(null);
+      if (question == null) {
+        System.out.println("question null");
+        return null;
+      }
+
       for(ReponseRepondu reponseRepondu : questionRepondu.getReponseRepondus()){
-        if(reponseRepondu.isEstSelectionne()){
+        boolean test = reponseRepondu.isSelectionne();
+        System.out.println("la réponse est selectionné ="+test);
+        System.out.println(reponseRepondu.toString());
+        if(reponseRepondu.isSelectionne()){
+          System.out.println("je suis selectionnée !!!");
           Reponse reponse = reponseRepository.findById(reponseRepondu.getIdReponse()).orElse(null);
 
           if(reponse == null){
+            System.out.println("reponse null");
             return null;
           }
 
+          // rajout du score de l'engagement
           if(reponseRepondu.isEstEngage()){
+            score += reponse.getScoreEngagement();
+            System.out.println("le score d'engagement est : "+reponse.getScoreEngagement());
+            System.out.println("le score après engagement est : "+score);
+          }
+          // calcule du score total
+          score += reponse.getScoreTotal();
+          System.out.println("le score total est : "+reponse.getScoreTotal());
+          System.out.println("le score après total est : "+score);
 
+          if (score > question.getNombrePointMax()) {
+            score = question.getNombrePointMax();
           }
 
-          score += reponse.getPoint();
         }
       }
+      System.out.println("le score est : "+score);
+      // enregistrement en db
       questionRepondu.setNombrePointObtenu(score);
       questionRepositoryRepondu.save(questionRepondu);
+      questionnaireRepondu.setScore(questionnaireRepondu.getScore() + score);
+      questionnaireReponduRepository.save(questionnaireRepondu);
     }
-    return null;
+    return questionnaireRepondu;
   }
 
 }

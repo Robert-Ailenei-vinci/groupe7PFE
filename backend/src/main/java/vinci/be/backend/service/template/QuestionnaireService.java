@@ -30,12 +30,14 @@ public class QuestionnaireService {
     // reponse1
     Reponse reponse1 = new Reponse();
     reponse1.setIntitule("oui");
-    reponse1.setPoint(3.0);
+    reponse1.setScoreTotal(3.0);
+    reponse1.setScoreEngagement(0.5);
     reponseRepository.save(reponse1);
 
     Reponse reponse2 = new Reponse();
     reponse2.setIntitule("non");
-    reponse2.setPoint(0.0);
+    reponse2.setScoreTotal(0.0);
+    reponse2.setScoreEngagement(0.0);
     reponseRepository.save(reponse2);
 
 

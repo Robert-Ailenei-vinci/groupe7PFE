@@ -16,7 +16,8 @@ public class Reponse {
   @Id
   private String id;
   private String intitule;
-  private double point;
+  private double scoreTotal;
+  private double scoreEngagement;
 }
 
 
