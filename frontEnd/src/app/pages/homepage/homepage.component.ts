@@ -3,6 +3,8 @@ import { HeaderComponent } from '../../margins/header/header.component';
 import { FooterComponent } from '../../margins/footer/footer.component';
 import { RouterModule } from '@angular/router';
 import gsap from 'gsap';
+import { CommonModule } from '@angular/common';
+
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { isPlatformBrowser } from '@angular/common';
 import { BackToTopComponent } from '../../margins/back-to-top/back-to-top.component';
@@ -10,12 +12,21 @@ import { BackToTopComponent } from '../../margins/back-to-top/back-to-top.compon
 
 @Component({
   selector: 'app-homepage',
-  imports: [HeaderComponent, FooterComponent, RouterModule, BackToTopComponent],
+  imports: [HeaderComponent, FooterComponent, RouterModule, BackToTopComponent, CommonModule],
+  standalone:true,
   templateUrl: './homepage.component.html',
   styleUrl: './homepage.component.css'
 })
 export class HomepageComponent implements AfterViewInit {
   
+  client = localStorage.getItem('authToken');
+  estConnecte = this.client ? true : false;
+  nomClient = this.client ? JSON.parse(this.client).email : '';
+  
+  admin = localStorage.getItem('authAdminToken');
+  estAdmin = this.admin ? true : false;
+
+
   constructor(@Inject(PLATFORM_ID) private platformId:Object){
   }
   
@@ -23,11 +34,7 @@ export class HomepageComponent implements AfterViewInit {
     gsap.registerPlugin(ScrollTrigger);
   
     if (isPlatformBrowser(this.platformId)) {
-      // Animation pour ".jaune"
-     
-     
-
-     
+      // animation pour ".jaune"
       gsap.to(".jaune h1", {
         x: "-15vw",
         y: 0,
@@ -66,7 +73,7 @@ export class HomepageComponent implements AfterViewInit {
       });
 
   
-      // Animation pour ".vertFonce"
+      // animation pour ".vertFonce"
       gsap.to(".vertFonce .description-container", {
         x: "-10vw",
         y: 0,
