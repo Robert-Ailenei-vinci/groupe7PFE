@@ -136,3 +136,6 @@ Content-Type: application/json
   "intitule" : "Comment contacter les admins ?"
 }
 
+
+### adad
+GET http://localhost:8080/questionnaires/pourcentage/67586b5a8deb2a25db7c37c1
