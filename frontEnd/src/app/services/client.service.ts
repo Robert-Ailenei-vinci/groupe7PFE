@@ -62,6 +62,7 @@ export interface Client {
   demandeDeLabel: boolean;
   partenaire: string;
   commentaire: string;
+  templates: string[];
   estProprietaire: boolean;
   vendProduit:boolean;
   vendService: boolean;

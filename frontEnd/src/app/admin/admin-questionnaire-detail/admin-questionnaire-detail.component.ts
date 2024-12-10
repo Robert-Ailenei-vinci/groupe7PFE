@@ -183,5 +183,14 @@ export class AdminQuestionnaireDetailComponent implements OnInit {
     console.log('Afficher score:', this.questionnaires.find(q => q.id === id)?.score);
     this.router.navigate(['/detailscore', id]);
   }
+
+  viewDetailClient(): void {
+    // Vérifiez que clientId est une chaîne non vide
+    if (this.client?.id && typeof this.client?.id === 'string') {
+      this.router.navigate(['/detailclient', this.client?.id]);
+    } else {
+      console.error(`Client ID invalide : ${this.client?.id}`);
+    }
+  }
 }
 
