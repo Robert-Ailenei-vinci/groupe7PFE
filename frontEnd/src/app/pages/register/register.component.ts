@@ -33,6 +33,9 @@ export class RegisterComponent {
     demandeDeLabel: false,
     partenaire: '',
     commentaire: '',
+    estProprietaire: false,
+    vendProduit: false,
+    vendService: false
   };
 
   password: string= '';
