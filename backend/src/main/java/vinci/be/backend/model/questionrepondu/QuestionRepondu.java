@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.mongodb.core.mapping.Document;
+import vinci.be.backend.model.question.Question.CATEGORIE;
 import vinci.be.backend.model.question.Question.Templates;
 import vinci.be.backend.model.reponserepondu.ReponseRepondu;
 
@@ -29,6 +30,8 @@ public class QuestionRepondu {
   private double nombrePointObtenu;
   private String commentaire;
   private boolean estEngageForce;
+  private CATEGORIE categorie;
   private Templates template;
+  private boolean isQuestionDejaSelectionne;
 
 }

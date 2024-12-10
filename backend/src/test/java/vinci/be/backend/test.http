@@ -105,9 +105,9 @@ PATCH http://localhost:8080/reponses/editReponse
 Content-Type: application/json
 
 {
-  "idReponse": "6757257b7c6d3f12f30ab518",
-  "selectionne": false,
-  "engage": true
+  "idReponse": "6757f7a7828b68773ffea45b",
+  "selectionne": true,
+  "engage": false
 }
 
 ### récupérer un questionnaire en fonction de son id

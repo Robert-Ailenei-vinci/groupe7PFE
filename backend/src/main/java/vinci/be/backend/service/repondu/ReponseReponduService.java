@@ -50,13 +50,16 @@ public class ReponseReponduService {
             reponse.setSelectionne(selectionne);
             reponseRepondu.setSelectionne(reponse.isSelectionne());
 
+          if (!questionRepondu.isQuestionDejaSelectionne() && selectionne) {
+            questionnaireRepondu.setNombreDeQuestionRepondu(questionnaireRepondu.getNombreDeQuestionRepondu() + 1);
+            questionRepondu.setQuestionDejaSelectionne(true);
+          }
           reponseRepository.save(reponseRepondu);
           break;
         }
       }
       questionRepondu.setReponseRepondus(question.getReponseRepondus());
       questionnaireRepondu.setQuestionsRepondues(questionnaireRepondu.getQuestionsRepondues());
-      questionnaireRepondu.setNombreDeQuestionRepondu(questionnaireRepondu.getNombreDeQuestionRepondu() +1);
       questionReponduRepository.save(questionRepondu);
     }
 

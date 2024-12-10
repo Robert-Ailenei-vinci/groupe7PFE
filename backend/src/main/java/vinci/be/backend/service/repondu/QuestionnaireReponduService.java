@@ -93,6 +93,8 @@ public class QuestionnaireReponduService {
     questionRepondu.setIdQuestion(question.getId());
     questionRepondu.setEstEngageForce(question.isEstEngageForce());
     questionRepondu.setTemplate(question.getTemplate());
+    questionRepondu.setCategorie(question.getCategorie());
+    questionRepondu.setQuestionDejaSelectionne(false);
     questionRepondu = questionReponduRepository.save(questionRepondu);
 
     QuestionRepondu finalQuestionRepondu = questionRepondu;
