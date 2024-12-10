@@ -52,7 +52,7 @@ section{
 .jaune .description-container{
     width:120%;
     padding: 2rem;
-    border-radius: 20px;
+    border-radius: 0.8vw;
     background-image: url('./assets/fond-description-container.svg');
     background-repeat: no-repeat; /* Empêche la duplication de l'image */
     background-size: cover; /* Ajuste la taille de l'image pour couvrir tout le conteneur */
@@ -63,7 +63,7 @@ section{
 .jaune .description-container2{
     width:120%;
     padding: 2rem;
-    border-radius: 20px;
+    border-radius: 0.8vw;
     background-image: url('./assets/fond-description-container2.svg');
     background-repeat: no-repeat; /* Empêche la duplication de l'image */
     background-size: cover; /* Ajuste la taille de l'image pour couvrir tout le conteneur */
@@ -73,7 +73,7 @@ section{
 .jaune .description-container3{
     width:120%;
     padding: 2rem;
-    border-radius: 20px;
+    border-radius: 0.8vw;
     background-image: url('./assets/fond-description-container3.svg');
     background-repeat: no-repeat; /* Empêche la duplication de l'image */
     background-size: cover; /* Ajuste la taille de l'image pour couvrir tout le conteneur */
@@ -83,8 +83,8 @@ section{
 
 
 .jaune .sousTitres1 {
-    font-size: 50px;
-    letter-spacing: 2px;
+    font-size: 2vw;
+    letter-spacing: 0.2vw;
     margin-top: 2%;
     margin-bottom: 3%;
     font-weight: 400;
@@ -92,8 +92,8 @@ section{
 }
 
 .jaune .sousTitres2 {
-    font-size: 50px;
-    letter-spacing: 2px;
+    font-size: 2vw;
+    letter-spacing: 0.2vw;
     margin-top: 2%;
     margin-bottom: 3%;
     font-weight: 400;
@@ -101,8 +101,8 @@ section{
 }
 
 .jaune .sousTitres3 {
-    font-size: 50px;
-    letter-spacing: 2px;
+    font-size: 2vw;
+    letter-spacing: 0.2vw;
     margin-top: 2%;
     margin-bottom: 3%;
     font-weight: 400;
@@ -115,7 +115,7 @@ section{
 
 
 .jaune .texte1{
-    font-size: 30px;
+    font-size: 1.1vw;
     color: transparent;
     background-image: linear-gradient(to right, #dfd4fb 39.9%, #013238 40.1%);
     background-clip: text; 
@@ -125,14 +125,14 @@ section{
 
 
 .jaune .texte2{
-    font-size: 30px;
+    font-size:  1.1vw;
     color: transparent;
     background-image: linear-gradient(to right, #013238 82.5%, #dfd4fb 84.9%);
     background-clip: text; 
     -webkit-background-clip: text; 
 }
 .jaune .texte3{
-    font-size: 30px;
+    font-size:  1.1vw;
     color: transparent;
     background-image: linear-gradient(to right, #dfd4fb 36.8%, #013238 37%);
     background-clip: text; 
@@ -140,15 +140,17 @@ section{
 }
 
 .jaune .texteVertClair{
-    font-size: 22px;
+    font-size:  0.85vw;
     color: #b5cdbf;
 }
 
 .jaune .texteVertClair2{
-    font-size: 22px;
+    font-size:  1.1vw;
     color: transparent;
-    background-image: linear-gradient(to right, #b5cdbf 31.5%, #013238 33%);
+    background-image: linear-gradient(to right, #b5cdbf 33.5%, #013238 33.5%);
     background-clip: text; 
+    letter-spacing: 0.08vw;
+
     -webkit-background-clip: text; 
 }
 
