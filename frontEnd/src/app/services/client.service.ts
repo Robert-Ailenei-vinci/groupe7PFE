@@ -62,6 +62,7 @@ export interface Client {
   demandeDeLabel: boolean;
   partenaire: string;
   commentaire: string;
+  templates: string[];
 }
 
 export interface ClientWithoutId {

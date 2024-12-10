@@ -4,7 +4,11 @@
   
   <button class="button-pageAdmin" role="button" [routerLink]="['/pageAdmin']">Retour à la liste des clients</button>
 
-  <h1>Questionnaires de: {{ client?.nomEntreprise }}</h1>
+  <div>
+    <h1>Questionnaires de: {{ client?.nomEntreprise }}</h1>
+    <button class="button-pageAdmin" role="button" (click)="viewDetailClient()">Detail du client</button>
+  </div>
+  
   
   <div *ngIf="isLoading">
     <p>Chargement des questionnaires...</p>
@@ -16,12 +20,12 @@
   
   <div *ngIf="!isLoading && !error && questionnaires.length > 0">
     <div *ngFor="let questionnaire of questionnaires" class="questionnaire">
-
+      
       <div *ngIf="questionnaire.estTermine && !questionnaire.estValide">
         <button (click)="validerQuestionnaire(questionnaire.id.toString())">Valider Questionnaire</button>
       </div>
 
-      <div *ngIf="!questionnaire.estValide">
+      <div *ngIf="questionnaire.estTermine">
         <h2>Score Actuel : {{ questionnaire.score }}</h2>
         <button (click)="afficherDetailScore(questionnaire.id.toString())">Afficher Detail Score</button>
       </div>
@@ -32,7 +36,6 @@
       <p><strong>Terminé:</strong> {{ questionnaire.estTermine ? 'Oui' : 'Non' }}</p>
       <p><strong>Validé:</strong> {{ questionnaire.estValide ? 'Oui' : 'Non' }}</p>
       <p><strong>Nombre de Questions Répondues:</strong> {{ questionnaire.nombreDeQuestionRepondu }}</p>
-      <p><strong>Score Total:</strong> {{ questionnaire.score }}</p>
       
       <!-- Formulaire de recherche et filtrage -->
       <div class="filters">

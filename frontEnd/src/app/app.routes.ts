@@ -11,6 +11,7 @@ import { AdminQuestionnaireDetailComponent } from './admin/admin-questionnaire-d
 import { FaqPageComponent } from './pages/faq-page/faq-page.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { DetailscoreComponent } from './admin/detailscore/detailscore.component';
+import { DetailclientComponent } from './admin/detailclient/detailclient.component';
 
 
 export const routes: Routes = [
@@ -19,6 +20,7 @@ export const routes: Routes = [
   { path: 'pageAdmin', component: PageAdminComponent, canActivate: [AdminGuard] },
   { path: 'admin/questionnaires/:clientId', component: AdminQuestionnaireDetailComponent, canActivate: [AdminGuard] },
   { path: 'detailscore/:idQuestionnaire', component: DetailscoreComponent },
+  { path: 'detailclient/:clientId', component: DetailclientComponent, canActivate: [AdminGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'loginAdmin', component: LoginAdminComponent },
   { path: 'esg/question/:id', component: QuestionComponent },
