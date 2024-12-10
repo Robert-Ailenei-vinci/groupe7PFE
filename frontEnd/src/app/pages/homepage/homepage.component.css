@@ -159,8 +159,8 @@ section{
 }
 
 .vertFonce .sousTitres1 {
-    font-size: 50px;
-    letter-spacing: 2px;
+    font-size: 2vw;
+    letter-spacing: 0.2vw;
     margin-top: 2%;
     margin-bottom: 3%;
     font-weight: 400;
@@ -175,7 +175,7 @@ section{
 .vertFonce .description-container{
     width:120%;
     padding: 2rem;
-    border-radius: 20px;
+    border-radius: 0.8vw;
     background-image: url('./assets/fond-description-container1VERT.svg');
     background-repeat: no-repeat; /* Empêche la duplication de l'image */
     background-size: cover; /* Ajuste la taille de l'image pour couvrir tout le conteneur */
@@ -185,7 +185,7 @@ section{
 .vertFonce .environnement-container{
     width:120%;
     padding: 2rem;
-    border-radius: 20px;
+    border-radius: 0.8vw;
     background-image: url('./assets/fond-description-container-env.svg');
     background-repeat: no-repeat; /* Empêche la duplication de l'image */
     background-size: cover; /* Ajuste la taille de l'image pour couvrir tout le conteneur */
@@ -195,7 +195,7 @@ section{
 .vertFonce .environnement-container2{
     width:120%;
     padding: 2rem;
-    border-radius: 20px;
+    border-radius: 0.8vw;
     background-image: url('./assets/fond-cont-env3.svg');
     background-repeat: no-repeat; /* Empêche la duplication de l'image */
     background-size: cover; /* Ajuste la taille de l'image pour couvrir tout le conteneur */
@@ -205,7 +205,7 @@ section{
 .vertFonce .environnement-container3{
     width:120%;
     padding: 2rem;
-    border-radius: 20px;
+    border-radius: 0.8vw;
     background-image: url('./assets/fond-cont-env2.svg');
     background-repeat: no-repeat; /* Empêche la duplication de l'image */
     background-size: cover; /* Ajuste la taille de l'image pour couvrir tout le conteneur */
@@ -213,7 +213,7 @@ section{
 }
 
 .vertFonce .texte1{
-    font-size: 30px;
+    font-size: 1.1vw;
     color: #013238;
 }
 
@@ -224,7 +224,7 @@ section{
 
 .curve{
     position: absolute;
-    height: 225px;
+    height: 11.719vw;
     width: 100%;
     bottom: 0;
 }
@@ -260,7 +260,7 @@ section{
 .bubble .container{
     width:120%;
     padding: 1rem;
-    border-radius: 20px;
+    border-radius: 2vw;
     background-image: url('./assets/fond-bubble.svg');
     background-repeat: no-repeat; /* Empêche la duplication de l'image */
     background-size: cover; /* Ajuste la taille de l'image pour couvrir tout le conteneur */
@@ -268,8 +268,8 @@ section{
 }
 
 .bubble .sousTitres1{
-    font-size: 50px;
-    letter-spacing: 2px;
+    font-size: 2.604vw;
+    letter-spacing: 0.104vw;
     margin-top: 2%;
     margin-bottom: 3%;
     font-weight: 400;
@@ -278,7 +278,7 @@ section{
 }
 
 .bubble .texte1{
-    font-size: 30px;
+    font-size: 1.563vw;
     color: #013238;
 }
 
@@ -296,7 +296,7 @@ section{
 
 
 .greenC .button-onboarding{
-    --b: 3px;   /* border thickness */
+    --b: 0.156vw;   /* border thickness */
     --s: .45em; /* size of the corner */
     --color: #013238;
     margin-top: 5%;
@@ -323,18 +323,18 @@ section{
     margin-top: 4%;
     opacity: 1 ;
     color: #013238;
-    font-size: 80px;
+    font-size: 4.167vw;
     text-transform: uppercase;
     font-weight: 800;
-    letter-spacing: 2px;
-    line-height: 120px;
-    margin-bottom: 30px;
+    letter-spacing: 0.104vw;
+    line-height: 6.25vw;
+    margin-bottom: 1.563vw;
      
 }
 
 .greenC p{
-    font-size: 50px;
-    letter-spacing: 2px;
+    font-size: 2.604vw;
+    letter-spacing: 0.104vw;
     margin-top: 15%;
     margin-bottom: -5%;
     font-weight: 400;
@@ -343,7 +343,7 @@ section{
 
 .greenC .button-onboarding:hover,
 .button-onboarding:focus-visible{
-  --_p: 0px;
+  --_p: 0vw;
   outline-color: var(--color);
   outline-offset: .05em;
 }
@@ -368,7 +368,7 @@ section{
     position: relative;
     display: block;
     width: calc(100% + 1.3px);
-    height: 177px;
+    height: 9.219vw;
     
 }
 

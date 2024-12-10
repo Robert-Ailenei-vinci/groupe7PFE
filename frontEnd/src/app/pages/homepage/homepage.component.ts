@@ -128,7 +128,7 @@ export class HomepageComponent implements AfterViewInit {
   
       gsap.to(".bubble .container", {
         x: 0,
-        y: "7vw",
+        y: "10vw",
         opacity: 1,
         duration: 2,
         scrollTrigger: {
