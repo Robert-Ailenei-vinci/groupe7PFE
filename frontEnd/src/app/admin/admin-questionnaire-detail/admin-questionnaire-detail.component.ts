@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { Client, ClientService, QuestionnaireDetail, QuestionRepondus } from '../../services/client.service';
 import { HeaderComponent } from '../../margins/header/header.component';
 import { FooterComponent } from '../../margins/footer/footer.component';
@@ -11,7 +11,7 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-admin-questionnaire-detail',
   standalone: true,
-  imports: [HeaderComponent, FooterComponent, CommonModule, FormsModule],
+  imports: [HeaderComponent, FooterComponent, CommonModule, FormsModule,RouterModule],
   templateUrl: './admin-questionnaire-detail.component.html',
   styleUrls: ['./admin-questionnaire-detail.component.css']
 })
@@ -24,7 +24,8 @@ export class AdminQuestionnaireDetailComponent implements OnInit {
 
   constructor(
     private clientService: ClientService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
 
@@ -61,10 +62,8 @@ export class AdminQuestionnaireDetailComponent implements OnInit {
 
         // On remplace les XXX par le nom de l'entreprise
           this.questionnaires[0].questionsRepondues = this.questionnaires[0].questionsRepondues.map((questionRepondue: QuestionRepondus) => {
-            console.log("Intitulé avant remplacement :", questionRepondue.intitule);
           
           const nouvelIntitule = questionRepondue.intitule.replace(/XXX/g, this.client?.nomEntreprise ?? '');
-          console.log("Intitulé après remplacement :", nouvelIntitule);
           
           return {
             ...questionRepondue,
@@ -136,6 +135,7 @@ export class AdminQuestionnaireDetailComponent implements OnInit {
 
   afficherDetailScore(id: string): void {
     console.log('Afficher score:', this.questionnaires.find(q => q.id === id)?.score);
+    this.router.navigate(['/detailscore', id]);
   }
 }
 

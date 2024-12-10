@@ -1,7 +1,8 @@
 <app-header></app-header>
 
 <div class="container">
-  <a href="/pageAdmin">Retour à la liste des clients</a>
+  
+  <button class="button-pageAdmin" role="button" [routerLink]="['/pageAdmin']">Retour à la liste des clients</button>
 
   <h1>Questionnaires de: {{ client?.nomEntreprise }}</h1>
   
@@ -21,7 +22,7 @@
         <button (click)="validerQuestionnaire(questionnaire.id.toString())">Valider Questionnaire</button>
       </div>
 
-      <div *ngIf="questionnaire.estValide">
+      <div *ngIf="!questionnaire.estValide">
         <h2>
           Score Actuelle : {{ questionnaire.score }}
         </h2>
