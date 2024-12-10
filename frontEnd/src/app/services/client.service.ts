@@ -85,6 +85,14 @@ export interface ClientWithoutId {
   commentaire: string;
 }
 
+export interface Score {
+  idQuestionnaire: string;
+  pourcentageTotal: number;
+  pourcentageEnvironement: number;
+  pourcentageSocial: number;
+  pourcentageGouvernance: number;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -97,6 +105,7 @@ export class ClientService {
   private commentaireUrl = 'http://localhost:8080/questions/editComment';
   private questionnaireCLientUrl = 'http://localhost:8080/questionnaires/';
   private registerUrl = 'http://localhost:8080/clients/register';
+  private scoreUrl = 'http://localhost:8080/questionnaires/pourcentage';
 
   constructor(private http: HttpClient) { }
 
@@ -129,6 +138,10 @@ export class ClientService {
 
   getQuestionnaireClient(userId : string|null): Observable<QuestionnaireDetail> {
     return this.http.get<QuestionnaireDetail>(this.questionnaireCLientUrl + userId);
+  }
+
+  getPoucentageScore(idQuestionnaire: string): Observable<Score> {
+    return this.http.get<Score>(`${this.scoreUrl}/${idQuestionnaire}`);
   }
 
 }

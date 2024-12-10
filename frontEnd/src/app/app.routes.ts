@@ -10,6 +10,7 @@ import { QuestionnaireComponent } from './questionnaires/questionnaire/questionn
 import { AdminQuestionnaireDetailComponent } from './admin/admin-questionnaire-detail/admin-questionnaire-detail.component';
 import { FaqPageComponent } from './pages/faq-page/faq-page.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { DetailscoreComponent } from './admin/detailscore/detailscore.component';
 
 
 export const routes: Routes = [
@@ -17,6 +18,7 @@ export const routes: Routes = [
   { path: 'homepage', component: HomepageComponent },
   { path: 'pageAdmin', component: PageAdminComponent, canActivate: [AdminGuard] },
   { path: 'admin/questionnaires/:clientId', component: AdminQuestionnaireDetailComponent, canActivate: [AdminGuard] },
+  { path: 'detailscore/:idQuestionnaire', component: DetailscoreComponent },
   { path: 'login', component: LoginComponent },
   { path: 'loginAdmin', component: LoginAdminComponent },
   { path: 'esg/question/:id', component: QuestionComponent },
