@@ -1,4 +1,26 @@
 .fixed-footer {
-    bottom: 0;
-    width: 100%; 
-  }
+  bottom: 0;
+  width: 100%;
+}
+
+.faq-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.faq-item {
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.faq-question {
+  cursor: pointer;
+  color: #007BFF;
+}
+
+.faq-answer {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+}
