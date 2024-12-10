@@ -67,7 +67,9 @@ export class QuestionnaireComponent implements OnInit {
 
   // Renvoie true si une question a été répondue
   isAnswered(question: QuestionRepondus): boolean {
-    return question.reponseRepondus.some(reponse => reponse.estEngage || reponse.selectionne);
+    return question.reponseRepondus.some(
+      reponse => reponse.estEngage || reponse.selectionne || question.commentaire !== ''
+    );
   }
 
   // Renvoie la première question non répondue du questionnaire
