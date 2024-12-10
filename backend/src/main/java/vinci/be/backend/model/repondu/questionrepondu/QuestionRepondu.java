@@ -33,5 +33,6 @@ public class QuestionRepondu {
   private CATEGORIE categorie;
   private Templates template;
   private boolean isQuestionDejaSelectionne;
+  private boolean estQuestionLibre;
 
 }

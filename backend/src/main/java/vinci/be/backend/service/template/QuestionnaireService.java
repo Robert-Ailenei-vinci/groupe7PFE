@@ -622,10 +622,192 @@ public class QuestionnaireService {
 
     Reponse reponse95= new Reponse();
     reponse95.setIntitule("Autre : veuillez expliquer dans les commentaires");
-    reponse95.setScoreTotal(2);
-    reponse95.setScoreEngagement(0.5);
+    reponse95.setScoreTotal(0);
+    reponse95.setScoreEngagement(0);
     reponseRepository.save(reponse95);
 
+    Reponse reponse96= new Reponse();
+    reponse96.setIntitule("Aucune des réponses ci-dessous.");
+    reponse96.setScoreTotal(0);
+    reponse96.setScoreEngagement(0);
+    reponseRepository.save(reponse96);
+
+    Reponse reponse97= new Reponse();
+    reponse97.setIntitule("N/A");
+    reponse97.setScoreTotal(3);
+    reponse97.setScoreEngagement(0);
+    reponseRepository.save(reponse97);
+
+    // question 24
+    Reponse reponse98= new Reponse();
+    reponse98.setIntitule("oui");
+    reponse98.setScoreTotal(2);
+    reponse98.setScoreEngagement(0.5);
+    reponseRepository.save(reponse98);
+
+    Reponse reponse99= new Reponse();
+    reponse99.setIntitule("non");
+    reponse99.setScoreTotal(0);
+    reponse99.setScoreEngagement(0);
+    reponseRepository.save(reponse99);
+
+    Reponse reponse100= new Reponse();
+    reponse100.setIntitule("N/A");
+    reponse100.setScoreTotal(1);
+    reponse100.setScoreEngagement(0);
+    reponseRepository.save(reponse100);
+
+    // question 25
+    Reponse reponse101= new Reponse();
+    reponse101.setIntitule("je ne sais pas");
+    reponse101.setScoreTotal(0);
+    reponse101.setScoreEngagement(0);
+    reponseRepository.save(reponse101);
+
+    Reponse reponse102= new Reponse();
+    reponse102.setIntitule("<20%");
+    reponse102.setScoreTotal(0);
+    reponse102.setScoreEngagement(0);
+    reponseRepository.save(reponse102);
+
+    Reponse reponse103= new Reponse();
+    reponse103.setIntitule("20-49%");
+    reponse103.setScoreTotal(0.5);
+    reponse103.setScoreEngagement(0.13);
+    reponseRepository.save(reponse103);
+
+    Reponse reponse104= new Reponse();
+    reponse104.setIntitule("50-74%");
+    reponse104.setScoreTotal(1);
+    reponse104.setScoreEngagement(0.25);
+    reponseRepository.save(reponse104);
+
+    Reponse reponse105= new Reponse();
+    reponse105.setIntitule("75-99%");
+    reponse105.setScoreTotal(1.5);
+    reponse105.setScoreEngagement(0.38);
+    reponseRepository.save(reponse105);
+
+    Reponse reponse106= new Reponse();
+    reponse106.setIntitule("100%");
+    reponse106.setScoreTotal(2);
+    reponse106.setScoreEngagement(0.5);
+    reponseRepository.save(reponse106);
+
+    Reponse reponse107= new Reponse();
+    reponse107.setIntitule("N/A");
+    reponse107.setScoreTotal(1);
+    reponse107.setScoreEngagement(0);
+    reponseRepository.save(reponse107);
+
+    // question 26
+    Reponse reponse108= new Reponse();
+    reponse108.setIntitule("oui");
+    reponse108.setScoreTotal(2);
+    reponse108.setScoreEngagement(0.5);
+    reponseRepository.save(reponse108);
+
+    Reponse reponse109= new Reponse();
+    reponse109.setIntitule("non");
+    reponse109.setScoreTotal(0);
+    reponse109.setScoreEngagement(0);
+    reponseRepository.save(reponse109);
+
+    Reponse reponse110= new Reponse();
+    reponse110.setIntitule("N/A");
+    reponse110.setScoreTotal(1);
+    reponse110.setScoreEngagement(0);
+    reponseRepository.save(reponse110);
+
+    // question 27 (pas besoin)
+    // question 28 (pas besoin)
+
+    // question 29
+
+    Reponse reponse111= new Reponse();
+    reponse111.setIntitule("Nous avons des programmes de recyclage couvrant au minimum le papier et le carton, les PMC, le verre et les déchets organiques.");
+    reponse111.setScoreTotal(0);
+    reponse111.setScoreEngagement(0);
+    reponseRepository.save(reponse111);
+
+    Reponse reponse112= new Reponse();
+    reponse112.setIntitule("Nous avons identifier au sein de l'organisation une personne responsable de la gestion des déchets (réduction, tri et éliminiation).");
+    reponse112.setScoreTotal(0.62);
+    reponse112.setScoreEngagement(0.15);
+    reponseRepository.save(reponse112);
+
+    Reponse reponse113= new Reponse();
+    reponse113.setIntitule("Nous mettons en place des systèmes efficaces de collecte pour les matériaux recyclables, en partenariat avec des fournisseurs spécialisés dans le recyclage.");
+    reponse113.setScoreTotal(0.62);
+    reponse113.setScoreEngagement(0.15);
+    reponseRepository.save(reponse113);
+
+    Reponse reponse114= new Reponse();
+    reponse114.setIntitule("Nous avons établi des lignes directrices pour l'élimination responsable des déchets qui ne peuvent être recyclés ou récupérés, en veillant au respect des réglementations et des normes applicables en matière d'élimination des déchets.");
+    reponse114.setScoreTotal(0.62);
+    reponse114.setScoreEngagement(0.15);
+    reponseRepository.save(reponse114);
+
+    Reponse reponse115= new Reponse();
+    reponse115.setIntitule("Nous mettons à disposition des articles réutilisables, tels que des tasses, des verres et des ustensiles, pour réduire l'usage de plastique jetable.");
+    reponse115.setScoreTotal(0.62);
+    reponse115.setScoreEngagement(0.15);
+    reponseRepository.save(reponse115);
+
+    Reponse reponse116= new Reponse();
+    reponse116.setIntitule("Nous privilégions l'achat de produits et de fournitures de bureau en vrac ou avec un emballage réduit au minimum, afin de limiter les déchets d'emballage.");
+    reponse116.setScoreTotal(0.62);
+    reponse116.setScoreEngagement(0.15);
+    reponseRepository.save(reponse116);
+
+    Reponse reponse117= new Reponse();
+    reponse117.setIntitule("Nous favorisons l'achat de produits rechargeables, comme les cartouches d'encre et les piles, afin de limiter notre production de déchets.");
+    reponse117.setScoreTotal(0.62);
+    reponse117.setScoreEngagement(0.15);
+    reponseRepository.save(reponse117);
+
+    Reponse reponse118= new Reponse();
+    reponse118.setIntitule("Nous privilégions les options de don ou de réutilisation, plutôt que de jeter, pour des articles tels que les meubles ou les équipements.");
+    reponse118.setScoreTotal(0.62);
+    reponse118.setScoreEngagement(0.15);
+    reponseRepository.save(reponse118);
+
+    Reponse reponse119= new Reponse();
+    reponse119.setIntitule("Autre : veuillez expliquer dans les commentaires");
+    reponse119.setScoreTotal(0);
+    reponse119.setScoreEngagement(0);
+    reponseRepository.save(reponse119);
+
+    Reponse reponse120= new Reponse();
+    reponse120.setIntitule("Aucune de ces réponses.");
+    reponse120.setScoreTotal(0);
+    reponse120.setScoreEngagement(0);
+    reponseRepository.save(reponse120);
+
+    Reponse reponse121= new Reponse();
+    reponse121.setIntitule("N/A");
+    reponse121.setScoreTotal(2.15);
+    reponse121.setScoreEngagement(0);
+    reponseRepository.save(reponse121);
+
+    // question 30
+    Reponse reponse122= new Reponse();
+    reponse122.setIntitule("oui");
+    reponse122.setScoreTotal(0.62);
+    reponse122.setScoreEngagement(0.15);
+    reponseRepository.save(reponse122);
+
+    Reponse reponse123= new Reponse();
+    reponse123.setIntitule("non");
+    reponse123.setScoreTotal(0);
+    reponse123.setScoreEngagement(0);
+    reponseRepository.save(reponse123);
+
+    Reponse reponse124= new Reponse();
+    reponse124.setIntitule("N/A");
+    reponse124.setScoreTotal(0.31);
+    reponse124.setScoreEngagement(0);
+    reponseRepository.save(reponse124);
 
     // question
     Question question1 = new Question();
@@ -914,6 +1096,111 @@ public class QuestionnaireService {
     question22.setTemplate(Templates.ALL);
     questionRepository.save(question22);
 
+    Question question23 = new Question();
+    question23.setIntitule("XXX a-t-elle pris l'une ou plusieurs de ces mesures concernant l'utilisation des ressources ?");
+    question23.setReponses(List.of(reponse92,reponse93,reponse94,reponse95,reponse96,reponse97));
+    question23.setNbrChoixMax(4);
+    question23.setEstQuestionLibre(false);
+    question23.setNombrePointMax(3);
+    question23.setEnjeuxPrincipal("EAU, MATIERES PREMIERES ET FOURNITURES");
+    question23.setEnjeuxSecondaire("MATIERES PREMIERES ET FOURNITURES");
+    question23.setCategorie(Question.CATEGORIE.Environment);
+    question23.setEstEngageForce(false);
+    question23.setTemplate(Templates.PRODUITS);
+    questionRepository.save(question23);
+
+    Question question24 = new Question();
+    question24.setIntitule("Avez-vous mis en place des initiatives pour sensibiliser vos travailleur·euses à l'utilisation des ressources ?");
+    question24.setReponses(List.of(reponse98,reponse99,reponse100));
+    question24.setNbrChoixMax(1);
+    question24.setEstQuestionLibre(false);
+    question24.setNombrePointMax(1);
+    question24.setEnjeuxPrincipal("EAU, MATIERES PREMIERES ET FOURNITURES");
+    question24.setEnjeuxSecondaire("MATIERES PREMIERES ET FOURNITURES");
+    question24.setCategorie(Question.CATEGORIE.Environment);
+    question24.setEstEngageForce(false);
+    question24.setTemplate(Templates.WORKERS);
+    questionRepository.save(question24);
+
+    Question question25 = new Question();
+    question25.setIntitule("Quel pourcentage de vos matériaux (en volume) provient de matériaux recyclés, de composants réutilisés et/ou de matériaux certifiés d'origine durable ?");
+    question25.setReponses(List.of(reponse101,reponse102,reponse103,reponse104,reponse105,reponse106,reponse107));
+    question25.setNbrChoixMax(1);
+    question25.setEstQuestionLibre(false);
+    question25.setNombrePointMax(1);
+    question25.setEnjeuxPrincipal("EAU, MATIERES PREMIERES ET FOURNITURES");
+    question25.setEnjeuxSecondaire("MATIERES PREMIERES ET FOURNITURES");
+    question25.setCategorie(Question.CATEGORIE.Environment);
+    question25.setEstEngageForce(false);
+    question25.setTemplate(Templates.PRODUITS);
+    questionRepository.save(question25);
+
+    Question question26 = new Question();
+    question26.setIntitule("Suivez-vous les quantités et les types de déchets produits par XXX ?");
+    question26.setReponses(List.of(reponse108,reponse109,reponse110));
+    question26.setNbrChoixMax(1);
+    question26.setEstQuestionLibre(false);
+    question26.setNombrePointMax(1);
+    question26.setEnjeuxPrincipal("DÉCHETS");
+    question26.setEnjeuxSecondaire("DÉCHETS");
+    question26.setCategorie(Question.CATEGORIE.Environment);
+    question26.setEstEngageForce(false);
+    question26.setTemplate(Templates.FACILITY);
+    questionRepository.save(question26);
+
+    Question question27 = new Question();
+    question27.setIntitule("Si vous la suivez, veuillez indiquer la quantité totale de déchets produits par votre organisation au cours des 12 derniers mois (en tonnes) ?");
+    // question27.setReponses(List.of(reponse108,reponse109,reponse110));
+    question27.setNbrChoixMax(1);
+    question27.setEstQuestionLibre(true);
+    question27.setNombrePointMax(0);
+    question27.setEnjeuxPrincipal("DÉCHETS");
+    question27.setEnjeuxSecondaire("DÉCHETS");
+    question27.setCategorie(Question.CATEGORIE.Environment);
+    question27.setEstEngageForce(false);
+    question27.setTemplate(Templates.FACILITY);
+    questionRepository.save(question27);
+
+    Question question28 = new Question();
+    question28.setIntitule("Si vous la suivez, veuillez indiquer la quantité de déchets dangereux produits par votre organisation au cours des 12 derniers mois (en tonnes) ?\n"
+        + "(exemples de déchets dangereux : équipements électroniques, piles, cartouches d'encre, déchets industriels, batteries, peintures, etc.)");
+    // question27.setReponses(List.of(reponse108,reponse109,reponse110));
+    question28.setNbrChoixMax(1);
+    question28.setEstQuestionLibre(true);
+    question28.setNombrePointMax(0);
+    question28.setEnjeuxPrincipal("DÉCHETS");
+    question28.setEnjeuxSecondaire("DÉCHETS");
+    question28.setCategorie(Question.CATEGORIE.Environment);
+    question28.setEstEngageForce(false);
+    question28.setTemplate(Templates.FACILITY);
+    questionRepository.save(question28);
+
+    Question question29 = new Question();
+    question29.setIntitule("Quelle(s) pratique(s) avez-vous mise(s) en place pour réduire la production de déchets et optimiser leur gestion ?");
+    question29.setReponses(List.of(reponse111,reponse112,reponse113,reponse114,reponse115,
+        reponse116,reponse117,reponse118,reponse119,reponse120,reponse121));
+    question29.setNbrChoixMax(9);
+    question29.setEstQuestionLibre(false);
+    question29.setNombrePointMax(2.15);
+    question29.setEnjeuxPrincipal("DÉCHETS");
+    question29.setEnjeuxSecondaire("DÉCHETS");
+    question29.setCategorie(Question.CATEGORIE.Environment);
+    question29.setEstEngageForce(false);
+    question29.setTemplate(Templates.FACILITY);
+    questionRepository.save(question29);
+
+    Question question30 = new Question();
+    question30.setIntitule("Avez-vous mis en place des initiatives pour sensibiliser vos travailleur·euses à la réduction, la gestion et le recyclage des déchets ?");
+    question30.setReponses(List.of(reponse122,reponse123,reponse124));
+    question30.setNbrChoixMax(1);
+    question30.setEstQuestionLibre(false);
+    question30.setNombrePointMax(0.31);
+    question30.setEnjeuxPrincipal("DÉCHETS");
+    question30.setEnjeuxSecondaire("DÉCHETS");
+    question30.setCategorie(Question.CATEGORIE.Environment);
+    question30.setEstEngageForce(false);
+    question30.setTemplate(Templates.WORKERS);
+    questionRepository.save(question30);
 
     // questionnaire
     Questionnaire questionnaire = new Questionnaire();
