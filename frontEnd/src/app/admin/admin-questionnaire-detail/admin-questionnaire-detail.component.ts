@@ -22,6 +22,15 @@ export class AdminQuestionnaireDetailComponent implements OnInit {
   error: string = '';
   isLoading: boolean = true;
 
+    // Variables pour les filtres
+    searchTerm: string = '';
+    selectedEnjeuxPrincipal: string = '';
+    selectedEnjeuxSecondaire: string = '';
+
+    // Listes pour les dropdowns
+    enjeuxPrincipaux: string[] = [];
+    enjeuxSecondaires: string[] = [];
+
   constructor(
     private clientService: ClientService,
     private route: ActivatedRoute,
@@ -71,6 +80,8 @@ export class AdminQuestionnaireDetailComponent implements OnInit {
             };
           });
         
+          // Préparer la liste des enjeux
+          this.prepareEnjeuxLists(this.questionnaires[0].questionsRepondues);
 
       },
       error: (err) => {
@@ -80,6 +91,41 @@ export class AdminQuestionnaireDetailComponent implements OnInit {
       }
     });
     
+  }
+
+  prepareEnjeuxLists(questions: QuestionRepondus[]) {
+    const uniqueEnjeuxPrincipaux = new Set<string>();
+    const uniqueEnjeuxSecondaires = new Set<string>();
+    questions.forEach(q => {
+      if(q.enjeuxPrincipal && q.enjeuxPrincipal.trim() !== '') {
+        uniqueEnjeuxPrincipaux.add(q.enjeuxPrincipal);
+      }
+      if(q.enjeuxSecondaire && q.enjeuxSecondaire.trim() !== '') {
+        uniqueEnjeuxSecondaires.add(q.enjeuxSecondaire);
+      }
+    });
+    this.enjeuxPrincipaux = Array.from(uniqueEnjeuxPrincipaux);
+    this.enjeuxSecondaires = Array.from(uniqueEnjeuxSecondaires);
+  }
+
+  getFilteredQuestions(): QuestionRepondus[] {
+    if (this.questionnaires.length === 0) {
+      return [];
+    }
+    const questions = this.questionnaires[0].questionsRepondues || [];
+
+    return questions.filter(question => {
+      const matchesSearch = this.searchTerm.trim() === '' 
+        || question.intitule.toLowerCase().includes(this.searchTerm.toLowerCase());
+
+      const matchesEnjeuxPrincipal = this.selectedEnjeuxPrincipal === ''
+        || (question.enjeuxPrincipal && question.enjeuxPrincipal === this.selectedEnjeuxPrincipal);
+
+      const matchesEnjeuxSecondaire = this.selectedEnjeuxSecondaire === ''
+        || (question.enjeuxSecondaire && question.enjeuxSecondaire === this.selectedEnjeuxSecondaire);
+
+      return matchesSearch && matchesEnjeuxPrincipal && matchesEnjeuxSecondaire;
+    });
   }
 
   modifierReponseQuestion(id: string, questionId: string,nouveauCommentaire: string): void {

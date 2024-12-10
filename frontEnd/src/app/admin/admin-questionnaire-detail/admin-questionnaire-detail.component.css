@@ -63,3 +63,14 @@ button:hover {
   bottom: 0;
   width: 100%; 
 }
+
+.filters {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.filters input, .filters select {
+  padding: 5px;
+  font-size: 14px;
+}
