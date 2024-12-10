@@ -1,9 +1,10 @@
 /* login.component.css */
 
-body {
-  margin: 100;
+body, html {
+  padding: 0;
+  margin: 0;
   font-family: Arial, sans-serif;
-  height: 10vh;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,9 +12,10 @@ body {
 .spacer.layer1 {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 70.5rem; /* Utilisez min-height pour s'assurer que le conteneur occupe toute la hauteur */
+  height: 47vw; /* Utilisez min-height pour s'assurer que le conteneur occupe toute la hauteur */
   background-position: center;
   background-size: cover;
 }
