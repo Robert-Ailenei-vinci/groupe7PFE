@@ -7,4 +7,5 @@ public interface QuestionnaireReponduRepository extends MongoRepository<Question
 
   Iterable<QuestionnaireRepondu> getAllByIdClient(String idClient);
 
+  QuestionnaireRepondu questionnairefindByIdAndIdClient(String id, String idClient);
 }

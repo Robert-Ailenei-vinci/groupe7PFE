@@ -22,7 +22,7 @@ public class Question {
   private List<Reponse> reponses;
   private int nbrChoixMax;
   private boolean estQuestionLibre;
-  private int nombrePointMax;
+  private double nombrePointMax;
   private String enjeuxPrincipal;
   private String enjeuxSecondaire;
   private CATEGORIE categorie;

@@ -125,4 +125,14 @@ Content-Type: application/json
   "commentaire": "Commentaire modifié"
 }
 
+### Récupérer toutes les questions les plus posées
+GET http://localhost:8080/questionsPlusPose/getAll
+
+### Créer une question des plus posées
+POST http://localhost:8080/questionsPlusPose/add
+Content-Type: application/json
+
+{
+  "intitule" : "Comment contacter les admins ?"
+}
 
