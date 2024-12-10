@@ -3,7 +3,7 @@
 body, html {
   padding: 0;
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: P, sans-serif;
   height: 100%;
   display: flex;
   justify-content: center;
@@ -23,11 +23,10 @@ body, html {
 .login-container {
   background-image: url('./loginFormBackgrounds.svg');
   border-radius: 2.34vw;
-  padding: 2.08vw;
-  width: 17vw;
-  height: 17vw;
+  padding: 1vw;
+  width: 22vw;
+  height: 20vw;
   margin-top: -9vw;
-  max-width: 17vw;
   box-shadow: 0 2vw 7.81vw rgba(0, 0, 0, 0.2);
   text-align: center;
 }
@@ -50,13 +49,12 @@ label {
 input[type="text"],
 input[type="password"] {
   width: 100%;
-  padding: 0.75rem;
-  margin-bottom: 1rem;
+  padding: 0.5vw;
+  margin-bottom: 1vw;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  font-size: 1rem;
+  border-radius: 0.7vw;
+  font-size: 0.7vw;
   box-sizing: border-box;
-  transition: border-color 0.3s;
 }
 
 input:focus {
@@ -69,7 +67,7 @@ button {
   color: #fff;
   border: none;
   padding: 0.39vw 0.78vw;
-  font-size: 1rem;
+  font-size: 0.7vw;
   font-weight: bold;
   border-radius: 0.21vw;
   cursor: pointer;
@@ -78,6 +76,7 @@ button {
 
 button:hover {
   background-color: #b5cdbf;
+  color: #013238;
 }
 
 button[disabled] {
