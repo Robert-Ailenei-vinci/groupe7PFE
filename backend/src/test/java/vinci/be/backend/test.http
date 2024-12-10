@@ -133,7 +133,8 @@ POST http://localhost:8080/questionsPlusPose/add
 Content-Type: application/json
 
 {
-  "intitule" : "Comment contacter les admins ?"
+  "intitule" : "Comment contacter les admins ?",
+  "reponse": "via le numero de téléphone"
 }
 
 
