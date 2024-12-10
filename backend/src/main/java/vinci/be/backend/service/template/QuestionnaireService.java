@@ -643,7 +643,7 @@ public class QuestionnaireService {
 
     Question question2 = new Question();
     question2.setIntitule("Si vous la suivez, veuillez indiquer votre consommation d'énergie totale des 12 derniers mois (en kWh)");
-    question2.setReponses(List.of(reponse3));
+    // question2.setReponses(List.of(reponse3));
     question2.setNbrChoixMax(1);
     question2.setEstQuestionLibre(true);
     question2.setNombrePointMax(0);
@@ -721,7 +721,7 @@ public class QuestionnaireService {
 
     Question question8 = new Question();
     question8.setIntitule("Si vous la calculez, veuillez indiquer votre empreinte carbone de Scope 1 (en tonnes de CO2 équivalent) :");
-    question8.setReponses(List.of(reponse26));
+    // question8.setReponses(List.of(reponse26));
     question8.setNbrChoixMax(1);
     question8.setEstQuestionLibre(true);
     question8.setNombrePointMax(0);
@@ -734,7 +734,7 @@ public class QuestionnaireService {
 
     Question question9 = new Question();
     question9.setIntitule("Si vous la calculez, veuillez indiquer votre empreinte carbone de Scope 2 (en tonnes de CO2 équivalent) :");
-    question9.setReponses(List.of(reponse27));
+    // question9.setReponses(List.of(reponse27));
     question9.setNbrChoixMax(1);
     question9.setEstQuestionLibre(true);
     question9.setNombrePointMax(0);
@@ -747,7 +747,7 @@ public class QuestionnaireService {
 
     Question question10 = new Question();
     question10.setIntitule("Si vous la calculez, veuillez indiquer votre empreinte carbone de Scope 3 (en tonnes de CO2 équivalent) :");
-    question10.setReponses(List.of(reponse28));
+    // question10.setReponses(List.of(reponse28));
     question10.setNbrChoixMax(1);
     question10.setEstQuestionLibre(true);
     question10.setNombrePointMax(0);
@@ -864,7 +864,7 @@ public class QuestionnaireService {
 
     Question question19 = new Question();
     question19.setIntitule("Si vous la mesurez, veuillez indiquer votre consommation d'eau (en litres) :");
-    question19.setReponses(List.of(reponse74));
+    // question19.setReponses(List.of(reponse74));
     question19.setNbrChoixMax(1);
     question19.setEstQuestionLibre(true);
     question19.setNombrePointMax(0);
