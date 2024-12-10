@@ -15,8 +15,10 @@ import { concatMap, from, last } from 'rxjs';
   templateUrl: './question.component.html',
   styleUrls: ['./question.component.css'],
 })
+
 export class QuestionComponent implements OnInit {
   questionnaire: QuestionnaireDetail[] = [];
+  questionnaireParCategories = new Map<string, Map<string, QuestionRepondus[]>>();
   question!: QuestionRepondus;
   isLoading = true;
 
@@ -47,7 +49,8 @@ export class QuestionComponent implements OnInit {
       const user = localStorage.getItem('authToken');
       const entreprise = user ? JSON.parse(user).nomEntreprise : '';
       this.question.intitule = this.question.intitule.replace(/XXX/g, entreprise ?? '');
-      
+      this.questionnaireParCategories = QuestionnaireManagerComponent.getQuestionnaireParCategories();
+
       this.isLoading = false;
     }, 700);
   }
@@ -98,4 +101,22 @@ export class QuestionComponent implements OnInit {
     */
     reponse.estEngage = event.target ? (event.target as HTMLInputElement).checked : false;
   } 
+
+    // Renvoie true si une question a été répondue
+    isAnswered(question: QuestionRepondus): boolean {
+      return question.reponseRepondus.some(
+        reponse => (reponse.selectionne && question.reponseRepondus.length > 0) || question.commentaire !== ''
+      );
+    }
+
+    getClassList(question: QuestionRepondus): string {
+      let classe = 'link question crop';
+      if(this.isAnswered(question) && question.id !== this.question.id) {
+        classe += ' answered';
+      }
+      else if(question.id === this.question.id) {
+        classe += ' current';
+      }
+      return classe;
+    }
 }

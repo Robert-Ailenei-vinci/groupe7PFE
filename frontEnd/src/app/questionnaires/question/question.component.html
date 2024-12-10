@@ -2,39 +2,79 @@
 
 <app-questionnaire-manager></app-questionnaire-manager>
 
-<div *ngIf="!isLoading; else loading">
-  <div class="questionCenter">
-    <div class="progressBarBackground">
-      <div class="progressBar" 
-        [style.width.%]="(questionnaire[0].nombreDeQuestionRepondu / questionnaire[0].questionsRepondues.length) * 100 || 0">
-      </div>
-    </div>
-    <h1 class="questionTitle">{{ question.intitule }}</h1>
+<div *ngIf="!isLoading; else loading" class="containerDiviseur">
+  <div class="left">
+    <div class="tableContainer">
+    <table>
+      <thead>
+        <tr class="categoryHeader">
+          <th>Catégories</th>
+        </tr>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let category of questionnaireParCategories | keyvalue">
+          <tr class="categoryHeader">
+            <td class="category">{{ category.key }}</td>
+          </tr>
+          <ng-container *ngFor="let souscategory of category.value | keyvalue">
+            <tr class="souscategory">
+              <td>{{ souscategory.key }}</td>
+            </tr>
+            <ng-container *ngFor="let question of souscategory.value">
+              <tr>
+                <a 
+                [className]="getClassList(question)" 
+                [href]="'/esg/question/' + question.id"
+                >
+                  {{ question.intitule }}
+                </a>
+              </tr>
+            </ng-container>
+          </ng-container>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>
+  <a class="vueEnsemble" href="/esg">
+    Vue d'ensemble
+  </a>
+</div>
 
-    <div *ngIf="question.reponseRepondus && question.reponseRepondus.length > 0">
-      <div class="questionAnswers">
-        <div class="box" *ngFor="let reponse of question.reponseRepondus">
-          <div (click)="selectAnswer(reponse)" [ngClass]="reponse.selectionne ? 'boxTextSelected' : 'boxText'">
-            {{ reponse.intitule }}
-          </div>
-          <div class="engagement">
-            <input
-              type="checkbox"
-              class="checkboxEngage"
-              (change)="selectEngagement(reponse, $event)"
-              [checked]="reponse.estEngage"
-            />
-            <label for="engagement">Je m'engage à le faire dans les 2 ans</label>
+  
+  <div class="right">
+    <div class="questionCenter">
+      <div class="progressBarBackground">
+        <div class="progressBar" 
+          [style.width.%]="questionnaire[0].questionsRepondues.length > questionnaire[0].nombreDeQuestionRepondu ? (questionnaire[0].nombreDeQuestionRepondu / questionnaire[0].questionsRepondues.length) * 100 : 100">
+        </div>
+      </div>
+      <h1 class="questionTitle">{{ question.intitule }}</h1>
+
+      <div *ngIf="question.reponseRepondus && question.reponseRepondus.length > 0">
+        <div class="questionAnswers">
+          <div class="box" *ngFor="let reponse of question.reponseRepondus">
+            <div (click)="selectAnswer(reponse)" [ngClass]="reponse.selectionne ? 'boxTextSelected' : 'boxText'">
+              {{ reponse.intitule }}
+            </div>
+            <div class="engagement">
+              <input
+                type="checkbox"
+                class="checkboxEngage"
+                (change)="selectEngagement(reponse, $event)"
+                [checked]="reponse.estEngage"
+              />
+              <label for="engagement">Je m'engage à le faire dans les 2 ans</label>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="comField">
-      <h3>Commentaire:</h3>
-      <input [(ngModel)]="question.commentaire"  type="text" class="comText" placeholder="Écrivez ici un commentaire si nécessaire" value={{question.commentaire}}>
-    </div>
+      <div class="comField">
+        <h3>Commentaire:</h3>
+        <input [(ngModel)]="question.commentaire"  type="text" class="comText" placeholder="Écrivez ici un commentaire si nécessaire" value={{question.commentaire}}>
+      </div>
 
-    <div class="nextQuestion" (click)="navigateToNextQuestion(question)">Sauvegarder et passer à la question suivante</div>
+      <div class="nextQuestion" (click)="navigateToNextQuestion(question)">Sauvegarder et passer à la question suivante</div>
+    </div>
   </div>
 </div>
 
