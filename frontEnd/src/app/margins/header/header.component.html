@@ -3,6 +3,9 @@
         <img src="assets/images/logo.png" alt="Logo" class="logo">
         <div class="header-right">
             <a href="/homepage">Home</a>
+            <ng-container *ngIf="estConnecte;">
+                <a href="/esg">Répondre au questionnaire</a>
+            </ng-container>
             <a href="/questions">Questions & <br>réponses</a>
 
             <ng-container *ngIf="estAdmin;">

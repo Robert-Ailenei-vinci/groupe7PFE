@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from '../../margins/header/header.component';
 import { FooterComponent } from '../../margins/footer/footer.component';
 import { QuestionnaireManagerComponent } from '../questionnaire-manager/questionnaire-manager.component';
@@ -10,100 +10,110 @@ import { Router } from '@angular/router';
   selector: 'app-questionnaire',
   imports: [HeaderComponent, FooterComponent, QuestionnaireManagerComponent, CommonModule],
   templateUrl: './questionnaire.component.html',
-  styleUrl: './questionnaire.component.css'
+  styleUrls: ['./questionnaire.component.css']
 })
-
-export class QuestionnaireComponent {
-  questionnaireParCategories = QuestionnaireManagerComponent.getQuestionnaireParCategories();
-
+export class QuestionnaireComponent implements OnInit {
+  questionnaireParCategories: Map<string, Map<string, QuestionRepondus[]>> = new Map();
+  isLoading = true; // Variable pour l'état de chargement
 
   constructor(private router: Router) {}
 
-    // Compte le total des questions dans une catégorie
-    getTotalQuestions(category: Map<string, QuestionRepondus[]>): number {
-      let totalQuestions = 0;
-      category.forEach(subCategory => {
-        totalQuestions += this.getQuestionsCount(subCategory);
-      });
-      return totalQuestions;
-    }
-
-    // Compte le total des questions répondus dans une catégorie
-    getAnsweredTotalQuestions(category: Map<string, QuestionRepondus[]>): number {
-      let totalQuestions = 0;
-      category.forEach(subCategory => {
-        totalQuestions += this.getAnsweredQuestionsCount(subCategory);
-      });
-      return totalQuestions;
-    }
-  
-    // Compte le nombre de questions dans une sous-catégorie
-    getQuestionsCount(questions: QuestionRepondus[]): number {
-      return questions.length;
-    }
-
-    // Compte le nombre de questions répondus dans une sous-catégorie
-    getAnsweredQuestionsCount(questions: QuestionRepondus[]): number {
-      let answeredQuestions = 0;
-      questions.forEach(question => {
-        if(this.isAnswered(question)) {
-          answeredQuestions++;
-        }
-      });
-      return answeredQuestions;
-    }
-
-    // Renvoie true si une question a été répondue
-    isAnswered(question: QuestionRepondus): boolean {
-      for(let i = 0; i < question.reponseRepondus.length; i++) {
-        if(question.reponseRepondus[i].estEngage) return true;
-        if(question.reponseRepondus[i].selectionne) return true;
+  ngOnInit(): void {
+    // Simuler un chargement des données pour vérifier leur disponibilité
+    setTimeout(() => {
+      this.questionnaireParCategories = QuestionnaireManagerComponent.getQuestionnaireParCategories();
+      if (this.questionnaireParCategories.size === 0) {
+        console.error('Aucune donnée disponible');
+      } else {
+        console.log('Données chargées :', this.questionnaireParCategories);
       }
-      return false;
-    }
+      this.isLoading = false; // Indique que les données sont prêtes
+    }, 700);
+  }
 
-    // renvoie la première question non répondue du questionnaire
-    getNextNonAnsweredQuestion(questionnaireParCategories : Map<string, Map<string, QuestionRepondus[]>>) {
-      for(const [category, subCategories] of questionnaireParCategories) {
-        for(const [subCategory, questions] of subCategories) {
-          for(const question of questions) {
-            if(!this.isAnswered(question)) {
-              return question;
-            }
+  // Compte le total des questions dans une catégorie
+  getTotalQuestions(category: Map<string, QuestionRepondus[]>): number {
+    let totalQuestions = 0;
+    category.forEach(subCategory => {
+      totalQuestions += this.getQuestionsCount(subCategory);
+    });
+    return totalQuestions;
+  }
+
+  // Compte le total des questions répondus dans une catégorie
+  getAnsweredTotalQuestions(category: Map<string, QuestionRepondus[]>): number {
+    let totalQuestions = 0;
+    category.forEach(subCategory => {
+      totalQuestions += this.getAnsweredQuestionsCount(subCategory);
+    });
+    return totalQuestions;
+  }
+
+  // Compte le nombre de questions dans une sous-catégorie
+  getQuestionsCount(questions: QuestionRepondus[]): number {
+    return questions.length;
+  }
+
+  // Compte le nombre de questions répondus dans une sous-catégorie
+  getAnsweredQuestionsCount(questions: QuestionRepondus[]): number {
+    let answeredQuestions = 0;
+    questions.forEach(question => {
+      if (this.isAnswered(question)) {
+        answeredQuestions++;
+      }
+    });
+    return answeredQuestions;
+  }
+
+  // Renvoie true si une question a été répondue
+  isAnswered(question: QuestionRepondus): boolean {
+    return question.reponseRepondus.some(
+      reponse => reponse.estEngage || reponse.selectionne || question.commentaire !== ''
+    );
+  }
+
+  // Renvoie la première question non répondue du questionnaire
+  getNextNonAnsweredQuestion(
+    questionnaireParCategories: Map<string, Map<string, QuestionRepondus[]>>
+  ): QuestionRepondus | null {
+    for (const subCategories of questionnaireParCategories.values()) {
+      for (const questions of subCategories.values()) {
+        for (const question of questions) {
+          if (!this.isAnswered(question)) {
+            return question;
           }
         }
       }
-      return null;
     }
+    return null;
+  }
 
-    navigateToNextNonAnsweredQuestion(questionnaireParCategories : Map<string, Map<string, QuestionRepondus[]>>) {
-      const nextQuestion = this.getNextNonAnsweredQuestion(questionnaireParCategories);
-      if(nextQuestion) {
-        this.router.navigate(['/esg/question/', nextQuestion.id]);
-      }
+  navigateToNextNonAnsweredQuestion(
+    questionnaireParCategories: Map<string, Map<string, QuestionRepondus[]>>
+  ): void {
+    const nextQuestion = this.getNextNonAnsweredQuestion(questionnaireParCategories);
+    if (nextQuestion) {
+      this.router.navigate(['/esg/question/', nextQuestion.id]);
     }
-    
-    nombreDeQuestions() {
-      let nombreDeQuestions = 0;
-      for (let subCategories of this.questionnaireParCategories.values()) {
-        for (let questions of subCategories.values()) {
-          nombreDeQuestions += questions.length;
-        }
-      }
-      return nombreDeQuestions;
-    }
+  }
 
-    nombreDeQuestionsRepondues() {
-      let nombreDeQuestionsRepondues = 0;
-      for (let subCategories of this.questionnaireParCategories.values()) {
-        for (let questions of subCategories.values()) {
-          for (let question of questions) {
-            if (this.isAnswered(question)) {
-              nombreDeQuestionsRepondues++;
-            }
-          }
-        }
+  nombreDeQuestions(): number {
+    let nombreDeQuestions = 0;
+    for (const subCategories of this.questionnaireParCategories.values()) {
+      for (const questions of subCategories.values()) {
+        nombreDeQuestions += questions.length;
       }
-      return nombreDeQuestionsRepondues;
     }
+    return nombreDeQuestions;
+  }
+
+  nombreDeQuestionsRepondues(): number {
+    let nombreDeQuestionsRepondues = 0;
+    for (const subCategories of this.questionnaireParCategories.values()) {
+      for (const questions of subCategories.values()) {
+        nombreDeQuestionsRepondues += questions.filter(this.isAnswered).length;
+      }
+    }
+    return nombreDeQuestionsRepondues;
+  }
 }

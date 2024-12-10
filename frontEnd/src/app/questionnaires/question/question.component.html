@@ -11,19 +11,19 @@
 
     <div class="questionAnswers">
       <div class="box" *ngFor="let reponse of question.reponseRepondus">
-        <div [ngClass]="reponse.selectionne ? 'boxTextSelected' : 'boxText'">{{ reponse.intitule }}</div>
+        <div (click)="selectAnswer(reponse)" [ngClass]="reponse.selectionne ? 'boxTextSelected' : 'boxText'">{{ reponse.intitule }}</div>
         <div class="engagement">
-          <input type="checkbox" class="checkboxEngage">
+          <input type="checkbox" class="checkboxEngage" (change)="selectEngagement(reponse, $event)" [checked]="reponse.estEngage">
           <label for="engagement">Je m'engage à le faire dans les 2 ans</label>
         </div>
       </div>
     </div>
     <div class="comField">
       <h3>Commentaire:</h3>
-      <input type="text" class="comText" placeholder="Écrivez ici un commentaire si nécessaire" value={{question.commentaire}}>
+      <input [(ngModel)]="question.commentaire"  type="text" class="comText" placeholder="Écrivez ici un commentaire si nécessaire" value={{question.commentaire}}>
     </div>
 
-    <div class="nextQuestion" (click)="navigateToNextQuestion()">Question Suivante</div>
+    <div class="nextQuestion" (click)="navigateToNextQuestion(question)">Sauvegarder et passer à la question suivante</div>
   </div>
 </div>
 
