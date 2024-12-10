@@ -100,4 +100,14 @@ public class QuestionnaireReponduController {
     return new ResponseEntity<>(pourcentageQuestionnaire, HttpStatus.OK);
   }
 
+  @GetMapping("/questionnaires/{idQuestionnaire}/{idClient}")
+  public ResponseEntity<QuestionnaireRepondu> getQuestionnaireByIDAndIDClient(@PathVariable String idQuestionnaire, @PathVariable String idClient) {
+    QuestionnaireRepondu questionnaire = questionnaireReponduService.getQuestionnaireByIDAndIDClient(idQuestionnaire, idClient);
+
+    if (questionnaire == null) {
+      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+    return new ResponseEntity<>(questionnaire, HttpStatus.OK);
+  }
+
 }

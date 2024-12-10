@@ -15,6 +15,8 @@ import vinci.be.backend.model.repondu.questionnairerepondu.QuestionnaireRepondu;
 import vinci.be.backend.model.repondu.questionrepondu.QuestionRepondu;
 import vinci.be.backend.model.template.reponse.Reponse;
 import vinci.be.backend.model.repondu.reponserepondu.ReponseRepondu;
+import vinci.be.backend.model.user.client.Client;
+import vinci.be.backend.repository.ClientRepository;
 import vinci.be.backend.repository.QuestionRepository;
 import vinci.be.backend.repository.QuestionnaireRepository;
 import vinci.be.backend.repository.ReponseRepository;
@@ -32,13 +34,15 @@ public class QuestionnaireReponduService {
   private final QuestionReponduRepository questionRepositoryRepondu;
   private final ReponseRepository reponseRepository;
   private final QuestionRepository questionRepository;
+  private final ClientRepository clientRepository;
 
   public QuestionnaireReponduService(QuestionnaireReponduRepository questionnaireReponduRepository,
       QuestionReponduRepository questionReponduRepository,
       ReponseReponduRepository reponseReponduRepository,
       QuestionnaireRepository questionnaireRepository, QuestionRepository questionRepository,
-      QuestionReponduRepository questionRepositoryRepondu, ReponseRepository reponseRepository
-      ) {
+      QuestionReponduRepository questionRepositoryRepondu, ReponseRepository reponseRepository,
+      ClientRepository clientRepository
+  ) {
     this.questionnaireReponduRepository = questionnaireReponduRepository;
     this.questionReponduRepository = questionReponduRepository;
     this.reponseReponduRepository = reponseReponduRepository;
@@ -46,8 +50,24 @@ public class QuestionnaireReponduService {
     this.questionRepositoryRepondu = questionRepositoryRepondu;
     this.reponseRepository = reponseRepository;
     this.questionRepository = questionRepository;
+    this.clientRepository = clientRepository;
   }
 
+  public QuestionnaireRepondu getQuestionnaireByIDAndIDClient(String idQuestionnaire, String idClient) {
+
+    Questionnaire questionnaire = questionnaireRepository.findById(idQuestionnaire).orElse(null);
+    if (questionnaire == null) {
+      return null;
+    }
+
+    Client client = clientRepository.findById(idClient).orElse(null);
+    if (client == null) {
+      return null;
+    }
+
+    return questionnaireReponduRepository.questionnairefindByIdAndIdClient(idQuestionnaire, idClient);
+
+  }
 
   public QuestionnaireRepondu createOneESG(String idClient) {
     // Récupération du template
