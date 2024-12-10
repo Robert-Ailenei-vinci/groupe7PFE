@@ -10,8 +10,8 @@ section{
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-height: 400px;
-    padding: 100px 20vw;
+    min-height: 40vw;
+    padding: 5vw 20vw;
 }
 
 .greenF{
@@ -34,17 +34,17 @@ section{
     margin-top: -2%;
     opacity: 0 ;
     color: #013238;
-    font-size: 180px;
+    font-size: 8vw;
     text-transform: uppercase;
     font-weight: 800;
-    letter-spacing: 3px;
-    line-height: 120px;
+    letter-spacing: 0.3vw;
+    line-height: 6vw;
     margin-bottom: 10%;
 }
 
 .jaune h1 span{
     color: #b5cdbf;
-    font-size: 160px;
+    font-size: 7vw;
     font-weight: 500;
 }
 
