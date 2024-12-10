@@ -51,11 +51,6 @@ public class QuestionnaireReponduController {
   @PatchMapping("/questionnaires/validate/{idQuestionnaire}")
   public ResponseEntity<QuestionnaireRepondu> validateQuestionnaire(@PathVariable String idQuestionnaire) {
 
-    QuestionnaireRepondu questionnaireBefore = questionnaireReponduService.getQuestionnaireById(idQuestionnaire);
-
-    if (questionnaireBefore.isEstValide()) {
-      return new ResponseEntity<>(HttpStatus.CONFLICT);
-    }
     QuestionnaireRepondu questionnaire = questionnaireReponduService.validateQuestionnaire(idQuestionnaire);
 
     if (questionnaire == null) {

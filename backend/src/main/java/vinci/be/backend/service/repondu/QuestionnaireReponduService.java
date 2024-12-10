@@ -242,6 +242,7 @@ public class QuestionnaireReponduService {
 
   public PourcentageQuestionnaire calculatePourcentage(String idQuestionnaireRepondu) {
     PourcentageQuestionnaire pourcentageQuestionnaire = new PourcentageQuestionnaire();
+    pourcentageQuestionnaire.setIdQuestionnaire(idQuestionnaireRepondu);
     QuestionnaireRepondu questionnaireRepondu = questionnaireReponduRepository.findById(idQuestionnaireRepondu).orElse(null);
     if (questionnaireRepondu == null) {
       return null;

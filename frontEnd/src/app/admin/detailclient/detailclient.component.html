@@ -1,0 +1,112 @@
+<app-header></app-header>
+
+
+<table class="table">
+    <thead>
+      <tr>
+        <th>Attribut</th>
+        <th>Valeur</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>ID</td>
+        <td>{{ client?.id }}</td>
+      </tr>
+      <tr>
+        <td>Prénom</td>
+        <td>{{ client?.prenom }}</td>
+      </tr>
+      <tr>
+        <td>Nom</td>
+        <td>{{ client?.nom }}</td>
+      </tr>
+      <tr>
+        <td>Email</td>
+        <td>{{ client?.email }}</td>
+      </tr>
+      <tr>
+        <td>Fonction</td>
+        <td>{{ client?.fonction }}</td>
+      </tr>
+      <tr>
+        <td>Nom de l'entreprise</td>
+        <td>{{ client?.nomEntreprise }}</td>
+      </tr>
+      <tr>
+        <td>Numéro de l'entreprise</td>
+        <td>{{ client?.numEntreprise }}</td>
+      </tr>
+      <tr>
+        <td>Forme juridique</td>
+        <td>{{ client?.formeJuridique }}</td>
+      </tr>
+      <tr>
+        <td>Adresse du siège social</td>
+        <td>{{ client?.adresseSiegeSocial }}</td>
+      </tr>
+      <tr>
+        <td>Adresse du site web</td>
+        <td><a href="{{ client?.adresseSiteWeb }}">{{ client?.adresseSiteWeb }}</a></td>
+      </tr>
+      <tr>
+        <td>Code NACE</td>
+        <td>{{ client?.codeNace || 'Non spécifié' }}</td>
+      </tr>
+      <tr>
+        <td>Activité principale</td>
+        <td>{{ client?.activitePrincipale || 'Non spécifiée' }}</td>
+      </tr>
+      <tr>
+        <td>Dernier chiffre d'affaires</td>
+        <td>{{ client?.dernierChiffreDAffaire | currency }}</td>
+      </tr>
+      <tr>
+        <td>Est franchisé</td>
+        <td>{{ client?.estFranchise ? 'Oui' : 'Non' }}</td>
+      </tr>
+      <tr>
+        <td>Nombre de travailleurs</td>
+        <td>{{ client?.nbTravailleur }}</td>
+      </tr>
+      <tr>
+        <td>Est dans un litige</td>
+        <td>{{ client?.estDansUnLitige ? 'Oui' : 'Non' }}</td>
+      </tr>
+      <tr>
+        <td>Demande de label</td>
+        <td>{{ client?.demandeDeLabel ? 'Oui' : 'Non' }}</td>
+      </tr>
+      <tr>
+        <td>Partenaire</td>
+        <td>{{ client?.partenaire }}</td>
+      </tr>
+      <tr>
+        <td>Commentaire</td>
+        <td>{{client?.commentaire }}</td>
+      </tr>
+      <tr>
+        <td>Templates</td>
+        <td>{{ client?.templates?.join(', ') || 'Non spécifié' }}</td>
+      </tr>
+      <tr>
+        <td>estProprietaire</td>
+        <td>{{client?.estProprietaire ? 'Oui' : 'Non' }}</td>
+      </tr>
+      <tr>
+        <td>vendProduit</td>
+        <td>{{client?.vendProduit ? 'Oui' : 'Non' }}</td>
+      </tr>
+      <tr>
+        <td>vendService</td>
+        <td>{{client?.vendService ? 'Oui' : 'Non' }}</td>
+      </tr>
+      
+    </tbody>
+  </table>
+  
+
+<!-- <pre>client: {{ client | json }}</pre> -->
+
+
+<app-footer class="fixed-footer"></app-footer>
