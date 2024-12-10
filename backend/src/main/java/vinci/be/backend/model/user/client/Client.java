@@ -30,6 +30,9 @@ public class Client {
   private String adresseSiteWeb;
   private String codeNace;
   private String activitePrincipale;
+  private boolean estProprietaire;
+  private boolean vendProduit;
+  private boolean vendService;
   private double dernierChiffreDAffaire;
   private boolean estFranchise;
   private int nbTravailleur;

@@ -58,13 +58,22 @@ h2{
     color: #dfd4fb;
 }
 
-.input-box input,
+.input-box input[type="text"],
+.input-box input[type="email"],
+.input-box input[type="number"],
+.input-box input[type="password"],
 .input-box textarea {
     padding: 0.5vw;
     width: 20vw;
     border-radius: 0.5vw;
     border: 1px solid #013238;
     font-size: 1vw;
+}
+
+.input-box input[type="checkbox"] {
+    width: 1vw;
+    height: 1vw;
+    margin-right: 0.5vw;
 }
 
 .input-box textarea {

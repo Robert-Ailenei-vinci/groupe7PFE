@@ -63,6 +63,9 @@ export interface Client {
   partenaire: string;
   commentaire: string;
   templates: string[];
+  estProprietaire: boolean;
+  vendProduit:boolean;
+  vendService: boolean;
 }
 
 export interface ClientWithoutId {
@@ -84,6 +87,9 @@ export interface ClientWithoutId {
   demandeDeLabel: boolean;
   partenaire: string;
   commentaire: string;
+  estProprietaire: boolean;
+  vendProduit:boolean;
+  vendService: boolean;
 }
 
 export interface Score {
