@@ -15,6 +15,9 @@ export class QuestionnaireManagerComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    QuestionnaireManagerComponent.questionnaireDetail = [];
+    QuestionnaireManagerComponent.questionnaireParCategories = new Map<string, Map<string, QuestionRepondus[]>>();
+
     const user = localStorage.getItem('authToken');
     const id = user ? JSON.parse(user).id : '';
     this.clientService.getQuestionnairesByClientId(id).subscribe({

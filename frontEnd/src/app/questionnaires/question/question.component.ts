@@ -15,14 +15,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class QuestionComponent implements OnInit {
   questionnaire: QuestionnaireDetail[] = [];
-  question!: QuestionRepondus; // La question à afficher
+  question!: QuestionRepondus;
   isLoading = true;
 
   constructor(private route: ActivatedRoute, private router : Router) {}
 
   ngOnInit(): void {
     const questionId = this.route.snapshot.paramMap.get('id');
-  
     setTimeout(() => {
       this.questionnaire = QuestionnaireManagerComponent.getQuestionnaireDetail();
     
@@ -42,7 +41,11 @@ export class QuestionComponent implements OnInit {
       }
       
       this.question = foundQuestion;
-      console.log('Question trouvée :', this.question);
+      // On remplace les XXX par le nom de l'entreprise
+      const user = localStorage.getItem('authToken');
+      const entreprise = user ? JSON.parse(user).nomEntreprise : '';
+      this.question.intitule = this.question.intitule.replace(/XXX/g, entreprise ?? '');
+      
       this.isLoading = false;
     }, 700);
   }
