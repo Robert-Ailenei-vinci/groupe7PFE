@@ -201,7 +201,7 @@
     border: 1px solid black;
   }
   .tableContainer {
-    max-height: 50%;
+    max-height: 600px;
     width: 500px;
     overflow-y: auto;
     overflow-x: hidden;
@@ -216,7 +216,7 @@
   }
 
   tr{
-    height: 0px;
+    height: 20px;
   }
 
   .link{
