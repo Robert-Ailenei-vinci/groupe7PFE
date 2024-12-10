@@ -22,9 +22,10 @@ body, html {
 
 .login-container {
   background-image: url('./loginFormBackgrounds.svg');
-  border-radius: 40px;
-  padding: 5rem;
-  width: 100%;
+  border-radius: 45px;
+  padding: 4rem;
+  width: 17vw;
+  height: 17vw;
   margin-top: -25rem;
   max-width: 17vw;
   box-shadow: 0 2vw 15px rgba(0, 0, 0, 0.2);
@@ -32,9 +33,10 @@ body, html {
 }
 
 h2 {
-  margin-bottom: 1.5rem;
+  margin-top: 1.5vw;
+  margin-bottom: 1.5vw;
   color: #fde791;
-  font-size: 1.8rem;
+  font-size: 1.2vw;
 }
 
 label {
