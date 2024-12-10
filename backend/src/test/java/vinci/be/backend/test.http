@@ -82,7 +82,7 @@ POST http://localhost:8080/questionnaires/create/questionnaireESG
 Content-Type: application/json
 
 {
-  "idClient": "675724b77c6d3f12f30ab513"
+  "idClient": "675725457c6d3f12f30ab514"
 }
 
 ### Récupérer tous les clients
@@ -133,6 +133,10 @@ POST http://localhost:8080/questionsPlusPose/add
 Content-Type: application/json
 
 {
-  "intitule" : "Comment contacter les admins ?"
+  "intitule" : "Comment contacter les admins ?",
+  "reponse": "via le numero de téléphone"
 }
 
+
+### adad
+GET http://localhost:8080/questionnaires/pourcentage/67586b5a8deb2a25db7c37c1

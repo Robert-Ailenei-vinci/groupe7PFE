@@ -19,7 +19,6 @@ public class QuestionPlusPoseService {
   }
 
   public QuestionPlusPose addQuestionPose(QuestionPlusPose questionPlusPose) {
-    questionPlusPose.setIntitule(questionPlusPose.getIntitule().trim());
     return questionPlusPoseRepository.save(questionPlusPose);
   }
 }

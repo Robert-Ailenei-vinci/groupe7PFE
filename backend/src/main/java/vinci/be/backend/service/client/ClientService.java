@@ -30,7 +30,15 @@ public class ClientService {
     if (client.getNbTravailleur() > 1){
       client.getTemplates().add(Templates.WORKERS);
     }
+
+    if (client.isVendProduit()){
+      client.getTemplates().add(Templates.PRODUITS);
+    }
+    if (client.isEstProprietaire()){
+      client.getTemplates().add(Templates.OWNEDFACILITY);
+    }
     client.getTemplates().add(Templates.ALL);
+    client.getTemplates().add(Templates.FACILITY);
 
     String hashedPassword = passwordEncoder.encode(client.getPassword());
     client.setPassword(hashedPassword);

@@ -119,6 +119,7 @@ public class QuestionnaireReponduService {
     questionRepondu.setTemplate(question.getTemplate());
     questionRepondu.setCategorie(question.getCategorie());
     questionRepondu.setQuestionDejaSelectionne(false);
+    questionRepondu.setEstQuestionLibre(question.isEstQuestionLibre());
     questionRepondu = questionReponduRepository.save(questionRepondu);
 
     QuestionRepondu finalQuestionRepondu = questionRepondu;
@@ -242,6 +243,7 @@ public class QuestionnaireReponduService {
 
   public PourcentageQuestionnaire calculatePourcentage(String idQuestionnaireRepondu) {
     PourcentageQuestionnaire pourcentageQuestionnaire = new PourcentageQuestionnaire();
+    pourcentageQuestionnaire.setIdQuestionnaire(idQuestionnaireRepondu);
     QuestionnaireRepondu questionnaireRepondu = questionnaireReponduRepository.findById(idQuestionnaireRepondu).orElse(null);
     if (questionnaireRepondu == null) {
       return null;

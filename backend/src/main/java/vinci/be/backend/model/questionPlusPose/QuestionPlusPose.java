@@ -16,12 +16,13 @@ public class QuestionPlusPose {
   @Id
   private String id;
   private String intitule;
+  private String reponse;
 
   /**
    * Méthode permettant de valider toutes les données d'entrée
    * @return true si les données sont invalides, false sinon
    */
   public boolean invalid() {
-    return intitule == null || intitule.isBlank();
+    return intitule == null || intitule.isBlank() && reponse == null || reponse.isBlank();
   }
 }

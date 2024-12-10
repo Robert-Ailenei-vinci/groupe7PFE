@@ -50,7 +50,7 @@ public class ReponseReponduService {
             reponse.setSelectionne(selectionne);
             reponseRepondu.setSelectionne(reponse.isSelectionne());
 
-          if (!questionRepondu.isQuestionDejaSelectionne() && selectionne) {
+          if ((!questionRepondu.isQuestionDejaSelectionne() && selectionne) || question.isEstQuestionLibre()) {
             questionnaireRepondu.setNombreDeQuestionRepondu(questionnaireRepondu.getNombreDeQuestionRepondu() + 1);
             questionRepondu.setQuestionDejaSelectionne(true);
           }
