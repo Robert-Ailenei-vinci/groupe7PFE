@@ -21,7 +21,7 @@
   <div *ngIf="!isLoading && !error && questionnaires.length > 0">
     <div *ngFor="let questionnaire of questionnaires" class="questionnaire">
       
-      <div *ngIf="questionnaire.estTermine && !questionnaire.estValide">
+      <div *ngIf="questionnaire.estTermine ">
         <button (click)="validerQuestionnaire(questionnaire.id.toString())">Valider Questionnaire</button>
       </div>
 
@@ -106,8 +106,8 @@
     <p>Aucun questionnaire trouvé pour ce client.</p>
   </div>
   
-  <pre *ngIf="questionnaires">Questionnaires: {{ questionnaires | json }}</pre>
-  <pre *ngIf="error">Error: {{ error }}</pre>
+  <!-- <pre *ngIf="questionnaires">Questionnaires: {{ questionnaires | json }}</pre> -->
+  <!-- <pre *ngIf="error">Error: {{ error }}</pre> -->
 </div>
 
 <app-footer class="fixed-footer"></app-footer>
