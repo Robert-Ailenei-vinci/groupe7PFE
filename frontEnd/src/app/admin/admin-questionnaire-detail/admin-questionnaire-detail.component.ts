@@ -62,10 +62,8 @@ export class AdminQuestionnaireDetailComponent implements OnInit {
 
         // On remplace les XXX par le nom de l'entreprise
           this.questionnaires[0].questionsRepondues = this.questionnaires[0].questionsRepondues.map((questionRepondue: QuestionRepondus) => {
-            console.log("Intitulé avant remplacement :", questionRepondue.intitule);
           
           const nouvelIntitule = questionRepondue.intitule.replace(/XXX/g, this.client?.nomEntreprise ?? '');
-          console.log("Intitulé après remplacement :", nouvelIntitule);
           
           return {
             ...questionRepondue,
