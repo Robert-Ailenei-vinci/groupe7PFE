@@ -6,10 +6,10 @@
         <h1>FAQ</h1>
         <div *ngFor="let item of faqItems; let i = index" class="faq-item" [ngClass]="{'faq-item-left': i % 2 === 0, 'faq-item-right': i % 2 !== 0}">
           <h2 (click)="toggle(item.id)" class="faq-question">
-            {{ item.id }}
+            {{ item.intitule }}
           </h2>
           <p class="faq-answer">
-            {{ item.intitule }} <!-- Remplacer par la réponse réelle -->
+            {{ item.reponse }} <!-- Remplacer par la réponse réelle -->
           </p>
         </div>
       </div>

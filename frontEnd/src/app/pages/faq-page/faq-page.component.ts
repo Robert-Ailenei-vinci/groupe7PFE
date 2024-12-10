@@ -14,20 +14,8 @@ import { CommonModule } from '@angular/common';
 export class FaqPageComponent implements OnInit {
   faqItems = [
     {
-      id: 'Autre question ou je test la longueur, enfin les couleurs doivent chenger en fonction du background mais je dois meubler pour que ce soit vraiment long donc je dis de la merde',
-      intitule: 'Autre question ou je test la longueur, enfin les couleurs doivent chenger en fonction du background mais je dois meubler pour que ce soit vraiment long donc je dis de la merde'
-    },
-    {
-      id: 'Autre question ou je test la longueur, enfin les couleurs doivent chenger en fonction du background mais je dois meubler pour que ce soit vraiment long donc je dis de la merde',
-      intitule: 'Autre question ou je test la longueur, enfin les couleurs doivent chenger en fonction du background mais je dois meubler pour que ce soit vraiment long donc je dis de la merde'
-    },
-    {
-      id: 'Autre question ou je test la longueur, enfin les couleurs doivent chenger en fonction du background mais je dois meubler pour que ce soit vraiment long donc je dis de la merde',
-      intitule: 'Autre question ou je test la longueur, enfin les couleurs doivent chenger en fonction du background mais je dois meubler pour que ce soit vraiment long donc je dis de la merde'
-    },
-    {
-      id: 'Autre question ou je test la longueur, enfin les couleurs doivent chenger en fonction du background mais je dois meubler pour que ce soit vraiment long donc je dis de la merde',
-      intitule: 'Autre question ou je test la longueur, enfin les couleurs doivent chenger en fonction du background mais je dois meubler pour que ce soit vraiment long donc je dis de la merde'
+      id: 'Chargement des question',
+      intitule: 'Veuillez patienter...'
     }
   ];
 
