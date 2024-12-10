@@ -56,6 +56,7 @@ public class ReponseReponduService {
       }
       questionRepondu.setReponseRepondus(question.getReponseRepondus());
       questionnaireRepondu.setQuestionsRepondues(questionnaireRepondu.getQuestionsRepondues());
+      questionnaireRepondu.setNombreDeQuestionRepondu(questionnaireRepondu.getNombreDeQuestionRepondu() +1);
       questionReponduRepository.save(questionRepondu);
     }
 
