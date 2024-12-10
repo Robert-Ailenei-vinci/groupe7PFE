@@ -2,14 +2,19 @@ package vinci.be.backend.service.repondu;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
 import org.springframework.stereotype.Service;
-import vinci.be.backend.model.question.Question;
-import vinci.be.backend.model.questionnaire.Questionnaire;
-import vinci.be.backend.model.questionnairerepondu.QuestionnaireRepondu;
-import vinci.be.backend.model.questionrepondu.QuestionRepondu;
-import vinci.be.backend.model.reponse.Reponse;
-import vinci.be.backend.model.reponserepondu.ReponseRepondu;
+import vinci.be.backend.model.repondu.questionnairerepondu.PourcentageQuestionnaire;
+import vinci.be.backend.model.template.question.Question;
+import vinci.be.backend.model.template.question.Question.CATEGORIE;
+import vinci.be.backend.model.template.questionnaire.Questionnaire;
+import vinci.be.backend.model.repondu.questionnairerepondu.QuestionnaireRepondu;
+import vinci.be.backend.model.repondu.questionrepondu.QuestionRepondu;
+import vinci.be.backend.model.template.reponse.Reponse;
+import vinci.be.backend.model.repondu.reponserepondu.ReponseRepondu;
 import vinci.be.backend.repository.QuestionRepository;
 import vinci.be.backend.repository.QuestionnaireRepository;
 import vinci.be.backend.repository.ReponseRepository;
@@ -214,6 +219,66 @@ public class QuestionnaireReponduService {
       questionnaireReponduRepository.save(questionnaireRepondu);
     }
     return questionnaireRepondu;
+  }
+
+  public PourcentageQuestionnaire calculatePourcentage(String idQuestionnaireRepondu) {
+    PourcentageQuestionnaire pourcentageQuestionnaire = new PourcentageQuestionnaire();
+    QuestionnaireRepondu questionnaireRepondu = questionnaireReponduRepository.findById(idQuestionnaireRepondu).orElse(null);
+    if (questionnaireRepondu == null) {
+      return null;
+    }
+
+    Map<CATEGORIE,List<QuestionRepondu>> categorieListMap = new HashMap<>();
+
+    // initialisation de la map
+    categorieListMap.put(CATEGORIE.Environment,new ArrayList<>());
+    categorieListMap.put(CATEGORIE.Social,new ArrayList<>());
+    categorieListMap.put(CATEGORIE.Gouvernance,new ArrayList<>());
+
+    for (QuestionRepondu questionRepondu : questionnaireRepondu.getQuestionsRepondues()){
+
+      categorieListMap.get(questionRepondu.getCategorie()).add(questionRepondu);
+    }
+    System.out.println(categorieListMap);
+
+    int compteurEnvironment = 0;
+    int compteurSocial =0 ;
+    int compteurGouvernance =0;
+    // prendre les données
+    for (CATEGORIE categorie : categorieListMap.keySet()){
+      for (QuestionRepondu questionRepondu : categorieListMap.get(categorie)){
+        for (ReponseRepondu reponseRepondu : questionRepondu.getReponseRepondus()){
+          if (reponseRepondu.isSelectionne()){
+              if (categorie == CATEGORIE.Environment){
+                compteurEnvironment ++;
+              } else if (categorie == CATEGORIE.Social) {
+                compteurSocial ++;
+              }else {
+                compteurGouvernance ++;
+              }
+          }
+        }
+      }
+      // calcule des pourcentages
+      double pourcentage = 0;
+      // environement
+      pourcentage = ((double) compteurEnvironment / categorieListMap.get(CATEGORIE.Environment).size()) * 100;
+      pourcentageQuestionnaire.setPourcentageEnvironment(pourcentage);
+
+      // Social
+      pourcentage = ((double) compteurSocial / categorieListMap.get(CATEGORIE.Social).size()) * 100;
+      pourcentageQuestionnaire.setPourcentageSocial(pourcentage);
+
+      // Gouvernance
+      pourcentage = ((double) compteurGouvernance / categorieListMap.get(CATEGORIE.Gouvernance).size()) * 100;
+      pourcentageQuestionnaire.setPourcentageGouvernance(pourcentage);
+
+      // pourcentage total
+      pourcentage = ((double) questionnaireRepondu.getNombreDeQuestionRepondu() / questionnaireRepondu.getQuestionsRepondues().size()) *100;
+      pourcentageQuestionnaire.setPourcentageTotal(pourcentage);
+    }
+
+   return pourcentageQuestionnaire;
   }
 
 }

@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import vinci.be.backend.model.reponse.EditReponse;
-import vinci.be.backend.model.reponserepondu.ReponseRepondu;
+import vinci.be.backend.model.template.reponse.EditReponse;
+import vinci.be.backend.model.repondu.reponserepondu.ReponseRepondu;
 import vinci.be.backend.service.repondu.ReponseReponduService;
 
 @RestController

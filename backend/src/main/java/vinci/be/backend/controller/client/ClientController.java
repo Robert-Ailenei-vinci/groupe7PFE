@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import vinci.be.backend.model.client.Client;
-import vinci.be.backend.model.client.UserCredential;
+import vinci.be.backend.model.user.client.Client;
+import vinci.be.backend.model.user.client.UserCredential;
 import vinci.be.backend.service.client.ClientService;
 
 @RestController

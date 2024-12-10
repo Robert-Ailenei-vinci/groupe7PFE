@@ -1,4 +1,4 @@
-package vinci.be.backend.model.reponse;
+package vinci.be.backend.model.template.reponse;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

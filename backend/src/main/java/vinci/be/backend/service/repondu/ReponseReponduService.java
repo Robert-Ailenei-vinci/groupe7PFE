@@ -1,9 +1,9 @@
 package vinci.be.backend.service.repondu;
 
 import org.springframework.stereotype.Service;
-import vinci.be.backend.model.questionnairerepondu.QuestionnaireRepondu;
-import vinci.be.backend.model.questionrepondu.QuestionRepondu;
-import vinci.be.backend.model.reponserepondu.ReponseRepondu;
+import vinci.be.backend.model.repondu.questionnairerepondu.QuestionnaireRepondu;
+import vinci.be.backend.model.repondu.questionrepondu.QuestionRepondu;
+import vinci.be.backend.model.repondu.reponserepondu.ReponseRepondu;
 import vinci.be.backend.repository.repondu.QuestionReponduRepository;
 import vinci.be.backend.repository.repondu.QuestionnaireReponduRepository;
 import vinci.be.backend.repository.repondu.ReponseReponduRepository;

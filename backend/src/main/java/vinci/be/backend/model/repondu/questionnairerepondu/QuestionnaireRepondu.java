@@ -1,4 +1,4 @@
-package vinci.be.backend.model.questionnairerepondu;
+package vinci.be.backend.model.repondu.questionnairerepondu;
 
 import java.time.LocalDate;
 import lombok.NoArgsConstructor;
@@ -9,7 +9,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.mongodb.core.mapping.Document;
-import vinci.be.backend.model.questionrepondu.QuestionRepondu;
+import vinci.be.backend.model.repondu.questionrepondu.QuestionRepondu;
 
 @Getter
 @Setter

@@ -1,4 +1,4 @@
-package vinci.be.backend.model.client;
+package vinci.be.backend.model.user.client;
 
 import java.util.regex.Pattern;
 import lombok.AllArgsConstructor;

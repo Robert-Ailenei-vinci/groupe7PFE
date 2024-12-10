@@ -1,7 +1,6 @@
-package vinci.be.backend.model.reponserepondu;
+package vinci.be.backend.model.user.consultant;
 
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 import org.springframework.data.annotation.Id;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -12,14 +11,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
-@Document(collection = "reponseRepondus")
-public class ReponseRepondu {
+@Document(collection = "consultants")
+public class Consultant {
   @Id
   private String id;
-  private String idReponse;
-  private String idQuestionRepondu;
-  private String intitule;
-  private boolean estEngage;
-  private boolean isSelectionne;
+  private String email;
+  private String password;
 }

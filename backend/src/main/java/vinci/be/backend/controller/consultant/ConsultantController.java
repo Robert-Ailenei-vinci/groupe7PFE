@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import vinci.be.backend.model.client.UserCredential;
-import vinci.be.backend.model.consultant.Consultant;
+import vinci.be.backend.model.user.client.UserCredential;
+import vinci.be.backend.model.user.consultant.Consultant;
 import vinci.be.backend.service.consultant.ConsultantService;
 
 @RestController

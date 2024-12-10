@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import vinci.be.backend.model.questionnairerepondu.QuestionnaireRepondu;
+import vinci.be.backend.model.repondu.questionnairerepondu.PourcentageQuestionnaire;
+import vinci.be.backend.model.repondu.questionnairerepondu.QuestionnaireRepondu;
 import vinci.be.backend.service.repondu.QuestionnaireReponduService;
 
 @RestController
@@ -87,6 +88,16 @@ public class QuestionnaireReponduController {
       return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
     return new ResponseEntity<>(questionnaire, HttpStatus.OK);
+  }
+
+  @GetMapping("/questionnaires/pourcentage/{idQuestionnaire}")
+  public ResponseEntity<PourcentageQuestionnaire> getPourcentageQuestionnaire(@PathVariable String idQuestionnaire) {
+    PourcentageQuestionnaire pourcentageQuestionnaire = questionnaireReponduService.calculatePourcentage(idQuestionnaire);
+
+    if (pourcentageQuestionnaire == null) {
+      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+    return new ResponseEntity<>(pourcentageQuestionnaire, HttpStatus.OK);
   }
 
 }

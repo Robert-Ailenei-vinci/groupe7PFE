@@ -3,9 +3,9 @@ package vinci.be.backend.service.client;
 import java.util.ArrayList;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import vinci.be.backend.model.client.Client;
-import vinci.be.backend.model.client.UserCredential;
-import vinci.be.backend.model.question.Question.Templates;
+import vinci.be.backend.model.user.client.Client;
+import vinci.be.backend.model.user.client.UserCredential;
+import vinci.be.backend.model.template.question.Question.Templates;
 import vinci.be.backend.repository.ClientRepository;
 
 @Service

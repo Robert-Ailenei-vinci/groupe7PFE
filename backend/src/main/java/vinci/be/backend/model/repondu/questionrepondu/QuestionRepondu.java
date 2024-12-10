@@ -1,4 +1,4 @@
-package vinci.be.backend.model.questionrepondu;
+package vinci.be.backend.model.repondu.questionrepondu;
 
 import lombok.NoArgsConstructor;
 import lombok.ToString;
@@ -8,9 +8,9 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.mongodb.core.mapping.Document;
-import vinci.be.backend.model.question.Question.CATEGORIE;
-import vinci.be.backend.model.question.Question.Templates;
-import vinci.be.backend.model.reponserepondu.ReponseRepondu;
+import vinci.be.backend.model.template.question.Question.CATEGORIE;
+import vinci.be.backend.model.template.question.Question.Templates;
+import vinci.be.backend.model.repondu.reponserepondu.ReponseRepondu;
 
 @Getter
 @Setter

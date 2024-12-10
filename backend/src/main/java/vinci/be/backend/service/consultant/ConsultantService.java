@@ -2,8 +2,8 @@ package vinci.be.backend.service.consultant;
 
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import vinci.be.backend.model.client.UserCredential;
-import vinci.be.backend.model.consultant.Consultant;
+import vinci.be.backend.model.user.client.UserCredential;
+import vinci.be.backend.model.user.consultant.Consultant;
 import vinci.be.backend.repository.ConsultantRepository;
 
 @Service
