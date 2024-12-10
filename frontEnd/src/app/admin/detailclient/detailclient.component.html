@@ -89,11 +89,24 @@
         <td>Templates</td>
         <td>{{ client?.templates?.join(', ') || 'Non spécifié' }}</td>
       </tr>
+      <tr>
+        <td>estProprietaire</td>
+        <td>{{client?.estProprietaire ? 'Oui' : 'Non' }}</td>
+      </tr>
+      <tr>
+        <td>vendProduit</td>
+        <td>{{client?.vendProduit ? 'Oui' : 'Non' }}</td>
+      </tr>
+      <tr>
+        <td>vendService</td>
+        <td>{{client?.vendService ? 'Oui' : 'Non' }}</td>
+      </tr>
+      
     </tbody>
   </table>
+  
 
-
-<pre>client: {{ client | json }}</pre>
+<!-- <pre>client: {{ client | json }}</pre> -->
 
 
 <app-footer class="fixed-footer"></app-footer>
