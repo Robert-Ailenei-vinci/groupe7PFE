@@ -1,7 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+}
 
+#retour{
+    background-color: #dfd4fb;
+  color: #013238;
+  text-align: center;
+  padding: 0.5vw;
+  text-decoration: none;
+  font-size: 0.8vw;
+  line-height: 0.5vw;
+  border-radius: 4px;
+}
 
+#retour :hover{
+    background-color: #b5cdbf;
+    color: black;
+}
 
-.description p{
+h2{
+    color: #dfd4fb;
+    font-size: 5vw;
+    margin-bottom: 4vw;
+}
+
+.form-box {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('./fond-register.svg') no-repeat;
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    padding: 5vw;
+}
+
+.description p {
     color: #013238;
     background-color: #fde791;
+    font-size: 1vw;
+}
+
+.input-box {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1vw;
+}
+
+.input-box label {
+    margin-bottom: 0.5vw;
+    font-size: 1vw;
+    color: #dfd4fb;
+}
+
+.input-box input,
+.input-box textarea {
+    padding: 0.5vw;
+    width: 20vw;
+    border-radius: 0.5vw;
+    border: 1px solid #013238;
+    font-size: 1vw;
+}
+
+.input-box textarea {
+    resize: none;
+}
+
+.btn {
+    padding: 0.5vw 1vw;
+    font-size: 1vw;
+    background-color: #013238;
+    color: #fde791;
+    border: none;
+    border-radius: 0.5vw;
+    cursor: pointer;
+}
+
+.login-register {
+    margin-top: 1vw;
+    font-size: 1vw;
+}
+
+.login-link {
+    color: #fde791;
+    text-decoration: none;
 }

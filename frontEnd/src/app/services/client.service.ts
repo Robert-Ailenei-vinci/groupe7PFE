@@ -97,6 +97,8 @@ export class ClientService {
   private commentaireUrl = 'http://localhost:8080/questions/editComment';
   private questionnaireCLientUrl = 'http://localhost:8080/questionnaires/';
   private registerUrl = 'http://localhost:8080/clients/register';
+  private loginUrl='http://localhost:8080/clients/login';
+
 
   constructor(private http: HttpClient) { }
 
@@ -110,7 +112,9 @@ export class ClientService {
   getOneClient(clientId: string): Observable<Client> {
     return this.http.get<Client>(`${this.clientsUrl}/getOne/${clientId}`);
   }
-
+  login(credentials: { email: string, password: string }) {
+    return this.http.post(this.loginUrl, credentials);
+  }
   validateQuestionnaire(Id: string): Observable<any> {
     return this.http.patch(`${this.validateUrl}/${Id}`, null);
   }
