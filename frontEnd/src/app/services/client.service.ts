@@ -13,16 +13,19 @@ export interface ReponseRepondue {
 
 // Interface pour les questions répondues
 export interface QuestionRepondus {
-  id: string; // Changement de _id à id
+  id: string; 
   idQuestion: string ; 
   idQuestionnaireRepondu: string;
-  intitule: string; // Intitulé de la question
-  enjeuxPrincipal: string; // Propriété optionnelle
-  enjeuxSecondaire: string; // Propriété optionnelle
-  template: string; // Propriété optionnelle
+  intitule: string; 
+  enjeuxPrincipal: string; 
+  enjeuxSecondaire: string; 
   reponseRepondus: ReponseRepondue[];
   nombrePointObtenu: number;
   commentaire: string;
+  estEngageForce: boolean;
+  categorie: string; 
+  template: string; 
+  questionDejaSelectionne: boolean;
 }
 
 // Interface pour les détails du questionnaire

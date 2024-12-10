@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Client, ClientService, QuestionnaireDetail } from '../../services/client.service';
+import { Client, ClientService, QuestionnaireDetail, QuestionRepondus } from '../../services/client.service';
 import { HeaderComponent } from '../../margins/header/header.component';
 import { FooterComponent } from '../../margins/footer/footer.component';
 import { CommonModule } from '@angular/common';
@@ -58,6 +58,21 @@ export class AdminQuestionnaireDetailComponent implements OnInit {
         this.isLoading = false;
         console.log('Questionnaires récupérés:', data.questionnaires);
         console.log('Client récupéré:', data.client);
+
+        // On remplace les XXX par le nom de l'entreprise
+          this.questionnaires[0].questionsRepondues = this.questionnaires[0].questionsRepondues.map((questionRepondue: QuestionRepondus) => {
+            console.log("Intitulé avant remplacement :", questionRepondue.intitule);
+          
+          const nouvelIntitule = questionRepondue.intitule.replace(/XXX/g, this.client?.nomEntreprise ?? '');
+          console.log("Intitulé après remplacement :", nouvelIntitule);
+          
+          return {
+            ...questionRepondue,
+            intitule: nouvelIntitule
+            };
+          });
+        
+
       },
       error: (err) => {
         this.error = 'Erreur lors de la récupération des questionnaires.';
@@ -65,6 +80,7 @@ export class AdminQuestionnaireDetailComponent implements OnInit {
         console.error('Erreur lors de la récupération des questionnaires:', err);
       }
     });
+    
   }
 
   modifierReponseQuestion(id: string, questionId: string,nouveauCommentaire: string): void {
