@@ -5,16 +5,27 @@
 <div *ngIf="!isLoading; else loading">
   <div class="questionCenter">
     <div class="progressBarBackground">
-      <div class="progressBar" [style.width.%]="questionnaire[0].pourcentageQuestionRepondu || 0"></div>
+      <div class="progressBar" 
+        [style.width.%]="(questionnaire[0].nombreDeQuestionRepondu / questionnaire[0].questionsRepondues.length) * 100 || 0">
+      </div>
     </div>
     <h1 class="questionTitle">{{ question.intitule }}</h1>
 
-    <div class="questionAnswers">
-      <div class="box" *ngFor="let reponse of question.reponseRepondus">
-        <div (click)="selectAnswer(reponse)" [ngClass]="reponse.selectionne ? 'boxTextSelected' : 'boxText'">{{ reponse.intitule }}</div>
-        <div class="engagement">
-          <input type="checkbox" class="checkboxEngage" (change)="selectEngagement(reponse, $event)" [checked]="reponse.estEngage">
-          <label for="engagement">Je m'engage à le faire dans les 2 ans</label>
+    <div *ngIf="question.reponseRepondus && question.reponseRepondus.length > 0">
+      <div class="questionAnswers">
+        <div class="box" *ngFor="let reponse of question.reponseRepondus">
+          <div (click)="selectAnswer(reponse)" [ngClass]="reponse.selectionne ? 'boxTextSelected' : 'boxText'">
+            {{ reponse.intitule }}
+          </div>
+          <div class="engagement">
+            <input
+              type="checkbox"
+              class="checkboxEngage"
+              (change)="selectEngagement(reponse, $event)"
+              [checked]="reponse.estEngage"
+            />
+            <label for="engagement">Je m'engage à le faire dans les 2 ans</label>
+          </div>
         </div>
       </div>
     </div>

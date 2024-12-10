@@ -35,7 +35,7 @@ export class QuestionComponent implements OnInit {
     
       const questions = this.questionnaire[0].questionsRepondues;
       const foundQuestion = questions.find((q) => q.id === questionId);
-    
+
       if (!foundQuestion) {
         console.error('Aucune question trouvée pour cet ID');
         this.isLoading = false;

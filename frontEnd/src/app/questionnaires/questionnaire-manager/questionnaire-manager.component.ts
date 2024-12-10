@@ -25,17 +25,19 @@ export class QuestionnaireManagerComponent implements OnInit {
         QuestionnaireManagerComponent.questionnaireDetail.push(data[0]);
         for(let i = 0; i < data[0].questionsRepondues.length; i++) {
           const question = data[0].questionsRepondues[i];
-          if(QuestionnaireManagerComponent.questionnaireParCategories.has(question.enjeuxPrincipal)) {
-            const categoriePrincipale = QuestionnaireManagerComponent.questionnaireParCategories.get(question.enjeuxPrincipal);
+          const enjeuxPrincipal = this.capitalizeWords(question.enjeuxPrincipal.toLowerCase());
+          const enjeuxSecondaire = this.capitalizeWords(question.enjeuxSecondaire.toLowerCase());
+          if(QuestionnaireManagerComponent.questionnaireParCategories.has(enjeuxPrincipal)) {
+            const categoriePrincipale = QuestionnaireManagerComponent.questionnaireParCategories.get(enjeuxPrincipal);
             if(categoriePrincipale === undefined) continue;
-            if(categoriePrincipale.has(question.enjeuxSecondaire)) {
-              categoriePrincipale.get(question.enjeuxSecondaire)?.push(question);
+            if(categoriePrincipale.has(enjeuxSecondaire)) {
+              categoriePrincipale.get(enjeuxSecondaire)?.push(question);
             } else {
-              categoriePrincipale.set(question.enjeuxSecondaire, [question]);
+              categoriePrincipale.set(enjeuxSecondaire, [question]);
             }
           } else {
-            QuestionnaireManagerComponent.questionnaireParCategories.set(question.enjeuxPrincipal, new Map<string, QuestionRepondus[]>());
-            QuestionnaireManagerComponent.questionnaireParCategories.get(question.enjeuxPrincipal)?.set(question.enjeuxSecondaire, [question]);
+            QuestionnaireManagerComponent.questionnaireParCategories.set(enjeuxPrincipal, new Map<string, QuestionRepondus[]>());
+            QuestionnaireManagerComponent.questionnaireParCategories.get(enjeuxPrincipal)?.set(enjeuxSecondaire, [question]);
         }
       }
       },
@@ -51,5 +53,9 @@ export class QuestionnaireManagerComponent implements OnInit {
 
   public static getQuestionnaireParCategories(): Map<string, Map<string, QuestionRepondus[]>> {
     return QuestionnaireManagerComponent.questionnaireParCategories;
+  }
+
+  capitalizeWords(str: string): string {
+    return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
   }
 }
