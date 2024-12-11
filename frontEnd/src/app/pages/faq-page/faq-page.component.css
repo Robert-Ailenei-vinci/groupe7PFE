@@ -1,4 +1,97 @@
+h1 {
+  margin-top: 0;
+  color: #013238;
+  font-size: 8vw;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 0.3vw;
+  line-height: 6vw;
+  margin-bottom: 10%;
+}
+
+.background {
+  background-color: #fde791;
+}
+
 .fixed-footer {
-    bottom: 0;
-    width: 100%; 
-  }
+  bottom: 0;
+  width: 100%;
+}
+
+.faq-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+  width: 100%;
+  margin: auto;
+}
+
+.faq-item {
+  padding: 20px;
+  border-radius: 10px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  min-height: 10em;
+  justify-items: center;
+  margin-bottom: 7em;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+
+.faq-question {
+  font-size: 2vw;
+  font-weight: 600;
+  letter-spacing: 0.3vw;
+  
+}
+
+.faq-answer {
+  font-size: 1vw;
+  font-weight: 300;
+  background-image: linear-gradient(to left, #013238 70.5%, #dfd4fb 68.5%);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.faq-item-left {
+  margin-right: 20%;
+  background-image: url('../homepage/assets/fond-description-container2.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.faq-item-right {
+  margin-left: 20%;
+  background-image: url('../homepage/assets/fond-description-container3.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.faq-item-left .faq-question {
+  color:transparent;
+  background-image: linear-gradient(to right, #013238 100%, #dfd4fb 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  justify-self: baseline;
+}
+
+.faq-item-right .faq-question {
+  color:transparent;
+  background-image: linear-gradient(to right, #dfd4fb 100%, #013238 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.faq-item-left .faq-answer {
+  color:transparent;
+  background-image: linear-gradient(to right, #013238 100%, #dfd4fb 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  justify-self: baseline;
+}
+
+.faq-item-right .faq-answer {
+  color:transparent;
+  background-image: linear-gradient(to right, #dfd4fb 100%, #013238 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+}

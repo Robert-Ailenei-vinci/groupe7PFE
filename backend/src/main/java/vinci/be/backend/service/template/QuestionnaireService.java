@@ -37,8 +37,9 @@ public class QuestionnaireService {
 
     // creation d'un consultant
     Consultant consultant = new Consultant();
-    consultant.setEmail("admin@shiftingPact@gmail.com");
+    consultant.setEmail("admin.shiftingPact@gmail.com");
     consultant.setPassword("$2a$10$QhSEAK.TkKnYSFJWFORPSO.6YxKwLWYzsnporLJX7vfgxYKBlzI9G");
+    consultantRepository.save(consultant);
 
     // question 1
     Reponse reponse1 = new Reponse();
