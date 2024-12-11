@@ -7,8 +7,8 @@
         <div class="leftHeader">
             Progression du module ESG & Pacte d'engagement
         </div>
-        <ng-container *ngIf="questionnaireDetail[0].score > 0">
-            <h3 class="score">Votre score (provisoire): {{ questionnaireDetail[0].score }} </h3>
+        <ng-container *ngIf="score">
+            <h3 class="score">Votre score (provisoire): {{questionnaireDetail[0].score}} - {{ score.pourcentageTotal }}%</h3>
         </ng-container>
         <div class="categoryContainer">
         <div *ngFor="let category of questionnaireParCategories | keyvalue">
@@ -35,9 +35,11 @@
         </div>
     </div>
 
+        <ng-container *ngIf="questionnaireDetail[0].score <= 0">
             <div class="leftFooter" (click)="nombreDeQuestions() == nombreDeQuestionsRepondues() ? finishQuestionnaire() : navigateToNextNonAnsweredQuestion(questionnaireParCategories)">
                 {{ nombreDeQuestions() == nombreDeQuestionsRepondues() ? 'Terminer' : 'Question Suivante'}}
             </div>
+        </ng-container>
     </div>
     <div class="containerRight">
         <img src="../../assets/images/logo_shiftingpact_vert_verteau.png" class="logoEsg">
