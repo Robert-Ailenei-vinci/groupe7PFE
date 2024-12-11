@@ -1,5 +1,6 @@
 package vinci.be.backend.service.template;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -2936,7 +2937,7 @@ public class QuestionnaireService {
 
     Question question2 = new Question();
     question2.setIntitule("Si vous la suivez, veuillez indiquer votre consommation d'énergie totale des 12 derniers mois (en kWh)");
-    // question2.setReponses(List.of(reponse3));
+    question2.setReponses(new ArrayList<>());
     question2.setNbrChoixMax(1);
     question2.setEstQuestionLibre(true);
     question2.setNombrePointMax(0);
@@ -3008,7 +3009,7 @@ public class QuestionnaireService {
 
     Question question8 = new Question();
     question8.setIntitule("Si vous la calculez, veuillez indiquer votre empreinte carbone de Scope 1 (en tonnes de CO2 équivalent) :");
-    // question8.setReponses(List.of(reponse26));
+    question8.setReponses(new ArrayList<>());
     question8.setNbrChoixMax(1);
     question8.setEstQuestionLibre(true);
     question8.setNombrePointMax(0);
@@ -3020,7 +3021,7 @@ public class QuestionnaireService {
 
     Question question9 = new Question();
     question9.setIntitule("Si vous la calculez, veuillez indiquer votre empreinte carbone de Scope 2 (en tonnes de CO2 équivalent) :");
-    // question9.setReponses(List.of(reponse27));
+    question9.setReponses(new ArrayList<>());
     question9.setNbrChoixMax(1);
     question9.setEstQuestionLibre(true);
     question9.setNombrePointMax(0);
@@ -3032,7 +3033,7 @@ public class QuestionnaireService {
 
     Question question10 = new Question();
     question10.setIntitule("Si vous la calculez, veuillez indiquer votre empreinte carbone de Scope 3 (en tonnes de CO2 équivalent) :");
-    // question10.setReponses(List.of(reponse28));
+    question10.setReponses(new ArrayList<>());
     question10.setNbrChoixMax(1);
     question10.setEstQuestionLibre(true);
     question10.setNombrePointMax(0);
@@ -3140,7 +3141,7 @@ public class QuestionnaireService {
 
     Question question19 = new Question();
     question19.setIntitule("Si vous la mesurez, veuillez indiquer votre consommation d'eau (en litres) :");
-    // question19.setReponses(List.of(reponse74));
+    question19.setReponses(new ArrayList<>());
     question19.setNbrChoixMax(1);
     question19.setEstQuestionLibre(true);
     question19.setNombrePointMax(0);
@@ -3236,7 +3237,7 @@ public class QuestionnaireService {
 
     Question question27 = new Question();
     question27.setIntitule("Si vous la suivez, veuillez indiquer la quantité totale de déchets produits par votre organisation au cours des 12 derniers mois (en tonnes) ?");
-    // question27.setReponses(List.of(reponse108,reponse109,reponse110));
+    question27.setReponses(new ArrayList<>());
     question27.setNbrChoixMax(1);
     question27.setEstQuestionLibre(true);
     question27.setNombrePointMax(0);
@@ -3249,7 +3250,7 @@ public class QuestionnaireService {
     Question question28 = new Question();
     question28.setIntitule("Si vous la suivez, veuillez indiquer la quantité de déchets dangereux produits par votre organisation au cours des 12 derniers mois (en tonnes) ?\n"
         + "(exemples de déchets dangereux : équipements électroniques, piles, cartouches d'encre, déchets industriels, batteries, peintures, etc.)");
-    // question27.setReponses(List.of(reponse108,reponse109,reponse110));
+    question28.setReponses(new ArrayList<>());
     question28.setNbrChoixMax(1);
     question28.setEstQuestionLibre(true);
     question28.setNombrePointMax(0);
@@ -3735,7 +3736,7 @@ public class QuestionnaireService {
     // question 66
     Question questionSim21 = new Question();
     questionSim21.setIntitule("Combien de membres compte votre conseil d'administration au total ? ");
-    //questionSim22.setReponses(List.of(reponseSim115,reponseSim116,reponseSim117,reponseSim118,reponseSim119));
+    questionSim21.setReponses(new ArrayList<>());
     questionSim21.setNbrChoixMax(1);
     questionSim21.setEstQuestionLibre(true);
     questionSim21.setNombrePointMax(0);
@@ -3748,7 +3749,7 @@ public class QuestionnaireService {
     // question 67
     Question questionSim22 = new Question();
     questionSim22.setIntitule("Combien de membres compte votre conseil d'administration au total ? ");
-    //questionSim22.setReponses(List.of(reponseSim115,reponseSim116,reponseSim117,reponseSim118,reponseSim119));
+    questionSim22.setReponses(new ArrayList<>());
     questionSim22.setNbrChoixMax(1);
     questionSim22.setEstQuestionLibre(true);
     questionSim22.setNombrePointMax(0);
@@ -3787,7 +3788,7 @@ public class QuestionnaireService {
     // question 70
     Question questionSim25 = new Question();
     questionSim25.setIntitule("Est-ce que XXX a mis en place un comité d'audit ?");
-    // questionSim25.setReponses(List.of(reponseSim123,reponseSim124,reponseSim125));
+    questionSim25.setReponses(new ArrayList<>());
     questionSim25.setNbrChoixMax(1);
     questionSim25.setEstQuestionLibre(true);
     questionSim25.setNombrePointMax(0);

@@ -22,4 +22,6 @@ public class ReponseRepondu {
   private String intitule;
   private boolean estEngage;
   private boolean isSelectionne;
+  private boolean estEngageForce;
+
 }

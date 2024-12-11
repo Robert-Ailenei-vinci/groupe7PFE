@@ -29,7 +29,6 @@ public class QuestionRepondu {
   private List<ReponseRepondu> reponseRepondus;
   private double nombrePointObtenu;
   private String commentaire;
-  private boolean estEngageForce;
   private CATEGORIE categorie;
   private Templates template;
   private boolean isQuestionDejaSelectionne;

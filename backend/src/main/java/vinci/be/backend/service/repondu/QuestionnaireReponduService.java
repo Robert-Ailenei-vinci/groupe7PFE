@@ -115,7 +115,6 @@ public class QuestionnaireReponduService {
     questionRepondu.setEnjeuxPrincipal(question.getEnjeuxPrincipal());
     questionRepondu.setEnjeuxSecondaire(question.getEnjeuxSecondaire());
     questionRepondu.setIdQuestion(question.getId());
-    questionRepondu.setEstEngageForce(question.isEstEngageForce());
     questionRepondu.setTemplate(question.getTemplate());
     questionRepondu.setCategorie(question.getCategorie());
     questionRepondu.setQuestionDejaSelectionne(false);
@@ -138,6 +137,7 @@ public class QuestionnaireReponduService {
     reponseRepondu.setEstEngage(false);
     reponseRepondu.setIntitule(reponse.getIntitule());
     reponseRepondu.setSelectionne(false);
+    reponseRepondu.setEstEngageForce(reponse.isEstEngageForce());
     return reponseReponduRepository.save(reponseRepondu);
   }
 
