@@ -102,7 +102,9 @@
     height: auto;
 }
 
-
+.score{
+    text-align: center;
+}
 
 .category{
     background-color: #e5e5e5;

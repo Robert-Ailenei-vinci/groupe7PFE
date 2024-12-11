@@ -68,7 +68,6 @@ export class QuestionComponent implements OnInit {
 
   saveQuestionAndSwitchToQuestion(question: QuestionRepondus, nextQuestion : QuestionRepondus): void {
     // sauvegarder
-
     if(question.reponseRepondus.length === 0) {
       from(question.commentaire).pipe(
         concatMap(() => this.clientservice.changerCommentaireQuestion(question.id.toString(), question.commentaire )),
@@ -128,9 +127,7 @@ export class QuestionComponent implements OnInit {
 
     // Renvoie true si une question a été répondue
     isAnswered(question: QuestionRepondus): boolean {
-      return question.reponseRepondus.some(
-        reponse => (reponse.selectionne && question.reponseRepondus.length > 0) || question.commentaire !== ''
-      );
+      return question.reponseRepondus.some(reponse => reponse.selectionne) || question.commentaire !== '';
     }
 
     getClassList(question: QuestionRepondus): string {

@@ -11,6 +11,8 @@ import { ClientService, QuestionnaireDetail, QuestionRepondus } from '../../serv
 export class QuestionnaireManagerComponent implements OnInit {
   public static questionnaireDetail: QuestionnaireDetail[] = [];
   public static questionnaireParCategories : Map<string, Map<string, QuestionRepondus[]>> = new Map<string, Map<string, QuestionRepondus[]>>();
+  private static clientService: ClientService;
+
   constructor(private clientService: ClientService) { 
   }
 
@@ -58,4 +60,15 @@ export class QuestionnaireManagerComponent implements OnInit {
   capitalizeWords(str: string): string {
     return str.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
   }
+
+  public static finishQuestionnaire() {
+  this.clientService.finishQuestionnaire(QuestionnaireManagerComponent.questionnaireDetail[0].id).subscribe({
+        next: (response) => {
+          console.log('Questionnaire finished successfully', response);
+        },
+        error: (err) => {
+          console.error('Error finishing questionnaire', err);
+        }
+      });
+    }
 }
