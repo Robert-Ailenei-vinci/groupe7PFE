@@ -4,6 +4,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import vinci.be.backend.model.template.question.Question;
+import vinci.be.backend.model.template.question.Question.CATEGORIE;
 import vinci.be.backend.model.template.question.Question.Templates;
 import vinci.be.backend.model.template.questionnaire.Questionnaire;
 import vinci.be.backend.model.template.reponse.Reponse;
@@ -809,6 +810,488 @@ public class QuestionnaireService {
     reponse124.setScoreEngagement(0);
     reponseRepository.save(reponse124);
 
+    // question 31
+    Reponse reponse125= new Reponse();
+    reponse125.setIntitule("Nous réutilisons les déchets générés au cours des processus de fabrication.");
+    reponse125.setScoreTotal(0.62);
+    reponse125.setScoreEngagement(0.15);
+    reponseRepository.save(reponse125);
+
+    Reponse reponse126= new Reponse();
+    reponse126.setIntitule("Nous avons pris des mesures pour simplifier le recyclage ou la réutilisation de nos produits.");
+    reponse126.setScoreTotal(0.62);
+    reponse126.setScoreEngagement(0.15);
+    reponseRepository.save(reponse126);
+
+    Reponse reponse127= new Reponse();
+    reponse127.setIntitule("Nous disposons de programmes de reprise des produits en fin de vie.");
+    reponse127.setScoreTotal(0.62);
+    reponse127.setScoreEngagement(0.15);
+    reponseRepository.save(reponse127);
+
+    Reponse reponse128= new Reponse();
+    reponse128.setIntitule("Nous réalisons régulièrement des audits de notre production de déchets pour repérer les principales sources, les possibilités d'amélioration et les opportunités de réduction.");
+    reponse128.setScoreTotal(0.62);
+    reponse128.setScoreEngagement(0.15);
+    reponseRepository.save(reponse128);
+
+    Reponse reponse129= new Reponse();
+    reponse129.setIntitule("Nous sensibilisons les travailleur·euses et/ou les consommateur·rices aux principes et aux avantages de l'économie circulaire.");
+    reponse129.setScoreTotal(0.62);
+    reponse129.setScoreEngagement(0.15);
+    reponseRepository.save(reponse129);
+
+    Reponse reponse130= new Reponse();
+    reponse130.setIntitule("Autre : veuillez expliquer dans les commentaires");
+    reponse130.setScoreTotal(0);
+    reponse130.setScoreEngagement(0);
+    reponseRepository.save(reponse130);
+
+    Reponse reponse131= new Reponse();
+    reponse131.setIntitule("Aucune de ces réponses.");
+    reponse131.setScoreTotal(0);
+    reponse131.setScoreEngagement(0);
+    reponseRepository.save(reponse131);
+
+    Reponse reponse132= new Reponse();
+    reponse132.setIntitule("N/A");
+    reponse132.setScoreTotal(1.54);
+    reponse132.setScoreEngagement(0);
+    reponseRepository.save(reponse132);
+
+    // question 32
+    Reponse reponse133= new Reponse();
+    reponse133.setIntitule("Nous avons réalisé une analyse des impacts potentiels de nos activités sur la biodiversité.");
+    reponse133.setScoreTotal(2);
+    reponse133.setScoreEngagement(0.5);
+    reponseRepository.save(reponse133);
+
+    Reponse reponse134= new Reponse();
+    reponse134.setIntitule("Nous avons mis en place des actions pour préserver et améliorer la biodiversité (comme la plantation d’arbres, de végétaux locaux ou la création de refuges pour la faune).");
+    reponse134.setScoreTotal(1.33);
+    reponse134.setScoreEngagement(0.33);
+    reponseRepository.save(reponse134);
+
+    Reponse reponse135= new Reponse();
+    reponse135.setIntitule("Nous avons créé ou restauré des espaces naturels (par exemple, en réaménageant des zones dégradées ou en favorisant la végétation locale).");
+    reponse135.setScoreTotal(1.33);
+    reponse135.setScoreEngagement(0.33);
+    reponseRepository.save(reponse135);
+
+    Reponse reponse136= new Reponse();
+    reponse136.setIntitule("Nous limitons fortement l’utilisation de produits nocifs pour la biodiversité (tels que les pesticides ou les engrais chimiques).");
+    reponse136.setScoreTotal(1.33);
+    reponse136.setScoreEngagement(0.33);
+    reponseRepository.save(reponse136);
+
+    Reponse reponse137= new Reponse();
+    reponse137.setIntitule("Nous veillons à une gestion responsable et durable des terres (en réduisant les impacts liés à l’aménagement ou à l’exploitation et en préservant la qualité des sols).");
+    reponse137.setScoreTotal(1.33);
+    reponse137.setScoreEngagement(0.33);
+    reponseRepository.save(reponse137);
+
+    Reponse reponse138= new Reponse();
+    reponse138.setIntitule("Nous avons formalisé notre engagement envers la protection des écosystèmes et de la biodiversité.");
+    reponse138.setScoreTotal(1.33);
+    reponse138.setScoreEngagement(0.33);
+    reponseRepository.save(reponse138);
+
+    Reponse reponse139= new Reponse();
+    reponse139.setIntitule("Autre : veuillez expliquer dans les commentaires");
+    reponse139.setScoreTotal(0);
+    reponse139.setScoreEngagement(0);
+    reponseRepository.save(reponse139);
+
+    Reponse reponse140= new Reponse();
+    reponse140.setIntitule("Aucune de ces réponses.");
+    reponse140.setScoreTotal(0);
+    reponse140.setScoreEngagement(0);
+    reponseRepository.save(reponse140);
+
+    Reponse reponse141= new Reponse();
+    reponse141.setIntitule("N/A");
+    reponse141.setScoreTotal(4.33);
+    reponse141.setScoreEngagement(0);
+    reponseRepository.save(reponse141);
+
+    // question 33
+    Reponse reponse142= new Reponse();
+    reponse142.setIntitule("oui");
+    reponse142.setScoreTotal(1.33);
+    reponse142.setScoreEngagement(0.33);
+    reponseRepository.save(reponse142);
+
+    Reponse reponse143= new Reponse();
+    reponse143.setIntitule("non");
+    reponse143.setScoreTotal(0);
+    reponse143.setScoreEngagement(0);
+    reponseRepository.save(reponse143);
+
+    Reponse reponse144= new Reponse();
+    reponse144.setIntitule("N/A");
+    reponse144.setScoreTotal(0.67);
+    reponse144.setScoreEngagement(0);
+    reponseRepository.save(reponse144);
+
+    // question 34
+    Reponse reponse145= new Reponse();
+    reponse145.setIntitule("Nous incluons dans toutes nos offres d'emploi une déclaration d'engagement en faveur de la diversité, de l'équité et de l'inclusion.");
+    reponse145.setScoreTotal(0.73);
+    reponse145.setScoreEngagement(0.18);
+    reponseRepository.save(reponse145);
+
+    Reponse reponse146= new Reponse();
+    reponse146.setIntitule("Nous analysons la formulation et les exigences de nos descriptions de poste pour nous assurer qu'elles sont inclusives et équitables.");
+    reponse146.setScoreTotal(0.73);
+    reponse146.setScoreEngagement(0.18);
+    reponseRepository.save(reponse146);
+
+    Reponse reponse147= new Reponse();
+    reponse147.setIntitule("Nous recrutons activement par l'intermédiaire d'organisations ou de services qui s'adressent à des personnes souvent exclues du marché du travail (ex : personnes en situation de handicap, personnes qui ont été incarcérées, demandeurs d'emploi jeunes ou de longue durée, etc.)");
+    reponse147.setScoreTotal(0.73);
+    reponse147.setScoreEngagement(0.18);
+    reponseRepository.save(reponse147);
+
+    Reponse reponse148= new Reponse();
+    reponse148.setIntitule("Nous procédons à des examens anonymes ou \"à l'aveugle\" des candidatures ou des CV sans y associer de noms ou de caractéristiques identifiables.");
+    reponse148.setScoreTotal(0.73);
+    reponse148.setScoreEngagement(0.18);
+    reponseRepository.save(reponse148);
+
+    Reponse reponse149= new Reponse();
+    reponse149.setIntitule("Autre : veuillez expliquer dans les commentaires.");
+    reponse149.setScoreTotal(0);
+    reponse149.setScoreEngagement(0);
+    reponseRepository.save(reponse149);
+
+    Reponse reponse150= new Reponse();
+    reponse150.setIntitule("Rien de tout cela.");
+    reponse150.setScoreTotal(0);
+    reponse150.setScoreEngagement(0);
+    reponseRepository.save(reponse150);
+
+    Reponse reponse151= new Reponse();
+    reponse151.setIntitule("N/A");
+    reponse151.setScoreTotal(1);
+    reponse151.setScoreEngagement(0);
+    reponseRepository.save(reponse151);
+
+    // question 35
+    Reponse reponse152= new Reponse();
+    reponse152.setIntitule("Nous avons désigné une personne ou un groupe explicitement responsable de la diversité, de l'équité et de l'inclusion.");
+    reponse152.setScoreTotal(0.73);
+    reponse152.setScoreEngagement(0.18);
+    reponseRepository.save(reponse152);
+
+    Reponse reponse153= new Reponse();
+    reponse153.setIntitule("Nous proposons des formations à tous·tes les travailleur·euses sur des sujets liés à la diversité, à l'équité et à l'inclusion.");
+    reponse153.setScoreTotal(0.73);
+    reponse153.setScoreEngagement(0.18);
+    reponseRepository.save(reponse153);
+
+    Reponse reponse154= new Reponse();
+    reponse154.setIntitule("Nos installations sont conçues pour répondre aux exigences d'accessibilité pour les personnes souffrant d'un handicap physique.");
+    reponse154.setScoreTotal(0.73);
+    reponse154.setScoreEngagement(0.18);
+    reponseRepository.save(reponse154);
+
+    Reponse reponse155= new Reponse();
+    reponse155.setIntitule("Autre : veuillez expliquer dans les commentaires.");
+    reponse155.setScoreTotal(0);
+    reponse155.setScoreEngagement(0);
+    reponseRepository.save(reponse155);
+
+    Reponse reponse156= new Reponse();
+    reponse156.setIntitule("Rien de tout cela.");
+    reponse156.setScoreTotal(0);
+    reponse156.setScoreEngagement(0);
+    reponseRepository.save(reponse156);
+
+    Reponse reponse157= new Reponse();
+    reponse157.setIntitule("N/A");
+    reponse157.setScoreTotal(1.09);
+    reponse157.setScoreEngagement(0);
+    reponseRepository.save(reponse157);
+
+    // question 36
+    Reponse reponse158= new Reponse();
+    reponse158.setIntitule("Une affirmation claire et explicite de l’engagement de l’organisation envers la non-discrimination et l’égalité de traitement pour tous·tes, indépendamment de l’origine, de l’ethnie, du genre, de l’orientation sexuelle, du handicap, de l’âge, de la religion ou de toute autre considération qui limiterait l'inclusion et l'équité.");
+    reponse158.setScoreTotal(0.73);
+    reponse158.setScoreEngagement(0.18);
+    reponseRepository.save(reponse158);
+
+    Reponse reponse159= new Reponse();
+    reponse159.setIntitule("Identification des rôles et des responsabilités pour établir un lieu de travail inclusif et créer l'implication de tous·tes à tous les niveaux.");
+    reponse159.setScoreTotal(0.73);
+    reponse159.setScoreEngagement(0.18);
+    reponseRepository.save(reponse159);
+
+    Reponse reponse160= new Reponse();
+    reponse160.setIntitule("Mise en œuvre de programmes visant à sensibiliser les travailleur·euses aux biais inconscients, à renforcer leurs compétences culturelles et à promouvoir des comportements inclusifs pour une culture d’inclusion active.");
+    reponse160.setScoreTotal(0.73);
+    reponse160.setScoreEngagement(0.18);
+    reponseRepository.save(reponse160);
+
+    Reponse reponse161= new Reponse();
+    reponse161.setIntitule("Autre : veuillez expliquer dans les commentaires.");
+    reponse161.setScoreTotal(0);
+    reponse161.setScoreEngagement(0);
+    reponseRepository.save(reponse161);
+
+    Reponse reponse162= new Reponse();
+    reponse162.setIntitule("Rien de tout cela.");
+    reponse162.setScoreTotal(0);
+    reponse162.setScoreEngagement(0);
+    reponseRepository.save(reponse162);
+
+    Reponse reponse163= new Reponse();
+    reponse163.setIntitule("N/A");
+    reponse163.setScoreTotal(1.09);
+    reponse163.setScoreEngagement(0);
+    reponseRepository.save(reponse163);
+
+    // question 37
+    Reponse reponse164= new Reponse();
+    reponse164.setIntitule("Oui, nous nous assurons que chaque travailleur·euse ait suivi une formation sur la diversité et l'inclusion.");
+    reponse164.setScoreTotal(0.29);
+    reponse164.setScoreEngagement(0.07);
+    reponseRepository.save(reponse164);
+
+    Reponse reponse165= new Reponse();
+    reponse165.setIntitule("non");
+    reponse165.setScoreTotal(0);
+    reponse165.setScoreEngagement(0);
+    reponseRepository.save(reponse165);
+
+    Reponse reponse166= new Reponse();
+    reponse166.setIntitule("N/A");
+    reponse166.setScoreTotal(0.14);
+    reponse166.setScoreEngagement(0);
+    reponseRepository.save(reponse166);
+
+    // question 38
+    Reponse reponse167= new Reponse();
+    reponse167.setIntitule("oui");
+    reponse167.setScoreTotal(0.73);
+    reponse167.setScoreEngagement(0.18);
+    reponseRepository.save(reponse167);
+
+    Reponse reponse168= new Reponse();
+    reponse168.setIntitule("non");
+    reponse168.setScoreTotal(0);
+    reponse168.setScoreEngagement(0);
+    reponseRepository.save(reponse168);
+
+    Reponse reponse169= new Reponse();
+    reponse169.setIntitule("N/A");
+    reponse169.setScoreTotal(0.36);
+    reponse169.setScoreEngagement(0);
+    reponseRepository.save(reponse169);
+
+    // question 39
+    Reponse reponse170= new Reponse();
+    reponse170.setIntitule("je ne sais pas.");
+    reponse170.setScoreTotal(0);
+    reponse170.setScoreEngagement(0);
+    reponseRepository.save(reponse170);
+
+    Reponse reponse171= new Reponse();
+    reponse171.setIntitule(">15x plus élevé");
+    reponse171.setScoreTotal(0);
+    reponse171.setScoreEngagement(0);
+    reponseRepository.save(reponse171);
+
+    Reponse reponse172= new Reponse();
+    reponse172.setIntitule("11-15x plus élevé");
+    reponse172.setScoreTotal(0.14);
+    reponse172.setScoreEngagement(0.04);
+    reponseRepository.save(reponse172);
+
+    Reponse reponse173= new Reponse();
+    reponse173.setIntitule("6-10x plus élevé");
+    reponse173.setScoreTotal(0.21);
+    reponse173.setScoreEngagement(0.05);
+    reponseRepository.save(reponse173);
+
+    Reponse reponse174= new Reponse();
+    reponse174.setIntitule("1-5x plus élevé");
+    reponse174.setScoreTotal(0.29);
+    reponse174.setScoreEngagement(0.07);
+    reponseRepository.save(reponse174);
+
+    Reponse reponse175= new Reponse();
+    reponse175.setIntitule("N/A");
+    reponse175.setScoreTotal(0.14);
+    reponse175.setScoreEngagement(0);
+    reponseRepository.save(reponse175);
+
+    // question 40
+    Reponse reponse176= new Reponse();
+    reponse176.setIntitule("0%");
+    reponse176.setScoreTotal(0);
+    reponse176.setScoreEngagement(0);
+    reponseRepository.save(reponse176);
+
+    Reponse reponse177= new Reponse();
+    reponse177.setIntitule("1-14%");
+    reponse177.setScoreTotal(0.14);
+    reponse177.setScoreEngagement(0.04);
+    reponseRepository.save(reponse177);
+
+    Reponse reponse178= new Reponse();
+    reponse178.setIntitule("15-29%");
+    reponse178.setScoreTotal(0.21);
+    reponse178.setScoreEngagement(0.05);
+    reponseRepository.save(reponse178);
+
+    Reponse reponse179= new Reponse();
+    reponse179.setIntitule("30%+");
+    reponse179.setScoreTotal(0.29);
+    reponse179.setScoreEngagement(0.07);
+    reponseRepository.save(reponse179);
+
+    Reponse reponse180= new Reponse();
+    reponse180.setIntitule("je ne sais pas.");
+    reponse180.setScoreTotal(0);
+    reponse180.setScoreEngagement(0);
+    reponseRepository.save(reponse180);
+
+    Reponse reponse181= new Reponse();
+    reponse181.setIntitule("N/A");
+    reponse181.setScoreTotal(0.14);
+    reponse181.setScoreEngagement(0);
+    reponseRepository.save(reponse181);
+
+    // question 41 - 42
+    Reponse reponse182= new Reponse();
+    reponse182.setIntitule("0%");
+    reponse182.setScoreTotal(0.14);
+    reponse182.setScoreEngagement(0);
+    reponseRepository.save(reponse182);
+
+    Reponse reponse183= new Reponse();
+    reponse183.setIntitule("1-24%");
+    reponse183.setScoreTotal(0.14);
+    reponse183.setScoreEngagement(0.04);
+    reponseRepository.save(reponse183);
+
+    Reponse reponse184= new Reponse();
+    reponse184.setIntitule("25-49%");
+    reponse184.setScoreTotal(0.21);
+    reponse184.setScoreEngagement(0.05);
+    reponseRepository.save(reponse184);
+
+    Reponse reponse185= new Reponse();
+    reponse185.setIntitule("50%+");
+    reponse185.setScoreTotal(0.29);
+    reponse185.setScoreEngagement(0.07);
+    reponseRepository.save(reponse185);
+
+    Reponse reponse186= new Reponse();
+    reponse186.setIntitule("je ne sais pas.");
+    reponse186.setScoreTotal(0);
+    reponse186.setScoreEngagement(0);
+    reponseRepository.save(reponse186);
+
+    Reponse reponse187= new Reponse();
+    reponse187.setIntitule("N/A");
+    reponse187.setScoreTotal(1);
+    reponse187.setScoreEngagement(0);
+    reponseRepository.save(reponse187);
+
+    // question 43 - 44
+    Reponse reponse188= new Reponse();
+    reponse188.setIntitule("0%");
+    reponse188.setScoreTotal(0);
+    reponse188.setScoreEngagement(0);
+    reponseRepository.save(reponse188);
+
+    Reponse reponse189= new Reponse();
+    reponse189.setIntitule("1-14%");
+    reponse189.setScoreTotal(0.14);
+    reponse189.setScoreEngagement(0.04);
+    reponseRepository.save(reponse189);
+
+    Reponse reponse190= new Reponse();
+    reponse190.setIntitule("15-29%");
+    reponse190.setScoreTotal(0.21);
+    reponse190.setScoreEngagement(0.05);
+    reponseRepository.save(reponse190);
+
+    Reponse reponse191= new Reponse();
+    reponse191.setIntitule("30%+");
+    reponse191.setScoreTotal(0.29);
+    reponse191.setScoreEngagement(0.07);
+    reponseRepository.save(reponse191);
+
+    Reponse reponse192= new Reponse();
+    reponse192.setIntitule("je ne sais pas.");
+    reponse192.setScoreTotal(0);
+    reponse192.setScoreEngagement(0);
+    reponseRepository.save(reponse192);
+
+    Reponse reponse193= new Reponse();
+    reponse193.setIntitule("N/A");
+    reponse193.setScoreTotal(0.14);
+    reponse193.setScoreEngagement(0);
+    reponseRepository.save(reponse193);
+
+    // question 45
+    Reponse reponse194= new Reponse();
+    reponse194.setIntitule("Nous élaborons et communiquons des politiques claires en matière de sécurité, facilement accessibles.");
+    reponse194.setScoreTotal(1.43);
+    reponse194.setScoreEngagement(0.36);
+    reponseRepository.save(reponse194);
+
+    Reponse reponse195= new Reponse();
+    reponse195.setIntitule("Nous élaborons et communiquons des politiques claires de lutte contre le harcèlement et la violence, décrivant les comportements inacceptables et les conséquences en cas d'infraction.");
+    reponse195.setScoreTotal(1.43);
+    reponse195.setScoreEngagement(0.36);
+    reponseRepository.save(reponse195);
+
+    Reponse reponse196= new Reponse();
+    reponse196.setIntitule("Nous mettons en place en place des systèmes de signalement confidentiels et anonymes permettant aux travailleur·euses de signaler les incidents de harcèlement ou de violence sans crainte de représailles.");
+    reponse196.setScoreTotal(1.43);
+    reponse196.setScoreEngagement(0.36);
+    reponseRepository.save(reponse196);
+
+    Reponse reponse197= new Reponse();
+    reponse197.setIntitule("Nous définissons et communiquons des procédures claires pour l'examen des plaintes, en veillant à ce que les enquêtes soient approfondies et impartiales.");
+    reponse197.setScoreTotal(1.43);
+    reponse197.setScoreEngagement(0.36);
+    reponseRepository.save(reponse197);
+
+    Reponse reponse198= new Reponse();
+    reponse198.setIntitule("Nous mettons en œuvre des programmes de formation annuels pour apprendre aux travailleur·euses à reconnaître et à prévenir le harcèlement, la violence ou les comportements dangereux sur le lieu de travail.");
+    reponse198.setScoreTotal(1.43);
+    reponse198.setScoreEngagement(0.36);
+    reponseRepository.save(reponse198);
+
+    Reponse reponse199= new Reponse();
+    reponse199.setIntitule("Nous mettons à jour nos politiques de lutte contre le harcèlement et de gestion des plaintes et des incidents chaque année, et nous informons les travailleur·euses des ressources disponibles à cet égard.");
+    reponse199.setScoreTotal(1.43);
+    reponse199.setScoreEngagement(0.36);
+    reponseRepository.save(reponse199);
+
+    Reponse reponse200= new Reponse();
+    reponse200.setIntitule("Autre : veuillez expliquer dans les commentaires.");
+    reponse200.setScoreTotal(0);
+    reponse200.setScoreEngagement(0);
+    reponseRepository.save(reponse200);
+
+    Reponse reponse201= new Reponse();
+    reponse201.setIntitule("Aucune de ces réponses.");
+    reponse201.setScoreTotal(0);
+    reponse201.setScoreEngagement(0);
+    reponseRepository.save(reponse201);
+
+    Reponse reponse202= new Reponse();
+    reponse202.setIntitule("N/A");
+    reponse202.setScoreTotal(4.29);
+    reponse202.setScoreEngagement(0);
+    reponseRepository.save(reponse202);
+
+
     // question
     Question question1 = new Question();
     question1.setIntitule("Suivez-vous la consommation d'énergie XXX ?");
@@ -1202,12 +1685,211 @@ public class QuestionnaireService {
     question30.setTemplate(Templates.WORKERS);
     questionRepository.save(question30);
 
+    Question question31 = new Question();
+    question31.setIntitule("Quelle(s) pratique(s) XXX a-t-elle mise(s) en place en matière d'économie circulaire pour limiter la production de déchets ?");
+    question31.setReponses(List.of(reponse125,reponse126,reponse127,reponse128,reponse129,reponse130,reponse131,reponse132));
+    question31.setNbrChoixMax(6);
+    question31.setEstQuestionLibre(false);
+    question31.setNombrePointMax(1.54);
+    question31.setEnjeuxPrincipal("DÉCHETS");
+    question31.setEnjeuxSecondaire("DÉCHETS");
+    question31.setCategorie(Question.CATEGORIE.Environment);
+    question31.setEstEngageForce(false);
+    question31.setTemplate(Templates.PRODUITS);
+    questionRepository.save(question31);
+
+    Question question32 = new Question();
+    question32.setIntitule("XXX a-t-elle mis en place une ou plusieurs initiatives visant à protéger les écosystèmes et préserver la biodiversité ?");
+    question32.setReponses(List.of(reponse133,reponse134,reponse135,reponse136,reponse137,reponse138,reponse139,reponse140,reponse141));
+    question32.setNbrChoixMax(7);
+    question32.setEstQuestionLibre(false);
+    question32.setNombrePointMax(4.33);
+    question32.setEnjeuxPrincipal("ÉCOSYSTÈMES ET BIODIVERSITÉ");
+    question32.setEnjeuxSecondaire("ÉCOSYSTÈMES ET BIODIVERSITÉ");
+    question32.setCategorie(Question.CATEGORIE.Environment);
+    question32.setEstEngageForce(false);
+    question32.setTemplate(Templates.PRODUITS);
+    questionRepository.save(question32);
+
+    Question question33 = new Question();
+    question33.setIntitule("Proposez-vous des ateliers de sensibilisation et des formations sur biodiversité à destination de vos travailleur·euses ?");
+    question33.setReponses(List.of(reponse142,reponse143,reponse144));
+    question33.setNbrChoixMax(1);
+    question33.setEstQuestionLibre(false);
+    question33.setNombrePointMax(0.67);
+    question33.setEnjeuxPrincipal("ÉCOSYSTÈMES ET BIODIVERSITÉ");
+    question33.setEnjeuxSecondaire("ÉCOSYSTÈMES ET BIODIVERSITÉ");
+    question33.setCategorie(Question.CATEGORIE.Environment);
+    question33.setEstEngageForce(false);
+    question33.setTemplate(Templates.WORKERS);
+    questionRepository.save(question33);
+
+    Question question34 = new Question();
+    question34.setIntitule("Comment XXX crée-t-elle un processus de recrutement et d'embauche inclusif ?");
+    question34.setReponses(List.of(reponse145,reponse146,reponse147,reponse148,reponse149,reponse150,reponse151));
+    question34.setNbrChoixMax(5);
+    question34.setEstQuestionLibre(false);
+    question34.setNombrePointMax(1.45);
+    question34.setEnjeuxPrincipal("DIVERSITE, INCLUSION ET EQUITE");
+    question34.setEnjeuxSecondaire("INCLUSION ET EQUITE");
+    question34.setCategorie(CATEGORIE.Social);
+    question34.setEstEngageForce(false);
+    question34.setTemplate(Templates.WORKERS);
+    questionRepository.save(question34);
+
+    Question question35 = new Question();
+    question35.setIntitule("Comment XXX crée-t-elle un processus de recrutement et d'embauche inclusif ?");
+    question35.setReponses(List.of(reponse152,reponse153,reponse154,reponse155,reponse156,reponse157));
+    question35.setNbrChoixMax(4);
+    question35.setEstQuestionLibre(false);
+    question35.setNombrePointMax(1.09);
+    question35.setEnjeuxPrincipal("DIVERSITE, INCLUSION ET EQUITE");
+    question35.setEnjeuxSecondaire("INCLUSION ET EQUITE");
+    question35.setCategorie(CATEGORIE.Social);
+    question35.setEstEngageForce(false);
+    question35.setTemplate(Templates.WORKERS);
+    questionRepository.save(question35);
+
+    Question question36 = new Question();
+    question36.setIntitule("En dehors du règlement de travail légal, quelles sont la ou les pratiques suivantes que XXX a mis en oeuvre en matière de diversité et d'inclusion  ?");
+    question36.setReponses(List.of(reponse158,reponse159,reponse160,reponse161,reponse162,reponse163));
+    question36.setNbrChoixMax(4);
+    question36.setEstQuestionLibre(false);
+    question36.setNombrePointMax(1.09);
+    question36.setEnjeuxPrincipal("DIVERSITE, INCLUSION ET EQUITE");
+    question36.setEnjeuxSecondaire("INCLUSION ET EQUITE");
+    question36.setCategorie(CATEGORIE.Social);
+    question36.setEstEngageForce(false);
+    question36.setTemplate(Templates.WORKERS);
+    questionRepository.save(question36);
+
+    Question question37 = new Question();
+    question37.setIntitule("Est-ce que XXX monitore les formations en matière de diversité et d'inclusion ?");
+    question37.setReponses(List.of(reponse164,reponse165,reponse166));
+    question37.setNbrChoixMax(1);
+    question37.setEstQuestionLibre(false);
+    question37.setNombrePointMax(1.09);
+    question37.setEnjeuxPrincipal("DIVERSITE, INCLUSION ET EQUITE");
+    question37.setEnjeuxSecondaire("INCLUSION ET EQUITE");
+    question37.setCategorie(CATEGORIE.Social);
+    question37.setEstEngageForce(false);
+    question37.setTemplate(Templates.WORKERS);
+    questionRepository.save(question37);
+
+    Question question38 = new Question();
+    question38.setIntitule("La politique salariale de XXX est-elle régulièrement examinée pour s'assurer que les travailleur·euses bénéficient d'un traitement égal pour un travail égal ?");
+    question38.setReponses(List.of(reponse167,reponse168,reponse169));
+    question38.setNbrChoixMax(1);
+    question38.setEstQuestionLibre(false);
+    question38.setNombrePointMax(0.63);
+    question38.setEnjeuxPrincipal("DIVERSITE, INCLUSION ET EQUITE");
+    question38.setEnjeuxSecondaire("INCLUSION ET EQUITE");
+    question38.setCategorie(CATEGORIE.Social);
+    question38.setEstEngageForce(false);
+    question38.setTemplate(Templates.WORKERS);
+    questionRepository.save(question38);
+
+    Question question39 = new Question();
+    question39.setIntitule("Quel est le multiple du salaire de la personne la mieux rémunérée, y compris les primes, par rapport à celui de la personne à temps plein la moins bien rémunérée ?");
+    question39.setReponses(List.of(reponse170,reponse171,reponse172,reponse173,reponse174,reponse175));
+    question39.setNbrChoixMax(1);
+    question39.setEstQuestionLibre(false);
+    question39.setNombrePointMax(0.14);
+    question39.setEnjeuxPrincipal("DIVERSITE, INCLUSION ET EQUITE");
+    question39.setEnjeuxSecondaire("INCLUSION ET EQUITE");
+    question39.setCategorie(CATEGORIE.Social);
+    question39.setEstEngageForce(false);
+    question39.setTemplate(Templates.WORKERS);
+    questionRepository.save(question39);
+
+    Question question40 = new Question();
+    question40.setIntitule("Quel pourcentage des travailleur·euses est âgé de moins de vingt-quatre ans ou de plus de cinquante ans ?");
+    question40.setReponses(List.of(reponse176,reponse177,reponse178,reponse179,reponse180,reponse181));
+    question40.setNbrChoixMax(1);
+    question40.setEstQuestionLibre(false);
+    question40.setNombrePointMax(0.14);
+    question40.setEnjeuxPrincipal("DIVERSITE, INCLUSION ET EQUITE");
+    question40.setEnjeuxSecondaire("DIVERSITE");
+    question40.setCategorie(CATEGORIE.Social);
+    question40.setEstEngageForce(false);
+    question40.setTemplate(Templates.WORKERS);
+    questionRepository.save(question40);
+
+    Question question41 = new Question();
+    question41.setIntitule("Quel est le pourcentage des ***cadres*** de XXX qui s'identifient comme femmes ?");
+    question41.setReponses(List.of(reponse182,reponse183,reponse184,reponse185,reponse186,reponse187));
+    question41.setNbrChoixMax(1);
+    question41.setEstQuestionLibre(false);
+    question41.setNombrePointMax(0.14);
+    question41.setEnjeuxPrincipal("DIVERSITE, INCLUSION ET EQUITE");
+    question41.setEnjeuxSecondaire("DIVERSITE");
+    question41.setCategorie(CATEGORIE.Social);
+    question41.setEstEngageForce(false);
+    question41.setTemplate(Templates.WORKERS);
+    questionRepository.save(question41);
+
+    Question question42 = new Question();
+    question42.setIntitule("Quel est le pourcentage des travailleur·euses de XXX qui s'identifient comme femmes ?");
+    question42.setReponses(List.of(reponse182,reponse183,reponse184,reponse185,reponse186,reponse187));
+    question42.setNbrChoixMax(1);
+    question42.setEstQuestionLibre(false);
+    question42.setNombrePointMax(0.14);
+    question42.setEnjeuxPrincipal("DIVERSITE, INCLUSION ET EQUITE");
+    question42.setEnjeuxSecondaire("DIVERSITE");
+    question42.setCategorie(CATEGORIE.Social);
+    question42.setEstEngageForce(false);
+    question42.setTemplate(Templates.WORKERS);
+    questionRepository.save(question42);
+
+    Question question43 = new Question();
+    question43.setIntitule("Quel pourcentage des travailleur·euses se considère comme appartenant à un groupe social sous-représenté (ex : personnes LGBTQIA+, issues de minorités ethniques, etc.)");
+    question43.setReponses(List.of(reponse188,reponse189,reponse190,reponse191,reponse192,reponse193));
+    question43.setNbrChoixMax(1);
+    question43.setEstQuestionLibre(false);
+    question43.setNombrePointMax(0.14);
+    question43.setEnjeuxPrincipal("DIVERSITE, INCLUSION ET EQUITE");
+    question43.setEnjeuxSecondaire("DIVERSITE");
+    question43.setCategorie(CATEGORIE.Social);
+    question43.setEstEngageForce(false);
+    question43.setTemplate(Templates.WORKERS);
+    questionRepository.save(question43);
+
+    Question question44 = new Question();
+    question44.setIntitule("Quel pourcentage des travailleur·euses de XXX fait partie d'un groupe souvent exclu du marché du travail (ex : personnes en situation de handicap, anciens détenus, jeunes demandeurs d'emploi, chômeurs de longue durée, etc.) ?");
+    question44.setReponses(List.of(reponse188,reponse189,reponse190,reponse191,reponse192,reponse193));
+    question44.setNbrChoixMax(1);
+    question44.setEstQuestionLibre(false);
+    question44.setNombrePointMax(0.14);
+    question44.setEnjeuxPrincipal("DIVERSITE, INCLUSION ET EQUITE");
+    question44.setEnjeuxSecondaire("DIVERSITE");
+    question44.setCategorie(CATEGORIE.Social);
+    question44.setEstEngageForce(false);
+    question44.setTemplate(Templates.WORKERS);
+    questionRepository.save(question44);
+
+    Question question45 = new Question();
+    question45.setIntitule("Comment XXX démontre-t-elle son engagement à garantir la santé et la sécurité des travailleur·euses, en allant au-delà des obligations légales ?");
+    question45.setReponses(List.of(reponse194,reponse195,reponse196,reponse197,reponse198,reponse199,reponse200,reponse201,reponse202));
+    question45.setNbrChoixMax(1);
+    question45.setEstQuestionLibre(false);
+    question45.setNombrePointMax(0.14);
+    question45.setEnjeuxPrincipal("DIVERSITE, INCLUSION ET EQUITE");
+    question45.setEnjeuxSecondaire("DIVERSITE");
+    question45.setCategorie(CATEGORIE.Social);
+    question45.setEstEngageForce(false);
+    question45.setTemplate(Templates.WORKERS);
+    questionRepository.save(question45);
+
     // questionnaire
     Questionnaire questionnaire = new Questionnaire();
     questionnaire.setName("ESG");
     questionnaire.setStatut("A compléter");
     questionnaire.setQuestions(List.of(question1,question2,question3,question4,question5,question6,
-        question7,question8,question9,question10,question11));
+        question7,question8,question9,question10,question11,question12,question13,question14,
+        question15,question16,question17,question18,question19,question20,question21,question22,
+        question23,question24,question25,question26,question27,question28,question29,question30,
+        question31,question32,question33,question34,question35,question36,question37,question38,
+        question39,question40,question41,question42,question43,question44,question45));
     questionnaireRepository.save(questionnaire);
   }
 
