@@ -1,112 +1,172 @@
 <div class="description">
-  
-  <p> <a id="retour" href="/homepage">Retour à la page</a> <p> Bienvenue sur notre questionnaire d'Onboarding ! Nous sommes ravis de vous accueillir et de vous guider à travers cette première étape importante. Ce questionnaire a été conçu pour mieux vous connaître et vous accompagner dans la découverte de nos outils et services. À la fin de ce processus, vous aurez l'opportunité de réaliser une évaluation complète de votre score ESG. Pour cela, il vous suffira de créer un compte dès maintenant. Prenez le temps de répondre attentivement à chaque question afin que nous puissions vous offrir une expérience personnalisée et adaptée à vos besoins. Bonne exploration et à très bientôt dans la suite de votre parcours ESG !</p>
+
+  <p> <a id="retour" href="/homepage">Retour à la page</a>
+  <p> Bienvenue sur notre questionnaire d'Onboarding ! Nous sommes ravis de vous accueillir et de vous guider à travers
+    cette première étape importante. Ce questionnaire a été conçu pour mieux vous connaître et vous accompagner dans la
+    découverte de nos outils et services. À la fin de ce processus, vous aurez l'opportunité de réaliser une évaluation
+    complète de votre score ESG. Pour cela, il vous suffira de créer un compte dès maintenant. Prenez le temps de
+    répondre attentivement à chaque question afin que nous puissions vous offrir une expérience personnalisée et adaptée
+    à vos besoins. Bonne exploration et à très bientôt dans la suite de votre parcours ESG !</p>
 </div>
 <div class="wrapper">
   <div class="blur-container">
-    
-  <div class="form-box register">
-    
+
+    <div class="form-box register">
+
       <h2>Registration</h2>
-      <form (ngSubmit)="onSubmit()">
-          <div class="input-box">
-              <label>Quel est votre prénom?</label>
-              <input type="text" [(ngModel)]="registrationData.prenom" name="prenom" required>
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+        <div class="input-box">
+          <label>Quel est votre prénom ? *</label>
+          <input type="text" name="prenom" formControlName="prenom">
+          <div class="error-message" *ngIf="signupForm.controls['prenom'].invalid && signupForm.controls['prenom'].touched">
+            <small *ngIf="signupForm.controls['prenom'].hasError('required')">Le prénom est requis.</small>
+            <small *ngIf="signupForm.controls['prenom'].hasError('minlength')">Doit contenir au moins 2 caractères.</small>
           </div>
-          <div class="input-box">
-              <label>Quel est votre nom?</label>
-              <input type="text" [(ngModel)]="registrationData.nom" name="nom" required>
+        </div>
+        <div class="input-box">
+          <label>Quel est votre nom ? *</label>
+          <input type="text" name="nom" formControlName="nom">
+          <div class="error-message" *ngIf="signupForm.controls['nom'].invalid && signupForm.controls['nom'].touched">
+            <small *ngIf="signupForm.controls['nom'].hasError('required')">Le nom est requis.</small>
+            <small *ngIf="signupForm.controls['nom'].hasError('minlength')">Doit contenir au moins 2 caractères.</small>
           </div>
-          <div class="input-box">
-              <label>Quelle est votre adresse e-mail ?</label>
-              <input type="email" [(ngModel)]="registrationData.email" name="email" required>
+        </div>
+        <div class="input-box">
+          <label>Quelle est votre adresse e-mail ? *</label>
+          <input type="email" name="email" formControlName="email">
+          <div class="error-message" *ngIf="signupForm.controls['email'].invalid && signupForm.controls['email'].touched">
+            <small *ngIf="signupForm.controls['email'].hasError('required')">L'email est requis.</small>
+            <small *ngIf="signupForm.controls['email'].hasError('pattern')">Format invalide</small>
           </div>
-          <div class="input-box">
-              <label>Quelle est votre fonction ?</label>
-              <input type="text" [(ngModel)]="registrationData.fonction" name="fonction" required>
+        </div>
+        <div class="input-box">
+          <label>Quelle est votre fonction ? *</label>
+          <input type="text" name="fonction" formControlName="fonction">
+          <div class="error-message" *ngIf="signupForm.controls['fonction'].invalid && signupForm.controls['fonction'].touched">
+            <small *ngIf="signupForm.controls['fonction'].hasError('required')">La fonction est requise.</small>
           </div>
-          <div class="input-box">
-              <label>Quel est le nom de votre entreprise ?</label>
-              <input type="text" [(ngModel)]="registrationData.nomEntreprise" name="nomEntreprise" required>
+        </div>
+        <div class="input-box">
+          <label>Quel est le nom de votre entreprise ? *</label>
+          <input type="text" name="nomEntreprise" formControlName="nomEntreprise">
+          <div class="error-message" *ngIf="signupForm.controls['nomEntreprise'].invalid && signupForm.controls['nomEntreprise'].touched">
+            <small *ngIf="signupForm.controls['nomEntreprise'].hasError('required')">Le nom de l'entreprise est requis.</small>
+            <small *ngIf="signupForm.controls['nomEntreprise'].hasError('minlength')">Doit contenir au moins 2 caractères.</small>
           </div>
-          <div class="input-box">
-              <label>Quel est votre n° d'entreprise ?</label>
-              <input type="text" [(ngModel)]="registrationData.numEntreprise" name="numEntreprise" required>
+        </div>
+        <div class="input-box">
+          <label>Quel est votre n° d'entreprise ? *</label>
+          <input type="text" name="numEntreprise" formControlName="numEntreprise">
+          <div class="error-message" *ngIf="signupForm.controls['numEntreprise'].invalid && signupForm.controls['numEntreprise'].touched">
+            <small *ngIf="signupForm.controls['numEntreprise'].hasError('required')">Le numéro d'entreprise est requis.</small>
+            <small *ngIf="signupForm.controls['numEntreprise'].hasError('pattern')">Format : BE + 10 chiffres.</small>
           </div>
-          <div class="input-box">
-              <label>Quelle est la forme juridique ?</label>
-              <input type="text" [(ngModel)]="registrationData.formeJuridique" name="formeJuridique" required>
+        </div>
+        <div class="input-box">
+          <label>Quelle est la forme juridique ? *</label>
+          <input type="text" name="formeJuridique" formControlName="formeJuridique">
+          <div class="error-message" *ngIf="signupForm.controls['formeJuridique'].invalid && signupForm.controls['formeJuridique'].touched">
+            <small *ngIf="signupForm.controls['formeJuridique'].hasError('required')">La forme juridique est requise.</small>
+            <small *ngIf="signupForm.controls['formeJuridique'].hasError('minlength')">Doit contenir au moins 2 caractères.</small>
           </div>
-          <div class="input-box">
-              <label>Quelle est l'adresse du siège social ?</label>
-              <input type="text" [(ngModel)]="registrationData.adresseSiegeSocial" name="adresseSiegeSocial" required>
+        </div>
+        <div class="input-box">
+          <label>Quelle est l'adresse du siège social ? *</label>
+          <input type="text" name="adresseSiegeSocial" formControlName="adresseSiegeSocial">
+          <div class="error-message" *ngIf="signupForm.controls['adresseSiegeSocial'].invalid && signupForm.controls['adresseSiegeSocial'].touched">
+            <small *ngIf="signupForm.controls['adresseSiegeSocial'].hasError('required')">L'adresse est requise.</small>
+            <small *ngIf="signupForm.controls['adresseSiegeSocial'].hasError('minlength')">Doit contenir au moins 3 caractères.</small>
           </div>
-          <div class="input-box">
-              <label>Quelle est l'adresse de votre site web ?</label>
-              <input type="text" [(ngModel)]="registrationData.adresseSiteWeb" name="adresseSiteWeb" required>
+        </div>
+        <div class="input-box">
+          <label>Quelle est l'adresse de votre site web ? *</label>
+          <input type="text" name="adresseSiteWeb" formControlName="adresseSiteWeb">
+          <div class="error-message" *ngIf="signupForm.controls['adresseSiteWeb'].invalid && signupForm.controls['adresseSiteWeb'].touched">
+            <small *ngIf="signupForm.controls['adresseSiteWeb'].hasError('required')">L'adresse du site web est requise.</small>
+            <small *ngIf="signupForm.controls['adresseSiteWeb'].hasError('pattern')">Format URL invalide.</small>
           </div>
-          <div class="input-box">
-              <label>Quel est le Code Nace de votre activité principale ?</label>
-              <input type="text" [(ngModel)]="registrationData.codeNace" name="codeNace" required>
+        </div>
+        <div class="input-box">
+          <label>Quel est le Code Nace de votre activité principale ? *</label>
+          <input type="text" name="codeNace" formControlName="codeNace">
+          <div class="error-message" *ngIf="signupForm.controls['codeNace'].invalid && signupForm.controls['codeNace'].touched">
+            <small *ngIf="signupForm.controls['codeNace'].hasError('required')">Le code NACE est requis.</small>
+            <small *ngIf="signupForm.controls['codeNace'].hasError('minlength')">Minimum 4 caractères.</small>
+            <small *ngIf="signupForm.controls['codeNace'].hasError('maxlength')">Maximum 6 caractères.</small>
           </div>
-          <div class="input-box">
-              <label>Décrivez votre activité en quelques mots</label>
-              <textarea [(ngModel)]="registrationData.activitePrincipale" name="activitePrincipale" required></textarea>
+        </div>
+        <div class="input-box">
+          <label>Décrivez votre activité en quelques mots. *</label>
+          <textarea name="activitePrincipale" formControlName="activitePrincipale"></textarea>
+          <div class="error-message" *ngIf="signupForm.controls['activitePrincipale'].invalid && signupForm.controls['activitePrincipale'].touched">
+            <small *ngIf="signupForm.controls['activitePrincipale'].hasError('required')">Votre activité principale est requise.</small>
           </div>
-          <div class="input-box">
-              <label>Quel est le chiffre d'affaires du dernier exercice fiscal ?</label>
-              <input type="number" [(ngModel)]="registrationData.dernierChiffreDAffaire" name="dernierChiffreDAffaire" required>
+        </div>
+        <div class="input-box">
+          <label>Quel est le chiffre d'affaires du dernier exercice fiscal ? *</label>
+          <input type="number" name="dernierChiffreDAffaire" formControlName="dernierChiffreDAffaire">
+          <div class="error-message" *ngIf="signupForm.controls['dernierChiffreDAffaire'].invalid && signupForm.controls['dernierChiffreDAffaire'].touched">
+            <small *ngIf="signupForm.controls['dernierChiffreDAffaire'].hasError('required')">Le chiffre d'affaires est requis.</small>
           </div>
-          <div class="input-box">
-              <label>Est-ce une franchise ?</label>
-              <input type="checkbox" [(ngModel)]="registrationData.estFranchise" name="estFranchise">
-              
-          </div>
-          <div class="input-box">
-            <label>Etes-vous propriétaire?</label>
-            <input type="checkbox" [(ngModel)]="registrationData.estProprietaire" name="estProprietaire">
+        </div>
+        <div class="input-box">
+          <label>Est-ce une franchise ?</label>
+          <input type="checkbox" name="estFranchise" formControlName="estFranchise">
+
+        </div>
+        <div class="input-box">
+          <label>Etes-vous propriétaire?</label>
+          <input type="checkbox" name="estProprietaire" formControlName="estProprietaire">
         </div>
         <div class="input-box">
           <label>Vendez-vous des services?</label>
-          <input type="checkbox" [(ngModel)]="registrationData.vendService" name="vendService">
-      </div>
-      <div class="input-box">
-        <label>Vendez-vous des produits?</label>
-        <input type="checkbox" [(ngModel)]="registrationData.vendProduit" name="vendProduit">
-    </div>
-          <div class="input-box">
-              <label>Combien de travailleurs comptez-vous ?</label>
-              <input type="number" [(ngModel)]="registrationData.nbTravailleur" name="nbTravailleur" required>
+          <input type="checkbox" name="vendService" formControlName="vendService">
+        </div>
+        <div class="input-box">
+          <label>Vendez-vous des produits?</label>
+          <input type="checkbox" name="vendProduit" formControlName="vendProduit">
+        </div>
+        <div class="input-box">
+          <label>Combien de travailleurs comptez-vous ? *</label>
+          <input type="number" name="nbTravailleur" formControlName="nbTravailleur">
+          <div class="error-message" *ngIf="signupForm.controls['nbTravailleur'].invalid && signupForm.controls['nbTravailleur'].touched">
+            <small *ngIf="signupForm.controls['nbTravailleur'].hasError('required')">Ce champ est requis.</small>
           </div>
-          <div class="input-box">
-              <label>Est-ce que votre entreprise est actuellement impliquée <p>dans un litige concernant le respect des lois sociales et environnementales ?</label>
-              <textarea [(ngModel)]="registrationData.estDansUnLitige" name="estDansUnLitige" required></textarea>
+        </div>
+        <div class="input-box">
+          <label>Est-ce que votre entreprise est actuellement impliquée <p>dans un litige concernant le respect des lois sociales et environnementales ? *</label>
+          <textarea name="estDansUnLitige" formControlName="estDansUnLitige"></textarea>
+        </div>
+        <div class="input-box">
+          <label>Avez-vous l'intention de soumettre une demande de subside <p> pour le coût du "travail d'analyse visant l'obtention du label" ? *</label>
+          <textarea name="demandeDeLabel" formControlName="demandeDeLabel"></textarea>
+        </div>
+        <div class="input-box">
+          <label>Comment avez-vous connu ShiftingPact™ ? *</label>
+          <textarea name="partenaire" formControlName="partenaire"></textarea>
+          <div class="error-message" *ngIf="signupForm.controls['partenaire'].invalid && signupForm.controls['partenaire'].touched">
+            <small *ngIf="signupForm.controls['partenaire'].hasError('required')">Merci de compléter le champ.</small>
           </div>
-          <div class="input-box">
-              <label>Avez-vous l'intention de soumettre une demande de subside <p>
-                 pour le coût du "travail d'analyse visant l'obtention du label" ?</label>
-              <textarea [(ngModel)]="registrationData.demandeDeLabel" name="demandeDeLabel" required></textarea>
+        </div>
+        <div class="input-box">
+          <label>Souhaitez-vous ajouter autre chose ?</label>
+          <textarea name="commentaire" formControlName="commentaire"></textarea>
+        </div>
+        <div class="input-box">
+          <label>Mot de passe *</label>
+          <input type="password" name="password" formControlName="mdp">
+          <div class="error-message" *ngIf="signupForm.controls['mdp'].invalid && signupForm.controls['mdp'].touched">
+            <small *ngIf="signupForm.controls['mdp'].hasError('required')">Le mot de passe est requis.</small>
           </div>
-          <div class="input-box">
-              <label>Comment avez-vous connu ShiftingPact™?</label>
-              <textarea [(ngModel)]="registrationData.partenaire" name="partenaire"></textarea>
-          </div>
-          <div class="input-box">
-              <label>Souhaitez-vous ajouter autre chose?</label>
-              <textarea [(ngModel)]="registrationData.commentaire" name="commentaire"></textarea>
-          </div>
-          <div class="input-box">
-              <label>Mot de passe</label>
-              <input type="password" [(ngModel)]="password" name="password" required>
-          </div>
-          <button type="submit" class="btn">Sign Up</button>
-          <div class="login-register">
-              <p>Already have an account ?
-                  <a href="/login" class="login-link">Login</a>
-              </p>
-          </div>
+        </div>
+        <button type="submit" class="btn">Sign Up</button>
+        <div class="login-register">
+          <p>Already have an account ?
+            <a href="/login" class="login-link">Login</a>
+          </p>
+        </div>
       </form>
+    </div>
   </div>
-</div>
 
-<app-footer></app-footer>
+  <app-footer></app-footer>
