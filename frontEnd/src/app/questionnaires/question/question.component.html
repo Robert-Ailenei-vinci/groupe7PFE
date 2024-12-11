@@ -20,13 +20,13 @@
             <tr class="souscategory">
               <td>{{ souscategory.key }}</td>
             </tr>
-            <ng-container *ngFor="let question of souscategory.value">
+            <ng-container *ngFor="let question2 of souscategory.value">
               <tr>
                 <a 
-                [className]="getClassList(question)" 
-                [href]="'/esg/question/' + question.id"
+                [className]="getClassList(question2)" 
+                (click)="saveQuestionAndSwitchToQuestion(question, question2)"
                 >
-                  {{ question.intitule }}
+                  {{ question2.intitule }}
                 </a>
               </tr>
             </ng-container>

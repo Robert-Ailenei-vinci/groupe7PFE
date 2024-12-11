@@ -56,7 +56,37 @@ export class QuestionComponent implements OnInit {
   }
 
   navigateToNextQuestion(question: QuestionRepondus): void {
+    let indexOfCurrentQuestion = this.questionnaire[0].questionsRepondues.indexOf(this.question);
+    indexOfCurrentQuestion++;
+    if (indexOfCurrentQuestion >= this.questionnaire[0].questionsRepondues.length) {
+      indexOfCurrentQuestion = 0;
+    }
+    this.questionnaire[0].questionsRepondues[indexOfCurrentQuestion]
+    this.saveQuestionAndSwitchToQuestion(question, this.questionnaire[0].questionsRepondues[indexOfCurrentQuestion]);
+  }
+
+
+  saveQuestionAndSwitchToQuestion(question: QuestionRepondus, nextQuestion : QuestionRepondus): void {
     // sauvegarder
+
+    if(question.reponseRepondus.length === 0) {
+      from(question.commentaire).pipe(
+        concatMap(() => this.clientservice.changerCommentaireQuestion(question.id.toString(), question.commentaire )),
+      ).subscribe({
+        next: (data) => {
+          console.log('Commentaire modifié avec succès pour', data.id, data.intitule);
+        },
+        error: (err) => {
+          console.error('Erreur lors de la modification du commentaire :', err);
+        },
+        complete: () => {
+          this.router.navigate(['/esg/question/', nextQuestion.id])
+          .then(() => {
+            window.location.reload();
+          });
+        }
+      });
+    }
     from(question.reponseRepondus).pipe(
       // concatMap va s'assurer que chaque appel se fait après la complétion du précédent
       concatMap(reponse => this.clientservice.changerReponseQuestion(
@@ -74,18 +104,12 @@ export class QuestionComponent implements OnInit {
         console.error('Erreur lors de la modification de la réponse :', err);
       },
       complete: () => {
-        let indexOfCurrentQuestion = this.questionnaire[0].questionsRepondues.indexOf(this.question);
-        indexOfCurrentQuestion++;
-        if (indexOfCurrentQuestion >= this.questionnaire[0].questionsRepondues.length) {
-          indexOfCurrentQuestion = 0;
-        }
-        this.router.navigate(['/esg/question/', this.questionnaire[0].questionsRepondues[indexOfCurrentQuestion].id])
+        this.router.navigate(['/esg/question/', nextQuestion.id])
         .then(() => {
           window.location.reload();
         });
       }
     });
-
   }
 
   selectAnswer(reponse : ReponseRepondue): void {
