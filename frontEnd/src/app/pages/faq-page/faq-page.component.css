@@ -68,28 +68,30 @@ h1 {
 
 .faq-item-left .faq-question {
   color:transparent;
-  background-image: linear-gradient(to right, #013238 79.5%, #dfd4fb 85.9%);
+  background-image: linear-gradient(to right, #013238 100%, #dfd4fb 100%);
   background-clip: text;
   -webkit-background-clip: text;
+  justify-self: baseline;
 }
 
 .faq-item-right .faq-question {
   color:transparent;
-  background-image: linear-gradient(to right, #dfd4fb 36.9%, #013238 42.5%);
+  background-image: linear-gradient(to right, #dfd4fb 100%, #013238 100%);
   background-clip: text;
   -webkit-background-clip: text;
 }
 
 .faq-item-left .faq-answer {
   color:transparent;
-  background-image: linear-gradient(to right, #013238 79.5%, #dfd4fb 85.9%);
+  background-image: linear-gradient(to right, #013238 100%, #dfd4fb 100%);
   background-clip: text;
   -webkit-background-clip: text;
+  justify-self: baseline;
 }
 
 .faq-item-right .faq-answer {
   color:transparent;
-  background-image: linear-gradient(to right, #dfd4fb 36.9%, #013238 42.5%);
+  background-image: linear-gradient(to right, #dfd4fb 100%, #013238 100%);
   background-clip: text;
   -webkit-background-clip: text;
 }

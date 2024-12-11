@@ -23,6 +23,7 @@ export class FaqPageComponent implements OnInit {
   constructor(private faqService: FaqService) {}
 
   ngOnInit() {
+    console.log(this.loadFaqs())
     this.loadFaqs();
   }
 
@@ -30,7 +31,6 @@ export class FaqPageComponent implements OnInit {
     this.faqService.getFaqs().subscribe((data) => {
       console.log(data)
       this.faqItems = data.map(item => ({ ...item }));
-      console.log(this.faqItems)
     });
   }  
 
