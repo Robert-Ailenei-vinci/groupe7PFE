@@ -18,6 +18,7 @@ public class Reponse {
   private String intitule;
   private double scoreTotal;
   private double scoreEngagement;
+  private boolean estEngageForce;
 }
 
 
