@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FaqService, FaqItem } from '../../services/faq.service';
+import { FaqService } from '../../services/faq.service';
 import { HeaderComponent } from '../../margins/header/header.component';
 import { FooterComponent } from '../../margins/footer/footer.component';
 import { CommonModule } from '@angular/common';
@@ -14,8 +14,9 @@ import { CommonModule } from '@angular/common';
 export class FaqPageComponent implements OnInit {
   faqItems = [
     {
-      id: 'Chargement des question',
-      intitule: 'Veuillez patienter...'
+      id: '',
+      intitule: 'Chargement des question',
+      reponse: 'Veuillez patienter...'
     }
   ];
 

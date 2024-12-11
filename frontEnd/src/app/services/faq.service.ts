@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 export interface FaqItem {
   id: string;
   intitule: string;
+  reponse: string;
 }
 
 @Injectable({
