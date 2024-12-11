@@ -7,16 +7,21 @@ import vinci.be.backend.model.user.client.Client;
 import vinci.be.backend.model.user.client.UserCredential;
 import vinci.be.backend.model.template.question.Question.Templates;
 import vinci.be.backend.repository.ClientRepository;
+import vinci.be.backend.repository.repondu.QuestionnaireReponduRepository;
+import vinci.be.backend.service.repondu.QuestionnaireReponduService;
 
 @Service
 public class ClientService {
 
   private final ClientRepository clientRepository;
   private final PasswordEncoder passwordEncoder;
+  private final QuestionnaireReponduService questionnaireReponduService;
 
-  public ClientService(ClientRepository clientRepository, PasswordEncoder passwordEncoder) {
+
+  public ClientService(ClientRepository clientRepository, PasswordEncoder passwordEncoder, QuestionnaireReponduService questionnaireReponduService) {
     this.clientRepository = clientRepository;
     this.passwordEncoder = passwordEncoder;
+    this.questionnaireReponduService=questionnaireReponduService;
   }
 
   public Client saveClient(Client client) {
@@ -43,7 +48,12 @@ public class ClientService {
     String hashedPassword = passwordEncoder.encode(client.getPassword());
     client.setPassword(hashedPassword);
 
-    return clientRepository.save(client);
+    Client savedClient=clientRepository.save(client);
+
+    questionnaireReponduService.createOneESG(savedClient.getId());
+
+
+    return savedClient;
   }
   public Client login(UserCredential userCredential) {
 
