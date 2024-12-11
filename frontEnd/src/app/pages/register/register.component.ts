@@ -116,30 +116,28 @@ export class RegisterComponent {
         password: this.password
       };
 
-      this.clientService.addClient(dataToSend).pipe(
-        switchMap((response: any) => {
-          console.log('Client added successfully', response);
-          const loginData = {
-            email: this.registrationData.email,
-            password: this.password
-          };
-          return this.clientService.login(loginData);
-        }),
-        catchError((error: any) => {
-          console.error('Error during registration or login', error);
-          return of(null); // Return an observable with a null value to handle the error
-        })
-      ).subscribe(
-        (response: any) => {
-          if (response) {
-            console.log('Logged in successfully', response);
-            localStorage.setItem('authToken', JSON.stringify(response));
-            this.router.navigate(['/homepage']);
-          }
+    this.clientService.addClient(dataToSend).pipe(
+      switchMap((response: any) => {
+        console.log('Client added successfully', response);
+        const loginData = {
+          email: this.registrationData.email,
+          password: this.password
+        };
+        console.log(loginData);
+        return this.clientService.login(loginData);
+      }),
+      catchError((error: any) => {
+        console.error('Error during registration or login', error);
+        return of(null); // Return an observable with a null value to handle the error
+      })
+    ).subscribe(
+      (response: any) => {
+        if (response) {
+          console.log('Logged in successfully', response);
+          localStorage.setItem('authToken', JSON.stringify(response));
+          this.router.navigate(['/homepage']);
         }
-      );
-    } else {
-      console.error('Formulaire invalide');
-    }
+      }
+    );
   }
 }

@@ -114,6 +114,8 @@ export class ClientService {
   private registerUrl = 'http://localhost:8080/clients/register';
   private loginUrl='http://localhost:8080/clients/login';
 
+  private finishQuestionnaireUrl = 'http://localhost:8080/questionnaires/finish/';
+
   private scoreUrl = 'http://localhost:8080/questionnaires/pourcentage';
 
   constructor(private http: HttpClient) { }
@@ -153,6 +155,10 @@ export class ClientService {
 
   getPoucentageScore(idQuestionnaire: string): Observable<Score> {
     return this.http.get<Score>(`${this.scoreUrl}/${idQuestionnaire}`);
+  }
+
+  finishQuestionnaire(idQuestionnaire: string): Observable<any> {
+    return this.http.patch(`${this.finishQuestionnaireUrl}${idQuestionnaire}`, null);
   }
 
 }
