@@ -67,8 +67,6 @@ export class RegisterComponent {
         if (response) {
           console.log('Logged in successfully', response);
           localStorage.setItem('authToken', JSON.stringify(response));
-
-          // Redirect to the desired page after login
           this.router.navigate(['/homepage']);
         }
       }

@@ -180,7 +180,7 @@ public class QuestionnaireReponduService {
   }
 
   public QuestionnaireRepondu calculeScore(String idQuestionnaireRepondu){
-    System.out.println("l'id est : "+idQuestionnaireRepondu);
+    System.out.println(" je calcule le score !!!!");
     QuestionnaireRepondu questionnaireRepondu = questionnaireReponduRepository.findById(idQuestionnaireRepondu).orElse(null);
     // modification du score du questionnaire dans la db
     if (questionnaireRepondu == null) {
@@ -191,18 +191,12 @@ public class QuestionnaireReponduService {
     // récupération des question répondues
     Iterable<QuestionRepondu> questionRepondus = questionRepositoryRepondu.findAllByIdQuestionnaireRepondu(questionnaireRepondu.getId());
 
-    for (QuestionRepondu questionRepondu : questionRepondus) {
-      System.out.println("la questionRepondu : "+questionRepondu.toString());
-    }
-
-    for (QuestionRepondu questionRepondu : questionRepondus) {
-      for (ReponseRepondu reponseRepondu : questionRepondu.getReponseRepondus()) {
-        System.out.println("la reponseRepondu : "+reponseRepondu.toString());
-      }
-    }
-
+    double scoreTotal =0;
+    int compteur =0;
     // calcul du score
     for(QuestionRepondu questionRepondu : questionRepondus){
+      compteur++;
+      System.out.println(" je rentre dans les questions "+ compteur+" !!!!");
       double score = 0;
       Question question = questionRepository.findById(questionRepondu.getIdQuestion()).orElse(null);
       if (question == null) {
@@ -211,6 +205,8 @@ public class QuestionnaireReponduService {
       }
 
       for(ReponseRepondu reponseRepondu : questionRepondu.getReponseRepondus()){
+        System.out.println(reponseRepondu);
+        System.out.println();
         if(reponseRepondu.isSelectionne()){
           Reponse reponse = reponseRepository.findById(reponseRepondu.getIdReponse()).orElse(null);
 
@@ -225,6 +221,7 @@ public class QuestionnaireReponduService {
           }
           // calcule du score total
           score += reponse.getScoreTotal();
+          System.out.println("le score est : " +score);
 
           if (score > question.getNombrePointMax()) {
             score = question.getNombrePointMax();
@@ -232,12 +229,14 @@ public class QuestionnaireReponduService {
 
         }
       }
-      // enregistrement en db
-      questionRepondu.setNombrePointObtenu(score);
-      questionRepositoryRepondu.save(questionRepondu);
-      questionnaireRepondu.setScore(score);
-      questionnaireReponduRepository.save(questionnaireRepondu);
+      scoreTotal += score;
+      System.out.println("le score total est : "+scoreTotal);
     }
+    // enregistrement en db
+    //questionRepondu.setNombrePointObtenu(score);
+    // questionRepositoryRepondu.save(questionRepondu);
+    questionnaireRepondu.setScore(scoreTotal);
+    questionnaireReponduRepository.save(questionnaireRepondu);
     return questionnaireRepondu;
   }
 
@@ -260,7 +259,6 @@ public class QuestionnaireReponduService {
 
       categorieListMap.get(questionRepondu.getCategorie()).add(questionRepondu);
     }
-    System.out.println(categorieListMap);
 
     int compteurEnvironment = 0;
     int compteurSocial =0 ;

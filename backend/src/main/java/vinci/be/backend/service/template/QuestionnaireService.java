@@ -9,6 +9,8 @@ import vinci.be.backend.model.template.question.Question.CATEGORIE;
 import vinci.be.backend.model.template.question.Question.Templates;
 import vinci.be.backend.model.template.questionnaire.Questionnaire;
 import vinci.be.backend.model.template.reponse.Reponse;
+import vinci.be.backend.model.user.consultant.Consultant;
+import vinci.be.backend.repository.ConsultantRepository;
 import vinci.be.backend.repository.QuestionRepository;
 import vinci.be.backend.repository.QuestionnaireRepository;
 import vinci.be.backend.repository.ReponseRepository;
@@ -19,16 +21,26 @@ public class QuestionnaireService {
   private final QuestionnaireRepository questionnaireRepository;
   private final QuestionRepository questionRepository;
   private final ReponseRepository reponseRepository;
+  private final ConsultantRepository consultantRepository;
 
   @Autowired
   public QuestionnaireService(QuestionnaireRepository questionnaireRepository,
-      QuestionRepository questionRepository, ReponseRepository reponseRepository) {
+      QuestionRepository questionRepository, ReponseRepository reponseRepository,
+      ConsultantRepository consultantRepository) {
     this.questionnaireRepository = questionnaireRepository;
     this.questionRepository = questionRepository;
     this.reponseRepository = reponseRepository;
+    this.consultantRepository = consultantRepository;
   }
 
   public void addInDB(){
+
+    // creation d'un consultant
+    Consultant consultant = new Consultant();
+    consultant.setEmail("admin.shiftingPact@gmail.com");
+    consultant.setPassword("$2a$10$QhSEAK.TkKnYSFJWFORPSO.6YxKwLWYzsnporLJX7vfgxYKBlzI9G");
+    consultantRepository.save(consultant);
+
     // question 1
     Reponse reponse1 = new Reponse();
     reponse1.setIntitule("oui");

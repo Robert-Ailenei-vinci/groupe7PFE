@@ -13,6 +13,23 @@ services:
     build: ./backend
     ports:
       - "8080:8080"
+    depends_on:
+      - mongo
+    networks:
+      - app-network
+
+  mongo:
+    image: mongo:6.0
+    # Configuration basique. Pour un environnement de dev local, le root/password n'est pas obligatoire.
+    # Mais si vous voulez ajouter une auth :
+    # environment:
+    #   MONGO_INITDB_ROOT_USERNAME: root
+    #   MONGO_INITDB_ROOT_PASSWORD: example
+    # Ensuite, l'URI côté backend serait par exemple : mongodb://root:example@mongo:27017/mydatabase?authSource=admin
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./mongodb_data:/data/db
     networks:
       - app-network
 

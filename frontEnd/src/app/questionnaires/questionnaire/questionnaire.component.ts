@@ -5,6 +5,7 @@ import { QuestionnaireManagerComponent } from '../questionnaire-manager/question
 import { CommonModule } from '@angular/common';
 import { QuestionRepondus } from '../../services/client.service';
 import { Router } from '@angular/router';
+import { QuestionnaireDetail } from '../../services/client.service';
 
 @Component({
   selector: 'app-questionnaire',
@@ -14,6 +15,7 @@ import { Router } from '@angular/router';
 })
 export class QuestionnaireComponent implements OnInit {
   questionnaireParCategories: Map<string, Map<string, QuestionRepondus[]>> = new Map();
+  questionnaireDetail: QuestionnaireDetail[] = [];
   isLoading = true; // Variable pour l'état de chargement
 
   constructor(private router: Router) {}
@@ -22,6 +24,7 @@ export class QuestionnaireComponent implements OnInit {
     // Simuler un chargement des données pour vérifier leur disponibilité
     setTimeout(() => {
       this.questionnaireParCategories = QuestionnaireManagerComponent.getQuestionnaireParCategories();
+      this.questionnaireDetail = QuestionnaireManagerComponent.getQuestionnaireDetail();
       if (this.questionnaireParCategories.size === 0) {
         console.error('Aucune donnée disponible');
       } else {
@@ -67,9 +70,7 @@ export class QuestionnaireComponent implements OnInit {
 
   // Renvoie true si une question a été répondue
   isAnswered(question: QuestionRepondus): boolean {
-    return question.reponseRepondus.some(
-      reponse => (reponse.selectionne && question.reponseRepondus.length > 0) || question.commentaire !== ''
-    );
+    return question.reponseRepondus.some(reponse => reponse.selectionne) || question.commentaire !== '';
   }
 
   // Renvoie la première question non répondue du questionnaire
@@ -115,5 +116,12 @@ export class QuestionnaireComponent implements OnInit {
       }
     }
     return nombreDeQuestionsRepondues;
+  }
+
+  finishQuestionnaire(): void {
+    QuestionnaireManagerComponent.finishQuestionnaire();
+    setTimeout(() => {
+      window.location.reload();
+    }, 700);
   }
 }

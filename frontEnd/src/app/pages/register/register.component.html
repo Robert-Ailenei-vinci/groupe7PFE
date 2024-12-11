@@ -80,12 +80,12 @@
           </div>
           <div class="input-box">
               <label>Est-ce que votre entreprise est actuellement impliquée <p>dans un litige concernant le respect des lois sociales et environnementales ?</label>
-              <textarea [(ngModel)]="registrationData.estDansUnLitige" name="estDansUnLitige" required></textarea>
+                <input type="checkbox" [(ngModel)]="registrationData.estDansUnLitige" name="estDansUnLitige" required>
           </div>
           <div class="input-box">
               <label>Avez-vous l'intention de soumettre une demande de subside <p>
                  pour le coût du "travail d'analyse visant l'obtention du label" ?</label>
-              <textarea [(ngModel)]="registrationData.demandeDeLabel" name="demandeDeLabel" required></textarea>
+                 <input type="checkbox" [(ngModel)]="registrationData.demandeDeLabel" name="demandeDeLabel" required>
           </div>
           <div class="input-box">
               <label>Comment avez-vous connu ShiftingPact™?</label>

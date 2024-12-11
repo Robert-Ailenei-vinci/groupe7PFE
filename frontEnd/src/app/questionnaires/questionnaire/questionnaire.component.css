@@ -11,7 +11,7 @@
 .containerLeft{
     position: relative;
     width: 60%;
-    height: 650px;
+    height: auto;
     padding: 10px;
 }
 
@@ -99,9 +99,12 @@
     grid-gap: 10px;
     margin-top: 20px;
     margin-bottom: 100px;
+    height: auto;
 }
 
-
+.score{
+    text-align: center;
+}
 
 .category{
     background-color: #e5e5e5;
@@ -109,6 +112,8 @@
     margin: 0;
     margin-bottom: 20px;
     border: 2px solid rgb(151, 151, 151);
+    width: 300px;
+    height: 200px;
 }
 .category td {
     padding-left: 10px;
