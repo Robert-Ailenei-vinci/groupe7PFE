@@ -116,12 +116,12 @@ export class QuestionComponent implements OnInit {
   }
 
   selectEngagement(reponse : ReponseRepondue, event: Event): void {
-    // TODO engagement forcé
-    /* event.preventDefault();
-    event.stopImmediatePropagation();
-    (event.target as HTMLInputElement).checked = reponse.estEngage;
-    return;
-    */
+    if(reponse.estEngageForce) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      (event.target as HTMLInputElement).checked = reponse.estEngage;
+      return;
+    }
     reponse.estEngage = event.target ? (event.target as HTMLInputElement).checked : false;
   } 
 

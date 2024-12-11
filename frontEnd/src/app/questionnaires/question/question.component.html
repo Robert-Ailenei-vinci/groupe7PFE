@@ -63,7 +63,8 @@
                 (change)="selectEngagement(reponse, $event)"
                 [checked]="reponse.estEngage"
               />
-              <label for="engagement">Je m'engage à le faire dans les 2 ans</label>
+              <label for="engagement">Je m'engage à le faire dans les 2 ans </label>
+              <label for="engagement" *ngIf="reponse.estEngageForce"> (Obligatoire)</label>
             </div>
           </div>
         </div>

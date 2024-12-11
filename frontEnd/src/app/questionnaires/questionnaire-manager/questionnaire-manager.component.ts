@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
-import { ClientService, QuestionnaireDetail, QuestionRepondus } from '../../services/client.service';
+import { ClientService, QuestionnaireDetail, QuestionRepondus, Score } from '../../services/client.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-questionnaire-manager',
@@ -11,9 +12,10 @@ import { ClientService, QuestionnaireDetail, QuestionRepondus } from '../../serv
 export class QuestionnaireManagerComponent implements OnInit {
   public static questionnaireDetail: QuestionnaireDetail[] = [];
   public static questionnaireParCategories : Map<string, Map<string, QuestionRepondus[]>> = new Map<string, Map<string, QuestionRepondus[]>>();
-  private static clientService: ClientService;
+  private static clientServiceStatic: ClientService;
 
   constructor(private clientService: ClientService) { 
+    QuestionnaireManagerComponent.clientServiceStatic = clientService;
   }
 
   ngOnInit(): void {
@@ -62,7 +64,7 @@ export class QuestionnaireManagerComponent implements OnInit {
   }
 
   public static finishQuestionnaire() {
-  this.clientService.finishQuestionnaire(QuestionnaireManagerComponent.questionnaireDetail[0].id).subscribe({
+  this.clientServiceStatic.finishQuestionnaire(QuestionnaireManagerComponent.questionnaireDetail[0].id).subscribe({
         next: (response) => {
           console.log('Questionnaire finished successfully', response);
         },
@@ -71,4 +73,8 @@ export class QuestionnaireManagerComponent implements OnInit {
         }
       });
     }
+
+  public static getPourcentageScore(): Observable<Score> {
+    return this.clientServiceStatic.getPoucentageScore(QuestionnaireManagerComponent.questionnaireDetail[0].id);
+  }
 }

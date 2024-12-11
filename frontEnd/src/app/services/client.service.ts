@@ -3,12 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface ReponseRepondue {
-  id: string; // Changement de _id à id
+  id: string;
   idReponse: string;
   idQuestionReponddu: string;
   estEngage: boolean;
-  intitule: string; // Intitulé de la réponse
-  selectionne: boolean; // Propriété optionnelle
+  intitule: string;
+  selectionne: boolean;
+  estEngageForce: boolean;
 }
 
 // Interface pour les questions répondues
@@ -22,7 +23,6 @@ export interface QuestionRepondus {
   reponseRepondus: ReponseRepondue[];
   nombrePointObtenu: number;
   commentaire: string;
-  estEngageForce: boolean;
   categorie: string; 
   template: string; 
   questionDejaSelectionne: boolean;
