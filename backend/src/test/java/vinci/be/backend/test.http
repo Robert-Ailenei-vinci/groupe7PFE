@@ -1,12 +1,5 @@
-POST http://localhost:8080/api/users
-content-type:application/json
-
-{
-  "email": "user2@example.com"
-}
-
-###
-GET http://localhost:8080/api/users
+### add template questionnaire in DB
+GET http://localhost:8080/api/addInDB
 
 ### Créer un nouveau client
 POST http://localhost:8080/clients/register
@@ -82,7 +75,7 @@ POST http://localhost:8080/questionnaires/create/questionnaireESG
 Content-Type: application/json
 
 {
-  "idClient": "675724b77c6d3f12f30ab513"
+  "idClient": "67598e8a07e4b818cbdd9cc2"
 }
 
 ### Récupérer tous les clients
@@ -98,7 +91,7 @@ GET http://localhost:8080/questionnaires/6752e868faa3e31b8f1a4b45
 PATCH http://localhost:8080/questionnaires/validate/6756e14b96dde15ae88a068c
 
 ### Terminer un questionnaire ESG
-PATCH http://localhost:8080/questionnaires/finish/6757257b7c6d3f12f30ab515
+PATCH http://localhost:8080/questionnaires/finish/67598e9c07e4b818cbdd9cc3
 
 ### Sélectionner une réponse dans une question (ID de la question en paramètre)
 PATCH http://localhost:8080/reponses/editReponse
@@ -114,7 +107,7 @@ Content-Type: application/json
 GET http://localhost:8080/questionnaires/IdQuestionnaire/6756c4d38aa8732c1218d6ce
 
 ### récupérer un questionnaire en fonction de l'id du client
-GET http://localhost:8080/questionnaires/675724b77c6d3f12f30ab513
+GET http://localhost:8080/questionnaires/67598e8a07e4b818cbdd9cc2
 
 ### Modifier les commentaires d'une question
 PATCH http://localhost:8080/questions/editComment
