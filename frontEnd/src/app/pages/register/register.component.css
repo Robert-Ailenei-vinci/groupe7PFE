@@ -27,6 +27,10 @@ h2{
     margin-bottom: 4vw;
 }
 
+small {
+    color:#fde791;
+}
+
 .form-box {
     display: flex;
     flex-direction: column; 
