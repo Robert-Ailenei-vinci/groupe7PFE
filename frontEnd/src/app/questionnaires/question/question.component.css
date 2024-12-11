@@ -138,3 +138,121 @@
   .nextQuestion:hover{
     background-color: #a3f7c2;
   }
+
+  .containerDiviseur{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+  }
+
+  .left{
+    width: 30%;
+    height: 100%;
+    margin-left: 3%;
+  }
+
+  .right{
+    width: 80%;
+  }
+
+  td, tr, th, table{
+    width: 100%;
+    height: 40px;
+    border-collapse: collapse;
+  }
+
+  table{
+    display: block;
+    height: 50%;
+    text-align: left;
+    background: #e4e4e4;
+  }
+
+  th{
+    background-color: #0a6c77;
+    color: white;
+  }
+  .category{
+    background: #38929c;
+    color: black;
+    width: 100%;
+    font-size: 18px;
+    font-weight: bold;
+    padding-left: 5px;
+  }
+
+  .souscategory{
+    background: #b5b5b5;
+    color: black;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 600;
+  }
+
+  .question{
+    margin: 0px;
+    padding: 0px;
+    background: #e4e4e4;
+    color: black;
+    border: 1px solid black;
+  }
+  .tableContainer {
+    max-height: 600px;
+    width: 500px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .crop {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 500px;
+    display: inline-block;
+  }
+
+  tr{
+    height: 20px;
+  }
+
+  .link{
+    height: 30px;
+    text-decoration: none;
+  }
+
+  .answered{
+    background: #b5cdbf;
+  }
+
+  .current{
+    background: #fde791;
+  }
+
+  .souscategory td{
+    padding-left: 10px;
+  }
+
+  .question{
+    padding-left: 20px;
+  }
+
+  .vueEnsemble{
+    border: none;
+    background-color: #0a6c77;
+    height: 50px;
+    width: 200px;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    display: block;
+    margin: 0 auto;
+    margin-top: 30px;
+    border-radius: 15px;
+    text-align: center;
+    line-height: 50px;
+    font-style: normal;
+  }
