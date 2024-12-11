@@ -153,9 +153,9 @@
         </div>
         <div class="input-box">
           <label>Mot de passe *</label>
-          <input type="password" name="mdp" formControlName="mdp">
-          <div class="error-message" *ngIf="signupForm.controls['mdp'].invalid && signupForm.controls['mdp'].touched">
-            <small *ngIf="signupForm.controls['mdp'].hasError('required')">Le mot de passe est requis.</small>
+          <input type="password"  [(ngModel)]="password" name="password" formControlName="password">
+          <div class="error-message" *ngIf="signupForm.controls['password'].invalid && signupForm.controls['password'].touched">
+            <small *ngIf="signupForm.controls['password'].hasError('required')">Le mot de passe est requis.</small>
           </div>
         </div>
         <button type="submit" class="btn">Sign Up</button>
