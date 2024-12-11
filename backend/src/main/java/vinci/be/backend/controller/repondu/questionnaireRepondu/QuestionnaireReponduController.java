@@ -63,6 +63,9 @@ public class QuestionnaireReponduController {
   @PatchMapping("/questionnaires/finish/{idQuestionnaire}")
   public ResponseEntity<QuestionnaireRepondu> finishQuestionnaire(@PathVariable String idQuestionnaire) {
     QuestionnaireRepondu questionnaireBefore = questionnaireReponduService.getQuestionnaireById(idQuestionnaire);
+    if (questionnaireBefore == null){
+      return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
     if (questionnaireBefore.isEstTermine()) {
       return new ResponseEntity<>(HttpStatus.CONFLICT);
     }

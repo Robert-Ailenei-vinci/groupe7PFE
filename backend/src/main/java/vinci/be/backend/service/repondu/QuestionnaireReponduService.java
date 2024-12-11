@@ -205,7 +205,7 @@ public class QuestionnaireReponduService {
       }
 
       for(ReponseRepondu reponseRepondu : questionRepondu.getReponseRepondus()){
-        System.out.println(reponseRepondu.isSelectionne());
+        System.out.println(reponseRepondu);
         System.out.println();
         if(reponseRepondu.isSelectionne()){
           Reponse reponse = reponseRepository.findById(reponseRepondu.getIdReponse()).orElse(null);
@@ -230,6 +230,7 @@ public class QuestionnaireReponduService {
         }
       }
       scoreTotal += score;
+      System.out.println("le score total est : "+scoreTotal);
     }
     // enregistrement en db
     //questionRepondu.setNombrePointObtenu(score);
