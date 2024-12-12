@@ -107,7 +107,7 @@ section{
     margin-bottom: 3%;
     font-weight: 400;
     color: transparent;
-    background-image: linear-gradient(to right, #dfd4fb 40.3%, #013238 40.5%);
+    background-image: linear-gradient(to right, #dfd4fb 28vw, #013238 29vw);
     background-clip: text; 
     -webkit-background-clip: text; /* Safari support */
 }
@@ -117,7 +117,7 @@ section{
 .jaune .texte1{
     font-size: 1.1vw;
     color: transparent;
-    background-image: linear-gradient(to right, #dfd4fb 39.9%, #013238 40.1%);
+    background-image: linear-gradient(to right, #dfd4fb 27.4vw, #013238 27.9vw);
     background-clip: text; 
     -webkit-background-clip: text; /* Safari support */
 }
@@ -127,14 +127,14 @@ section{
 .jaune .texte2{
     font-size:  1.1vw;
     color: transparent;
-    background-image: linear-gradient(to right, #013238 82.5%, #dfd4fb 84.9%);
+    background-image: linear-gradient(to right, #013238 57.5vw, #dfd4fb 58vw);
     background-clip: text; 
     -webkit-background-clip: text; 
 }
 .jaune .texte3{
     font-size:  1.1vw;
     color: transparent;
-    background-image: linear-gradient(to right, #dfd4fb 36.8%, #013238 37%);
+    background-image: linear-gradient(to right, #dfd4fb 26vw, #013238 26.5vw);
     background-clip: text; 
     -webkit-background-clip: text; 
 }
@@ -147,7 +147,7 @@ section{
 .jaune .texteVertClair2{
     font-size:  1.1vw;
     color: transparent;
-    background-image: linear-gradient(to right, #b5cdbf 33.5%, #013238 33.5%);
+    background-image: linear-gradient(to right, #b5cdbf 23vw, #013238 24.5vw);
     background-clip: text; 
     letter-spacing: 0.08vw;
 
