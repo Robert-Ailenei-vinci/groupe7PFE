@@ -43,10 +43,10 @@ export class RegisterComponent {
     { name: 'nbTravailleur', placeholder: '', type: 'number', required: true, pattern: '^\\d+$' },
     { name: 'estDansUnLitige', placeholder: '', type: 'text', required: true, pattern: '^(oui|non)$' },
     { name: 'honnete', placeholder: '', type: 'text', required: true, pattern: '^(oui|non)$' },
-    { name: 'demandeLabel', placeholder: '', type: 'text', required: true, pattern: '^(oui|non)$' },
+    { name: 'demandeDeLabel', placeholder: '', type: 'text', required: true, pattern: '^(oui|non)$' },
     { name: 'partenaire', placeholder: '', type: 'text', required: true, minlength: 2 },
     { name: 'commentaire', placeholder: '', type: 'text', required: false },
-    { name: 'mdp', placeholder: '', type: 'password', required: true, minlength: 6 },
+    { name: 'password', placeholder: '', type: 'password', required: true, minlength: 6 },
     { name: 'estProprietaire', placeholder: '', type: 'text', required: true },
     { name: 'vendProduit', placeholder: '', type: 'text', required: true },
     { name: 'vendService', placeholder: '', type: 'text', required: true },
@@ -110,7 +110,7 @@ export class RegisterComponent {
   }
 
   onSubmit(): void {
-    if (this.signupForm.valid) {
+    
       const dataToSend = {
         ...this.registrationData,
         password: this.password
@@ -139,6 +139,6 @@ export class RegisterComponent {
         }
       }
     );
-  }
+  
   }
 }

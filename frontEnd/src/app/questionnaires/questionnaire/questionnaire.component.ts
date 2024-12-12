@@ -5,7 +5,7 @@ import { QuestionnaireManagerComponent } from '../questionnaire-manager/question
 import { CommonModule } from '@angular/common';
 import { QuestionRepondus } from '../../services/client.service';
 import { Router } from '@angular/router';
-import { QuestionnaireDetail } from '../../services/client.service';
+import { QuestionnaireDetail, Score } from '../../services/client.service';
 
 @Component({
   selector: 'app-questionnaire',
@@ -16,6 +16,7 @@ import { QuestionnaireDetail } from '../../services/client.service';
 export class QuestionnaireComponent implements OnInit {
   questionnaireParCategories: Map<string, Map<string, QuestionRepondus[]>> = new Map();
   questionnaireDetail: QuestionnaireDetail[] = [];
+  score : Score | null = null;
   isLoading = true; // Variable pour l'état de chargement
 
   constructor(private router: Router) {}
@@ -29,6 +30,17 @@ export class QuestionnaireComponent implements OnInit {
         console.error('Aucune donnée disponible');
       } else {
         console.log('Données chargées :', this.questionnaireParCategories);
+      }
+
+      if(this.questionnaireDetail[0].score > 0) {
+        QuestionnaireManagerComponent.getPourcentageScore().subscribe({
+          next: (response) => {
+            this.score = response;
+          },
+          error: (err) => {
+            console.error('Error getting score', err);
+          }
+        });
       }
       this.isLoading = false; // Indique que les données sont prêtes
     }, 700);

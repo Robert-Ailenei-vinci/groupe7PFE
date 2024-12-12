@@ -115,14 +115,35 @@ export class QuestionComponent implements OnInit {
     reponse.selectionne = !reponse.selectionne;
   }
 
+  nombreDeQuestions(): number {
+    let nombreDeQuestions = 0;
+    for (const subCategories of this.questionnaireParCategories.values()) {
+      for (const questions of subCategories.values()) {
+        nombreDeQuestions += questions.length;
+      }
+    }
+    return nombreDeQuestions;
+  }
+
+  nombreDeQuestionsRepondues(): number {
+    let nombreDeQuestionsRepondues = 0;
+    for (const subCategories of this.questionnaireParCategories.values()) {
+      for (const questions of subCategories.values()) {
+        nombreDeQuestionsRepondues += questions.filter(this.isAnswered).length;
+      }
+    }
+    return nombreDeQuestionsRepondues;
+  }
+
+
   selectEngagement(reponse : ReponseRepondue, event: Event): void {
-    // TODO engagement forcé
-    /* event.preventDefault();
-    event.stopImmediatePropagation();
-    (event.target as HTMLInputElement).checked = reponse.estEngage;
-    return;
-    */
-    reponse.estEngage = event.target ? (event.target as HTMLInputElement).checked : false;
+    if(reponse.estEngageForce) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      (event.target as HTMLInputElement).checked = true;
+      return;
+    }
+    reponse.estEngage = true;
   } 
 
     // Renvoie true si une question a été répondue
