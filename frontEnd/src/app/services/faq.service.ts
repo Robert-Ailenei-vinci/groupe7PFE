@@ -8,16 +8,27 @@ export interface FaqItem {
   reponse: string;
 }
 
+export interface FaqItemForm {
+  intitule: string;
+  reponse: string;
+}
+
 @Injectable({
   providedIn: 'root',
 })
 export class FaqService {
+  
   private apiUrl = 'http://localhost:8080/questionsPlusPose'; 
 
   constructor(private http: HttpClient) {}
 
-  // Méthode pour récupérer toutes les FAQ
+  // Récupérer toutes les FAQ
   getFaqs(): Observable<FaqItem[]> {
-        return this.http.get<FaqItem[]>(`${this.apiUrl}/getAll`);
+    return this.http.get<FaqItem[]>(`${this.apiUrl}/getAll`);
+  }
+
+  // Ajouter une nouvelle FAQ
+  addFaqs(faqItem: FaqItemForm): Observable<FaqItemForm> {
+    return this.http.post<FaqItemForm>(`${this.apiUrl}/add`, faqItem);
   }
 }
