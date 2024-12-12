@@ -11,7 +11,10 @@ Pour peupler la base de données, utilisez la route suivante après avoir démar
 ```bash
 GET localhost:8080/api/addInDB
 ```
-
+Ports:
+   - Front : 4200:80
+   - Back : 8080:8080
+   - Mongo : 27017:27017
 
 # Projet Full-Stack Angular et Java
 
