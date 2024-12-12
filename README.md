@@ -1,5 +1,18 @@
 # groupe7PFE
 
+# Pour Lancer avec Docker
+Verifier que URI de la db dans application.properties du backend soit bien : mongodb://mongo:27017/projetPFE.
+Si sous windows avoir docker desktop facilite le lancement.
+```bash
+  docker compose up --build
+  ```
+
+Pour peupler la base de données, utilisez la route suivante après avoir démarré les containers :
+```bash
+GET localhost:8080/api/addInDB
+```
+
+
 # Projet Full-Stack Angular et Java
 
 Ce projet est une application web full-stack comprenant un front-end développé avec Angular et un back-end en Java. La base de données utilisée est MongoDB en local.
