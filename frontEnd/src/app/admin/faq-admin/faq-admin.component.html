@@ -1,0 +1,31 @@
+<app-header></app-header>
+
+<div class="background">
+    <div class="faq-container">
+        <h1>FAQ</h1>
+        <table border="1" style="width: 100%; border-collapse: collapse; text-align: left;">
+            <thead>
+                <tr>
+                    <th>Question</th>
+                    <th>Réponse</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of faqItems;">
+                    <td>{{ item.intitule }}</td>
+                    <td>{{ item.reponse }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <h2 id="form-title">Ajouter une question FAQ</h2>
+        <form (submit)="ajouterQuestion()">
+            <input type="text" [(ngModel)]="faq.intitule" name="question" placeholder="Nouvelle Question" required>
+            <br>
+            <input type="text" [(ngModel)]="faq.reponse" name="reponse" placeholder="Nouvelle Réponse" required>
+            <button type="submit">Ajouter</button>
+        </form>
+    </div>
+</div>
+
+<app-footer class="fixed-footer"></app-footer>
