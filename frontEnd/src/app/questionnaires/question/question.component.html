@@ -45,7 +45,7 @@
     <div class="questionCenter">
       <div class="progressBarBackground">
         <div class="progressBar" 
-          [style.width.%]="questionnaire[0].questionsRepondues.length > questionnaire[0].nombreDeQuestionRepondu ? (questionnaire[0].nombreDeQuestionRepondu / questionnaire[0].questionsRepondues.length) * 100 : 100">
+          [style.width.%]="nombreDeQuestionsRepondues() > nombreDeQuestions() ? (nombreDeQuestionsRepondues() / nombreDeQuestions()) * 100 : 100">
         </div>
       </div>
       <h1 class="questionTitle">{{ question.intitule }}</h1>
@@ -61,7 +61,7 @@
                 type="checkbox"
                 class="checkboxEngage"
                 (change)="selectEngagement(reponse, $event)"
-                [checked]="reponse.estEngage"
+                [checked]="reponse.estEngage || reponse.estEngageForce"
               />
               <label for="engagement">Je m'engage à le faire dans les 2 ans </label>
               <label for="engagement" *ngIf="reponse.estEngageForce"> (Obligatoire)</label>

@@ -16,7 +16,7 @@ import { QuestionnaireDetail, Score } from '../../services/client.service';
 export class QuestionnaireComponent implements OnInit {
   questionnaireParCategories: Map<string, Map<string, QuestionRepondus[]>> = new Map();
   questionnaireDetail: QuestionnaireDetail[] = [];
-  score : Score | undefined = undefined;
+  score : Score | null = null;
   isLoading = true; // Variable pour l'état de chargement
 
   constructor(private router: Router) {}

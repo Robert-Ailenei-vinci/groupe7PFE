@@ -3696,7 +3696,7 @@ public class QuestionnaireService {
     // question 62
     Question questionSim17 = new Question();
     questionSim17.setIntitule("Comment XXX aborde-t-elle la philanthropie ?");
-    questionSim17.setReponses(List.of(reponseSim91,reponseSim92,reponseSim93,reponseSim94,reponseSim95,reponseSim96,reponseSim97,reponseSim98,reponseSim99,reponseSim100,reponseSim101));
+    questionSim17.setReponses(List.of(reponseSim91,reponseSim92,reponseSim93));
     questionSim17.setNbrChoixMax(10);
     questionSim17.setEstQuestionLibre(false);
     questionSim17.setNombrePointMax(2.13);
