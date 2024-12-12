@@ -54,21 +54,24 @@ h1 {
 
 .faq-item-left {
   margin-right: 20%;
-  background-image: url('../homepage/assets/fond-description-container2.svg');
+  background-image: url('./blurry-gradient-haikei\ \(1\).svg');
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .faq-item-right {
   margin-left: 20%;
-  background-image: url('../homepage/assets/fond-description-container3.svg');
+  background-image: url('./blurry-gradient-haikei.svg');
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .faq-item-left .faq-question {
   color:transparent;
-  background-image: linear-gradient(to right, #013238 100%, #dfd4fb 100%);
+  margin-top: 2vw;
+  margin-left: 5vw;
+  margin-bottom: 1.5vw;
+  background-image: linear-gradient(to right, #dfd4fb 20%, #b5cdbf 30%);
   background-clip: text;
   -webkit-background-clip: text;
   justify-self: baseline;
@@ -76,22 +79,31 @@ h1 {
 
 .faq-item-right .faq-question {
   color:transparent;
-  background-image: linear-gradient(to right, #dfd4fb 100%, #013238 100%);
+  margin-left: 5vw;
+  margin-top: 2vw;
+  margin-bottom: 1.5vw;
+  background-image: linear-gradient(to right, #013238 90%, #dfd4fb 100%);
   background-clip: text;
   -webkit-background-clip: text;
 }
 
 .faq-item-left .faq-answer {
+  margin-left: 5vw;
+  margin-bottom: 2vw;
   color:transparent;
-  background-image: linear-gradient(to right, #013238 100%, #dfd4fb 100%);
+  background-image: linear-gradient(to right, #dfd4fb 20%, #b5cdbf 30%);
+  font-size: 1.2vw;
   background-clip: text;
   -webkit-background-clip: text;
   justify-self: baseline;
 }
 
 .faq-item-right .faq-answer {
+  margin-left: 5vw;
+  margin-bottom: 2vw;
   color:transparent;
-  background-image: linear-gradient(to right, #dfd4fb 100%, #013238 100%);
+  background-image: linear-gradient(to right,  #013238 90%, #dfd4fb 100%);
+  font-size: 1.2vw;
   background-clip: text;
   -webkit-background-clip: text;
 }

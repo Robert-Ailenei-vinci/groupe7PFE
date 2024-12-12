@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { FaqService } from '../../services/faq.service';
 import { HeaderComponent } from '../../margins/header/header.component';
 import { FooterComponent } from '../../margins/footer/footer.component';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
+import gsap from 'gsap';
 
 @Component({
   selector: 'app-faq-page',
