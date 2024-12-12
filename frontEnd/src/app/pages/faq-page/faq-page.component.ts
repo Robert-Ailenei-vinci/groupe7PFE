@@ -13,6 +13,9 @@ import gsap from 'gsap';
 })
 
 export class FaqPageComponent implements OnInit {
+
+  isAdmin: boolean = localStorage.getItem('authAdminToken') ? true : false;
+
   faqItems = [
     {
       id: '',
@@ -21,7 +24,8 @@ export class FaqPageComponent implements OnInit {
     }
   ];
 
-  constructor(private faqService: FaqService) {}
+  constructor(private faqService: FaqService) {
+  }
 
   ngOnInit() {
     console.log(this.loadFaqs())
