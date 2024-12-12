@@ -8,7 +8,7 @@
             Progression du module ESG & Pacte d'engagement
         </div>
         <ng-container *ngIf="score">
-            <h3 class="score">Votre score (provisoire): {{questionnaireDetail[0].score}} - {{ score.pourcentageTotal }}%</h3>
+            <h3 class="score">Votre score (provisoire): {{questionnaireDetail[0].score}}, soit {{ score.pourcentageTotal }}%</h3>
         </ng-container>
         <div class="categoryContainer">
         <div *ngFor="let category of questionnaireParCategories | keyvalue">
