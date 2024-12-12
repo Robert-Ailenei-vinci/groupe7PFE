@@ -16,6 +16,9 @@ Ports:
    - Back : 8080:8080
    - Mongo : 27017:27017
 
+Lien Direct:
+   - Front : http://localhost:4200
+
 # Projet Full-Stack Angular et Java
 
 Ce projet est une application web full-stack comprenant un front-end développé avec Angular et un back-end en Java. La base de données utilisée est MongoDB en local.
