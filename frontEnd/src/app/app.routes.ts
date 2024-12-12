@@ -28,7 +28,7 @@ export const routes: Routes = [
   { path:'esg', component: QuestionnaireComponent },
   { path : 'onboarding', component:RegisterComponent},
   { path : 'questions', component:FaqPageComponent}, //A changer avec le questionnaire de onboard
-  { path : 'questionsAdmin', component:FaqAdminComponent},
+  { path : 'questionsAdmin', component:FaqAdminComponent, canActivate:[AdminGuard]},
 ];
 
 export const appRoutingProviders = [
